@@ -10,6 +10,8 @@
                 #:with-html)
   (:import-from #:reblocks/actions
                 #:make-js-action)
+  (:import-from #:reblocks/dependencies
+                #:get-dependencies)
   (:export
    #:button))
 (in-package #:reblocks-ui2/buttons/button)
@@ -45,4 +47,14 @@
       (:button :onclick action-code
                :class (button-class widget)
                (render (button-content widget))))))
+
+
+(defmethod get-dependencies ((widget button))
+  (list*
+   (reblocks-lass:make-dependency
+     `(.button-wrapper
+       (button :margin 0)
+       (input :margin 0)))
+   (call-next-method)))
+
 

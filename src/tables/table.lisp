@@ -10,7 +10,10 @@
   (:import-from #:reblocks/html
                 #:with-html)
   (:import-from #:serapeum
+                #:fmt
                 #:soft-list-of)
+  (:import-from #:reblocks/dependencies
+                #:get-dependencies)
   (:export
    #:make-table
    #:column
@@ -20,7 +23,14 @@
    #:recalculate-cells
    #:table-row
    #:table-widget
-   #:append-data))
+   #:append-data
+   #:column-align
+   #:column-css-classes
+   #:table-columns
+   #:table-rows
+   #:row-table
+   #:row-cells
+   #:row-object))
 (in-package #:reblocks-ui2/tables/table)
 
 
@@ -48,7 +58,11 @@
    (rows :initarg :rows
          :type (soft-list-of table-row)
          :initform nil
-         :reader table-rows)))
+         :reader table-rows)
+   (row-class :initarg :row-class
+              :type symbol
+              :initform 'table-row
+              :reader table-row-class)))
 
 
 (defwidget column ()
@@ -66,7 +80,11 @@
                :reader cell-maker)
    (title :initarg :title
           :type widget
-          :reader column-title)))
+          :reader column-title)
+   (align :initarg :align
+          :type (member :left :right :center)
+          :initform :left
+          :reader column-align)))
 
 
 (defmethod get-html-tag ((widget table-row))
@@ -91,14 +109,19 @@
   (:method ((table t) (object t))
     ;; Here we are creating a *current-row* binding to be able
     ;; to refer to the row widget from the cell creating code:
-    (calculate-cells (make-instance 'table-row
+    (calculate-cells (make-instance (table-row-class table)
                                     :object object
                                     :table table))))
 
 
-(defun make-table (columns rows)
-  (let* ((widget (make-instance 'table-widget
-                                :columns (mapcar #'create-widget-from columns)))
+(defun make-table (columns rows &key (table-class 'table-widget)
+                                     (row-class nil row-class-given-p))
+  (let* ((row-args (when row-class-given-p
+                     (list :row-class row-class)))
+         (widget (apply #'make-instance
+                        table-class
+                        :columns (mapcar #'create-widget-from columns)
+                        row-args))
          (rows (loop for obj in rows
                      collect (to-table-row widget obj))))
     (setf (slot-value widget 'rows)
@@ -106,12 +129,20 @@
     widget))
 
 
+(defgeneric column-css-classes (column)
+  (:method ((widget column))
+    (fmt "align-~A"
+         (string-downcase
+          (column-align widget)))))
+
+
 (defmethod render ((widget table-widget))
   (let ((*current-table* widget))
     (with-html
       (:table
        (:tr (loop for column in (table-columns widget)
-                  do (:th (render column))))
+                  do (:th :class (column-css-classes column)
+                          (render column))))
        (mapc #'render
              (table-rows widget))))))
 
@@ -119,12 +150,16 @@
 (defmethod render ((widget table-row))
   (with-html
     (loop with *current-row* = widget
+          for column in (table-columns
+                         (row-table widget))
           for *current-cell* in (row-cells widget)
-          do (:td (render *current-cell*)))))
+          do (:td :class (column-css-classes column)
+                  (render *current-cell*)))))
 
 
 (defun column (title &key (getter nil getter-given-p)
-                          (cell-maker nil cell-maker-p))
+                          (cell-maker nil cell-maker-p)
+                          (align :left))
   (let ((args (append (when getter-given-p
                         (list :getter getter))
                       (when cell-maker-p
@@ -132,11 +167,18 @@
     (apply #'make-instance
            'column
            :title (create-widget-from title)
+           :align align
            args)))
 
 
 (defmethod render ((widget column))
   (render (column-title widget)))
+
+
+;; (defmethod reblocks/widget:get-css-classes ((widget column))
+;;   (list* (fmt "align-~A"
+;;               (string-downcase (column-align widget)))
+;;          (call-next-method)))
 
 
 (defun current-table ()
@@ -170,3 +212,19 @@
       (alexandria:appendf (slot-value widget 'rows)
                           rows)
       (values widget))))
+
+
+(defmethod get-dependencies ((widget table-widget))
+  (list*
+   (reblocks-lass:make-dependency
+     `(.table-widget
+       ((:or (:and th .align-left)
+             (:and td .align-left))
+        :text-align left)
+       ((:or (:and th .align-right)
+             (:and td .align-right))
+        :text-align right)
+       ((:or (:and th .align-center)
+             (:and td .align-center))
+        :text-align center)))
+   (call-next-method)))

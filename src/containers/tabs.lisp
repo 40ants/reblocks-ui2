@@ -43,8 +43,8 @@
 
 
 (defun make-tabs-widget (titles subwidgets &key (idx 0)
-                                                        (selector-class 'tabs-control)
-                                                        (class 'tabs-widget))
+                                                (selector-class 'tabs-control)
+                                                (class 'tabs-widget))
   (unless (length= titles subwidgets)
     (error "Titles and subwidgets count should be equal."))
   (when (zerop (length titles))
@@ -96,7 +96,7 @@
 
 
 (defmethod reblocks/widget:get-css-classes ((widget tabs-control))
-  (list* :tabs                          ;
+  (list* :tabs
          (call-next-method)))
 
 
@@ -122,8 +122,15 @@
                                         (render title))))))
 
 
-(defmethod get-dependencies ((widget tabs-control))
+(defmethod get-dependencies ((widget tabs-widget))
   (list*
    (reblocks-lass:make-dependency
-     `(.tabs-control))
+     `(.tabs-widget
+       (.tabs-content
+        ;; We need to set these
+        ;; flex properties to make margin on nested elements
+        ;; work propertly:
+        :display flex
+        :flex-direction column)))
    (call-next-method)))
+

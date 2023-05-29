@@ -25,7 +25,8 @@
    #:controls-widget
    #:filters-updated
    #:show-next-page-button
-   #:hide-next-page-button))
+   #:hide-next-page-button
+   #:make-default-controls-widget))
 (in-package #:reblocks-ui2/tables/search)
 
 
@@ -54,9 +55,9 @@
                      :reader next-page-button)))
 
 
-(defun make-default-controls-widget ()
+(defun make-default-controls-widget (&key (button-title "Load more"))
   (let* ((widget (make-instance 'controls-widget))
-         (button (button "More data"
+         (button (button button-title
                          :on-click (lambda (&rest args)
                                      (declare (ignore args))
                                      (emit :load-more-data widget widget)))))
@@ -68,14 +69,20 @@
 (defun make-search-widget (columns data-getter &key
                                                (filters-widget nil filters-widget-given-p)
                                                (controls-widget nil controls-widget-given-p)
-                                               (widget-class 'search-widget))
+                                               (widget-class 'search-widget)
+                                               (table-class nil table-class-given-p)
+                                               (row-class nil row-class-given-p))
   (let ((filters-widget (when filters-widget-given-p
                           (when filters-widget
                             (create-widget-from filters-widget))))
         (controls-widget (if controls-widget-given-p
                              (when controls-widget
                                (create-widget-from controls-widget))
-                             (make-default-controls-widget))))
+                             (make-default-controls-widget)))
+        (table-args (append (when table-class-given-p
+                              (list :table-class table-class))
+                            (when row-class-given-p
+                              (list :row-class row-class)))))
     (let ((search-widget
             (make-instance
              widget-class
@@ -86,7 +93,9 @@
                (multiple-value-bind (data next-page-getter)
                    (funcall data-getter filters-widget)
                  (setf (table-widget search-widget)
-                       (make-table columns data)
+                       (apply #'make-table
+                              columns data
+                              table-args)
                        (next-page-getter search-widget)
                        next-page-getter)
 
@@ -141,7 +150,8 @@
    (reblocks-lass:make-dependency
      `(.controls-widget
        :display flex
-       :justify-content space-around))
+       :justify-content space-around
+       :padding-bottom 1rem))
    (call-next-method)))
 
 

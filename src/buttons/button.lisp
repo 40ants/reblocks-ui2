@@ -44,7 +44,13 @@
   (let ((action-code (when (button-on-click widget)
                        (make-js-action (button-on-click widget)))))
     (with-html
-      (:button :onclick action-code
+      (:button :onclick (concatenate 'string
+                                     ;; We need this stop propagation
+                                     ;; to be able to build buttons into
+                                     ;; other objects having their own
+                                     ;; onClick handlers.
+                                     "event.stopPropagation(); "
+                                     action-code)
                :class (button-class widget)
                (render (button-content widget))))))
 

@@ -48,6 +48,7 @@
                                    "ASDF"
                                    "40A"
                                    "API"
+                                   "UI"
                                    "URL"
                                    "URI"
                                    "RPC"

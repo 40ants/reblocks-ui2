@@ -29,13 +29,13 @@
   (make-instance 'service-stats-widget))
 
 
-(defmethod render ((widget clickable-row-widget))
+(defmethod reblocks-ui2/widget:render ((widget clickable-row-widget) (theme t))
   (with-html
     (loop with *current-row* = widget
           for column in (table-columns
                          (row-table widget))
           for *current-cell* in (row-cells widget)
-          do (:td :class (column-css-classes column)
+          do (:td :class (column-css-classes column theme)
                   :onclick "alert(\"Helo\")"
                   (render *current-cell*)))))
 

@@ -14,12 +14,16 @@
                 #:soft-list-of)
   (:import-from #:reblocks/dependencies
                 #:get-dependencies)
+  (:import-from #:reblocks-ui2/widget
+                #:ui-widget)
+  (:import-from #:reblocks-lass)
   (:export
    #:make-table
    #:column
    #:current-row
    #:current-table
    #:current-cell
+   #:current-column
    #:recalculate-cells
    #:table-row
    #:table-widget
@@ -30,13 +34,19 @@
    #:table-rows
    #:row-table
    #:row-cells
-   #:row-object))
+   #:row-object
+   #:column-idx
+   #:header-column-css-classes
+   #:column-classes))
 (in-package #:reblocks-ui2/tables/table)
 
 
 (defvar *current-table*)
 
 (defvar *current-row*)
+
+;; This variable will be available during CALCULATE-CELLS and RENDER calls.
+(defvar *current-column*)
 
 (defvar *current-cell*)
 
@@ -52,7 +62,7 @@
            :documentation "Original object, passed as a row to the MAKE-TABLE function.")))
 
 
-(defwidget table-widget ()
+(defwidget table-widget (ui-widget)
   ((columns :initarg :columns
             :reader table-columns)
    (rows :initarg :rows
@@ -71,8 +81,9 @@
         :reader column-idx)
    (getter :initarg :getter
            :type function
-           :initform (lambda (column row)
-                       (elt row (column-idx column)))
+           :initform (lambda (row)
+                       (declare (ignore row))
+                       (error "Real getter should be provided to COLUMN function."))
            :reader data-getter)
    (cell-maker :initarg :cell-maker
                :type function
@@ -84,20 +95,29 @@
    (align :initarg :align
           :type (member :left :right :center)
           :initform :left
-          :reader column-align)))
+          :reader column-align)
+   (classes :initarg :classes
+            :type (soft-list-of string)
+            :initform nil
+            :reader column-classes
+            :documentation "Additional CSS classes for column cells")))
 
 
-(defmethod get-html-tag ((widget table-row))
-  :tr)
+(defmethod initialize-instance :after ((widget table-widget) &rest initargs)
+  (declare (ignore initargs))
+  (loop for column in (table-columns widget)
+        for idx upfrom 0
+        do (setf (slot-value column 'idx)
+                 idx)))
 
 
 (defun calculate-cells (row)
   (loop with *current-table* = (row-table row)
         with *current-row* = row
         with object = (row-object row)
-        for column in (table-columns *current-table*)
-        for data = (funcall (data-getter column) object)
-        for cell = (funcall (cell-maker column) data)
+        for *current-column* in (table-columns *current-table*)
+        for data = (funcall (data-getter *current-column*) object)
+        for cell = (funcall (cell-maker *current-column*) data)
         collect cell into cells
         finally (setf (slot-value *current-row* 'cells)
                       cells)
@@ -129,50 +149,50 @@
     widget))
 
 
-(defgeneric column-css-classes (column)
-  (:method ((widget column))
+(defgeneric header-column-css-classes (column theme)
+  (:method ((widget column) (theme t))
     (fmt "align-~A"
          (string-downcase
           (column-align widget)))))
 
 
-(defmethod render ((widget table-widget))
-  (let ((*current-table* widget))
-    (with-html
-      (:table
-       (:tr (loop for column in (table-columns widget)
-                  do (:th :class (column-css-classes column)
-                          (render column))))
-       (mapc #'render
-             (table-rows widget))))))
-
-
-(defmethod render ((widget table-row))
-  (with-html
-    (loop with *current-row* = widget
-          for column in (table-columns
-                         (row-table widget))
-          for *current-cell* in (row-cells widget)
-          do (:td :class (column-css-classes column)
-                  (render *current-cell*)))))
+(defgeneric column-css-classes (column theme)
+  (:method ((widget column) (theme t))
+    (fmt "align-~A"
+         (string-downcase
+          (column-align widget)))))
 
 
 (defun column (title &key (getter nil getter-given-p)
                           (cell-maker nil cell-maker-p)
-                          (align :left))
-  (let ((args (append (when getter-given-p
-                        (list :getter getter))
-                      (when cell-maker-p
-                        (list :cell-maker cell-maker)))))
-    (apply #'make-instance
-           'column
-           :title (create-widget-from title)
-           :align align
-           args)))
+                          (align :center)
+                          (classes nil clases-given-p))
+  (let* ((args (append (when getter-given-p
+                         (list :getter getter))
+                       (when clases-given-p
+                         (list :classes
+                               (uiop:ensure-list classes)))
+                       (when cell-maker-p
+                         (list :cell-maker cell-maker))))
+         (column (apply #'make-instance
+                        'column
+                        :title (create-widget-from title)
+                        :align align
+                        args)))
+
+    ;; Default implementation of data-getter just
+    ;; takes item from row by column index
+    (unless getter-given-p
+      (setf (slot-value column 'getter)
+            (lambda (row)
+              (elt row (column-idx column)))))
+    
+    (values column)))
 
 
-(defmethod render ((widget column))
-  (render (column-title widget)))
+(defmethod reblocks-ui2/widget:render ((widget column) (theme t))
+  (reblocks-ui2/widget:render (column-title widget)
+                              theme))
 
 
 ;; (defmethod reblocks/widget:get-css-classes ((widget column))
@@ -190,6 +210,11 @@
   (unless (boundp '*current-row*)
     (error "Function CURRENT-ROW should be called only in cell creation code."))
   (values *current-row*))
+
+(defun current-column ()
+  (unless (boundp '*current-column*)
+    (error "Function CURRENT-COLUMN should be called only in cell creation code."))
+  (values *current-column*))
 
 (defun current-cell ()
   (unless (boundp '*current-cell*)

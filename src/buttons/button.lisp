@@ -12,6 +12,7 @@
                 #:make-js-action)
   (:import-from #:reblocks/dependencies
                 #:get-dependencies)
+  (:import-from #:reblocks-lass)
   (:export
    #:button))
 (in-package #:reblocks-ui2/buttons/button)
@@ -26,15 +27,24 @@
             :type widget
             :reader button-content)
    (class :initarg :class
-          :type string
-          :reader button-class)))
+          :type (or null string)
+          :reader button-class)
+   (style :initarg :style
+          :type (or null string)
+          :reader button-style)
+   (disabled :initarg :disabled
+             :initform nil
+             :type boolean
+             :reader button-disabled)))
 
 
-(defun button (content &key on-click (class "button"))
-  (make-instance 'button
+(defun button (content &key (widget-class 'button) on-click (class "button") disabled style)
+  (make-instance widget-class
                  :content (create-widget-from content)
                  :on-click on-click
-                 :class class))
+                 :class class
+                 :style style
+                 :disabled disabled))
 
 
 (defmethod reblocks/widget:get-css-classes ((widget button))
@@ -42,7 +52,10 @@
 
 (defmethod render ((widget button))
   (let ((action-code (when (button-on-click widget)
-                       (make-js-action (button-on-click widget)))))
+                       (typecase (button-on-click widget)
+                         (string (button-on-click widget))
+                         (t
+                          (make-js-action (button-on-click widget)))))))
     (with-html
       (:button :onclick (concatenate 'string
                                      ;; We need this stop propagation
@@ -52,6 +65,8 @@
                                      "event.stopPropagation(); "
                                      action-code)
                :class (button-class widget)
+               :style (button-style widget)
+               :disabled (button-disabled widget)
                (render (button-content widget))))))
 
 

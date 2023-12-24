@@ -5,6 +5,8 @@
                 #:get-dependencies)
   (:import-from #:reblocks-ui2/themes/base
                 #:base-theme)
+  (:import-from #:reblocks/dependencies
+                #:make-dependency)
   (:export #:make-tailwind-theme
            #:tailwind-theme))
 (in-package #:reblocks-ui2/themes/tailwind)
@@ -19,9 +21,12 @@
   (make-instance 'tailwind-theme))
 
 
-
 (defmethod get-dependencies ((widget ui-widget) (theme tailwind-theme))
   (list*
-   (reblocks/dependencies:make-dependency "https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"
+   (make-dependency
+     "https://cdn.tailwindcss.com/3.3.5"
+     ;; Old URLs:
+     ;; "https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"
+     ;; "https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"
      :type :js)
    (call-next-method)))

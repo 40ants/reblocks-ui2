@@ -3,17 +3,31 @@
   (:import-from #:reblocks/widget
                 #:get-html-tag
                 #:create-widget-from
-                #:render
                 #:widget
                 #:defwidget)
   (:import-from #:reblocks/html
                 #:with-html)
   (:import-from #:reblocks/actions
                 #:make-js-action)
-  (:import-from #:reblocks/dependencies
-                #:get-dependencies)
   (:import-from #:reblocks-lass)
-  (:export #:button
+  (:import-from #:reblocks-ui2/buttons/view
+                #:ensure-view)
+  (:import-from #:reblocks-ui2/themes/api
+                #:*current-theme*)
+  (:import-from #:reblocks-ui2/themes/styling
+                #:join-css-styles
+                #:join-css-classes
+                #:css-classes
+                #:css-styles)
+  (:import-from #:reblocks-ui2/widget
+                #:render
+                #:ui-widget)
+  (:import-from #:reblocks-ui2/sizes
+                #:ensure-size)
+  (:import-from #:reblocks-ui2/buttons/pin
+                #:ensure-pin
+                #:pin)
+    (:export #:button
            #:button-on-click
            #:button-content
            #:button-class
@@ -22,7 +36,7 @@
 (in-package #:reblocks-ui2/buttons/button)
 
 
-(defwidget button ()
+(defwidget button (ui-widget)
   ((on-click :initarg :on-click
              :type (or function
                        null)
@@ -36,25 +50,41 @@
    (style :initarg :style
           :type (or null string)
           :reader button-style)
+   (view :initarg :view
+         :initform nil
+         :reader button-view)
+   (size :initarg :size
+         :initform nil
+         :reader button-size)
+   (pin :initarg :pin
+        :type pin
+        :reader button-pin)
    (disabled :initarg :disabled
              :initform nil
              :type boolean
              :reader button-disabled)))
 
 
-(defun button (content &key (widget-class 'button) on-click (class "button") disabled style)
+(defun button (content &key (widget-class 'button) on-click (class "button") disabled style
+                            (view :normal)
+                            (size :l)
+                            (pin :round))
   (make-instance widget-class
                  :content (create-widget-from content)
                  :on-click on-click
                  :class class
                  :style style
+                 :view (ensure-view view)
+                 :size (ensure-size size)
+                 :pin (ensure-pin pin)
                  :disabled disabled))
 
 
 (defmethod reblocks/widget:get-css-classes ((widget button))
   (list "button-wrapper"))
 
-(defmethod render ((widget button))
+
+(defmethod render ((widget button) (theme t))
   (let ((action-code (when (button-on-click widget)
                        (typecase (button-on-click widget)
                          (string (button-on-click widget))
@@ -68,18 +98,33 @@
                                      ;; onClick handlers.
                                      "event.stopPropagation(); "
                                      action-code)
-               :class (button-class widget)
-               :style (button-style widget)
+               :class (join-css-classes (button-class widget)
+                                        (css-classes theme
+                                                     (button-view widget))
+                                        (css-classes theme
+                                                     (button-size widget))
+                                        (css-classes theme
+                                                     (button-pin widget)))
+               :style (join-css-styles (button-style widget)
+                                       (css-styles theme
+                                                   (button-view widget))
+                                       (css-styles theme
+                                                   (button-size widget))
+                                       (css-styles theme
+                                                   (button-pin widget)))
                :disabled (button-disabled widget)
-               (render (button-content widget))))))
+               (render (button-content widget)
+                       theme)))))
 
 
 (defmethod get-dependencies ((widget button))
-  (list*
-   (reblocks-lass:make-dependency
-     `(.button-wrapper
-       (button :margin 0)
-       (input :margin 0)))
-   (call-next-method)))
+  (call-next-method)
+  ;; (list*
+  ;;  (reblocks-lass:make-dependency
+  ;;    `(.button-wrapper
+  ;;      (button :margin 0)
+  ;;      (input :margin 0)))
+  ;;  (call-next-method))
+  )
 
 

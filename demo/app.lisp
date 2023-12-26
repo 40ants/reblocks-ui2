@@ -1,12 +1,9 @@
 (uiop:define-package #:reblocks-ui2-demo/app
   (:use #:cl)
-  (:import-from #:reblocks)
   (:import-from #:reblocks-navigation-widget
                 #:defroutes)
   (:import-from #:reblocks/app
                 #:defapp)
-  ;; (:import-from #:frontend/pages/landing
-  ;;               #:make-landing-page)
   (:import-from #:reblocks/page
                 #:init-page)
   (:import-from #:reblocks-ui2-demo/pages/frame
@@ -15,11 +12,8 @@
                 #:make-dependency)
   (:import-from #:reblocks-ui2-demo/pages/buttons
                 #:make-buttons-page)
-  ;; (:import-from #:frontend/pages/html-to-sexp
-  ;;               #:make-html-to-sexp-page)
-  ;; (:import-from #:frontend/pages/game
-  ;;               #:make-game-page)
-  )
+  (:import-from #:reblocks-ui2-demo/pages/containers
+                #:make-containers-page))
 (in-package #:reblocks-ui2-demo/app)
 
 
@@ -28,12 +22,10 @@
 
 
 (defroutes routes
-    ;; ("/about/" (make-about-page))
-    ;; ("/html" (make-page-frame
-    ;;           (make-html-to-sexp-page)))
-  ;; ("/game" (make-game-page))
+    ("/reblocks-ui2/containers" (wrap-with-frame
+                                 (make-containers-page)))
   ("/reblocks-ui2" (wrap-with-frame
-        (make-buttons-page))))
+                    (make-buttons-page))))
 
 
 (defmethod init-page ((app app) url-path expire-at)

@@ -1,16 +1,18 @@
 (uiop:define-package #:reblocks-ui2-demo/pages/frame
   (:use #:cl)
   (:import-from #:reblocks/widget
-                #:render
                 #:defwidget)
   (:import-from #:reblocks/html
                 #:with-html)
   (:import-from #:reblocks/dependencies
-                #:get-dependencies))
+                #:get-dependencies)
+  (:import-from #:reblocks-ui2/widget
+                #:render
+                #:ui-widget))
 (in-package #:reblocks-ui2-demo/pages/frame)
 
 
-(defwidget page-frame-widget ()
+(defwidget page-frame-widget (ui-widget)
   ((content-widget :initarg :content
                    :reader content)))
 
@@ -21,7 +23,7 @@
 
 
 
-(defmethod render ((widget page-frame-widget))
+(defmethod render ((widget page-frame-widget) (theme t))
   (reblocks/html:with-html
     (:header
      (:div :class "navbar"
@@ -30,8 +32,8 @@
                        (:a :href "/"
                            "Reblocks UI2 Demo App")))))
 
-    (:div :class "page-content"
-          (render (content widget)))
+    (:div :class "page-content w-1/2 mx-auto"
+          (render (content widget) theme))
 
     (:div :class "footer"
           (when (string-equal (reblocks/request:get-path)

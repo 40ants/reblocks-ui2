@@ -1,4 +1,4 @@
-(uiop:define-package #:reblocks-ui2/containers/row
+(uiop:define-package #:reblocks-ui2/containers/column
   (:use #:cl)
   (:import-from #:reblocks/widget
                 #:create-widget-from
@@ -13,40 +13,33 @@
                 #:soft-list-of)
   (:import-from #:reblocks-ui2/widget
                 #:ui-widget)
-  (:export #:row-widget
-           #:make-row-widget
-           #:row
+  (:export #:column-widget
+           #:column
            #:subwidgets))
-(in-package #:reblocks-ui2/containers/row)
+(in-package #:reblocks-ui2/containers/column)
 
 
 (defvar *default-gap* :m)
 
 
-(defwidget row-widget (ui-widget)
+(defwidget column-widget (ui-widget)
   ((subwidgets :initarg :subwidgets
                :initform nil
                :type (soft-list-of widget)
                :reader subwidgets)
    (gap :initform *default-gap*
         :initarg :gap
-        :reader children-gap)
-   ;; (classes :initarg :classes
-   ;;          :initform nil
-   ;;          :type (soft-list-of string)
-   ;;          :reader classes
-   ;;          :documentation "A list of additional CSS classes.")
-   ))
+        :reader children-gap)))
 
 
-(defun make-row-widget (subwidgets
-                        &key gap)
-  (make-instance 'row-widget
+(defun make-column-widget (subwidgets
+                           &key gap)
+  (make-instance 'column-widget
                  :subwidgets (mapcar #'create-widget-from subwidgets)
                  :gap gap))
 
 
-(defmacro row (&rest subwidgets-and-options)
+(defmacro column (&rest subwidgets-and-options)
   (loop with collecting-subwidgets-p = t
         for item in subwidgets-and-options
         when (keywordp item)
@@ -56,11 +49,12 @@
         else
         collect item into options
         finally (return
-                  (destructuring-bind (&key gap)
+                  (destructuring-bind (&key (gap *default-gap*) (column-type 'column-widget))
                       options
-                    `(make-row-widget (list ,@subwidget-forms)
-                                      :gap (or ,gap
-                                               *default-gap*))))))
+                    `(make-instance ',column-type
+                                    :subwidgets (mapcar #'create-widget-from
+                                                        (list ,@subwidget-forms))
+                                    :gap ,gap)))))
 
 
 

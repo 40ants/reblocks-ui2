@@ -65,7 +65,29 @@
     nil))
 
 
-(defmethod reblocks/widget:render ((widget ui-widget))
+(defmethod render :around ((widget ui-widget) (theme t))
+  "This function is intended for internal usage only.
+   It renders widget with surrounding HTML tag and attributes."
+  (let ((widget-dependencies (get-dependencies widget theme)))
+    ;; Update new-style dependencies
+    (reblocks/page-dependencies::push-dependencies widget-dependencies))
+
+  (reblocks/page::register-widget widget)
+  
+  (with-html
+    (:tag
+     :name (reblocks/widget::get-html-tag widget)
+     :class (reblocks/widget::get-css-classes-as-string widget)
+     :id (reblocks/widgets/dom:dom-id widget)
+     (call-next-method))))
+
+
+;; (defmethod reblocks/widget:render ((widget ui-widget))
+;;   (render widget (current-theme)))
+
+
+(defmethod reblocks/widget:render :around ((widget ui-widget))
+  ;; For UI-WIDGET main node is rendered by around method of UI2' RENDER method
   (render widget (current-theme)))
 
 
@@ -75,3 +97,5 @@
 
 (defmethod reblocks/dependencies:get-dependencies ((widget ui-widget))
   (get-dependencies widget (current-theme)))
+
+

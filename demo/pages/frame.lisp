@@ -35,19 +35,9 @@
     (:div :class "page-content w-1/2 mx-auto"
           (render (content widget) theme))
 
-    (:div :class "footer"
-          (when (string-equal (reblocks/request:get-path)
-                              "/")
-            (:p :class "contacts"
-                "Have a question? File an issue: "
-                (:a :href "https://github.com/40ants/reblocks-ui2"
-                    "https://github.com/40ants/reblocks-ui2"))))))
-
-
-;; (defmethod get-dependencies ((widget page-frame-widget))
-;;   (list*
-;;    (reblocks-lass:make-dependency
-;;      `(.frame-widget
-;;        :color red))
-;;    (call-next-method)))
-
+    (:div :class "footer w-1/2 mx-auto my-4 text-slate-400"
+          (:p "Have a question?")
+          (:p "File an issue: "
+              (:a :class "text-blue-400"
+                  :href "https://github.com/40ants/reblocks-ui2"
+                  "https://github.com/40ants/reblocks-ui2")))))

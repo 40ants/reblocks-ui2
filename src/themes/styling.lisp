@@ -9,8 +9,11 @@
 (in-package #:reblocks-ui2/themes/styling)
 
 
-(defgeneric css-classes (theme object)
-  (:method ((theme t) (object t))
+(defgeneric css-classes (theme object &key)
+  (:documentation "Returns classes for a widget or it's property.
+
+                   Result can be a list, string or a keyword.")
+  (:method ((theme t) (object t) &key)
     nil))
 
 

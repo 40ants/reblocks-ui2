@@ -8,13 +8,16 @@
   (:import-from #:moptilities
                 #:superclasses)
   (:import-from #:alexandria
+                #:flatten
                 #:make-keyword)
   (:import-from #:reblocks/html
                 #:with-html)
+  (:import-from #:reblocks-ui2/themes/styling
+                #:css-classes)
   (:export #:render
            #:ui-widget
-           #:get-css-classes
-           #:get-dependencies))
+           #:get-dependencies
+           #:get-html-tag))
 (in-package #:reblocks-ui2/widget)
 
 
@@ -44,25 +47,18 @@
     (reblocks/widget:render widget)))
 
 
-(defgeneric get-css-classes (widget theme)
-  (:documentation "Returns a list of classes for the widget.
-
-                   Default implementation returns class list and all it's parent names.")
-  (:method ((widget ui-widget) (theme t))
-    (loop for class in (list* (class-of widget)
-                              (superclasses (class-of widget)))
-          for class-name = (class-name class)
-          collect (make-keyword class-name) into results
-          until (eql class-name
-                     'reblocks/widget:widget)
-          finally (return results))))
-
-
 (defgeneric get-dependencies (widget theme)
   (:documentation "Works like REBLOCKS/DEPENDENCIES:GET-DEPENDENCIES generic-function, but
                    in context of current theme.")
   (:method ((widget ui-widget) (theme t))
     nil))
+
+
+(defgeneric get-html-tag (widget theme)
+  (:documentation "Works like REBLOCKS/WIDGET:GET-HTML-TAG generic-function, but
+                   in context of current theme.")
+  (:method ((widget ui-widget) (theme t))
+    (reblocks/widget:get-html-tag widget)))
 
 
 (defmethod render :around ((widget ui-widget) (theme t))
@@ -76,7 +72,7 @@
   
   (with-html
     (:tag
-     :name (reblocks/widget::get-html-tag widget)
+     :name (get-html-tag widget theme)
      :class (reblocks/widget::get-css-classes-as-string widget)
      :id (reblocks/widgets/dom:dom-id widget)
      (call-next-method))))
@@ -92,7 +88,18 @@
 
 
 (defmethod reblocks/widget:get-css-classes ((widget ui-widget))
-  (get-css-classes widget (current-theme)))
+  (flatten (css-classes (current-theme) widget)))
+
+
+(defmethod css-classes ((theme t) (widget ui-widget) &key)
+  "Default implementation for  returns class list and all it's parent names."
+  (loop for class in (list* (class-of widget)
+                            (superclasses (class-of widget)))
+        for class-name = (class-name class)
+        collect (string-downcase class-name) into results
+        until (eql class-name
+                   'reblocks/widget:widget)
+        finally (return results)))
 
 
 (defmethod reblocks/dependencies:get-dependencies ((widget ui-widget))

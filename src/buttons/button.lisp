@@ -24,10 +24,10 @@
                 #:ui-widget)
   (:import-from #:reblocks-ui2/sizes
                 #:ensure-size)
-  (:import-from #:reblocks-ui2/buttons/pin
+  (:import-from #:reblocks-ui2/utils/pin
                 #:ensure-pin
                 #:pin)
-    (:export #:button
+  (:export #:button
            #:button-on-click
            #:button-content
            #:button-class

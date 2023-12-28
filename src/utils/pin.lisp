@@ -1,11 +1,11 @@
-(uiop:define-package #:reblocks-ui2/buttons/pin
+(uiop:define-package #:reblocks-ui2/utils/pin
   (:use #:cl)
   (:import-from #:serapeum
                 #:soft-list-of)
   (:import-from #:alexandria
                 #:length=)
   (:shadow #:round))
-(in-package #:reblocks-ui2/buttons/pin)
+(in-package #:reblocks-ui2/utils/pin)
 
 
 (defclass pin ()

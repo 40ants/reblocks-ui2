@@ -2,7 +2,6 @@
   (:use #:cl)
   (:import-from #:reblocks/widget
                 #:create-widget-from
-                #:get-css-classes
                 #:widget
                 #:defwidget)
   (:import-from #:reblocks/html

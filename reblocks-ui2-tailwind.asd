@@ -14,5 +14,6 @@
                "reblocks-ui2/tables/themes/tailwind/editable-table"
                "reblocks-ui2/containers/row/themes/tailwind"
                "reblocks-ui2/containers/column/themes/tailwind"
+               "reblocks-ui2/inputs/text-input/themes/tailwind"
                "reblocks-ui2/icon/themes/tailwind"
                "reblocks-ui2/buttons/themes/tailwind"))

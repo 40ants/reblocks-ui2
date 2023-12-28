@@ -74,10 +74,14 @@
     (render
      (row
       (input :placeholder "Small"
-             :size :s)
+             :size :s
+             :error "Error")
       (input :placeholder "Medium (normal)"
-             :size :m)
+             :size :m
+             :error "Error")
       (input :placeholder "Large"
-             :size :l)
+             :size :l
+             :error "Error")
       (input :placeholder "Extra Large"
-             :size :xl)))))
+             :size :xl
+             :error "Error")))))

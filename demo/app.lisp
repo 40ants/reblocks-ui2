@@ -13,7 +13,9 @@
   (:import-from #:reblocks-ui2-demo/pages/buttons
                 #:make-buttons-page)
   (:import-from #:reblocks-ui2-demo/pages/containers
-                #:make-containers-page))
+                #:make-containers-page)
+  (:import-from #:reblocks-ui2-demo/pages/text-input
+                #:make-text-input-page))
 (in-package #:reblocks-ui2-demo/app)
 
 
@@ -22,7 +24,9 @@
 
 
 (defroutes routes
-    ("/reblocks-ui2/containers" (wrap-with-frame
+    ("/reblocks-ui2/text-input" (wrap-with-frame
+                                 (make-text-input-page)))
+  ("/reblocks-ui2/containers" (wrap-with-frame
                                  (make-containers-page)))
   ("/reblocks-ui2" (wrap-with-frame
                     (make-buttons-page))))

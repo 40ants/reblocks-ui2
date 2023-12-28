@@ -9,7 +9,9 @@
                 #:subwidgets
                 #:column-widget)
   (:import-from #:reblocks-ui2/themes/tailwind
-                #:tailwind-theme))
+                #:tailwind-theme)
+  (:import-from #:reblocks-ui2/themes/styling
+                #:css-classes))
 (in-package #:reblocks-ui2/containers/column/themes/tailwind)
 
 
@@ -19,7 +21,7 @@
           do (render subwidget theme))))
 
 
-(defmethod reblocks-ui2/widget:get-css-classes ((widget column-widget) (theme tailwind-theme))
+(defmethod css-classes ((theme tailwind-theme) (widget column-widget) &key)
   (append (list "flex flex-col" "w-full justify-between")
           (gap-css-classes theme (children-gap widget))
           (call-next-method)))

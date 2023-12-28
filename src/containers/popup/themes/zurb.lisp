@@ -3,7 +3,6 @@
   (:import-from #:reblocks-lass)
   (:import-from #:reblocks-ui2/widget
                 #:get-dependencies
-                #:get-css-classes
                 #:render)
   (:import-from #:reblocks-ui2/containers/popup/widget
                 #:hide-popup
@@ -21,11 +20,13 @@
   (:import-from #:reblocks/widgets/dom
                 #:dom-id)
   (:import-from #:reblocks/response
-                #:send-script))
+                #:send-script)
+  (:import-from #:reblocks-ui2/themes/styling
+                #:css-classes))
 (in-package #:reblocks-ui2/containers/popup/themes/zurb)
 
 
-(defmethod get-css-classes ((widget popup-widget) (theme zurb-theme))
+(defmethod css-classes ((theme zurb-theme) (widget popup-widget))
   (append (when (visible-p widget)
             (list :active))
           (list* :popup

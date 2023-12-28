@@ -9,4 +9,5 @@
   :class :40ants-asdf-system
   :defsystem-depends-on ("40ants-asdf-system")
   :pathname "demo"
-  :depends-on ("reblocks-ui2-demo/server"))
+  :depends-on ("reblocks-ui2-tailwind"
+               "reblocks-ui2-demo/server"))

@@ -90,6 +90,16 @@
     (list "px-4"
           "py-2")))
 
+(defgeneric additional-content-size-classes (theme size)
+  (:method ((theme tailwind-theme) (size (eql :s)))
+    (list "px-1"))
+  (:method ((theme tailwind-theme) (size (eql :m)))
+    (list "px-2"))
+  (:method ((theme tailwind-theme) (size (eql :l)))
+    (list "px-2"))
+  (:method ((theme tailwind-theme) (size (eql :xl)))
+    (list "px-4")))
+
 
 (defmethod render ((widget input-widget) (theme tailwind-theme))
   (with-html
@@ -117,6 +127,8 @@
                    :size 1
                    :placeholder (input-placeholder widget)))
     (when (input-error widget)
-      (:div :class "flex px-2"
+      (:div :class (join-css-classes
+                    (list* "flex"
+                           (additional-content-size-classes theme (input-size widget))))
             (:div :class *error-color*
                   (input-error widget))))))

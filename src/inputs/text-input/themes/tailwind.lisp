@@ -44,20 +44,27 @@
   "text-slate-400")
 
 
-(defparameter *error-color*
+(defparameter *error-text-class*
   "text-red-400")
+
+
+(defparameter *error-border-class*
+  "border-red-400")
 
 
 (defmethod get-html-tag ((widget input-widget) (theme tailwind-theme))
   :span)
 
 
-(defmethod css-classes ((theme tailwind-theme) (view normal) &key)
-  (list* "border"
-         *input-content-common-classes*))
+(defmethod css-classes ((theme tailwind-theme) (view normal) &key invalid-state)
+  (append '("border")
+          (when invalid-state
+            (list *error-border-class*))
+          *input-content-common-classes*))
 
 
-(defmethod css-classes ((theme tailwind-theme) (view clear) &key)
+(defmethod css-classes ((theme tailwind-theme) (view clear) &key invalid-state)
+  (declare (ignore invalid-state))
   (list* "border-0"
          *input-content-common-classes*))
 
@@ -102,33 +109,35 @@
 
 
 (defmethod render ((widget input-widget) (theme tailwind-theme))
-  (with-html
-    (:span :class (join-css-classes
-                   (list (css-classes theme
-                                      (input-pin widget)
-                                      :size (input-size widget))
-                         (when (input-disabled widget)
-                           *disabled-bg-color*)
-                         (css-classes theme
-                                      (input-view widget))
-                         (input-content-size-classes theme (input-size widget))))
-           (:input :class (join-css-classes (append (list "w-full"
-                                                          "border-0"
-                                                          "bg-transparent"
-                                                          "focus:outline-0"
-                                                          (input-font-size theme (input-size widget)))
-                                                    (when (input-disabled widget)
-                                                      *disabled-text-color*)))
-                   :aria-invalid (not (null (input-error widget)))
-                   :value (input-value widget)
-                   ;; If we don't set this to 1, then minumum input width
-                   ;; will be more than 100px. More details are here:
-                   ;; https://stackoverflow.com/a/29990524/70293
-                   :size 1
-                   :placeholder (input-placeholder widget)))
-    (when (input-error widget)
-      (:div :class (join-css-classes
-                    (list* "flex"
-                           (additional-content-size-classes theme (input-size widget))))
-            (:div :class *error-color*
-                  (input-error widget))))))
+  (let ((invalid-state (not (null (input-error widget)))))
+    (with-html
+      (:span :class (join-css-classes
+                     (list (css-classes theme
+                                        (input-pin widget)
+                                        :size (input-size widget))
+                           (when (input-disabled widget)
+                             *disabled-bg-color*)
+                           (css-classes theme
+                                        (input-view widget)
+                                        :invalid-state invalid-state)
+                           (input-content-size-classes theme (input-size widget))))
+             (:input :class (join-css-classes (append (list "w-full"
+                                                            "border-0"
+                                                            "bg-transparent"
+                                                            "focus:outline-0"
+                                                            (input-font-size theme (input-size widget)))
+                                                      (when (input-disabled widget)
+                                                        *disabled-text-color*)))
+                     :aria-invalid invalid-state
+                     :value (input-value widget)
+                     ;; If we don't set this to 1, then minumum input width
+                     ;; will be more than 100px. More details are here:
+                     ;; https://stackoverflow.com/a/29990524/70293
+                     :size 1
+                     :placeholder (input-placeholder widget)))
+      (when (input-error widget)
+        (:div :class (join-css-classes
+                      (list* "flex"
+                             (additional-content-size-classes theme (input-size widget))))
+              (:div :class *error-text-class*
+                    (input-error widget)))))))

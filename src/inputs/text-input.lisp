@@ -13,23 +13,28 @@
                 #:pin)
   (:import-from #:reblocks-ui2/inputs/text-input/view
                 #:ensure-view)
+  (:import-from #:str
+                #:downcase)
+  (:import-from #:reblocks-ui2/inputs/base
+                #:base-input-widget)
   (:export #:input
            #:input-widget
            #:input-placeholder
            #:input-view
            #:input-pin
-           #:input-value
            #:input-error
            #:input-disabled
-           #:input-size))
+           #:input-size
+           #:input-name
+           #:input-type))
 (in-package #:reblocks-ui2/inputs/text-input)
 
 
-(defwidget input-widget (ui-widget)
-  ((value :initform nil
-          :initarg :value
-          :type (or null string)
-          :reader input-value)
+(defwidget input-widget (base-input-widget)
+  ((type :initform nil
+         :initarg :type
+         :type (or null string)
+         :reader input-type)
    (placeholder :initform nil
                 :initarg :placeholder
                 :type (or null string)
@@ -48,28 +53,30 @@
    (disabled :initarg :disabled
              :initform nil
              :type boolean
-             :reader input-disabled)
-   (error :initarg :error
-          :initform nil
-          :type (or null string)
-          :reader input-error)))
+             :reader input-disabled)))
 
 
 (defun input (&key (widget-class 'input-widget)
+                   name
                    value
+                   (type :text)
                    placeholder
                    (view :normal)
                    (pin :round)
                    (size :m)
                    disabled
+                   validator
                    error)
   (make-instance widget-class
+                 :name (downcase name)
+                 :type (downcase type)
                  :value value
                  :placeholder placeholder
                  :view (ensure-view view)
                  :pin (ensure-pin pin)
                  :size size
                  :disabled disabled
+                 :validator validator
                  :error error))
 
 

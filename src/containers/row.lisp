@@ -12,6 +12,7 @@
                 #:soft-list-of)
   (:import-from #:reblocks-ui2/widget
                 #:ui-widget)
+  (:import-from #:reblocks-ui2/utils/walk)
   (:export #:row-widget
            #:make-row-widget
            #:row
@@ -72,3 +73,6 @@
   (:method (theme gap)
     nil))
 
+
+(defmethod reblocks-ui2/utils/walk:children ((widget row-widget))
+  (subwidgets widget))

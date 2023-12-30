@@ -22,7 +22,9 @@
 
 
 (defmethod css-classes ((theme tailwind-theme) (widget row-widget) &key)
-  (append (list "flex" "w-full justify-between")
+  (append (list "flex"
+                "w-full"
+                "justify-between")
           (gap-css-classes theme (children-gap widget))
           (call-next-method)))
 

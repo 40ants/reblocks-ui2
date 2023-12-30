@@ -5,11 +5,14 @@
                 #:render)
   (:import-from #:reblocks-ui2/themes/tailwind
                 #:tailwind-theme)
+  (:import-from #:reblocks-ui2/inputs/base
+                #:input-name
+                #:input-value
+                #:input-error)
   (:import-from #:reblocks-ui2/inputs/text-input
+                #:input-type
                 #:input-size
                 #:input-disabled
-                #:input-error
-                #:input-value
                 #:input-view
                 #:input-pin
                 #:input-placeholder
@@ -128,8 +131,10 @@
                                                             (input-font-size theme (input-size widget)))
                                                       (when (input-disabled widget)
                                                         *disabled-text-color*)))
-                     :aria-invalid invalid-state
+                     :name (input-name widget)
                      :value (input-value widget)
+                     :type (input-type widget)
+                     :aria-invalid invalid-state
                      ;; If we don't set this to 1, then minumum input width
                      ;; will be more than 100px. More details are here:
                      ;; https://stackoverflow.com/a/29990524/70293

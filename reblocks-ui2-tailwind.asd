@@ -15,5 +15,7 @@
                "reblocks-ui2/containers/row/themes/tailwind"
                "reblocks-ui2/containers/column/themes/tailwind"
                "reblocks-ui2/inputs/text-input/themes/tailwind"
+               "reblocks-ui2/form/themes/tailwind"
+               "reblocks-ui2/containers/controls-row/themes/tailwind"
                "reblocks-ui2/icon/themes/tailwind"
                "reblocks-ui2/buttons/themes/tailwind"))

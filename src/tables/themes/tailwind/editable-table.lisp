@@ -9,6 +9,7 @@
   (:import-from #:reblocks-ui2/buttons/button
                 #:button)
   (:import-from #:reblocks-ui2/tables/table
+                #:column-idx
                 #:table-row
                 #:column-css-classes
                 #:row-cells
@@ -24,6 +25,7 @@
   (:import-from #:alexandria
                 #:last-elt)
   (:import-from #:serapeum
+                #:fmt
                 #:push-end)
   (:import-from #:reblocks/widget
                 #:update)

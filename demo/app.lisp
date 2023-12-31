@@ -5,6 +5,7 @@
   (:import-from #:reblocks/app
                 #:defapp)
   (:import-from #:reblocks/page
+                #:body-classes
                 #:init-page)
   (:import-from #:reblocks-ui2-demo/pages/frame
                 #:wrap-with-frame)
@@ -38,6 +39,10 @@
 
 (defmethod init-page ((app app) url-path expire-at)
   (make-routes))
+
+
+(defmethod body-classes ((app app))
+  "dark:bg-slate-900")
 
 
 ;; TODO: I need to do something with routing and it's dependency on reblocks-ui and Foundation.js

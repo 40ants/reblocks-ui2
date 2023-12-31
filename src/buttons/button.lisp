@@ -93,13 +93,11 @@
                                      ;; onClick handlers.
                                      "event.stopPropagation(); "
                                      action-code)
-               :class (join-css-classes (button-class widget)
-                                        (css-classes theme
-                                                     (button-view widget))
-                                        (css-classes theme
-                                                     (button-size widget))
-                                        (css-classes theme
-                                                     (button-pin widget)))
+               :class (join-css-classes theme
+                                        (button-class widget)
+                                        (button-view widget)
+                                        (button-size widget)
+                                        (button-pin widget))
                :style (join-css-styles (button-style widget)
                                        (css-styles theme
                                                    (button-view widget))

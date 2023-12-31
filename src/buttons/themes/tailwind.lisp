@@ -130,7 +130,7 @@
              (if size-suffix
                  (concatenate 'string class size-suffix)
                  class)))
-      (join-css-classes
+      (list
        (case (left-side pin)
          (:clear "border-l-0")
          (:brick nil)

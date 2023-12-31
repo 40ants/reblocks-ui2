@@ -25,7 +25,9 @@
                 #:css-styles)
   (:import-from #:reblocks-ui2/inputs/text-input/view
                 #:normal
-                #:clear))
+                #:clear)
+  (:import-from #:reblocks-ui2/themes/color
+                #:color))
 (in-package #:reblocks-ui2/inputs/text-input/themes/tailwind)
 
 
@@ -114,23 +116,30 @@
 (defmethod render ((widget input-widget) (theme tailwind-theme))
   (let ((invalid-state (not (null (input-error widget)))))
     (with-html
-      (:span :class (join-css-classes
-                     (list (css-classes theme
-                                        (input-pin widget)
-                                        :size (input-size widget))
-                           (when (input-disabled widget)
-                             *disabled-bg-color*)
-                           (css-classes theme
-                                        (input-view widget)
-                                        :invalid-state invalid-state)
-                           (input-content-size-classes theme (input-size widget))))
-             (:input :class (join-css-classes (append (list "w-full"
-                                                            "border-0"
-                                                            "bg-transparent"
-                                                            "focus:outline-0"
-                                                            (input-font-size theme (input-size widget)))
-                                                      (when (input-disabled widget)
-                                                        *disabled-text-color*)))
+      (:span :class (join-css-classes theme
+                                      (css-classes theme
+                                                   (input-pin widget)
+                                                   :size (input-size widget))
+                                      (when (input-disabled widget)
+                                        *disabled-bg-color*)
+                                      (css-classes theme
+                                                   (input-view widget)
+                                                   :invalid-state invalid-state)
+                                      (input-content-size-classes theme
+                                                                  (input-size widget)))
+             (:input :class (join-css-classes theme
+                                              "w-full"
+                                              "border-0"
+                                              "bg-transparent"
+                                              "focus:outline-0"
+                                              (input-font-size theme (input-size widget))
+                                              (cond
+                                                ((input-disabled widget)
+                                                 *disabled-text-color*)
+                                                (t
+                                                 (color "text"
+                                                        :light "gray-900"
+                                                        :dark "gray-100"))))
                      :name (input-name widget)
                      :value (input-value widget)
                      :type (input-type widget)
@@ -141,8 +150,10 @@
                      :size 1
                      :placeholder (input-placeholder widget)))
       (when (input-error widget)
-        (:div :class (join-css-classes
-                      (list* "flex"
-                             (additional-content-size-classes theme (input-size widget))))
+        (:div :class (join-css-classes theme
+                                       "flex"
+                                       (additional-content-size-classes
+                                        theme
+                                        (input-size widget)))
               (:div :class *error-text-class*
                     (input-error widget)))))))

@@ -22,19 +22,28 @@
     nil))
 
 
-(defun join-css-classes (&rest classes)
+(defun join-css-classes (theme &rest classes)
   (with-output-to-string (output)
-    (loop for item in (flatten classes)
-          for i upfrom 0
-          unless (string= item "")
-          do (unless (zerop i)
-               (write-string " " output))
-             (write-string item output))))
+    (let ((first-item t))
+      (labels ((traverse (obj)
+                 (cond
+                   ((null obj))
+                   ((consp obj)
+                    (traverse (car obj))
+                    (traverse (cdr obj)))
+                   ((typep obj 'string)
+                    (if first-item
+                        (setf first-item nil)
+                        (write-string " " output))
+                    (write-string obj output))
+                   (t
+                    (traverse (css-classes theme obj))))))
+        (traverse classes)))))
 
 
 (defun join-css-styles (&rest styles)
   (with-output-to-string (output)
-    (loop for item in styles
+    (loop for item in (flatten styles)
           for i upfrom 0
           when (and item
                     (not (string= item "")))

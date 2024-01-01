@@ -57,15 +57,26 @@
   "border-red-400")
 
 
+(defparameter *normal-border-color*
+  (color "border"
+         :light "gray-300"
+         :dark "gray-600"
+         :hover 2
+         :focus 4))
+
+
 (defmethod get-html-tag ((widget input-widget) (theme tailwind-theme))
   :span)
 
 
 (defmethod css-classes ((theme tailwind-theme) (view normal) &key invalid-state)
-  (append '("border")
-          (when invalid-state
-            (list *error-border-class*))
-          *input-content-common-classes*))
+  (list "border"
+        (cond
+          (invalid-state
+           *error-border-class*)
+          (t
+           *normal-border-color*))
+        *input-content-common-classes*))
 
 
 (defmethod css-classes ((theme tailwind-theme) (view clear) &key invalid-state)

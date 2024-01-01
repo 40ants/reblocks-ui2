@@ -34,16 +34,6 @@
 
 (defmethod render ((widget form-page))
   (with-html
-    
-    (:h2 :class "text-xl my-4"
-         "Themes test")
-
-    (:div :class "w-10 h-10 bg-red-200 dark:bg-purple-200")
-    
-    (:div :class "dark"
-          (:div :class "w-10 h-10 bg-red-200 dark:bg-purple-200"))
-    
-    
     (:h2 :class "text-xl my-4"
          "Simple sign up form")
     (render

@@ -5,12 +5,15 @@
                 #:defvar-unbound)
   (:import-from #:reblocks-ui2/themes/base
                 #:base-theme)
-  (:export #:current-theme))
+  (:export #:current-theme
+           #:*current-theme*))
 (in-package #:reblocks-ui2/themes/api)
 
 
 (defvar-unbound *current-theme*
   "Set this variable to a UI theme object made with a function like REBLOCKS-UI2/THEMES/TAILWIND:MAKE-TAILWIND-THEME.
+
+   Set it during a Reblocks server startup.
 
    Use SETF on REBLOCKS-UI2/THEMES/API:CURRENT-THEME function.")
 

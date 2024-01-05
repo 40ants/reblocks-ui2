@@ -14,6 +14,13 @@
                 #:with-html)
   (:import-from #:reblocks-ui2/themes/styling
                 #:css-classes)
+  (:import-from #:anaphora
+                #:it
+                #:awhen)
+  (:import-from #:reblocks/actions
+                #:make-js-action)
+  (:import-from #:serapeum
+                #:defvar-unbound)
   (:export #:render
            #:ui-widget
            #:get-dependencies
@@ -21,8 +28,14 @@
 (in-package #:reblocks-ui2/widget)
 
 
+(defvar-unbound *current-widget*
+  "This variable is for internal use and can be bound during RENDER or different ON-* methods.")
+
+
 (defwidget ui-widget ()
-  ())
+  ((on-click :initform nil
+             :initarg :on-click
+             :reader on-click)))
 
 
 (defgeneric render (widget theme)
@@ -61,6 +74,16 @@
     (reblocks/widget:get-html-tag widget)))
 
 
+(defun make-onclick-wrapper (widget)
+  (check-type widget ui-widget)
+  (awhen (on-click widget)
+    (flet ((on-click-wrapper (&rest args)
+             (declare (ignore args))
+             (let ((*current-widget* widget))
+               (funcall it widget))))
+      (make-js-action #'on-click-wrapper))))
+
+
 (defmethod render :around ((widget ui-widget) (theme t))
   "This function is intended for internal usage only.
    It renders widget with surrounding HTML tag and attributes."
@@ -75,6 +98,7 @@
      :name (get-html-tag widget theme)
      :class (reblocks/widget::get-css-classes-as-string widget)
      :id (reblocks/widgets/dom:dom-id widget)
+     :onclick (make-onclick-wrapper widget)
      (call-next-method))))
 
 

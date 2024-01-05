@@ -1,5 +1,6 @@
 (uiop:define-package #:reblocks-ui2/form
   (:use #:cl)
+  (:import-from #:log)
   (:import-from #:reblocks/widget
                 #:update
                 #:defwidget)
@@ -35,10 +36,15 @@
 (in-package #:reblocks-ui2/form)
 
 
+(defun no-action (&rest args)
+  (log:info "Empty action was called with" args))
+
+
 (defwidget form-widget (ui-widget)
   ((content :initarg :content
             :reader form-content)
    (on-submit :initarg :on-submit
+              :initform 'no-action
               :reader form-on-submit)
    (all-inputs :initform (make-hash-table :test 'equal)
                :documentation "Internal structure holding references to all form inputs having a name attribute."
@@ -63,7 +69,7 @@
     (with-destructured-lambda-list (:required required :key kwargs)
                                    arguments
       (unless (length= 1 required)
-        (error "On submit function ~A should accept 1 required argument. But this accepts ~A: ~{~A~#[~; and ~:;, ~]~}"
+        (error "On submit function ~A should accept 1 required argument. But this accepts ~A: ~A"
                on-submit
                (length required)
                arguments))

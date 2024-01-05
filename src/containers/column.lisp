@@ -26,7 +26,7 @@
   ((subwidgets :initarg :subwidgets
                :initform nil
                :type (soft-list-of widget)
-               :reader subwidgets)
+               :accessor subwidgets)
    (gap :initform *default-gap*
         :initarg :gap
         :reader children-gap)))

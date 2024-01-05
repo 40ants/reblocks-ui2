@@ -10,7 +10,7 @@
                 #:length<=)
   (:export #:stack-widget
            #:stack-widget-children
-           #:make-stack-widget
+           #:stack
            #:push-child
            #:pop-child
            #:current-stack-widget))
@@ -26,14 +26,18 @@
   (:documentation "Shows only the top child from the stack. Provides methods to push and pop widgets."))
 
 
-(defun make-stack-widget (child)
+(defun stack (&rest children)
+  "Makes a stack widget with given subwidgets.
+
+   Only first widget in the list will be visible."
   (make-instance 'stack-widget
-                 :children (list child)))
+                 :children children))
 
 
 (defmethod render ((widget stack-widget) (theme t))
   (let ((*current-stack-widget* widget))
-    (reblocks/widget:render (first (stack-widget-children widget)))))
+    (when (stack-widget-children widget)
+      (reblocks/widget:render (first (stack-widget-children widget))))))
 
 
 (defgeneric pop-child (stack-widget)
@@ -55,3 +59,13 @@
     (error "Function CURRENT-STACK-WIDGET should be called inside the RENDER method of stack child widget."))
 
   (values *current-stack-widget*))
+
+
+(defun replace-me-with (widget)
+  "Adds a new widget ontop of the current."
+  (push-child (current-stack-widget) widget))
+
+
+(defun pop-me ()
+  "Removes current (top) widget from the stack and display the next widget."
+  (pop-child (current-stack-widget)))

@@ -40,10 +40,12 @@
 
 
 (defun make-row-widget (subwidgets
-                        &key gap)
+                        &key gap
+                             on-click)
   (make-instance 'row-widget
                  :subwidgets (mapcar #'create-widget-from subwidgets)
-                 :gap gap))
+                 :gap gap
+                 :on-click on-click))
 
 
 (defmacro row (&rest subwidgets-and-options)
@@ -56,11 +58,12 @@
         else
         collect item into options
         finally (return
-                  (destructuring-bind (&key gap)
+                  (destructuring-bind (&key gap on-click)
                       options
                     `(make-row-widget (list ,@subwidget-forms)
                                       :gap (or ,gap
-                                               *default-gap*))))))
+                                               *default-gap*)
+                                      :on-click ,on-click)))))
 
 
 

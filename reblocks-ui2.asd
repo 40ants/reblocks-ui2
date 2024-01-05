@@ -10,7 +10,6 @@
   :defsystem-depends-on ("40ants-asdf-system")
   :pathname "src"
   :depends-on ("reblocks-ui2/core"
-               "reblocks-ui2/containers/popup/themes/zurb"
-               "reblocks-ui2/widget/themes/zurb"
+               "reblocks-ui2/containers/stack"
                "reblocks-ui2/tables/clickable-row")
   :in-order-to ((test-op (test-op "reblocks-ui2-tests"))))

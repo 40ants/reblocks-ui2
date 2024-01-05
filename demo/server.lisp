@@ -7,6 +7,10 @@
   (:import-from #:40ants-slynk)
   (:import-from #:reblocks-ui2-demo/app
                 #:app)
+  (:import-from #:reblocks-ui2/themes/api
+                #:*current-theme*)
+  (:import-from #:reblocks-ui2/themes/tailwind
+                #:make-tailwind-theme)
   (:shadow #:restart)
   (:export #:start
            #:restart
@@ -23,11 +27,11 @@
 
 (defun start (&rest args
               &key
-              (port (parse-integer
-                     (or (uiop:getenv "PORT")
-                         *default-port*)))
-	      (interface *default-interface*)
-              (debug nil))
+                (port (parse-integer
+                       (or (uiop:getenv "PORT")
+                           *default-port*)))
+	        (interface *default-interface*)
+                (debug nil))
   "This function does not block and can be started in REPL."
   
   (when (probe-file ".local-config.lisp")
@@ -43,6 +47,9 @@
   
   (setf reblocks/variables:*pages-expire-in* (* 10 60))
   (setf reblocks/variables:*max-pages-per-session* 10)
+
+  (setf *current-theme*
+        (make-tailwind-theme))
 
   (reblocks/server:start :port port
 			 :interface interface

@@ -2,6 +2,7 @@
   (:use #:cl)
   (:import-from #:reblocks/widget
                 #:defwidget)
+  (:import-from #:reblocks/page-dependencies)
   (:import-from #:reblocks/dependencies)
   (:import-from #:reblocks-ui2/themes/api
                 #:current-theme)

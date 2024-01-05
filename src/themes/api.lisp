@@ -1,10 +1,16 @@
 (uiop:define-package #:reblocks-ui2/themes/api
   (:use #:cl)
-  (:export #:current-theme))
+  (:import-from #:serapeum
+                #:defvar-unbound)
+  (:export #:current-theme
+           #:*current-theme*))
 (in-package #:reblocks-ui2/themes/api)
 
 
-(defvar *current-theme*)
+(defvar-unbound *current-theme*
+  "A theme to use for UI.
+
+   Set it during a Reblocks server startup.")
 
 
 (defun current-theme ()

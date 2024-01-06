@@ -9,8 +9,6 @@
   (:import-from #:reblocks-ui2/widget
                 #:render
                 #:ui-widget)
-  (:import-from #:serapeum
-                #:defvar-unbound)
   (:import-from #:reblocks-ui2/form/validation
                 #:validation-error
                 #:form-validation-error
@@ -51,8 +49,9 @@
                :reader form-inputs)))
 
 
-(defvar-unbound *current-form*
-  "This variable will hold a reference to the currently rendered form widget.")
+(defvar *current-form*)
+(setf (documentation '*current-form* 'variable)
+      "This variable will hold a reference to the currently rendered form widget.")
 
 
 (defun validate-on-submit-fun-args (content on-submit)

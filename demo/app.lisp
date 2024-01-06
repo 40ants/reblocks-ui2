@@ -18,7 +18,9 @@
   (:import-from #:reblocks-ui2-demo/pages/text-input
                 #:make-text-input-page)
   (:import-from #:reblocks-ui2-demo/pages/form
-                #:make-form-page))
+                #:make-form-page)
+  (:import-from #:reblocks-ui2-demo/pages/cards
+                #:make-cards-page))
 (in-package #:reblocks-ui2-demo/app)
 
 
@@ -29,6 +31,8 @@
 (defroutes routes
     ("/reblocks-ui2/form" (wrap-with-frame
                            (make-form-page)))
+  ("/reblocks-ui2/card" (wrap-with-frame
+                         (make-cards-page)))
   ("/reblocks-ui2/text-input" (wrap-with-frame
                                  (make-text-input-page)))
   ("/reblocks-ui2/containers" (wrap-with-frame
@@ -42,7 +46,7 @@
 
 
 (defmethod body-classes ((app app))
-  "dark:bg-slate-900")
+  "dark:bg-stone-950")
 
 
 ;; TODO: I need to do something with routing and it's dependency on reblocks-ui and Foundation.js

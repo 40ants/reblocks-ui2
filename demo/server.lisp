@@ -31,7 +31,7 @@
                        (or (uiop:getenv "PORT")
                            *default-port*)))
 	        (interface *default-interface*)
-                (debug nil))
+                (debug t))
   "This function does not block and can be started in REPL."
   
   (when (probe-file ".local-config.lisp")

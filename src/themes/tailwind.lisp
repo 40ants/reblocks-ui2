@@ -8,6 +8,7 @@
   (:import-from #:reblocks-ui2/themes/styling
                 #:css-classes)
   (:import-from #:reblocks-ui2/themes/color
+                #:adjust-base-color
                 #:color-focus
                 #:color-hover
                 #:color-dark
@@ -15,29 +16,145 @@
                 #:color-light
                 #:color)
   (:import-from #:serapeum
+                #:soft-alist-of
                 #:fmt)
   (:import-from #:str
                 #:ends-with-p)
+  (:import-from #:reblocks-ui2/themes/api
+                #:deftheme)
+  (:import-from #:reblocks-ui2/utils/padding
+                #:padding-size)
   (:export #:make-tailwind-theme
-           #:tailwind-theme
-           #:tailwind-theme-mode))
+           #:tailwind-theme))
 (in-package #:reblocks-ui2/themes/tailwind)
 
 
 (defvar *default-mode* :auto)
 
 
-(defclass tailwind-theme ()
-  ((mode :type (member :light :dark :auto)
-         :initform *default-mode*
-         :initarg :mode
-         :documentation "When this slot is in :AUTO mode, theme will be light or dark depending on user's preferences."
-         :reader tailwind-theme-mode)))
+(defun make-vars (&rest args)
+  (log:error "Making vars" args)
+  (list :args args))
 
 
-(defun make-tailwind-theme (&key (mode *default-mode*))
-  (make-instance 'tailwind-theme
-                 :mode mode))
+;; (defclass foo ()
+;;   ((vars :allocation :class
+;;          :initarg :vars
+;;          :initform (make-vars 1 2))))
+
+;; (defclass bar (foo)
+;;   ()
+;;   (:default-initargs :vars (make-vars 4 5)))
+
+
+;; (defclass tailwind-theme ()
+;;   ((mode :type (member :light :dark :auto)
+;;          :initform *default-mode*
+;;          :initarg :mode
+;;          :documentation "When this slot is in :AUTO mode, theme will be light or dark depending on user's preferences."
+;;          :reader tailwind-theme-mode)))
+
+
+(deftheme tailwind-theme ()
+  (core
+   (mode :type (member :light :dark :auto)
+         :value :auto
+         :documentation "When this slot is in :AUTO mode, theme will be light or dark depending on user's preferences.")
+   (padding-sizes :type (soft-alist-of padding-size string)
+                  :value '((:s . "1")
+                           (:m . "2")
+                           (:l . "4")
+                           (:xl . "8"))
+                  :documentation "A mapping of :s :m :l :xl sizes to real padding size which can be applied to "))
+  (colors
+   (text
+    (normal :type color
+            :value (color "text"
+                          :light "stone-800"
+                          :dark "stone-300")))
+   (border
+    (normal :type color
+            :value (color "border"
+                          :light "stone-300"
+                          :dark "stone-600"))
+    (action :type color
+            :value (color "border"
+                          :light "yellow-300"
+                          :dark "yellow-600"))
+    (info :type color
+          :value (color "border"
+                        :light "cyan-300"
+                        :dark "cyan-600"))
+    (success :type color
+             :value (color "border"
+                           :light "emerald-300"
+                           :dark "emerald-600"))
+    (warning :type color
+             :value (color "border"
+                           :light "orange-300"
+                           :dark "orange-600"))
+    (danger :type color
+            :value (color "border"
+                          :light "pink-300"
+                          :dark "pink-600"))
+    (utility :type color
+             :value (color "border"
+                           :light "purple-300"
+                           :dark "purple-600")))
+   (bg
+    (normal :type color
+            :value (color "bg"
+                          :light "stone-300"
+                          :dark "stone-900"))
+    (action :type color
+            :value (color "bg"
+                          :light "yellow-300"
+                          :dark "yellow-950"))
+    (info :type color
+          :value (color "bg"
+                        :light "cyan-300"
+                        :dark "cyan-950"))
+    (success :type color
+             :value (color "bg"
+                           :light "emerald-300"
+                           :dark "emerald-950"))
+    (warning :type color
+             :value (color "bg"
+                           :light "orange-300"
+                           :dark "orange-950"))
+    (danger :type color
+            :value (color "bg"
+                          :light "pink-300"
+                          :dark "pink-950"))
+    (utility :type color
+             :value (color "bg"
+                           :light "purple-300"
+                           :dark "purple-950"))))
+
+  (card
+   (border-radius :type string
+                  :value "xl"
+                  :documentation "Border radius for card containers.")
+   ;; (filled-normal-color :type color
+   ;;                      :value (color "bg"
+   ;;                                    :light "gray-100"
+   ;;                                    :dark "gray-600")
+   ;;                      :documentation "Background color of the filled card.")
+   ))
+
+
+(deftheme tailwind-theme-light (tailwind-theme)
+  (core
+   (mode :type (member :light :dark :auto)
+         :value :light
+         :documentation "When this slot is in :AUTO mode, theme will be light or dark depending on user's preferences.")))
+
+
+(deftheme tailwind-theme-dark (tailwind-theme)
+  (core
+   (mode :type (member :light :dark :auto)
+         :value :dark
+         :documentation "When this slot is in :AUTO mode, theme will be light or dark depending on user's preferences.")))
 
 
 (defmethod get-dependencies ((widget ui-widget) (theme tailwind-theme))
@@ -49,7 +166,7 @@
    (call-next-method)))
 
 
-(defun adjust-color (tailwind-color-name adjustment)
+(defmethod adjust-base-color ((theme tailwind-theme) (tailwind-color-name string) (adjustment integer))
   "Changes brightness in TailwindCSS color.
 
    Each 1 in adjustments increments color brightness to 100 or 50 like this:
@@ -109,6 +226,11 @@
                new-value)))))
 
 
+(defmethod adjust-base-color ((theme tailwind-theme) (tailwind-color-name string) (new-name string))
+  "Just replaced the base color with the given name."
+  new-name)
+
+
 (defmethod css-classes ((theme tailwind-theme) (obj color) &key)
   (let ((light (color-light obj))
         (dark (color-dark obj))
@@ -124,22 +246,24 @@
                (list (fmt "~@[~A:~]~A-~A" prefix property base-color)
                      (when (color-hover obj)
                        (fmt "~@[~A:~]hover:~A-~A" prefix property
-                            (adjust-color base-color
-                                          (if dark-mode
-                                              (color-hover obj)
-                                              ;; In light mode we make colors
-                                              ;; darker for hovered inputs:
-                                              (invert
-                                               (color-hover obj))))))
+                            (adjust-base-color theme
+                                               base-color
+                                               (if dark-mode
+                                                   (color-hover obj)
+                                                   ;; In light mode we make colors
+                                                   ;; darker for hovered inputs:
+                                                   (invert
+                                                    (color-hover obj))))))
                      (when (color-focus obj)
                        (let ((focus-color
-                               (adjust-color base-color
-                                             (if dark-mode
-                                                 (color-focus obj)
-                                                 ;; In light mode we make colors
-                                                 ;; darker for focused inputs:
-                                                 (invert
-                                                  (color-focus obj))))))
+                               (adjust-base-color theme
+                                                  base-color
+                                                  (if dark-mode
+                                                      (color-focus obj)
+                                                      ;; In light mode we make colors
+                                                      ;; darker for focused inputs:
+                                                      (invert
+                                                       (color-focus obj))))))
                          (list
                           (fmt "~@[~A:~]focus-within:~A-~A" prefix property
                                focus-color)
@@ -148,7 +272,7 @@
                           (fmt "~@[~A:~]focus-within:hover:~A-~A" prefix property
                                focus-color)))))))
 
-      (case (tailwind-theme-mode theme)
+      (case (core-mode theme)
         (:auto (list (generate (or light dark))
                      (generate (or dark light)
                                :dark-mode t

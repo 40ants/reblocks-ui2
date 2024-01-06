@@ -15,7 +15,7 @@
                 #:get-dependencies
                 #:render
                 #:ui-widget)
-  (:import-from #:serapeum/bundle
+  (:import-from #:serapeum
                 #:soft-alist-of)
   (:import-from #:named-readtables
                 #:in-readtable)

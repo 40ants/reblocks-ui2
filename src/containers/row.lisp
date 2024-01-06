@@ -40,7 +40,7 @@
 
 
 (defun make-row-widget (subwidgets
-                        &key gap
+                        &key (gap *default-gap*)
                              on-click)
   (make-instance 'row-widget
                  :subwidgets (mapcar #'create-widget-from subwidgets)

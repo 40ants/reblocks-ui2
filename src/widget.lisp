@@ -14,6 +14,7 @@
   (:import-from #:reblocks/html
                 #:with-html)
   (:import-from #:reblocks-ui2/themes/styling
+                #:join-css-classes
                 #:css-classes)
   (:import-from #:anaphora
                 #:it
@@ -97,7 +98,8 @@
   (with-html
     (:tag
      :name (get-html-tag widget theme)
-     :class (reblocks/widget::get-css-classes-as-string widget)
+     :class (join-css-classes theme
+                              (css-classes theme widget))
      :id (reblocks/widgets/dom:dom-id widget)
      :onclick (make-onclick-wrapper widget)
      (call-next-method))))
@@ -113,11 +115,14 @@
 
 
 (defmethod reblocks/widget:get-css-classes ((widget ui-widget))
-  (flatten (css-classes (current-theme) widget)))
+  ;; TODO:
+  (error "REMOVE ME")
+  ;; (flatten (css-classes (current-theme) widget))
+  )
 
 
 (defmethod css-classes ((theme t) (widget ui-widget) &key)
-  "Default implementation for  returns class list and all it's parent names."
+  "Default implementation for widget returns class list and all it's parent names."
   (loop for class in (list* (class-of widget)
                             (superclasses (class-of widget)))
         for class-name = (class-name class)

@@ -1,7 +1,6 @@
 (uiop:define-package #:reblocks-ui2/utils/padding
   (:use #:cl)
   (:export #:padding
-           #:ensure-padding
            #:padding-size
            #:nullable-padding-size
            #:padding-horizontal-size

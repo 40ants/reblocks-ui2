@@ -30,7 +30,7 @@
                 #:responsive-height
                 #:height)
   (:import-from #:reblocks-ui2/utils/padding
-                #:ensure-padding)
+                #:padding)
   (:export #:card
            #:card-widget
            #:card-content
@@ -80,4 +80,4 @@
                  :view (ensure-view view)
                  :width (ensure-width width)
                  :height (ensure-height height)
-                 :padding (ensure-padding padding)))
+                 :padding (padding padding)))

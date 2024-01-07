@@ -20,7 +20,9 @@
   (:import-from #:reblocks-ui2-demo/pages/form
                 #:make-form-page)
   (:import-from #:reblocks-ui2-demo/pages/cards
-                #:make-cards-page))
+                #:make-cards-page)
+  (:import-from #:reblocks-ui2-demo/pages/landing
+                #:make-landing-page))
 (in-package #:reblocks-ui2-demo/app)
 
 
@@ -29,16 +31,20 @@
 
 
 (defroutes routes
-    ("/reblocks-ui2/form" (wrap-with-frame
-                           (make-form-page)))
-  ("/reblocks-ui2/card" (wrap-with-frame
-                         (make-cards-page)))
-  ("/reblocks-ui2/text-input" (wrap-with-frame
-                                 (make-text-input-page)))
-  ("/reblocks-ui2/containers" (wrap-with-frame
-                                 (make-containers-page)))
-  ("/reblocks-ui2" (wrap-with-frame
-                    (make-buttons-page))))
+  ("/form" (wrap-with-frame
+            (make-form-page)))
+  ("/card" (wrap-with-frame
+            (make-cards-page)))
+  ("/text-input" (wrap-with-frame
+                  (make-text-input-page)))
+  ("/containers" (wrap-with-frame
+                  (make-containers-page)))
+  ("/button" (wrap-with-frame
+              (make-buttons-page)))
+  
+  ("/" (wrap-with-frame
+        (make-landing-page))))
+
 
 
 (defmethod init-page ((app app) url-path expire-at)
@@ -50,10 +56,10 @@
 
 
 ;; TODO: I need to do something with routing and it's dependency on reblocks-ui and Foundation.js
-(defmethod reblocks/dependencies:get-dependencies ((widget routes))
-  ;; To prevent Foundation dependencies appear on the page
-  ;; we replace them with Tailwind
-  nil)
+;; (defmethod reblocks/dependencies:get-dependencies ((widget routes))
+;;   ;; To prevent Foundation dependencies appear on the page
+;;   ;; we replace them with Tailwind
+;;   nil)
 
 
 ;; (defmethod reblocks/dependencies:get-dependencies ((app app))

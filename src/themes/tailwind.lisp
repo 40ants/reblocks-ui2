@@ -134,13 +134,7 @@
   (card
    (border-radius :type string
                   :value "xl"
-                  :documentation "Border radius for card containers.")
-   ;; (filled-normal-color :type color
-   ;;                      :value (color "bg"
-   ;;                                    :light "gray-100"
-   ;;                                    :dark "gray-600")
-   ;;                      :documentation "Background color of the filled card.")
-   ))
+                  :documentation "Border radius for card containers.")))
 
 
 (deftheme tailwind-theme-light (tailwind-theme)

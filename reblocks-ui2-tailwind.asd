@@ -17,6 +17,7 @@
                "reblocks-ui2/themes/tailwind/padding"
                "reblocks-ui2/card/themes/tailwind"
                "reblocks-ui2/form/themes/tailwind"
+               "reblocks-ui2/themes/tailwind/size"
                "reblocks-ui2/containers/controls-row/themes/tailwind"
                "reblocks-ui2/icon/themes/tailwind"
                "reblocks-ui2/buttons/themes/tailwind"))

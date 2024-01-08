@@ -142,7 +142,7 @@
                                               "w-full"
                                               "border-0"
                                               "bg-transparent"
-                                              "focus:outline-0"
+                                              "focus:outline-none"
                                               (input-font-size theme (input-size widget))
                                               (cond
                                                 ((input-disabled widget)

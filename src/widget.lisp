@@ -23,6 +23,7 @@
   (:import-from #:reblocks/actions
                 #:make-js-action)
   (:import-from #:serapeum
+                #:fmt
                 #:defvar-unbound)
   (:import-from #:reblocks-ui2/utils/margin
                 #:margin)
@@ -67,15 +68,7 @@
 
 
 (defmethod initialize-instance :around ((instance ui-widget) &rest initargs)
-  (let ((initargs
-          (process-primitive-args initargs)
-          ;; (cond
-          ;;   ((getf initargs :margin)
-          ;;    (list* :margin (margin (getf initargs :margin))
-          ;;           (remove-from-plist initargs :margin)))
-          ;;   (t
-          ;;    initargs))
-          ))
+  (let ((initargs (process-primitive-args initargs)))
     (apply #'call-next-method
            instance
            initargs)))

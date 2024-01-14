@@ -69,7 +69,7 @@
   :span)
 
 
-(defmethod css-classes ((theme tailwind-theme) (view normal) &key invalid-state)
+(defmethod css-classes ((view normal) (theme tailwind-theme) &key invalid-state)
   (list "border"
         (cond
           (invalid-state
@@ -79,13 +79,13 @@
         *input-content-common-classes*))
 
 
-(defmethod css-classes ((theme tailwind-theme) (view clear) &key invalid-state)
+(defmethod css-classes ((view clear) (theme tailwind-theme) &key invalid-state)
   (declare (ignore invalid-state))
   (list* "border-0"
          *input-content-common-classes*))
 
 
-(defmethod css-classes ((theme tailwind-theme) (widget input-widget) &key)
+(defmethod css-classes ((widget input-widget) (theme tailwind-theme) &key)
   (list *input-outer-block-classes*
         (call-next-method)))
 
@@ -128,13 +128,13 @@
   (let ((invalid-state (not (null (input-error widget)))))
     (with-html
       (:span :class (join-css-classes theme
-                                      (css-classes theme
-                                                   (input-pin widget)
+                                      (css-classes (input-pin widget)
+                                                   theme
                                                    :size (input-size widget))
                                       (when (input-disabled widget)
                                         *disabled-bg-color*)
-                                      (css-classes theme
-                                                   (input-view widget)
+                                      (css-classes (input-view widget)
+                                                   theme
                                                    :invalid-state invalid-state)
                                       (input-content-size-classes theme
                                                                   (input-size widget)))

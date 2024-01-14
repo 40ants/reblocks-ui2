@@ -42,22 +42,22 @@
                    prefix value)))))
 
 
-(defmethod css-classes ((theme tailwind-theme) (width width) &key)
+(defmethod css-classes ((width width) (theme tailwind-theme) &key)
   (format-size "w" width))
 
 
-(defmethod css-classes ((theme tailwind-theme) (height height) &key)
+(defmethod css-classes ((height height) (theme tailwind-theme) &key)
   (format-size "h" height))
 
 
-(defmethod css-classes ((theme tailwind-theme) (width responsive-width) &key)
+(defmethod css-classes ((width responsive-width) (theme tailwind-theme) &key)
   (list (awhen (min-width width)
           (format-size "min-w" it))
         (awhen (max-width width)
           (format-size "max-w" it))))
 
 
-(defmethod css-classes ((theme tailwind-theme) (height responsive-height) &key)
+(defmethod css-classes ((height responsive-height) (theme tailwind-theme) &key)
   (list (awhen (min-height height)
           (format-size "min-h" it))
         (awhen (max-height height)

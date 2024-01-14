@@ -14,7 +14,7 @@
 (in-package #:reblocks-ui2/themes/tailwind/margin)
 
 
-(defmethod css-classes ((theme tailwind-theme) (margin margin) &key)
+(defmethod css-classes ((margin margin) (theme tailwind-theme) &key)
   (let* ((sizes (core-margin-sizes theme))
          (left (reblocks-ui2/utils/margin:margin-left margin))
          (right (reblocks-ui2/utils/margin:margin-right margin))

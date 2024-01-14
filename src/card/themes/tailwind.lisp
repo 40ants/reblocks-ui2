@@ -75,78 +75,53 @@
 ;; Views ;;
 ;;;;;;;;;;;
 
-;; (defvar *default-action-css-classes*
-;;   "transition duration-500 ease select-none focus:outline-none focus:shadow-outline")
-
-
-;; (defvar *normal-color* "slate")
-;; (defvar *action-color* "yellow")
-;; (defvar *info-color* "cyan")
-;; (defvar *success-color* "emerald")
-;; (defvar *warning-color* "orange")
-;; (defvar *danger-color* "pink")
-;; (defvar *utility-color* "purple")
-
-
-;; (defmethod css-classes ((theme tailwind-theme) (view normal) &key)
-;;   (list #?"bg-${*normal-color*}-200 hover:bg-${*normal-color*}-300"
-;;         *default-action-css-classes*))
-
-;; (defmethod css-classes ((theme tailwind-theme) (view action) &key)
-;;   (list #?"bg-${*action-color*}-500 hover:bg-${*action-color*}-400"
-;;         *default-action-css-classes*))
-
-;; (defmethod css-classes ((theme tailwind-theme) (view raised) &key)
-;;   (list #?"bg-white shadow-xl border border-${*normal-color*}-100 hover:bg-${*normal-color*}-200 hover:border-${*normal-color*}-300"
-;;         *default-action-css-classes*))
-
 
 (defun outlined-style (border-color)
   (list "border"
         border-color))
 
 
-(defmethod css-classes ((theme tailwind-theme) (view outlined) &key)
+(defmethod css-classes ((view outlined) (theme tailwind-theme) &key)
   (outlined-style (colors-border-normal theme)))
 
-(defmethod css-classes ((theme tailwind-theme) (view outlined-action) &key)
+(defmethod css-classes ((view outlined-action) (theme tailwind-theme) &key)
   (outlined-style (colors-border-action theme)))
 
-(defmethod css-classes ((theme tailwind-theme) (view outlined-info) &key)
+(defmethod css-classes ((view outlined-info) (theme tailwind-theme) &key)
   (outlined-style (colors-border-info theme)))
 
-(defmethod css-classes ((theme tailwind-theme) (view outlined-success) &key)
+(defmethod css-classes ((view outlined-success) (theme tailwind-theme) &key)
   (outlined-style (colors-border-success theme)))
 
-(defmethod css-classes ((theme tailwind-theme) (view outlined-warning) &key)
+(defmethod css-classes ((view outlined-warning) (theme tailwind-theme) &key)
   (outlined-style (colors-border-warning theme)))
 
-(defmethod css-classes ((theme tailwind-theme) (view outlined-danger) &key)
+(defmethod css-classes ((view outlined-danger) (theme tailwind-theme) &key)
   (outlined-style (colors-border-danger theme)))
 
-(defmethod css-classes ((theme tailwind-theme) (view outlined-utility) &key)
+(defmethod css-classes ((view outlined-utility) (theme tailwind-theme) &key)
   (outlined-style (colors-border-utility theme)))
 
 
-(defmethod css-classes ((theme tailwind-theme) (view filled) &key)
+(defmethod css-classes ((view filled) (theme tailwind-theme) &key)
   (colors-bg-normal theme))
 
-(defmethod css-classes ((theme tailwind-theme) (view filled-action) &key)
+(defmethod css-classes ((view filled-action) (theme tailwind-theme) &key)
   (colors-bg-action theme))
 
-(defmethod css-classes ((theme tailwind-theme) (view filled-info) &key)
+(defmethod css-classes ((view filled-info) (theme tailwind-theme) &key)
   (colors-bg-info theme))
 
-(defmethod css-classes ((theme tailwind-theme) (view filled-success) &key)
+(defmethod css-classes ((view filled-success) (theme tailwind-theme) &key)
   (colors-bg-success theme))
 
-(defmethod css-classes ((theme tailwind-theme) (view filled-warning) &key)
+(defmethod css-classes ((view filled-warning) (theme tailwind-theme) &key)
   (colors-bg-warning theme))
 
-(defmethod css-classes ((theme tailwind-theme) (view filled-danger) &key)
+(defmethod css-classes ((view filled-danger) (theme tailwind-theme) &key)
   (colors-bg-danger theme))
 
-(defmethod css-classes ((theme tailwind-theme) (view filled-utility) &key)
+(defmethod css-classes ((view filled-utility) (theme tailwind-theme) &key)
   (colors-bg-utility theme))
 
 
@@ -163,37 +138,37 @@
                  :dark 2)))
 
 
-(defmethod css-classes ((theme tailwind-theme) (view raised) &key)
+(defmethod css-classes ((view raised) (theme tailwind-theme) &key)
   (raised-style theme
                 (colors-border-normal theme)
                 (colors-bg-normal theme)))
 
-(defmethod css-classes ((theme tailwind-theme) (view raised-action) &key)
+(defmethod css-classes ((view raised-action) (theme tailwind-theme) &key)
   (raised-style theme
                 (colors-border-action theme)
                 (colors-bg-action theme)))
 
-(defmethod css-classes ((theme tailwind-theme) (view raised-info) &key)
+(defmethod css-classes ((view raised-info) (theme tailwind-theme) &key)
   (raised-style theme
                 (colors-border-info theme)
                 (colors-bg-info theme)))
 
-(defmethod css-classes ((theme tailwind-theme) (view raised-success) &key)
+(defmethod css-classes ((view raised-success) (theme tailwind-theme) &key)
   (raised-style theme
                 (colors-border-success theme)
                 (colors-bg-success theme)))
 
-(defmethod css-classes ((theme tailwind-theme) (view raised-warning) &key)
+(defmethod css-classes ((view raised-warning) (theme tailwind-theme) &key)
   (raised-style theme
                 (colors-border-warning theme)
                 (colors-bg-warning theme)))
 
-(defmethod css-classes ((theme tailwind-theme) (view raised-danger) &key)
+(defmethod css-classes ((view raised-danger) (theme tailwind-theme) &key)
   (raised-style theme
                 (colors-border-danger theme)
                 (colors-bg-danger theme)))
 
-(defmethod css-classes ((theme tailwind-theme) (view raised-utility) &key)
+(defmethod css-classes ((view raised-utility) (theme tailwind-theme) &key)
   (raised-style theme
                 (colors-border-utility theme)
                 (colors-bg-utility theme)))
@@ -203,7 +178,7 @@
   (render (card-content widget) theme))
 
 
-(defmethod css-classes ((theme tailwind-theme) (widget card-widget) &key)
+(defmethod css-classes ((widget card-widget) (theme tailwind-theme) &key)
   (list*
    (list
     "flex"

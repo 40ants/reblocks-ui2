@@ -11,7 +11,7 @@
 (in-package #:reblocks-ui2/containers/controls-row/themes/tailwind)
 
 
-(defmethod css-classes ((theme tailwind-theme) (widget controls-row-widget) &key)
+(defmethod css-classes ((widget controls-row-widget) (theme tailwind-theme) &key)
   ;; For controls row we justify all buttons to the right.
   ;; For right to left languages, we have to add "flex-row-reverse" somehow.
   (list* "justify-end"

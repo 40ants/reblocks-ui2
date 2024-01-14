@@ -9,16 +9,16 @@
 (in-package #:reblocks-ui2/themes/styling)
 
 
-(defgeneric css-classes (theme object &key)
+(defgeneric css-classes (object theme &key)
   (:documentation "Returns classes for a widget or it's property.
 
                    Result can be a list, string or a keyword.")
-  (:method ((theme t) (object t) &key)
+  (:method ((object t) (theme t) &key)
     nil))
 
 
-(defgeneric css-styles (theme object)
-  (:method ((theme t) (object t))
+(defgeneric css-styles (object theme)
+  (:method ((object t) (theme t))
     nil))
 
 
@@ -37,7 +37,7 @@
                         (write-string " " output))
                     (write-string obj output))
                    (t
-                    (traverse (css-classes theme obj))))))
+                    (traverse (css-classes obj theme))))))
         (traverse classes)))))
 
 

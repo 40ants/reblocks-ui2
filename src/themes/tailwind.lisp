@@ -245,7 +245,7 @@
   new-name)
 
 
-(defmethod css-classes ((theme tailwind-theme) (obj color) &key)
+(defmethod css-classes ((obj color) (theme tailwind-theme) &key)
   (let ((light (color-light obj))
         (dark (color-dark obj))
         (property (color-property obj)))

@@ -17,7 +17,7 @@
 (in-package #:reblocks-ui2/themes/tailwind/padding)
 
 
-(defmethod css-classes ((theme tailwind-theme) (padding padding) &key)
+(defmethod css-classes ((padding padding) (theme tailwind-theme) &key)
   (let ((sizes (core-padding-sizes theme))
         (horizontal (padding-horizontal-size padding))
         (vertical (padding-vertical-size padding)))

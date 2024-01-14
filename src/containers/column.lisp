@@ -65,13 +65,8 @@
 
 
 
-(defgeneric gap-css-classes (theme gap)
-  (:method (theme gap)
-    nil))
-
-
-(defgeneric gap-css-styles (theme gap)
-  (:method (theme gap)
+(defgeneric gap-css-classes (gap theme)
+  (:method (gap theme)
     nil))
 
 

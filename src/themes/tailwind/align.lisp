@@ -12,7 +12,7 @@
 (in-package #:reblocks-ui2/themes/tailwind/align)
 
 
-(defmethod css-classes ((theme tailwind-theme) (align horizontal-align) &key)
+(defmethod css-classes ((align horizontal-align) (theme tailwind-theme) &key)
   ;; For row flex orientation
   (case (horizontal-align-value align)
     (:left "justify-begin")
@@ -20,7 +20,7 @@
     (:right "justify-end")))
 
 
-(defmethod css-classes ((theme tailwind-theme) (align vertical-align) &key)
+(defmethod css-classes ((align vertical-align) (theme tailwind-theme) &key)
   ;; For row flex orientation
   (case (vertical-align-value align)
     (:top "items-begin")

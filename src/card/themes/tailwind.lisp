@@ -4,6 +4,8 @@
   (:import-from #:named-readtables
                 #:in-readtable)
   (:import-from #:reblocks-ui2/card
+                #:horizontal-align-of-card-content
+                #:vertical-align-of-card-content
                 #:card-height
                 #:card-width
                 #:card-padding
@@ -202,19 +204,16 @@
 
 
 (defmethod css-classes ((theme tailwind-theme) (widget card-widget) &key)
-  (list
+  (list*
    (list
     "flex"
-    ;; align-items: center
-    "items-center"
-    ;; justify-content: center
-    "justify-center"
     (awhen (card-border-radius theme)
       (fmt "rounded-~A" it))
 
     (colors-text-normal theme))
    
    (card-padding widget)
-   (card-width widget)
-   (card-height widget)
-   (card-view widget)))
+   (horizontal-align-of-card-content widget)
+   (vertical-align-of-card-content widget)
+   (card-view widget)
+   (call-next-method)))

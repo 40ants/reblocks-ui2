@@ -15,4 +15,6 @@
   ;; Ignore default css classes based on widget class and inherited classes,
   ;; because in Tailwind theme we don't use CSS rules.
   ;; This way HTML will be smaller.
-  nil)
+  (list (reblocks-ui2/widget:widget-margin widget)
+        (reblocks-ui2/widget:widget-width widget)
+        (reblocks-ui2/widget:widget-height widget)))

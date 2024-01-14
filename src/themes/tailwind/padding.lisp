@@ -31,10 +31,10 @@
                          horizontal)))
       (t
        (list (when horizontal
-               (fmt "xp-~A"
+               (fmt "px-~A"
                     (assoc-value sizes
                                  horizontal)))
              (when vertical
-               (fmt "yp-~A"
+               (fmt "py-~A"
                     (assoc-value sizes
                                  vertical))))))))

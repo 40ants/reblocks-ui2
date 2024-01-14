@@ -77,7 +77,13 @@
                            (:m . "2")
                            (:l . "4")
                            (:xl . "8"))
-                  :documentation "A mapping of :s :m :l :xl sizes to real padding size which can be applied to "))
+                  :documentation "A mapping of :s :m :l :xl sizes to real padding size which can be applied to any widget.")
+   (margin-sizes :type (soft-alist-of padding-size string)
+                  :value '((:s . "1")
+                           (:m . "2")
+                           (:l . "4")
+                           (:xl . "8"))
+                  :documentation "A mapping of :s :m :l :xl sizes to real margin size which can be applied to the any widget."))
   (colors
    (text
     (normal :type color

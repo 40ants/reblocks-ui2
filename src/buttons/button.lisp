@@ -89,23 +89,35 @@
                        (typecase (button-on-click widget)
                          (string (button-on-click widget))
                          (t
-                          (make-js-action (button-on-click widget)))))))
+                          (make-js-action (button-on-click widget))))))
+        (view (if (button-disabled widget)
+                  (reblocks-ui2/buttons/view::get-disabled-button-view (button-view widget))
+                  (button-view widget))))
     (with-html
-      (:button :onclick (concatenate 'string
-                                     ;; We need this stop propagation
-                                     ;; to be able to build buttons into
-                                     ;; other objects having their own
-                                     ;; onClick handlers.
-                                     "event.stopPropagation(); "
-                                     action-code)
+      (:button :type (if action-code
+                         ;; We need to set type to button for all buttons having
+                         ;; having on-click handler to prevent the handler to be
+                         ;; triggered when button is in the form and user hits
+                         ;; Enter on some text-input field:
+                         ;; https://stackoverflow.com/questions/62144665
+                         "button"
+                         "submit")
+               :onclick (when action-code
+                          (concatenate 'string
+                                       ;; We need this stop propagation
+                                       ;; to be able to build buttons into
+                                       ;; other objects having their own
+                                       ;; onClick handlers.
+                                       "event.stopPropagation(); "
+                                       action-code))
                :class (join-css-classes theme
                                         (button-class widget)
-                                        (button-view widget)
+                                        view
                                         (button-size widget)
                                         (button-pin widget))
                :style (join-css-styles (button-style widget)
                                        (css-styles theme
-                                                   (button-view widget))
+                                                   view)
                                        (css-styles theme
                                                    (button-size widget))
                                        (css-styles theme
@@ -115,14 +127,14 @@
                        theme)))))
 
 
-(defmethod get-dependencies ((widget button))
-  (call-next-method)
-  ;; (list*
-  ;;  (reblocks-lass:make-dependency
-  ;;    `(.button-wrapper
-  ;;      (button :margin 0)
-  ;;      (input :margin 0)))
-  ;;  (call-next-method))
-  )
+;; (defmethod get-dependencies ((widget button))
+;;   (call-next-method)
+;;   ;; (list*
+;;   ;;  (reblocks-lass:make-dependency
+;;   ;;    `(.button-wrapper
+;;   ;;      (button :margin 0)
+;;   ;;      (input :margin 0)))
+;;   ;;  (call-next-method))
+;;   )
 
 

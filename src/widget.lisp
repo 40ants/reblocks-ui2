@@ -9,6 +9,7 @@
   (:import-from #:moptilities
                 #:superclasses)
   (:import-from #:alexandria
+                #:remove-from-plist
                 #:flatten
                 #:make-keyword)
   (:import-from #:reblocks/html
@@ -23,10 +24,20 @@
                 #:make-js-action)
   (:import-from #:serapeum
                 #:defvar-unbound)
+  (:import-from #:reblocks-ui2/utils/margin
+                #:margin)
+  (:import-from #:reblocks-ui2/utils/size
+                #:some-width
+                #:some-height)
+  (:import-from #:reblocks-ui2/utils/primitive-to
+                #:process-primitive-args)
   (:export #:render
            #:ui-widget
            #:get-dependencies
-           #:get-html-tag))
+           #:get-html-tag
+           #:widget-margin
+           #:widget-height
+           #:widget-width))
 (in-package #:reblocks-ui2/widget)
 
 
@@ -37,7 +48,35 @@
 (defwidget ui-widget ()
   ((on-click :initform nil
              :initarg :on-click
-             :reader on-click)))
+             :reader on-click)
+   (margin :initform nil
+           :initarg :margin
+           :type (or null margin)
+           :reader widget-margin)
+   (width :initform nil
+          :initarg :width
+          :type (or null some-width)
+          :reader widget-width)
+   (height :initform nil
+           :initarg :height
+           :type (or null some-height)
+           :reader widget-height))
+  (:default-initargs :width :full))
+
+
+(defmethod initialize-instance :around ((instance ui-widget) &rest initargs)
+  (let ((initargs
+          (process-primitive-args initargs)
+          ;; (cond
+          ;;   ((getf initargs :margin)
+          ;;    (list* :margin (margin (getf initargs :margin))
+          ;;           (remove-from-plist initargs :margin)))
+          ;;   (t
+          ;;    initargs))
+          ))
+    (apply #'call-next-method
+           instance
+           initargs)))
 
 
 (defgeneric render (widget theme)
@@ -48,6 +87,7 @@
     (let ((class-name (class-name (class-of widget)))
           (theme-name (class-name (class-of theme))))
       (with-html
+        (break)
         (:p "Please, define:"
             (:pre (format nil
                           "(defmethod reblocks-ui2/widget:render ((widget ~A) (theme ~A))
@@ -105,20 +145,9 @@
      (call-next-method))))
 
 
-;; (defmethod reblocks/widget:render ((widget ui-widget))
-;;   (render widget (current-theme)))
-
-
 (defmethod reblocks/widget:render :around ((widget ui-widget))
   ;; For UI-WIDGET main node is rendered by around method of UI2' RENDER method
   (render widget (current-theme)))
-
-
-(defmethod reblocks/widget:get-css-classes ((widget ui-widget))
-  ;; TODO:
-  (error "REMOVE ME")
-  ;; (flatten (css-classes (current-theme) widget))
-  )
 
 
 (defmethod css-classes ((theme t) (widget ui-widget) &key)

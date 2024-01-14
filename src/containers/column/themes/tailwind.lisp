@@ -2,6 +2,7 @@
   (:use #:cl)
   (:import-from #:reblocks/html)
   (:import-from #:reblocks-ui2/widget
+                #:widget-margin
                 #:render)
   (:import-from #:reblocks-ui2/containers/column
                 #:children-gap
@@ -22,9 +23,10 @@
 
 
 (defmethod css-classes ((theme tailwind-theme) (widget column-widget) &key)
-  (append (list "flex flex-col" "w-full justify-between")
-          (gap-css-classes theme (children-gap widget))
-          (call-next-method)))
+  (list (list "flex flex-col"
+              "items-center justify-between")
+        (gap-css-classes theme (children-gap widget))
+        (call-next-method)))
 
 
 (defmethod gap-css-classes ((theme tailwind-theme) (gap symbol))

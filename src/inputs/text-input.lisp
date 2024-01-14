@@ -12,6 +12,8 @@
                 #:ensure-pin
                 #:pin)
   (:import-from #:reblocks-ui2/inputs/text-input/view
+                #:normal
+                #:input-view
                 #:ensure-view)
   (:import-from #:str
                 #:downcase)
@@ -39,9 +41,9 @@
                 :initarg :placeholder
                 :type (or null string)
                 :reader input-placeholder)
-   (view :type symbol
+   (view :type input-view
          :initarg :view
-         :initform :normal
+         :initform (make-instance 'normal)
          :reader input-view)
    (pin :initarg :pin
         :type pin

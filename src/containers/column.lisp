@@ -39,22 +39,29 @@
                  :gap gap))
 
 
-(defmacro column (&rest subwidgets-and-options)
+(defun column (&rest subwidgets-and-options)
   (loop with collecting-subwidgets-p = t
         for item in subwidgets-and-options
         when (keywordp item)
         do (setf collecting-subwidgets-p nil)
         if collecting-subwidgets-p
-        collect item into subwidget-forms
+        collect item into subwidgets
         else
         collect item into options
         finally (return
-                  (destructuring-bind (&key (gap *default-gap*) (column-type 'column-widget))
+                  (destructuring-bind (&key (gap *default-gap*)
+                                            (column-type 'column-widget)
+                                            margin
+                                            width
+                                            height)
                       options
-                    `(make-instance ',column-type
-                                    :subwidgets (mapcar #'create-widget-from
-                                                        (list ,@subwidget-forms))
-                                    :gap ,gap)))))
+                    (make-instance column-type
+                                   :subwidgets (mapcar #'create-widget-from
+                                                       (remove-if #'null subwidgets))
+                                   :gap gap
+                                   :margin margin
+                                   :width width
+                                   :height height)))))
 
 
 

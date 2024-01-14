@@ -28,7 +28,9 @@
            #:input-disabled
            #:input-size
            #:input-name
-           #:input-type))
+           #:input-type
+           #:input-left-content
+           #:input-right-content))
 (in-package #:reblocks-ui2/inputs/text-input)
 
 
@@ -55,7 +57,15 @@
    (disabled :initarg :disabled
              :initform nil
              :type boolean
-             :reader input-disabled)))
+             :reader input-disabled)
+   (left-content :initarg :left-content
+                 :type (or null ui-widget)
+                 :initform nil
+                 :accessor input-left-content)
+   (right-content :initarg :right-content
+                  :type (or null ui-widget)
+                  :initform nil
+                  :accessor input-right-content)))
 
 
 (defun input (&key (widget-class 'input-widget)
@@ -68,7 +78,9 @@
                    (size :m)
                    disabled
                    validator
-                   error)
+                   error
+                   left-content
+                   right-content)
   (make-instance widget-class
                  :name (downcase name)
                  :type (downcase type)
@@ -79,7 +91,9 @@
                  :size size
                  :disabled disabled
                  :validator validator
-                 :error error))
+                 :error error
+                 :left-content left-content
+                 :right-content right-content))
 
 
 

@@ -37,7 +37,8 @@
            #:get-html-tag
            #:widget-margin
            #:widget-height
-           #:widget-width))
+           #:widget-width
+           #:on-click))
 (in-package #:reblocks-ui2/widget)
 
 
@@ -48,7 +49,8 @@
 (defwidget ui-widget ()
   ((on-click :initform nil
              :initarg :on-click
-             :reader on-click)
+             :reader on-click
+             :documentation "When an on-click action is given, cursor style will be changed to \"pointer\".")
    (margin :initform nil
            :initarg :margin
            :type (or null margin)

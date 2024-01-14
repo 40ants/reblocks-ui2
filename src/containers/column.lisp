@@ -52,7 +52,7 @@
                   (destructuring-bind (&key (gap *default-gap*)
                                             (column-type 'column-widget)
                                             margin
-                                            width
+                                            (width :full)
                                             height)
                       options
                     (make-instance column-type

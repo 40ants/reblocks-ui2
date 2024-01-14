@@ -8,7 +8,9 @@
   (:import-from #:reblocks-ui2/inputs/text-input
                 #:input)
   (:import-from #:reblocks-ui2/containers/row
-                #:row))
+                #:row)
+  (:import-from #:reblocks-ui2/buttons/button
+                #:button))
 (in-package #:reblocks-ui2-demo/pages/text-input)
 
 
@@ -84,4 +86,24 @@
              :error "Error")
       (input :placeholder "Extra Large"
              :size :xl
-             :error "Error")))))
+             :error "Error")))
+
+
+    (:h2 :class "text-xl my-4"
+         "Additional content to the left or right of the input.")
+
+    (render
+     (row
+      (input :placeholder "Input at the left"
+             :size :m
+             :left-content (button "Button"
+                                   :view :action
+                                   :size :m
+                                   :pin '(:round :brick)))
+      
+      (input :placeholder "Input at the right"
+             :size :m
+             :right-content (button "Button"
+                                    :view :action
+                                    :size :m
+                                    :pin '(:clear :round)))))))

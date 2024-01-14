@@ -113,7 +113,7 @@
 
 
 (defmethod css-classes ((size m) (theme tailwind-theme) &key)
-  "text-m px-1")
+  "text-m px-1 py-1")
 
 
 (defmethod css-classes ((size l) (theme tailwind-theme) &key)

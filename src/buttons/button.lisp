@@ -117,7 +117,11 @@
                                         (reblocks-ui2/widget:widget-width widget)
                                         (reblocks-ui2/widget:widget-height widget)
                                         (button-size widget)
-                                        (button-pin widget))
+                                        (button-pin widget)
+                                        ;; TODO: this is a Tailwind's property
+                                        ;; and we need to replace it with some object
+                                        ;; which will return css classes depending on theme.
+                                        "whitespace-nowrap")
                :style (join-css-styles (button-style widget)
                                        (css-styles view
                                                    theme)
@@ -128,16 +132,3 @@
                :disabled (button-disabled widget)
                (render (button-content widget)
                        theme)))))
-
-
-;; (defmethod get-dependencies ((widget button))
-;;   (call-next-method)
-;;   ;; (list*
-;;   ;;  (reblocks-lass:make-dependency
-;;   ;;    `(.button-wrapper
-;;   ;;      (button :margin 0)
-;;   ;;      (input :margin 0)))
-;;   ;;  (call-next-method))
-;;   )
-
-

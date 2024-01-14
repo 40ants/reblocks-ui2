@@ -10,6 +10,8 @@
                 #:input-value
                 #:input-error)
   (:import-from #:reblocks-ui2/inputs/text-input
+                #:input-right-content
+                #:input-left-content
                 #:input-type
                 #:input-size
                 #:input-disabled
@@ -27,7 +29,10 @@
                 #:normal
                 #:clear)
   (:import-from #:reblocks-ui2/themes/color
-                #:color))
+                #:color)
+  (:import-from #:anaphora
+                #:it
+                #:awhen))
 (in-package #:reblocks-ui2/inputs/text-input/themes/tailwind)
 
 
@@ -101,17 +106,18 @@
 
 (defgeneric input-content-size-classes (theme size)
   (:method ((theme tailwind-theme) (size (eql :s)))
-    (list "px-1"
-          "py-0"))
+    (list "mx-1"
+          "my-0"))
   (:method ((theme tailwind-theme) (size (eql :m)))
-    (list "px-2"
-          "py-1"))
+    (list "mx-2"
+          "my-1"))
   (:method ((theme tailwind-theme) (size (eql :l)))
-    (list "px-2"
-          "py-1"))
+    (list "mx-2"
+          "my-1"))
   (:method ((theme tailwind-theme) (size (eql :xl)))
-    (list "px-4"
-          "py-2")))
+    (list "mx-4"
+          "my-2")))
+
 
 (defgeneric additional-content-size-classes (theme size)
   (:method ((theme tailwind-theme) (size (eql :s)))
@@ -127,39 +133,58 @@
 (defmethod render ((widget input-widget) (theme tailwind-theme))
   (let ((invalid-state (not (null (input-error widget)))))
     (with-html
-      (:span :class (join-css-classes theme
-                                      (css-classes (input-pin widget)
-                                                   theme
-                                                   :size (input-size widget))
-                                      (when (input-disabled widget)
-                                        *disabled-bg-color*)
-                                      (css-classes (input-view widget)
-                                                   theme
-                                                   :invalid-state invalid-state)
-                                      (input-content-size-classes theme
-                                                                  (input-size widget)))
-             (:input :class (join-css-classes theme
-                                              "w-full"
-                                              "border-0"
-                                              "bg-transparent"
-                                              "focus:outline-none"
-                                              (input-font-size theme (input-size widget))
-                                              (cond
-                                                ((input-disabled widget)
-                                                 *disabled-text-color*)
-                                                (t
-                                                 (color "text"
-                                                        :light "gray-900"
-                                                        :dark "gray-100"))))
-                     :name (input-name widget)
-                     :value (input-value widget)
-                     :type (input-type widget)
-                     :aria-invalid invalid-state
-                     ;; If we don't set this to 1, then minumum input width
-                     ;; will be more than 100px. More details are here:
-                     ;; https://stackoverflow.com/a/29990524/70293
-                     :size 1
-                     :placeholder (input-placeholder widget)))
+      ;; Outer wrapper
+      (:div :class (join-css-classes theme
+                                     "flex"
+                                     ;; "gap-1"
+                                     ;; Center items vertically to make left/right content in line with
+                                     ;; the main text-input.
+                                     "items-center"
+                                     (css-classes (input-pin widget)
+                                                  theme
+                                                  :size (input-size widget))
+                                     (when (input-disabled widget)
+                                       *disabled-bg-color*)
+                                     (css-classes (input-view widget)
+                                                  theme
+                                                  :invalid-state invalid-state))
+            
+            (awhen (input-left-content widget)
+              (render it theme))
+
+            ;; Inner wrapper to 
+            ;; (:div :class (join-css-classes theme
+            ;;                                "w-full"
+            ;;                                (input-content-size-classes theme
+            ;;                                                            (input-size widget))))
+            (:input :class (join-css-classes theme
+                                             "w-full"
+                                             (input-content-size-classes theme
+                                                                         (input-size widget))
+                                             "border-0"
+                                             "bg-transparent"
+                                             "focus:outline-none"
+                                             (input-font-size theme (input-size widget))
+                                             (cond
+                                               ((input-disabled widget)
+                                                *disabled-text-color*)
+                                               (t
+                                                (color "text"
+                                                       :light "gray-900"
+                                                       :dark "gray-100"))))
+                    :name (input-name widget)
+                    :value (input-value widget)
+                    :type (input-type widget)
+                    :aria-invalid invalid-state
+                    ;; If we don't set this to 1, then minumum input width
+                    ;; will be more than 100px. More details are here:
+                    ;; https://stackoverflow.com/a/29990524/70293
+                    :size 1
+                    :placeholder (input-placeholder widget))
+
+            (awhen (input-right-content widget)
+              (render it theme)))
+      
       (when (input-error widget)
         (:div :class (join-css-classes theme
                                        "flex"

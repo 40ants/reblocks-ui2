@@ -22,14 +22,14 @@
           do (render subwidget theme))))
 
 
-(defmethod css-classes ((theme tailwind-theme) (widget column-widget) &key)
+(defmethod css-classes ((widget column-widget) (theme tailwind-theme) &key)
   (list (list "flex flex-col"
               "items-center justify-between")
-        (gap-css-classes theme (children-gap widget))
+        (gap-css-classes (children-gap widget) theme)
         (call-next-method)))
 
 
-(defmethod gap-css-classes ((theme tailwind-theme) (gap symbol))
+(defmethod gap-css-classes ((gap symbol) (theme tailwind-theme))
   (case gap
     (:z (list "gap-0"))
     (:s (list "gap-2"))

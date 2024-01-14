@@ -139,7 +139,7 @@
     (:tag
      :name (get-html-tag widget theme)
      :class (join-css-classes theme
-                              (css-classes theme widget))
+                              (css-classes widget theme))
      :id (reblocks/widgets/dom:dom-id widget)
      :onclick (make-onclick-wrapper widget)
      (call-next-method))))
@@ -150,7 +150,7 @@
   (render widget (current-theme)))
 
 
-(defmethod css-classes ((theme t) (widget ui-widget) &key)
+(defmethod css-classes ((widget ui-widget) (theme t) &key)
   "Default implementation for widget returns class list and all it's parent names."
   (loop for class in (list* (class-of widget)
                             (superclasses (class-of widget)))

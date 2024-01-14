@@ -1,6 +1,7 @@
 (uiop:define-package #:reblocks-ui2/containers/row/themes/tailwind
   (:use #:cl)
-  (:import-from #:reblocks/html)
+  (:import-from #:reblocks/html
+                #:with-html)
   (:import-from #:reblocks-ui2/widget
                 #:render)
   (:import-from #:reblocks-ui2/containers/row
@@ -16,20 +17,19 @@
 
 
 (defmethod render ((widget row-widget) (theme tailwind-theme))
-  (reblocks/html:with-html
+  (with-html
     (loop for subwidget in (subwidgets widget)
           do (render subwidget theme))))
 
 
-(defmethod css-classes ((theme tailwind-theme) (widget row-widget) &key)
+(defmethod css-classes ((widget row-widget) (theme tailwind-theme) &key)
   (append (list "flex"
-                "w-full"
                 "justify-between")
-          (gap-css-classes theme (children-gap widget))
+          (gap-css-classes (children-gap widget) theme)
           (call-next-method)))
 
 
-(defmethod gap-css-classes ((theme tailwind-theme) (gap symbol))
+(defmethod gap-css-classes ((gap symbol) (theme tailwind-theme))
   (case gap
     (:z (list "gap-0"))
     (:s (list "gap-2"))

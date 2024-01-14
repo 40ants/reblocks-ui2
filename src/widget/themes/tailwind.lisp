@@ -11,7 +11,7 @@
 (in-package #:reblocks-ui2/widget/themes/tailwind)
 
 
-(defmethod css-classes ((theme tailwind-theme) (widget ui-widget) &key)
+(defmethod css-classes ((widget ui-widget) (theme tailwind-theme) &key)
   ;; Ignore default css classes based on widget class and inherited classes,
   ;; because in Tailwind theme we don't use CSS rules.
   ;; This way HTML will be smaller.

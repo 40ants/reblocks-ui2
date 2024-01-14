@@ -120,8 +120,7 @@
      (call-next-method))))
 
 
-(defmethod css-classes ((theme t) (widget html-widget) &key)
-  (break)
+(defmethod css-classes ((widget html-widget) (theme t) &key)
   (%css-classes widget))
 
 

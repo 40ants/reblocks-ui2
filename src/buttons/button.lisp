@@ -57,13 +57,16 @@
    (disabled :initarg :disabled
              :initform nil
              :type boolean
-             :reader button-disabled)))
+             :reader button-disabled))
+  (:default-initargs :width :min))
 
 
 (defun button (content &key (widget-class 'button) on-click (class "button") disabled style
                             (view :normal)
                             (size :l)
-                            (pin :round))
+                            (pin :round)
+                            (width :min)
+                            height)
   (make-instance widget-class
                  :content (create-widget-from content)
                  :on-click on-click
@@ -72,11 +75,9 @@
                  :view (ensure-view view)
                  :size (ensure-size size)
                  :pin (ensure-pin pin)
-                 :disabled disabled))
-
-
-(defmethod reblocks/widget:get-css-classes ((widget button))
-  (list "button-wrapper"))
+                 :disabled disabled
+                 :width width
+                 :height height))
 
 
 (defmethod render ((widget button) (theme t))
@@ -108,15 +109,17 @@
                :class (join-css-classes theme
                                         (button-class widget)
                                         view
+                                        (reblocks-ui2/widget:widget-width widget)
+                                        (reblocks-ui2/widget:widget-height widget)
                                         (button-size widget)
                                         (button-pin widget))
                :style (join-css-styles (button-style widget)
-                                       (css-styles theme
-                                                   view)
-                                       (css-styles theme
-                                                   (button-size widget))
-                                       (css-styles theme
-                                                   (button-pin widget)))
+                                       (css-styles view
+                                                   theme)
+                                       (css-styles (button-size widget)
+                                                   theme)
+                                       (css-styles (button-pin widget)
+                                                   theme))
                :disabled (button-disabled widget)
                (render (button-content widget)
                        theme)))))

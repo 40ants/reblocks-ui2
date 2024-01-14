@@ -11,16 +11,20 @@
                 #:acond
                 #:it)
   (:import-from #:reblocks-ui2/widget
+                #:get-html-tag
                 #:*current-widget*
                 #:get-dependencies
                 #:render
                 #:ui-widget)
   (:import-from #:serapeum
+                #:soft-list-of
                 #:soft-alist-of)
   (:import-from #:named-readtables
                 #:in-readtable)
   (:import-from #:pythonic-string-reader
                 #:pythonic-string-syntax)
+  (:import-from #:reblocks-ui2/themes/styling
+                #:css-classes)
   (:export #:html
            #:prop))
 (in-package #:reblocks-ui2/html)
@@ -34,13 +38,21 @@
    (css-dependency :initarg :css-dependency
                    :initform nil
                    :reader css-dependency)
+   (css-classes :initarg :css-classes
+                :initform nil
+                :type (soft-list-of string)
+                :reader %css-classes)
+   (html-tag :initarg :html-tag
+             :initform :div
+             :type keyword
+             :reader %html-tag)
    (props :initform (make-hash-table :test 'equal)
           :initarg :props
           :accessor props
           :documentation "This hash stores additional state and can be changed using accessor PROPS.")))
 
 
-(defmacro html ((&body body) &key css on-click props)
+(defmacro html ((&body body) &key css (html-tag :div) css-classes on-click props width height margin)
   """
   This macro allows to describe HTML, state, css and event handlers of the widget.
   All in the single form.
@@ -77,11 +89,16 @@
                                                  (let ((*current-widget* ,widget-var))
                                                    (with-html
                                                      ,@body)))
+                                  :html-tag ,html-tag
+                                  :css-classes (uiop:ensure-list ,css-classes)
                                   :css-dependency
                                   (when ',css
                                     (reblocks-lass:make-dependency
                                       ',css))
-                                  :on-click ,on-click)))
+                                  :on-click ,on-click
+                                  :width ,width
+                                  :height ,height
+                                  :margin ,margin)))
              (when ,props
                (loop for (key . value) in ,props
                      do (setf (gethash key (props widget))
@@ -101,6 +118,15 @@
             (call-next-method)))
     (t
      (call-next-method))))
+
+
+(defmethod css-classes ((theme t) (widget html-widget) &key)
+  (break)
+  (%css-classes widget))
+
+
+(defmethod get-html-tag ((widget html-widget) (theme t))
+  (%html-tag widget))
 
 
 (defun prop (name &optional default)

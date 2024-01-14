@@ -31,6 +31,9 @@
                 #:height)
   (:import-from #:reblocks-ui2/utils/padding
                 #:padding)
+  (:import-from #:reblocks-ui2/utils/align
+                #:vertical-align
+                #:horizontal-align)
   (:export #:card
            #:card-widget
            #:card-content
@@ -53,31 +56,33 @@
    (padding :initarg :padding
             :initform nil
             :reader card-padding)
-   (width :initarg :width
-          :initform nil
-          :type (or null
-                    width
-                    responsive-width)
-          :reader card-width)
-   (height :initarg :height
-           :initform nil
-           :type (or null
-                     height
-                     responsive-height)
-           :reader card-height)))
+   (horizontal-align :initarg :horizontal-align
+                     :initform nil
+                     :type horizontal-align
+                     :reader horizontal-align-of-card-content)
+   (vertical-align :initarg :vertical-align
+                   :initform :center
+                   :type vertical-align
+                   :reader vertical-align-of-card-content)))
 
 
 (defun card (content &key
-                       (view :outlined)
-                       (width "full")
-                       (height '(120 . nil))
-                       (padding :l)
-                       on-click
-                       (widget-class 'card-widget))
+                     (view :outlined)
+                     (width "full")
+                     (height '(120 . nil))
+                     (padding :l)
+                     margin
+                     (horizontal-align :center)
+                     (vertical-align :center)
+                     on-click
+                     (widget-class 'card-widget))
   (make-instance widget-class
                  :content (create-widget-from content)
                  :on-click on-click
                  :view (ensure-view view)
                  :width (ensure-width width)
                  :height (ensure-height height)
-                 :padding (padding padding)))
+                 :horizontal-align (horizontal-align horizontal-align)
+                 :vertical-align (vertical-align vertical-align)
+                 :padding (padding padding)
+                 :margin margin))

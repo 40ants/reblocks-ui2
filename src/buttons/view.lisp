@@ -1,5 +1,20 @@
 (uiop:define-package #:reblocks-ui2/buttons/view
-  (:use #:cl))
+  (:use #:cl)
+  (:export #:get-disabled-button-view
+           #:normal-disabled
+           #:raised-disabled
+           #:button-view
+           #:normal
+           #:action
+           #:raised
+           #:outlined
+           #:outlined-action
+           #:outlined-info
+           #:outlined-success
+           #:outlined-warning
+           #:outlined-danger
+           #:outlined-utility
+           #:ensure-view))
 (in-package #:reblocks-ui2/buttons/view)
 
 
@@ -9,10 +24,16 @@
 (defclass normal (button-view)
   ())
 
+(defclass normal-disabled (normal)
+  ())
+
 (defclass action (button-view)
   ())
 
 (defclass raised (button-view)
+  ())
+
+(defclass raised-disabled (raised)
   ())
 
 (defclass outlined (button-view)
@@ -51,3 +72,12 @@
         (error "Unable to find view class for view \"~A\"." name))
       
       (make-instance class))))
+
+
+(defgeneric get-disabled-button-view (view)
+  (:documentation "Returns an alternative view for a button in disabled state.")
+  
+  (:method ((view t))
+    (make-instance 'normal-disabled))
+  (:method ((view raised))
+    (make-instance 'raised-disabled)))

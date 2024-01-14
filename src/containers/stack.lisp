@@ -13,7 +13,9 @@
            #:stack
            #:push-child
            #:pop-child
-           #:current-stack-widget))
+           #:current-stack-widget
+           #:pop-me
+           #:replace-me-with))
 (in-package #:reblocks-ui2/containers/stack)
 
 

@@ -35,6 +35,22 @@
                       (render
                        (button "Outlined" :view :outlined))))
           
+          (:div :class "flex flex-col gap-4 items-center"
+                (:h1 "Disabled buttons")
+                (:div :class "flex gap-2"
+                      (render
+                       (button "Action" :view :action
+                               :disabled t))
+                      (render
+                       (button "Normal" :view :normal
+                               :disabled t))
+                      (render
+                       (button "Raised" :view :raised
+                               :disabled t))
+                      (render
+                       (button "Outlined" :view :outlined
+                               :disabled t))))
+          
           (:div :class "flex flex-col gap-8 items-center"
                 (:h1 "Buttons of different size")
                 (:div :class "flex gap-2 items-center"

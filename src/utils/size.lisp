@@ -1,5 +1,7 @@
 (uiop:define-package #:reblocks-ui2/utils/size
   (:use #:cl)
+  (:import-from #:reblocks-ui2/utils/primitive-to
+                #:process-primitive-arg)
   (:export #:responsive-height
            #:height
            #:responsive-width
@@ -11,7 +13,9 @@
            #:min-width
            #:max-width
            #:min-height
-           #:max-height))
+           #:max-height
+           #:some-width
+           #:some-height))
 (in-package #:reblocks-ui2/utils/size)
 
 
@@ -59,6 +63,14 @@
                :reader max-height)))
 
 
+(deftype some-width ()
+  '(or width responsive-width))
+
+
+(deftype some-height ()
+  '(or height responsive-height))
+
+
 (defun width (value)
   (make-instance 'width
                  :value value))
@@ -89,6 +101,8 @@
     (null value)
     (width value)
     (responsive-width value)
+    (keyword
+     (width (string-downcase value)))
     ((or integer
          string)
      (width value))
@@ -100,8 +114,23 @@
     (null value)
     (height value)
     (responsive-height value)
+    (keyword
+     (height (string-downcase value)))
     ((or integer
          string)
      (height value))
     (cons (responsive-height :min (car value)
                              :max (cdr value)))))
+
+
+
+(defmethod process-primitive-arg ((name (eql :width))
+                                  value)
+  (declare (ignore name))
+  (ensure-width value))
+
+
+(defmethod process-primitive-arg ((name (eql :height))
+                                  value)
+  (declare (ignore name))
+  (ensure-height value))

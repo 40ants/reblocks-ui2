@@ -4,6 +4,8 @@
   (:import-from #:named-readtables
                 #:in-readtable)
   (:import-from #:reblocks-ui2/buttons/view
+                #:raised-disabled
+                #:normal-disabled
                 #:raised
                 #:normal
                 #:action
@@ -54,12 +56,20 @@
   (list #?"bg-${*normal-color*}-200 hover:bg-${*normal-color*}-300"
         *default-action-css-classes*))
 
+(defmethod css-classes ((theme tailwind-theme) (view normal-disabled) &key)
+  (list #?"bg-${*normal-color*}-200 text-${*normal-color*}-500"
+        *default-action-css-classes*))
+
 (defmethod css-classes ((theme tailwind-theme) (view action) &key)
   (list #?"bg-${*action-color*}-500 hover:bg-${*action-color*}-400"
         *default-action-css-classes*))
 
 (defmethod css-classes ((theme tailwind-theme) (view raised) &key)
   (list #?"bg-white shadow-xl border border-${*normal-color*}-100 hover:bg-${*normal-color*}-200 hover:border-${*normal-color*}-300"
+        *default-action-css-classes*))
+
+(defmethod css-classes ((theme tailwind-theme) (view raised-disabled) &key)
+  (list #?"bg-${*normal-color*}-200 text-${*normal-color*}-500 shadow-xl border border-${*normal-color*}-100"
         *default-action-css-classes*))
 
 

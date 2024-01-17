@@ -22,7 +22,13 @@
   (:import-from #:reblocks-ui2-demo/pages/cards
                 #:make-cards-page)
   (:import-from #:reblocks-ui2-demo/pages/landing
-                #:make-landing-page))
+                #:make-landing-page)
+  (:import-from #:reblocks-ui2/themes/api
+                #:*current-theme*)
+  (:import-from #:reblocks-ui2/themes/tailwind
+                #:colors-bg-normal)
+  (:import-from #:reblocks-ui2/themes/styling
+                #:join-css-classes))
 (in-package #:reblocks-ui2-demo/app)
 
 
@@ -52,7 +58,10 @@
 
 
 (defmethod body-classes ((app app))
-  "dark:bg-stone-950")
+  (join-css-classes *current-theme*
+                    (colors-bg-normal *current-theme*))
+  ;; "bg-white dark:bg-stone-950"
+  )
 
 
 ;; TODO: I need to do something with routing and it's dependency on reblocks-ui and Foundation.js

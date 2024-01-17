@@ -122,7 +122,7 @@
    (bg
     (normal :type color
             :value (color "bg"
-                          :light "stone-300"
+                          :light "stone-100"
                           :dark "stone-900"))
     (action :type color
             :value (color "bg"

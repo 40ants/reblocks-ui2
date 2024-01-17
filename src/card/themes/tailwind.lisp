@@ -104,7 +104,10 @@
 
 
 (defmethod css-classes ((view filled) (theme tailwind-theme) &key)
-  (colors-bg-normal theme))
+  (reblocks-ui2/themes/color:adjust-color theme
+                                          (colors-bg-normal theme)
+                                          :light -2
+                                          :dark 2))
 
 (defmethod css-classes ((view filled-action) (theme tailwind-theme) &key)
   (colors-bg-action theme))

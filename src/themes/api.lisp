@@ -30,14 +30,20 @@
 
 
 (defclass theme ()
-  ((overrided-vars :initform (make-hash-table)
+  ((overrided-vars :initform (make-hash-table :test 'equal)
                    :initarg :overridden-vars
                    :reader overrided-vars)))
 
 
 (defun get-by-path (hash var-path)
   (loop with result = hash
-        for item in var-path
+        for item in (mapcar
+                     ;; Here we need to cast path items to strings,
+                     ;; because theme vars may be overriden in other package
+                     ;; and macro make-some-theme will capture symbols
+                     ;; of this another package.
+                     #'string-downcase
+                     var-path)
         while result
         do (setf result
                  (gethash item result))
@@ -119,9 +125,10 @@
   
   (defun make-properties-hash (var-forms)
     (alexandria:with-gensyms (result-var)
-      `(let ((,result-var (make-hash-table)))
+      `(let ((,result-var (make-hash-table :test 'equal)))
          ,@(loop for (name . params-or-subitems) in var-forms
-                 collect `(setf (gethash ',name ,result-var)
+                 collect `(setf (gethash ,(string-downcase name)
+                                         ,result-var)
                                 ,(if (variable-params-p params-or-subitems)
                                      `(make-theme-var ,@(quote-type-param params-or-subitems))
                                      (make-properties-hash params-or-subitems))))
@@ -135,7 +142,7 @@
               (loop for (name . value-or-subitems) in var-forms
                     for new-path = (append path
                                            (list name))
-                    collect `(setf (gethash ',name ,result-var)
+                    collect `(setf (gethash ,(string-downcase name) ,result-var)
                                    ,(multiple-value-bind (_1 search-status _2 variable)
                                         (search-in-class-vars (find-class class-name)
                                                               new-path)
@@ -161,7 +168,7 @@
                                          (make-overriden-vars-hash class-name
                                                                    value-or-subitems
                                                                    new-path))))))))
-        `(let ((,result-var (make-hash-table)))
+        `(let ((,result-var (make-hash-table :test 'equal)))
            ,@hash-updates
            (values ,result-var)))))
   

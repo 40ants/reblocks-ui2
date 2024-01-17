@@ -37,6 +37,7 @@
                 #:outlined-danger
                 #:outlined-utility)
   (:import-from #:reblocks-ui2/themes/tailwind
+                #:core-mode
                 #:colors-border-utility
                 #:colors-border-danger
                 #:colors-border-warning
@@ -66,7 +67,11 @@
                 #:awhen
                 #:it)
   (:import-from #:reblocks-ui2/themes/color
-                #:adjust-color))
+                #:adjust-color)
+  (:import-from #:str
+                #:ensure-prefix)
+  (:import-from #:alexandria
+                #:curry))
 (in-package #:reblocks-ui2/card/themes/tailwind)
 
 (in-readtable :interpol-syntax)
@@ -129,16 +134,25 @@
 
 
 (defun raised-style (theme border-color bg-color)
-  (list "border shadow-xl dark:shadow-none dark:border-none"
-        (adjust-color theme
-                      border-color
-                      :dark "none")
-        (adjust-color theme
-                      bg-color
-                 :light "none"
-                 ;; Raise cards should appear more light than filled one,
-                 ;; because we can't make them popup using shadow:
-                 :dark 2)))
+  (let ((light-border (list "border"
+                            "shadow-xl"))
+        (dark-border (list "shadow-none"
+                           "border-none")))
+    (list (case (core-mode theme)
+            (:auto (append light-border
+                           (mapcar (curry #'ensure-prefix "dark:")
+                                   dark-border)))
+            (:light light-border)
+            (:dark dark-border))
+          (adjust-color theme
+                        border-color
+                        :dark "none")
+          (adjust-color theme
+                        bg-color
+                        :light "none"
+                        ;; Raise cards should appear more light than filled one,
+                        ;; because we can't make them popup using shadow:
+                        :dark 2))))
 
 
 (defmethod css-classes ((view raised) (theme tailwind-theme) &key)

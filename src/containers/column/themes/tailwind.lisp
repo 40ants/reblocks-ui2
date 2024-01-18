@@ -5,9 +5,6 @@
                 #:widget-margin
                 #:render)
   (:import-from #:reblocks-ui2/containers/column
-                #:children-gap
-                #:gap-css-classes
-                #:subwidgets
                 #:column-widget)
   (:import-from #:reblocks-ui2/themes/tailwind
                 #:tailwind-theme)
@@ -16,27 +13,9 @@
 (in-package #:reblocks-ui2/containers/column/themes/tailwind)
 
 
-(defmethod render ((widget column-widget) (theme tailwind-theme))
-  (reblocks/html:with-html
-    (loop for subwidget in (subwidgets widget)
-          do (render subwidget theme))))
-
-
 (defmethod css-classes ((widget column-widget) (theme tailwind-theme) &key)
   (list (list "flex flex-col"
               "items-center justify-between")
-        (gap-css-classes (children-gap widget) theme)
         (call-next-method)))
 
-
-(defmethod gap-css-classes ((gap symbol) (theme tailwind-theme))
-  (case gap
-    (:z (list "gap-0"))
-    (:s (list "gap-2"))
-    (:m (list "gap-4"))
-    (:l (list "gap-8"))
-    (:xl (list "gap-12"))
-    (t
-     (error "Gap \"~A\" is not supported by \"~A\" theme."
-            gap theme))))
 

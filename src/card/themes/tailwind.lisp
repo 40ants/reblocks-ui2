@@ -200,7 +200,11 @@
    (list
     "flex"
     (awhen (card-border-radius theme)
-      (fmt "rounded-~A" it))
+      (list (fmt "rounded-~A" it)
+            ;; We need this rule to hide inner block's corners
+            ;; in case if padding is NIL or too small and
+            ;; nested items have some background:
+            "overflow-hidden"))
 
     (colors-text-normal theme))
    

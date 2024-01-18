@@ -12,7 +12,9 @@
                 #:soft-list-of)
   (:import-from #:reblocks-ui2/widget
                 #:ui-widget)
-  (:import-from #:reblocks-ui2/utils/walk)
+  (:import-from #:reblocks-ui2/containers/container
+                #:make-container
+                #:container-widget)
   (:export #:row-widget
            #:make-row-widget
            #:row
@@ -20,23 +22,14 @@
 (in-package #:reblocks-ui2/containers/row)
 
 
-(defvar *default-gap* :m)
+(defwidget row-widget (container-widget)
+  ())
 
 
-(defwidget row-widget (ui-widget)
-  ((subwidgets :initarg :subwidgets
-               :initform nil
-               :type (soft-list-of widget)
-               :reader subwidgets)
-   (gap :initform *default-gap*
-        :initarg :gap
-        :reader children-gap)
-   ;; (classes :initarg :classes
-   ;;          :initform nil
-   ;;          :type (soft-list-of string)
-   ;;          :reader classes
-   ;;          :documentation "A list of additional CSS classes.")
-   ))
+(defun row (&rest subwidgets-and-options)
+  (apply #'make-container 'row-widget
+         subwidgets-and-options))
+
 
 
 (defun make-row-widget (subwidgets
@@ -46,31 +39,3 @@
                  :subwidgets (mapcar #'create-widget-from subwidgets)
                  :gap gap
                  :on-click on-click))
-
-
-(defmacro row (&rest subwidgets-and-options)
-  (loop with collecting-subwidgets-p = t
-        for item in subwidgets-and-options
-        when (keywordp item)
-        do (setf collecting-subwidgets-p nil)
-        if collecting-subwidgets-p
-        collect item into subwidget-forms
-        else
-        collect item into options
-        finally (return
-                  (destructuring-bind (&key gap on-click)
-                      options
-                    `(make-row-widget (list ,@subwidget-forms)
-                                      :gap (or ,gap
-                                               *default-gap*)
-                                      :on-click ,on-click)))))
-
-
-
-(defgeneric gap-css-classes (gap theme)
-  (:method (gap theme)
-    nil))
-
-
-(defmethod reblocks-ui2/utils/walk:children ((widget row-widget))
-  (subwidgets widget))

@@ -12,63 +12,19 @@
                 #:soft-list-of)
   (:import-from #:reblocks-ui2/widget
                 #:ui-widget)
-  (:import-from #:reblocks-ui2/utils/walk)
+  (:import-from #:reblocks-ui2/containers/container
+                #:make-container
+                #:container-widget)
   (:export #:column-widget
            #:column
            #:subwidgets))
 (in-package #:reblocks-ui2/containers/column)
 
 
-(defvar *default-gap* :m)
-
-
-(defwidget column-widget (ui-widget)
-  ((subwidgets :initarg :subwidgets
-               :initform nil
-               :type (soft-list-of widget)
-               :accessor subwidgets)
-   (gap :initform *default-gap*
-        :initarg :gap
-        :reader children-gap)))
-
-
-(defun make-column-widget (subwidgets
-                           &key gap)
-  (make-instance 'column-widget
-                 :subwidgets (mapcar #'create-widget-from subwidgets)
-                 :gap gap))
+(defwidget column-widget (container-widget)
+  ())
 
 
 (defun column (&rest subwidgets-and-options)
-  (loop with collecting-subwidgets-p = t
-        for item in subwidgets-and-options
-        when (keywordp item)
-        do (setf collecting-subwidgets-p nil)
-        if collecting-subwidgets-p
-        collect item into subwidgets
-        else
-        collect item into options
-        finally (return
-                  (destructuring-bind (&key (gap *default-gap*)
-                                            (column-type 'column-widget)
-                                            margin
-                                            (width :full)
-                                            height)
-                      options
-                    (make-instance column-type
-                                   :subwidgets (mapcar #'create-widget-from
-                                                       (remove-if #'null subwidgets))
-                                   :gap gap
-                                   :margin margin
-                                   :width width
-                                   :height height)))))
-
-
-
-(defgeneric gap-css-classes (gap theme)
-  (:method (gap theme)
-    nil))
-
-
-(defmethod reblocks-ui2/utils/walk:children ((widget column-widget))
-  (subwidgets widget))
+  (apply #'make-container 'column-widget
+         subwidgets-and-options))

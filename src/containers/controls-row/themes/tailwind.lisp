@@ -17,4 +17,4 @@
   (list* "justify-end"
          (remove "justify-between"
                  (flatten (call-next-method))
-                 :test #'string-equal)))
+                 :test #'equal)))

@@ -12,6 +12,7 @@
   :depends-on ("reblocks-ui2/tables/themes/tailwind/table"
                "reblocks-ui2/widget/themes/tailwind"
                "reblocks-ui2/containers/container/themes/tailwind"
+               "reblocks-ui2/themes/tailwind/align"
                "reblocks-ui2/tables/themes/tailwind/editable-table"
                "reblocks-ui2/containers/row/themes/tailwind"
                "reblocks-ui2/containers/column/themes/tailwind"

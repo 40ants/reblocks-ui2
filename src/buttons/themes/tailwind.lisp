@@ -30,7 +30,9 @@
   (:import-from #:reblocks-ui2/utils/pin
                 #:left-side
                 #:right-side
-                #:pin))
+                #:pin)
+  (:import-from #:reblocks-ui2/buttons/button
+                #:button))
 (in-package #:reblocks-ui2/buttons/themes/tailwind)
 
 (in-readtable :interpol-syntax)
@@ -113,7 +115,7 @@
 
 
 (defmethod css-classes ((size m) (theme tailwind-theme) &key)
-  "text-m px-1 py-1")
+  "text-base px-2 py-1")
 
 
 (defmethod css-classes ((size l) (theme tailwind-theme) &key)
@@ -151,3 +153,10 @@
          (:brick nil)
          (:round (add-size-suffix "rounded-r"))
          (:circle "rounded-r-full"))))))
+
+
+;; Button's outer container
+(defmethod css-classes ((button button) (theme tailwind-theme) &key)
+  (list
+   ;; To make it possible to add a button iside a text block.
+   "inline-block"))

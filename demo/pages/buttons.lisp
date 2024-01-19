@@ -55,23 +55,23 @@
                 (:h1 "Buttons of different size")
                 (:div :class "flex gap-2 items-center"
                       (render
-                       (button "Click Me!"
+                       (button "Size :XS"
                                :view :outlined
                                :size :xs))
                       (render
-                       (button "Click Me!"
+                       (button "Size :S"
                                :view :outlined
                                :size :s))
                       (render
-                       (button "Click Me!"
+                       (button "Size :M"
                                :view :outlined
                                :size :m))
                       (render
-                       (button "Click Me!"
+                       (button "Size :L"
                                :view :outlined
                                :size :l))
                       (render
-                       (button "Click Me!"
+                       (button "Size :XL"
                                :view :outlined
                                :size :xl))))
           

@@ -11,6 +11,7 @@
                 #:make-js-action)
   (:import-from #:reblocks-lass)
   (:import-from #:reblocks-ui2/buttons/view
+                #:get-disabled-button-view
                 #:ensure-view)
   (:import-from #:reblocks-ui2/themes/api
                 #:*current-theme*)
@@ -20,6 +21,9 @@
                 #:css-classes
                 #:css-styles)
   (:import-from #:reblocks-ui2/widget
+                #:widget-height
+                #:widget-width
+                #:on-click
                 #:render
                 #:ui-widget)
   (:import-from #:reblocks-ui2/sizes
@@ -32,11 +36,7 @@
 
 
 (defwidget button (ui-widget)
-  ((on-click :initarg :on-click
-             :type (or function
-                       null)
-             :reader button-on-click)
-   (content :initarg :content
+  ((content :initarg :content
             :type widget
             :reader button-content)
    (class :initarg :class
@@ -81,16 +81,11 @@
 
 
 (defmethod render ((widget button) (theme t))
-  (let ((action-code (when (button-on-click widget)
-                       (typecase (button-on-click widget)
-                         (string (button-on-click widget))
-                         (t
-                          (make-js-action (button-on-click widget))))))
-        (view (if (button-disabled widget)
-                  (reblocks-ui2/buttons/view::get-disabled-button-view (button-view widget))
+  (let ((view (if (button-disabled widget)
+                  (get-disabled-button-view (button-view widget))
                   (button-view widget))))
     (with-html
-      (:button :type (if action-code
+      (:button :type (if (on-click widget)
                          ;; We need to set type to button for all buttons having
                          ;; having on-click handler to prevent the handler to be
                          ;; triggered when button is in the form and user hits
@@ -98,19 +93,11 @@
                          ;; https://stackoverflow.com/questions/62144665
                          "button"
                          "submit")
-               :onclick (when action-code
-                          (concatenate 'string
-                                       ;; We need this stop propagation
-                                       ;; to be able to build buttons into
-                                       ;; other objects having their own
-                                       ;; onClick handlers.
-                                       "event.stopPropagation(); "
-                                       action-code))
                :class (join-css-classes theme
                                         (button-class widget)
                                         view
-                                        (reblocks-ui2/widget:widget-width widget)
-                                        (reblocks-ui2/widget:widget-height widget)
+                                        (widget-width widget)
+                                        (widget-height widget)
                                         (button-size widget)
                                         (button-pin widget)
                                         ;; TODO: this is a Tailwind's property

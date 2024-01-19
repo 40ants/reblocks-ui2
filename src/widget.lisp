@@ -117,7 +117,13 @@
              (declare (ignore args))
              (let ((*current-widget* widget))
                (funcall it widget))))
-      (make-js-action #'on-click-wrapper))))
+      (concatenate 'string
+                   ;; We need this stop propagation
+                   ;; to be able to build buttons into
+                   ;; other objects having their own
+                   ;; onClick handlers.
+                   "event.stopPropagation(); "
+                   (make-js-action #'on-click-wrapper)))))
 
 
 (defmethod render :around ((widget ui-widget) (theme t))

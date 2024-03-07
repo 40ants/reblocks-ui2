@@ -17,27 +17,30 @@
   (:import-from #:reblocks-ui2/widget
                 #:ui-widget)
   (:import-from #:reblocks-lass)
-  (:export
-   #:make-table
-   #:column
-   #:current-row
-   #:current-table
-   #:current-cell
-   #:current-column
-   #:recalculate-cells
-   #:table-row
-   #:table-widget
-   #:append-data
-   #:column-align
-   #:column-css-classes
-   #:table-columns
-   #:table-rows
-   #:row-table
-   #:row-cells
-   #:row-object
-   #:column-idx
-   #:header-column-css-classes
-   #:column-classes))
+  (:export #:make-table
+           #:column
+           #:current-row
+           #:current-table
+           #:current-cell
+           #:current-column
+           #:recalculate-cells
+           #:table-row
+           #:table-widget
+           #:append-data
+           #:column-align
+           #:column-css-classes
+           #:table-columns
+           #:table-rows
+           #:row-table
+           #:row-cells
+           #:row-object
+           #:column-idx
+           #:header-column-css-classes
+           #:column-classes
+           #:data-getter
+           #:cell-maker
+           #:column-title
+           #:table-row-class))
 (in-package #:reblocks-ui2/tables/table)
 
 

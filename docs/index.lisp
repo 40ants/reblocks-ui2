@@ -41,6 +41,8 @@
 (defsection @index (:title "reblocks-ui2 - A pack of UI components for Reblocks web-framework."
                     :ignore-words ("JSON"
                                    "HTTP"
+                                   "HTML"
+                                   "CSS"
                                    "TODO"
                                    "Unlicense"
                                    "REPL"
@@ -52,7 +54,8 @@
                                    "URL"
                                    "URI"
                                    "RPC"
-                                   "GIT"))
+                                   "GIT")
+                    :external-docs ("https://40ants.com/reblocks/"))
   (reblocks-ui2 system)
   "
 [![](https://github-actions.40ants.com/40ants/reblocks-ui2/matrix.svg?only=ci.run-tests)](https://github.com/40ants/reblocks-ui2/actions)

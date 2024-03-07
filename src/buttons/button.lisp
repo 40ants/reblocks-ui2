@@ -13,8 +13,12 @@
   (:import-from #:reblocks/dependencies
                 #:get-dependencies)
   (:import-from #:reblocks-lass)
-  (:export
-   #:button))
+  (:export #:button
+           #:button-on-click
+           #:button-content
+           #:button-class
+           #:button-style
+           #:button-disabled))
 (in-package #:reblocks-ui2/buttons/button)
 
 

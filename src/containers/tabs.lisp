@@ -12,6 +12,7 @@
   (:import-from #:reblocks/dependencies
                 #:get-dependencies)
   (:import-from #:serapeum
+                #:->
                 #:dict)
   (:import-from #:reblocks/widgets/dom
                 #:dom-id)
@@ -30,8 +31,13 @@
            #:subwidgets
            #:subwidgets-titles
            #:current-idx
-           #:switch-to-idx))
+           #:switch-to-idx
+           #:tabs-size))
 (in-package #:reblocks-ui2/containers/tabs)
+
+
+(deftype tabs-size ()
+  '(member :m :l :xl))
 
 
 (defwidget tabs-control (event-emitter ui-widget)
@@ -39,7 +45,10 @@
            :reader subwidgets-titles)
    (current-idx :initarg :idx
                 :initform 0
-                :accessor current-idx)))
+                :accessor current-idx)
+   (size :initarg :size
+         :type tabs-size
+         :reader tabs-size)))
 
 
 (defwidget tabs-widget (ui-widget)
@@ -49,9 +58,12 @@
                :reader subwidgets)))
 
 
+(-> tabs (list list &key (:idx integer) (:selector-class symbol) (:class symbol) (:size tabs-size)))
+
 (defun tabs (titles subwidgets &key (idx 0)
-                                                (selector-class 'tabs-control)
-                                                (class 'tabs-widget))
+                                    (selector-class 'tabs-control)
+                                    (class 'tabs-widget)
+                                    (size :l))
   (unless (length= titles subwidgets)
     (error "Titles and subwidgets count should be equal."))
   (when (zerop (length titles))
@@ -64,7 +76,8 @@
   (let* ((selector (make-instance selector-class
                                   :titles (mapcar #'create-widget-from
                                                   titles)
-                                  :idx idx))
+                                  :idx idx
+                                  :size size))
          (widget (make-instance class
                                 :selector selector
                                 :subwidgets (mapcar #'create-widget-from

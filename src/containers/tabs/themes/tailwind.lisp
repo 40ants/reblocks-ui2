@@ -9,6 +9,7 @@
   (:import-from #:reblocks-ui2/widget
                 #:render)
   (:import-from #:reblocks-ui2/containers/tabs
+                #:tabs-size
                 #:switch-to-idx
                 #:subwidgets-titles
                 #:tabs-control
@@ -17,6 +18,7 @@
                 #:tabs-selector
                 #:tabs-widget)
   (:import-from #:serapeum
+                #:fmt
                 #:dict)
   (:import-from #:reblocks/widgets/dom
                 #:dom-id)
@@ -61,6 +63,8 @@
                                       (color-dark (colors-line-normal theme)))))
     (list* "flex"
            "gap-4"
+           (fmt "text-~A"
+                (string-downcase (tabs-size widget)))
            light-border
            dark-border
            (call-next-method))))

@@ -14,7 +14,11 @@
 
                    Result can be a list, string or a keyword.")
   (:method ((object t) (theme t) &key)
-    nil))
+    nil)
+  (:method ((object string) (theme t) &key)
+    object)
+  (:method ((object symbol) (theme t) &key)
+    object))
 
 
 (defgeneric css-styles (object theme)

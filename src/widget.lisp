@@ -2,6 +2,7 @@
   (:use #:cl)
   (:import-from #:reblocks/widget
                 #:defwidget)
+  (:import-from #:parenscript)
   (:import-from #:reblocks/page-dependencies)
   (:import-from #:reblocks/dependencies)
   (:import-from #:reblocks-ui2/themes/api
@@ -39,7 +40,8 @@
            #:widget-margin
            #:widget-height
            #:widget-width
-           #:on-click))
+           #:on-click
+           #:html-attrs))
 (in-package #:reblocks-ui2/widget)
 
 
@@ -110,20 +112,44 @@
     (reblocks/widget:get-html-tag widget)))
 
 
+(defgeneric html-attrs (widget theme)
+  (:documentation "May return a plist of attributes to add to the main widget's HTML node.
+
+                   It should not return :ID :CLASS or :ONCLICK attributes.")
+  (:method ((widget t) (theme t))
+    nil))
+
+
 (defun make-onclick-wrapper (widget)
   (check-type widget ui-widget)
   (awhen (on-click widget)
-    (flet ((on-click-wrapper (&rest args)
-             (declare (ignore args))
-             (let ((*current-widget* widget))
-               (funcall it widget))))
-      (concatenate 'string
-                   ;; We need this stop propagation
-                   ;; to be able to build buttons into
-                   ;; other objects having their own
-                   ;; onClick handlers.
-                   "event.stopPropagation(); "
-                   (make-js-action #'on-click-wrapper)))))
+    (concatenate 'string
+                 ;; We need this stop propagation
+                 ;; to be able to build buttons into
+                 ;; other objects having their own
+                 ;; onClick handlers.
+                 "event.stopPropagation(); "
+                 (typecase it
+                   ;; We were given a raw JavaScript
+                   (string it)
+                   ;; We were given a Parenscript code
+                   ;; and need to translate it to JS:
+                   (cons (ps:ps* it))
+                   (t
+                    ;; Otherwise, we are given a function
+                    ;; to be called as a callback
+                    (unless (or (typep it 'function)
+                                (and (typep it 'symbol)
+                                     (fboundp it)))
+                      (error "Callback ~A should be a function or a fbound symbol."
+                             it))
+                    
+                    (make-js-action
+                     (flet ((on-click-wrapper (&rest args)
+                              (declare (ignore args))
+                              (let ((*current-widget* widget))
+                                (funcall it widget))))
+                       #'on-click-wrapper)))))))
 
 
 (defmethod render :around ((widget ui-widget) (theme t))
@@ -149,6 +175,7 @@
                               (css-classes widget theme))
      :id (reblocks/widgets/dom:dom-id widget)
      :onclick (make-onclick-wrapper widget)
+     :attrs (html-attrs widget theme)
      (call-next-method))))
 
 

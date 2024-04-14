@@ -67,17 +67,22 @@
                            (:xl . "8"))
                   :documentation "A mapping of :s :m :l :xl sizes to real padding size which can be applied to any widget.")
    (margin-sizes :type (soft-alist-of padding-size string)
-                  :value '((:s . "1")
-                           (:m . "2")
-                           (:l . "4")
-                           (:xl . "8"))
-                  :documentation "A mapping of :s :m :l :xl sizes to real margin size which can be applied to the any widget."))
+                 :value '((:s . "1")
+                          (:m . "2")
+                          (:l . "4")
+                          (:xl . "8"))
+                 :documentation "A mapping of :s :m :l :xl sizes to real margin size which can be applied to the any widget."))
   (colors
    (text
     (normal :type color
             :value (color "text"
                           :light "stone-800"
                           :dark "stone-300")))
+   (line
+    (normal :type color
+            :value (color "text"
+                          :light "rgba(0,0,0,0.1)"
+                          :dark "rgba(255,255,255,0.15)")))
    (border
     (normal :type color
             :value (color "border"
@@ -136,6 +141,13 @@
              :value (color "bg"
                            :light "purple-300"
                            :dark "purple-950"))))
+
+  (tabs
+   (active
+    (color :type color
+           :value (color "border"
+                         :light "yellow-300"
+                         :dark "yellow-950"))))
 
   (card
    (border-radius :type string

@@ -28,7 +28,9 @@
   (:import-from #:reblocks-ui2/themes/tailwind
                 #:colors-bg-normal)
   (:import-from #:reblocks-ui2/themes/styling
-                #:join-css-classes))
+                #:join-css-classes)
+  (:import-from #:reblocks-ui2-demo/pages/tabs
+                #:make-tabs-page))
 (in-package #:reblocks-ui2-demo/app)
 
 
@@ -47,6 +49,8 @@
                   (make-containers-page)))
   ("/button" (wrap-with-frame
               (make-buttons-page)))
+  ("/tabs" (wrap-with-frame
+            (make-tabs-page)))
   
   ("/" (wrap-with-frame
         (make-landing-page))))

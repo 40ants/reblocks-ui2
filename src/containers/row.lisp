@@ -13,6 +13,7 @@
   (:import-from #:reblocks-ui2/widget
                 #:ui-widget)
   (:import-from #:reblocks-ui2/containers/container
+                #:*default-gap*
                 #:make-container
                 #:container-widget)
   (:export #:row-widget

@@ -53,7 +53,8 @@
                                        (cons "form" "Form")
                                        (cons "text-input" "Text Input")
                                        (cons "card" "Card")
-                                       (cons "containers" "Containers"))
+                                       (cons "containers" "Containers")
+                                       (cons "tabs" "Tabs"))
                                  #'string<
                                  :key #'car)))
             (:ul :class "w-[200px] flex flex-col gap-4"

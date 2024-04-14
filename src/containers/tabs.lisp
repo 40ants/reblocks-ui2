@@ -21,13 +21,20 @@
                 #:event-emitter)
   (:import-from #:reblocks/actions
                 #:make-js-action)
-  (:export #:make-tabs-widget
+  (:import-from #:reblocks-ui2/widget
+                #:ui-widget)
+  (:export #:tabs
            #:tabs-widget
-           #:tabs-control))
+           #:tabs-control
+           #:tabs-selector
+           #:subwidgets
+           #:subwidgets-titles
+           #:current-idx
+           #:switch-to-idx))
 (in-package #:reblocks-ui2/containers/tabs)
 
 
-(defwidget tabs-control (event-emitter widget)
+(defwidget tabs-control (event-emitter ui-widget)
   ((titles :initarg :titles
            :reader subwidgets-titles)
    (current-idx :initarg :idx
@@ -35,14 +42,14 @@
                 :accessor current-idx)))
 
 
-(defwidget tabs-widget ()
+(defwidget tabs-widget (ui-widget)
   ((selector :initarg :selector
      :reader tabs-selector)
    (subwidgets :initarg :subwidgets
                :reader subwidgets)))
 
 
-(defun make-tabs-widget (titles subwidgets &key (idx 0)
+(defun tabs (titles subwidgets &key (idx 0)
                                                 (selector-class 'tabs-control)
                                                 (class 'tabs-widget))
   (unless (length= titles subwidgets)
@@ -81,56 +88,4 @@
       (reblocks/widget:update widget)
       (event-emitter:emit :change widget
                           idx))))
-
-
-(defmethod render ((widget tabs-widget))
-  (with-html
-    (render (tabs-selector widget))
-    (:div :class "tabs-content"
-          (render (elt (subwidgets widget)
-                       (current-idx (tabs-selector widget)))))))
-
-
-(defmethod reblocks/widget:get-html-tag ((widget tabs-control))
-  :ul)
-
-
-(defmethod reblocks/widget:get-css-classes ((widget tabs-control))
-  (list* :tabs
-         (call-next-method)))
-
-
-(defmethod render ((widget tabs-control))
-  (with-html
-    (loop for title in (subwidgets-titles widget)
-          for idx upfrom 0
-          for activep = (= idx (current-idx widget))
-          for cls = (apply #'concatenate
-                           'string
-                           "tabs-title"
-                           (when activep
-                             (list " is-active")))
-          for action-code = (make-js-action #'switch-to-idx
-                                            :args
-                                            (dict "widget-id"
-                                                  (dom-id widget)
-                                                  "idx" idx))
-          do (:li :class cls
-                  (:a :aria-selected (when activep
-                                       "true") 
-                      :onclick action-code
-                                        (render title))))))
-
-
-(defmethod get-dependencies ((widget tabs-widget))
-  (list*
-   (reblocks-lass:make-dependency
-     `(.tabs-widget
-       (.tabs-content
-        ;; We need to set these
-        ;; flex properties to make margin on nested elements
-        ;; work propertly:
-        :display flex
-        :flex-direction column)))
-   (call-next-method)))
 

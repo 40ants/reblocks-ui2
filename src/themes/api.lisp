@@ -16,7 +16,8 @@
                 #:class-precedence-list)
   (:export #:current-theme
            #:*current-theme*
-           #:deftheme))
+           #:deftheme
+           #:theme))
 (in-package #:reblocks-ui2/themes/api)
 
 

@@ -36,6 +36,9 @@
            #:button-content
            #:button-class
            #:button-style
+           #:button-view
+           #:button-size
+           #:button-pin
            #:button-disabled))
 (in-package #:reblocks-ui2/buttons/button)
 
@@ -43,26 +46,26 @@
 (defwidget button (ui-widget)
   ((content :initarg :content
             :type widget
-            :reader button-content)
+            :accessor button-content)
    (class :initarg :class
           :type (or null string)
-          :reader button-class)
+          :accessor button-class)
    (style :initarg :style
           :type (or null string)
-          :reader button-style)
+          :accessor button-style)
    (view :initarg :view
          :initform nil
-         :reader button-view)
+         :accessor button-view)
    (size :initarg :size
          :initform nil
-         :reader button-size)
+         :accessor button-size)
    (pin :initarg :pin
         :type pin
-        :reader button-pin)
+        :accessor button-pin)
    (disabled :initarg :disabled
              :initform nil
              :type boolean
-             :reader button-disabled))
+             :accessor button-disabled))
   (:default-initargs :width :min))
 
 

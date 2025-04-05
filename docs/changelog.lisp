@@ -9,5 +9,11 @@
                               "ASDF"
                               "REPL"
                               "HTTP"))
+  (0.2.0 2024-04-04
+         "
+## Changes
+
+* Allow to set current theme using SETF on REBLOCKS-UI2/THEMES/API:CURRENT-THEME function.
+* Now TailwindCSS theme automatically loads https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4 JavaScript dependency.")
   (0.1.0 2023-02-05
          "* Initial version."))

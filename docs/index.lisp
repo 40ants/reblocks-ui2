@@ -34,8 +34,7 @@
   
   (list :theme
         (find-symbol "40ANTS-THEME"
-                     (find-package "40ANTS-DOC-THEME-40ANTS")))
-  )
+                     (find-package "40ANTS-DOC-THEME-40ANTS"))))
 
 
 (defsection @index (:title "reblocks-ui2 - A pack of UI components for Reblocks web-framework."
@@ -45,6 +44,7 @@
                                    "CSS"
                                    "TODO"
                                    "Unlicense"
+                                   "Reblocks-UI2"
                                    "REPL"
                                    "ASDF:PACKAGE-INFERRED-SYSTEM"
                                    "ASDF"

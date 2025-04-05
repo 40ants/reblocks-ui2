@@ -57,7 +57,8 @@
            #:editable-column
            #:object-deleter
            #:delete-row
-           #:row-not-found))
+           #:row-not-found
+           #:object-creator))
 (in-package #:reblocks-ui2/tables/editable-table)
 
 

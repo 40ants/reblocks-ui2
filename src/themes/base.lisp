@@ -6,4 +6,4 @@
 
 (defclass base-theme ()
   ()
-  (:documentation "A base theme class for all Reblocks-UI2 themes."))
+  (:documentation "A base theme class for all `Reblocks-UI2` themes."))

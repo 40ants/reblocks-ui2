@@ -34,31 +34,30 @@
 (in-package #:reblocks-ui2-demo/app)
 
 
-(defapp app
-  :prefix "/reblocks-ui2")
+(macrolet ((route ((path &key name) &body body)
+             `(40ants-routes/defroutes:get (,path :name ,name)
+                (wrap-with-frame
+                 ,@body))))
+  (defapp app
+    :prefix "/reblocks-ui2"
+    :routes ((route ("/form" :name "form")
+                    (make-form-page))
+             (route ("/card" :name "card")
+                    (make-cards-page))
+             (route ("/text-input" :name "text-input")
+                    (make-text-input-page))
+             (route ("/containers" :name "containers")
+                    (make-containers-page))
+             (route ("/button" :name "button")
+                    (make-buttons-page))
+             (route ("/tabs" :name "tabs")
+                    (make-tabs-page))
+             (route ("/" :name "index")
+                    (make-landing-page)))))
 
 
-(defroutes routes
-  ("/form" (wrap-with-frame
-            (make-form-page)))
-  ("/card" (wrap-with-frame
-            (make-cards-page)))
-  ("/text-input" (wrap-with-frame
-                  (make-text-input-page)))
-  ("/containers" (wrap-with-frame
-                  (make-containers-page)))
-  ("/button" (wrap-with-frame
-              (make-buttons-page)))
-  ("/tabs" (wrap-with-frame
-            (make-tabs-page)))
-  
-  ("/" (wrap-with-frame
-        (make-landing-page))))
-
-
-
-(defmethod init-page ((app app) url-path expire-at)
-  (make-routes))
+;; (defmethod init-page ((app app) url-path expire-at)
+;;   (make-routes))
 
 
 (defmethod body-classes ((app app))

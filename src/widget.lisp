@@ -3,6 +3,7 @@
   (:import-from #:reblocks/widget
                 #:defwidget)
   (:import-from #:parenscript)
+  (:import-from #:reblocks/debug)
   (:import-from #:reblocks/page-dependencies)
   (:import-from #:reblocks/dependencies)
   (:import-from #:reblocks-ui2/themes/api

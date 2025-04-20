@@ -18,7 +18,8 @@
   :jobs ((40ants-ci/jobs/linter:linter
           :asdf-systems ("reblocks-ui2"
                          "reblocks-ui2-docs"
-                         "reblocks-ui2-tests"))))
+                         "reblocks-ui2-tests")
+          :check-imports t)))
 
 (defworkflow docs
   :on-push-to "master"

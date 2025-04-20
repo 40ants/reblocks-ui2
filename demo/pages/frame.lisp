@@ -19,7 +19,9 @@
   (:import-from #:reblocks-ui2/themes/styling
                 #:join-css-classes)
   (:import-from #:reblocks-ui2/themes/tailwind
-                #:colors-bg-action))
+                #:colors-bg-action)
+  (:import-from #:40ants-routes/route-url
+                #:route-url))
 (in-package #:reblocks-ui2-demo/pages/frame)
 
 
@@ -58,10 +60,9 @@
                                  #'string<
                                  :key #'car)))
             (:ul :class "w-[200px] flex flex-col gap-4"
-                 (loop for (path . title) in sections
-                       for full-path = (fmt "~A/~A"
-                                            (get-prefix *current-app*)
-                                            path)
+                 (loop for (page-name . title) in sections
+                       for full-path = (route-url page-name
+                                                  :namespace "app")
                        for current = (string-equal full-path (reblocks/request:get-path))
                        do (:li :class (if current
                                           current-menu-item-classes

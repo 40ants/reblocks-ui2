@@ -18,7 +18,8 @@
   :jobs ((40ants-ci/jobs/linter:linter
           :asdf-systems ("reblocks-ui2"
                          "reblocks-ui2-docs"
-                         "reblocks-ui2-tests"))))
+                         "reblocks-ui2-tests")
+          :check-imports t)))
 
 (defworkflow docs
   :on-push-to "master"
@@ -36,7 +37,5 @@
   :jobs ((run-tests
           :asdf-system "reblocks-ui2"
           :lisp ("sbcl-bin"
-                 ;; Issue https://github.com/roswell/roswell/issues/534
-                 ;; is still reproduces on 2023-02-06:
-                 "ccl-bin/1.12.0")
+                 "ccl-bin")
           :coverage t)))

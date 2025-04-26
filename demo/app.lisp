@@ -30,60 +30,81 @@
   (:import-from #:reblocks-ui2/themes/styling
                 #:join-css-classes)
   (:import-from #:reblocks-ui2-demo/pages/tabs
-                #:make-tabs-page))
+                #:make-tabs-page)
+  (:import-from #:reblocks-prometheus
+                #:prometheus-app-mixin)
+  (:import-from #:reblocks-prometheus/app
+                #:metrics)
+  (:import-from #:serapeum
+                #:eval-always)
+  (:import-from #:reblocks-file-server
+                #:file-server)
+  (:shadowing-import-from #:40ants-routes/defroutes
+                          #:get))
 (in-package #:reblocks-ui2-demo/app)
 
 
-(macrolet ((route ((path &key name) &body body)
-             `(40ants-routes/defroutes:get (,path :name ,name)
+(eval-always
+  (defvar *load-average*
+    (prometheus:make-gauge :name "test_load_average"
+                           :help "Test load average"
+                           :registry nil))
+
+  (defvar *num-users*
+    (prometheus:make-counter :name "test_num_users_created"
+                             :help "Test num users created after the last metrics collection"
+                             :registry nil))
+
+  (defvar *user-metrics*
+    (list *load-average*
+          *num-users*)))
+
+
+(macrolet ((page ((path &key name) &body body)
+             `(reblocks/routes:page (,path :name ,name)
                 (wrap-with-frame
                  ,@body))))
   (defapp app
-    :prefix "/reblocks-ui2"
-    :routes ((route ("/form" :name "form")
-                    (make-form-page))
-             (route ("/card" :name "card")
-                    (make-cards-page))
-             (route ("/text-input" :name "text-input")
-                    (make-text-input-page))
-             (route ("/containers" :name "containers")
-                    (make-containers-page))
-             (route ("/button" :name "button")
-                    (make-buttons-page))
-             (route ("/tabs" :name "tabs")
-                    (make-tabs-page))
-             (route ("/" :name "index")
-                    (make-landing-page)))))
-
-
-;; (defmethod init-page ((app app) url-path expire-at)
-;;   (make-routes))
+    :prefix "/"
+    :routes ((page ("/form" :name "form")
+               (make-form-page))
+             (page ("/card" :name "card")
+               (make-cards-page))
+             (page ("/text-input" :name "text-input")
+               (make-text-input-page))
+             (page ("/containers" :name "containers")
+               (make-containers-page))
+             (page ("/button" :name "button")
+               (make-buttons-page))
+             (page ("/tabs" :name "tabs")
+               (make-tabs-page))
+             (page ("/" :name "index")
+               (make-landing-page))
+             ;; Prometheus metrics
+             (metrics ("/metrics" :user-metrics *user-metrics*))
+             ;; Sources
+             (file-server "/sources/"
+                          :root (asdf:system-relative-pathname :reblocks-ui2-demo
+                                                               (make-pathname :directory '(:relative "demo")))
+                          :filter ".*\.lisp")
+             ;; static
+             (get ("/favicon.ico")
+               (list 200
+                     (list :content-type "image/x-icon")
+                     (asdf:system-relative-pathname :reblocks-ui2-demo "demo/favicons/favicon.ico")))
+             (get ("/robots.txt")
+               "User-agent: *"))))
 
 
 (defmethod body-classes ((app app))
   (join-css-classes *current-theme*
-                    (colors-bg-normal *current-theme*))
-  ;; "bg-white dark:bg-stone-950"
-  )
+                    (colors-bg-normal *current-theme*)))
 
 
-;; TODO: I need to do something with routing and it's dependency on reblocks-ui and Foundation.js
-;; (defmethod reblocks/dependencies:get-dependencies ((widget routes))
-;;   ;; To prevent Foundation dependencies appear on the page
-;;   ;; we replace them with Tailwind
-;;   nil)
-
-
-;; (defmethod reblocks/dependencies:get-dependencies ((app app))
-;;   "Whole application stylesheet"
-;;   (list*
-;;    ;; (make-dependency
-;;    ;;   "https://cdn.tailwindcss.com/3.3.5"
-;;    ;;   ;; "https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"
-;;    ;;   :type :js)
-;;    ;; (make-dependency
-;;    ;;   "https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
-;;    ;;   :type :js
-;;    ;;   :defer t)
-;;    (call-next-method)))
-
+(defmethod reblocks/server:handle-http-request :around ((server t) env)
+  (let ((request-id (princ-to-string
+                     (uuid:make-v4-uuid))))
+    (reblocks/response:add-header :x-request-id
+                                  request-id)
+    (log4cl-extras/context:with-fields (:request-id request-id)
+      (call-next-method))))

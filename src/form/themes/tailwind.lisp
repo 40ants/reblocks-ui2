@@ -19,18 +19,17 @@
 
 (defmethod render ((widget form-widget) (theme tailwind-theme))
   (let* ((action-code (make-action (form-on-submit widget)))
-         (extra-submit-code nil)
-         (submit-fn "initiateFormAction(\"~A\", $(this), \"~A\")")
+         ;; (submit-fn "initiateFormAction(\"~A\", $(this), \"~A\")")
+         (submit-fn "initiateFormAction(\"~A\", event, this)")
          (use-ajax-p t)
          (on-submit (when use-ajax-p
-                      (format nil "~@[~A~]~A; return false;"
-                              extra-submit-code
+                      (format nil "~A; return false;"
                               (format nil submit-fn
                                       (url-encode (or action-code ""))
                                       ;; Function session-name-string-pair was removed
                                       ;; during reblocks refactoring, so we just
                                       ;; 
-                                      ""
+                                      ;; ""
                                       ;; (reblocks::session-name-string-pair)
                                       ))))
          (requires-confirmation-p nil)

@@ -1,0 +1,9 @@
+#|-*- mode:lisp -*-|#
+
+(task "build-demo"
+    ()
+  (sh "CL_SOURCE_REGISTRY=`pwd` qlot exec ros build roswell/demo.ros"))
+
+(task "default"
+    ("build-demo")
+  (echo "Done."))

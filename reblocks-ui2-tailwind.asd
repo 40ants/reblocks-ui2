@@ -9,6 +9,7 @@
   :class :40ants-asdf-system
   :defsystem-depends-on ("40ants-asdf-system")
   :pathname "src"
-  :depends-on ("reblocks-ui2/tables/themes/tailwind/table"
+  :depends-on ("reblocks-ui2"
+               "reblocks-ui2/tables/themes/tailwind/table"
                "reblocks-ui2/tables/themes/tailwind/editable-table"
                "reblocks-ui2/icon/themes/tailwind"))

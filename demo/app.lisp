@@ -39,6 +39,8 @@
                 #:eval-always)
   (:import-from #:reblocks-file-server
                 #:file-server)
+  (:import-from #:reblocks/routes
+                #:page)
   (:shadowing-import-from #:40ants-routes/defroutes
                           #:get))
 (in-package #:reblocks-ui2-demo/app)
@@ -60,40 +62,38 @@
           *num-users*)))
 
 
-(macrolet ((page ((path &key name) &body body)
-             `(reblocks/routes:page (,path :name ,name)
-                (wrap-with-frame
-                 ,@body))))
-  (defapp app
-    :prefix "/"
-    :routes ((page ("/form" :name "form")
-               (make-form-page))
-             (page ("/card" :name "card")
-               (make-cards-page))
-             (page ("/text-input" :name "text-input")
-               (make-text-input-page))
-             (page ("/containers" :name "containers")
-               (make-containers-page))
-             (page ("/button" :name "button")
-               (make-buttons-page))
-             (page ("/tabs" :name "tabs")
-               (make-tabs-page))
-             (page ("/" :name "index")
-               (make-landing-page))
-             ;; Prometheus metrics
-             (metrics ("/metrics" :user-metrics *user-metrics*))
-             ;; Sources
-             (file-server "/sources/"
-                          :root (asdf:system-relative-pathname :reblocks-ui2-demo
-                                                               (make-pathname :directory '(:relative "demo")))
-                          :filter ".*\.lisp")
-             ;; static
-             (get ("/favicon.ico")
-               (list 200
-                     (list :content-type "image/x-icon")
-                     (asdf:system-relative-pathname :reblocks-ui2-demo "demo/favicons/favicon.ico")))
-             (get ("/robots.txt")
-               "User-agent: *"))))
+(defapp app
+  :prefix "/"
+  :page-constructor #'wrap-with-frame
+  :routes ((page ("/form" :name "form")
+             (make-form-page))
+           (page ("/card" :name "card")
+             (make-cards-page))
+           (page ("/text-input" :name "text-input")
+             (make-text-input-page))
+           (page ("/containers" :name "containers")
+             (make-containers-page))
+           (page ("/button" :name "button")
+             (make-buttons-page))
+           (page ("/tabs" :name "tabs")
+             (make-tabs-page))
+           (page ("/" :name "index")
+             (make-landing-page))
+           ;; Prometheus metrics
+           (metrics ("/metrics" :user-metrics *user-metrics*))
+           ;; Sources
+           (file-server "/sources/"
+                        :name "sources"
+                        :root (asdf:system-relative-pathname :reblocks-ui2-demo
+                                                             (make-pathname :directory '(:relative "demo")))
+                        :filter "(\\.lisp|\\.asd)$")
+           ;; static
+           (get ("/favicon.ico")
+             (list 200
+                   (list :content-type "image/x-icon")
+                   (asdf:system-relative-pathname :reblocks-ui2-demo "demo/favicons/favicon.ico")))
+           (get ("/robots.txt")
+             "User-agent: *")))
 
 
 (defmethod body-classes ((app app))

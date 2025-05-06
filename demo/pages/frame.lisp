@@ -41,9 +41,7 @@
      (:div :class "navbar"
            (:div :class "main-logo"
                  (:div :class "title text-4xl my-8 text-center text-stone-800 dark:text-stone-300"
-                       (:a :href (ensure-suffix
-                                  (get-prefix *current-app*)
-                                  "/")
+                       (:a :href "/"
                            "Reblocks UI2 Demo App")))))
 
     (:div :class "flex"
@@ -51,19 +49,27 @@
                  (current-menu-item-classes (join-css-classes theme
                                                               menu-item-classes
                                                               (colors-bg-action theme)))
-                 (sections (sort (list (cons "button" "Button")
-                                       (cons "form" "Form")
-                                       (cons "text-input" "Text Input")
-                                       (cons "card" "Card")
-                                       (cons "containers" "Containers")
-                                       (cons "tabs" "Tabs"))
-                                 #'string<
-                                 :key #'car)))
+                 (sections (append
+                            (sort (list '("button" "Button")
+                                        '("form" "Form")
+                                        '("text-input" "Text Input")
+                                        '("card" "Card")
+                                        '("containers" "Containers")
+                                        '("tabs" "Tabs"))
+                                  #'string<
+                                  :key #'car)
+                            (list
+                             '("sources" "Sources" :path "")))))
             (:ul :class "w-[200px] flex flex-col gap-4"
-                 (loop for (page-name . title) in sections
-                       for full-path = (route-url page-name
-                                                  :namespace "app")
-                       for current = (string-equal full-path (reblocks/request:get-path))
+                 (loop for (page-name title . route-args) in sections
+                       for full-path = (apply #'route-url
+                                              page-name
+                                              :namespace "app"
+                                              route-args)
+                       ;; Here we use starts-with, because for Sources
+                       ;; section there might be different URLs behind the prefix.
+                       for current = (str:starts-with-p full-path
+                                                        (reblocks/request:get-path))
                        do (:li :class (if current
                                           current-menu-item-classes
                                           menu-item-classes)

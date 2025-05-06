@@ -4,3 +4,4 @@
 .#*
 .*.~undo-tree~
 *.fasl
+.DS_Store

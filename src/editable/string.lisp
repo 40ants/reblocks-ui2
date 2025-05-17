@@ -34,7 +34,7 @@
            (funcall (callback widget)
                     new-value)))
     (let ((action-code (reblocks/actions:make-action #'call-callback)))
-      (with-html
+      (with-html ()
         (:textarea :onblur
                    (fmt "initiateAction(~S, {\"args\": {\"new-value\": event.target.value}})"
                         action-code)

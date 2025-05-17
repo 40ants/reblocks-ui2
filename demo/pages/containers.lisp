@@ -25,7 +25,7 @@
 (defvar *w* nil)
 
 (defmethod render ((widget containers-page-widget))
-  (with-html
+  (with-html ()
     (:h1 :class "text-2xl my-8"
          "Containers")
 

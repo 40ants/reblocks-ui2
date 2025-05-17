@@ -35,7 +35,7 @@
   (make-instance 'form-page))
 
 (defmethod render ((widget form-page))
-  (with-html
+  (with-html ()
     (:h2 :class "text-xl my-4"
          "Simple sign up form")
     (cond

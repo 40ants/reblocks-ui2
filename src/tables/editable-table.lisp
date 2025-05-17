@@ -239,7 +239,7 @@
                                   (setf (edit-mode-p widget)
                                         (not (edit-mode-p widget)))
                                   (update widget)))))
-    (with-html
+    (with-html ()
       (cond
         ((edit-mode-p widget)
          (:div :class "content"

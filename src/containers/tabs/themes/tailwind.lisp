@@ -35,7 +35,7 @@
 
 
 (defmethod render ((widget tabs-widget) (theme tailwind-theme))
-  (with-html
+  (with-html ()
     (render (tabs-selector widget)
             theme)
     (:div :class "tabs-content"
@@ -71,7 +71,7 @@
 
 
 (defmethod render ((widget tabs-control) (theme tailwind-theme))
-  (with-html
+  (with-html ()
     (loop for title in (subwidgets-titles widget)
           for idx upfrom 0
           for activep = (= idx (current-idx widget))

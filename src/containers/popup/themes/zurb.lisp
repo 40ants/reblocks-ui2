@@ -34,7 +34,7 @@
 
 
 (defmethod render ((widget popup-widget) (theme zurb-theme))
-  (with-html
+  (with-html ()
     (flet ((close-current-popup (&rest args)
              (declare (ignore args))
              (hide-popup widget)))

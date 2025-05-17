@@ -2,7 +2,8 @@
   (:use #:cl)
   (:import-from #:reblocks/server)
   (:import-from #:reblocks/debug)
-  (:import-from #:reblocks/variables)
+  (:import-from #:reblocks/variables
+                #:*default-request-timeout*)
   (:import-from #:40ants-logging)
   (:import-from #:40ants-slynk)
   (:import-from #:reblocks-ui2-demo/app
@@ -30,7 +31,9 @@
                 (port (parse-integer
                        (or (uiop:getenv "PORT")
                            *default-port*)))
+                (server-type :hunchentoot)
 	        (interface *default-interface*)
+                (request-timeout *default-request-timeout*)
                 (debug t))
   "This function does not block and can be started in REPL."
   
@@ -54,7 +57,8 @@
   (reblocks/server:start :port port
 			 :interface interface
                          :apps 'app
-                         :server-type :hunchentoot
+                         :server-type server-type
+                         :request-timeout request-timeout
                          :debug debug)
 
   (log:info "Server started")

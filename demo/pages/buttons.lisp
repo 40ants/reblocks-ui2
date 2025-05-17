@@ -21,7 +21,7 @@
 
 
 (defmethod render ((widget buttons-page-widget))
-  (with-html
+  (with-html ()
     (:div :class "flex flex-col gap-8 items-center"
           (:div :class "flex flex-col gap-4 items-center"
                 (:h1 "Button with text")
@@ -40,16 +40,16 @@
                 (:div :class "flex gap-2"
                       (render
                        (button "Action" :view :action
-                               :disabled t))
+                                        :disabled t))
                       (render
                        (button "Normal" :view :normal
-                               :disabled t))
+                                        :disabled t))
                       (render
                        (button "Raised" :view :raised
-                               :disabled t))
+                                        :disabled t))
                       (render
                        (button "Outlined" :view :outlined
-                               :disabled t))))
+                                          :disabled t))))
           
           (:div :class "flex flex-col gap-8 items-center"
                 (:h1 "Buttons of different size")

@@ -26,12 +26,12 @@
          :initarg :dark
          :initform nil
          :reader color-dark)
-   (hover :type (or null string int)
+   (hover :type (or null string integer)
           :initarg :hover
           :initform nil
           :documentation "If string, then it is a color of element in \"hover\" state. If integer, then it is intensity change relative to the base color. For light scheme intensity will be changed down if number is positive, for dark scheme intencity will go up. Negative number reverses this behaviour."
           :reader color-hover)
-   (focus :type (or null string int)
+   (focus :type (or null string integer)
           :initarg :focus
           :initform nil
           :documentation "If string, then it is a color of element in \"focus\" state. If integer, then it is intensity change relative to the base color. For light scheme intensity will be changed down if number is positive, for dark scheme intencity will go up. Negative number reverses this behaviour."

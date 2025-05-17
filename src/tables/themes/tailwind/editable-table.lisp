@@ -57,7 +57,7 @@
              (on-push-button (&rest args)
                (declare (ignore args))
                (add-new-row (funcall (object-creator widget)))))
-      (with-html
+      (with-html ()
         (call-next-method)
 
         (typecase creator
@@ -81,7 +81,7 @@
 
 
 (defmethod render-editable-row ((widget table-row) (theme tailwind-theme))
-  (with-html
+  (with-html ()
     (:tag :name (reblocks/widget:get-html-tag widget)
           :id (reblocks/widgets/dom:dom-id widget)
           (loop with *current-row* = widget
@@ -95,7 +95,7 @@
 
 
 (defmethod render-editable-cell ((column column) (widget string-widget) (theme tailwind-theme))
-  (with-html
+  (with-html ()
     (:input :name (fmt "item-~A" (column-idx column))
             :value (reblocks/widgets/string-widget:get-content widget))))
 

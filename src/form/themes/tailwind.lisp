@@ -40,7 +40,7 @@
                              (format nil "show_~A(); return false;"
                                      popup-name)
                              on-submit)))
-    (with-html
+    (with-html ()
       (:form :method :post
              :onsubmit on-form-submit
              (render (form-content widget) theme)))))

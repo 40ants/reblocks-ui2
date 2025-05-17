@@ -84,7 +84,7 @@
   (:method ((widget ui-widget) (theme t))
     (let ((class-name (class-name (class-of widget)))
           (theme-name (class-name (class-of theme))))
-      (with-html
+      (with-html ()
         (:p "Please, define:"
             (:pre (format nil
                           "(defmethod reblocks-ui2/widget:render ((widget ~A) (theme ~A))
@@ -162,7 +162,7 @@
 
   (reblocks/page::register-widget widget)
   
-  (with-html
+  (with-html ()
     (when (reblocks/debug:status)
       ;; Tailwind theme does not use semantic classes and sometimes
       ;; it is hard to figure out where starts some widget.

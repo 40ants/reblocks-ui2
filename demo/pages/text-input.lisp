@@ -23,7 +23,7 @@
 
 
 (defmethod render ((widget text-input-page))
-  (with-html
+  (with-html ()
     (:h1 :class "text-2xl my-8"
          "Text input")
 

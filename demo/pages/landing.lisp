@@ -25,7 +25,7 @@
 
 
 (defmethod render ((widget landing-page-widget) (theme tailwind-theme))
-  (with-html
+  (with-html ()
     (:div :class (join-css-classes theme
                                    (colors-text-normal theme))
           (:h1 :class "text-2xl my-8"

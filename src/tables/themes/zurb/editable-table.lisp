@@ -4,7 +4,7 @@
 
 
 (defmethod render-editable-row ((widget table-row) (theme t))
-  (with-html
+  (with-html ()
     (:tag :name (reblocks/widget:get-html-tag widget)
           :id (reblocks/widgets/dom:dom-id widget)
           (loop with *current-row* = widget

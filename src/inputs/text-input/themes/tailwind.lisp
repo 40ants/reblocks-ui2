@@ -132,7 +132,7 @@
 
 (defmethod render ((widget input-widget) (theme tailwind-theme))
   (let ((invalid-state (not (null (input-error widget)))))
-    (with-html
+    (with-html ()
       ;; Outer wrapper
       (:div :class (join-css-classes theme
                                      "flex"

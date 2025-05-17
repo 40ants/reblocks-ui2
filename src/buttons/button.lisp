@@ -92,7 +92,7 @@
   (let ((view (if (button-disabled widget)
                   (get-disabled-button-view (button-view widget))
                   (button-view widget))))
-    (with-html
+    (with-html ()
       (:button :type (if (on-click widget)
                          ;; We need to set type to button for all buttons having
                          ;; having on-click handler to prevent the handler to be

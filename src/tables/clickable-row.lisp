@@ -30,7 +30,7 @@
 
 
 (defmethod reblocks-ui2/widget:render ((widget clickable-row-widget) (theme t))
-  (with-html
+  (with-html ()
     (loop with *current-row* = widget
           for column in (table-columns
                          (row-table widget))

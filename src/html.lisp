@@ -87,7 +87,7 @@
                    (make-instance 'html-widget
                                   :render-func (lambda (,widget-var)
                                                  (let ((*current-widget* ,widget-var))
-                                                   (with-html
+                                                   (with-html ()
                                                      ,@body)))
                                   :html-tag ,html-tag
                                   :css-classes (uiop:ensure-list ,css-classes)

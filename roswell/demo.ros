@@ -8,7 +8,9 @@ exec ros -Q -- $0 "$@"
                "~/projects/lisp/reblocks/"
                "~/projects/lisp/40ants-routes/"
                "~/projects/lisp/reblocks-prometheus/"
-               "~/projects/lisp/reblocks-file-server/"))
+               "~/projects/lisp/reblocks-file-server/"
+               "~/projects/lisp/linter/"
+               "~/projects/lisp/docs-builder/"))
   (push dir asdf:*central-registry*))
 
 

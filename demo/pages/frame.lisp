@@ -58,8 +58,10 @@
                                         '("tabs" "Tabs"))
                                   #'string<
                                   :key #'car)
-                            (list
-                             '("sources" "Sources" :path "")))))
+                            ;; TODO: enable after file-server will be adapted to UI2
+                            ;; (list
+                            ;;  '("sources" "Sources" :path ""))
+                            )))
             (:ul :class "w-[200px] flex flex-col gap-4"
                  (loop for (page-name title . route-args) in sections
                        for full-path = (apply #'route-url

@@ -81,12 +81,13 @@
              (make-landing-page))
            ;; Prometheus metrics
            (metrics ("/metrics" :user-metrics *user-metrics*))
+           
            ;; Sources
-           (file-server "/sources/"
-                        :name "sources"
-                        :root (asdf:system-relative-pathname :reblocks-ui2-demo
-                                                             (make-pathname :directory '(:relative "demo")))
-                        :filter "(\\.lisp|\\.asd)$")
+           ;; (file-server "/sources/"
+           ;;              :name "sources"
+           ;;              :root (asdf:system-relative-pathname :reblocks-ui2-demo
+           ;;                                                   (make-pathname :directory '(:relative "demo")))
+           ;;              :filter "(\\.lisp|\\.asd)$")
            
            ;; Static files
            (reblocks/routes:static-file "/favicon.ico"

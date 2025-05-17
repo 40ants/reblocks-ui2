@@ -4,18 +4,9 @@
                 #:defwidget)
   (:import-from #:reblocks/html
                 #:with-html)
-  (:import-from #:reblocks/dependencies
-                #:get-dependencies)
   (:import-from #:reblocks-ui2/widget
                 #:render
                 #:ui-widget)
-  (:import-from #:serapeum
-                #:ensure-suffix
-                #:fmt)
-  (:import-from #:reblocks/app
-                #:get-prefix)
-  (:import-from #:reblocks/variables
-                #:*current-app*)
   (:import-from #:reblocks-ui2/themes/styling
                 #:join-css-classes)
   (:import-from #:reblocks-ui2/themes/tailwind

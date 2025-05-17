@@ -5,8 +5,6 @@
                 #:defwidget)
   (:import-from #:reblocks/html
                 #:with-html)
-  (:import-from #:reblocks/dependencies
-                #:get-dependencies)
   (:import-from #:reblocks-ui2/containers/row
                 #:row)
   (:import-from #:reblocks-ui2/containers/column

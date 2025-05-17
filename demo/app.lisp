@@ -1,7 +1,5 @@
 (uiop:define-package #:reblocks-ui2-demo/app
   (:use #:cl)
-  (:import-from #:reblocks-navigation-widget
-                #:defroutes)
   (:import-from #:reblocks/app
                 #:defapp)
   (:import-from #:reblocks/page
@@ -9,8 +7,6 @@
                 #:init-page)
   (:import-from #:reblocks-ui2-demo/pages/frame
                 #:wrap-with-frame)
-  (:import-from #:reblocks/dependencies
-                #:make-dependency)
   (:import-from #:reblocks-ui2-demo/pages/buttons
                 #:make-buttons-page)
   (:import-from #:reblocks-ui2-demo/pages/containers
@@ -33,12 +29,13 @@
                 #:make-tabs-page)
   (:import-from #:reblocks-prometheus
                 #:prometheus-app-mixin)
-  (:import-from #:reblocks-prometheus/app
+  (:import-from #:reblocks-prometheus
                 #:metrics)
   (:import-from #:serapeum
                 #:eval-always)
-  (:import-from #:reblocks-file-server
-                #:file-server)
+  ;; TODO: enable some day
+  ;; (:import-from #:reblocks-file-server
+  ;;               #:file-server)
   (:import-from #:reblocks/routes
                 #:page)
   (:shadowing-import-from #:40ants-routes/defroutes

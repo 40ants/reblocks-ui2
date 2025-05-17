@@ -87,11 +87,18 @@
                         :root (asdf:system-relative-pathname :reblocks-ui2-demo
                                                              (make-pathname :directory '(:relative "demo")))
                         :filter "(\\.lisp|\\.asd)$")
-           ;; static
-           (get ("/favicon.ico")
-             (list 200
-                   (list :content-type "image/x-icon")
-                   (asdf:system-relative-pathname :reblocks-ui2-demo "demo/favicons/favicon.ico")))
+           
+           ;; Static files
+           (reblocks/routes:static-file "/favicon.ico"
+             (asdf:system-relative-pathname :reblocks-ui2-demo "demo/favicons/favicon.ico")
+             :content-type "image/x-icon")
+
+           ;; Alternative way
+           ;; (get ("/favicon.ico")
+           ;;   (list 200
+           ;;         (list :content-type "image/x-icon")
+           ;;         (asdf:system-relative-pathname :reblocks-ui2-demo "demo/favicons/favicon.ico")))
+           
            (get ("/robots.txt")
              "User-agent: *")))
 

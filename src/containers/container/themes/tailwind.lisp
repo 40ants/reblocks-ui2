@@ -18,7 +18,7 @@
 
 
 (defmethod render ((widget container-widget) (theme tailwind-theme))
-  (reblocks/html:with-html
+  (reblocks/html:with-html ()
     (loop for subwidget in (subwidgets widget)
           do (render subwidget theme))))
 

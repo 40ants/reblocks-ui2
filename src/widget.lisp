@@ -84,7 +84,7 @@
         (:p "Please, define:"
             (:pre (format nil
                           "(defmethod reblocks-ui2/widget:render ((widget ~A) (theme ~A))
-    (reblocks/html:with-html
+    (reblocks/html:with-html ()
         (:p \"My ~A widget\")))"
                           class-name
                           theme-name

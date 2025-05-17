@@ -31,41 +31,7 @@
 (in-package #:reblocks-ui2/themes/tailwind)
 
 
-(defvar *default-mode* :auto)
-
-
-<<<<<<< HEAD
-(defclass tailwind-theme (base-theme)
-  ((mode :type (member :light :dark :auto)
-         :initform *default-mode*
-         :initarg :mode
-         :documentation "When this slot is in :AUTO mode, theme will be light or dark depending on user's preferences."
-         :reader tailwind-theme-mode))
-  (:documentation "A theme implementing all widgets using TailwindCSS framework."))
-=======
-(defun make-vars (&rest args)
-  (log:error "Making vars" args)
-  (list :args args))
->>>>>>> 713b417 (Add a "card" component.)
-
-
-;; (defclass foo ()
-;;   ((vars :allocation :class
-;;          :initarg :vars
-;;          :initform (make-vars 1 2))))
-
-;; (defclass bar (foo)
-;;   ()
-;;   (:default-initargs :vars (make-vars 4 5)))
-
-
-;; (defclass tailwind-theme ()
-;;   ((mode :type (member :light :dark :auto)
-;;          :initform *default-mode*
-;;          :initarg :mode
-;;          :documentation "When this slot is in :AUTO mode, theme will be light or dark depending on user's preferences."
-;;          :reader tailwind-theme-mode)))
-
+;; "A theme implementing all widgets using TailwindCSS framework."
 
 (deftheme tailwind-theme ()
   (core

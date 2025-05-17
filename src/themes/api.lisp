@@ -5,7 +5,8 @@
                 #:defvar-unbound
                 #:intersperse)
   (:import-from #:reblocks-ui2/themes/base
-                #:base-theme)
+                #:base-theme
+                #:overrided-vars)
   (:import-from #:alexandria
                 #:length=
                 #:symbolicate)
@@ -44,12 +45,6 @@
 (defun (setf current-theme) (new-theme)
   (setf *current-theme*
         new-theme))
-
-
-(defclass theme ()
-  ((overrided-vars :initform (make-hash-table :test 'equal)
-                   :initarg :overridden-vars
-                   :reader overrided-vars)))
 
 
 (defun get-by-path (hash var-path)
@@ -99,7 +94,7 @@
 
 
 (defgeneric get-variable (theme var-path)
-  (:method ((theme theme) var-path)
+  (:method ((theme base-theme) var-path)
     (acond
       ((get-by-path (overrided-vars theme)
                     var-path)
@@ -215,7 +210,7 @@
         (var-methods (make-var-methods name var-forms))
         (make-macro-name (symbolicate "MAKE-" name))
         (bases (or bases
-                   (list 'theme))))
+                   (list 'base-theme))))
     `(progn
        (defclass ,name (,@bases)
          ())

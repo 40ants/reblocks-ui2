@@ -13,7 +13,7 @@
 
 
 (defmethod reblocks-ui2/widget:render ((widget icon-widget) (theme tailwind-theme))
-  (reblocks/html:with-html
+  (reblocks/html:with-html ()
     
     (let ((class (fmt "fi-~A"
                       (icon-name widget))))

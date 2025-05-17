@@ -1,9 +1,8 @@
 (uiop:define-package #:reblocks-ui2/containers/row
   (:use #:cl)
   (:import-from #:reblocks/widget
-                #:get-css-classes
+                #:create-widget-from
                 #:widget
-                #:render
                 #:defwidget)
   (:import-from #:reblocks/html
                 #:with-html)
@@ -11,37 +10,32 @@
                 #:get-dependencies)
   (:import-from #:serapeum
                 #:soft-list-of)
-  (:export
-   #:row-widget
-   #:make-row-widget))
+  (:import-from #:reblocks-ui2/widget
+                #:ui-widget)
+  (:import-from #:reblocks-ui2/containers/container
+                #:*default-gap*
+                #:make-container
+                #:container-widget)
+  (:export #:row-widget
+           #:make-row-widget
+           #:row))
 (in-package #:reblocks-ui2/containers/row)
 
 
-(defwidget row-widget ()
-  ((subwidgets :initarg :subwidgets
-               :initform nil
-               :type (soft-list-of widget)
-               :reader subwidgets)
-   (classes :initarg :classes
-            :initform nil
-            :type (soft-list-of string)
-            :reader classes
-            :documentation "A list of additional CSS classes.")))
+(defwidget row-widget (container-widget)
+  ())
 
 
-(defun make-row-widget (subwidgets &key classes)
+(defun row (&rest subwidgets-and-options)
+  (apply #'make-container 'row-widget
+         subwidgets-and-options))
+
+
+
+(defun make-row-widget (subwidgets
+                        &key (gap *default-gap*)
+                             on-click)
   (make-instance 'row-widget
-                 :subwidgets subwidgets
-                 :classes (uiop:ensure-list classes)))
-
-
-(defmethod render ((widget row-widget))
-  (with-html
-    (mapc #'render (subwidgets widget))))
-
-
-;; Here is a Tailwind version, we need to use ui2 widget class and themes instead!
-(defmethod reblocks/widget:get-css-classes ((widget row-widget))
-  (append (list "flex")
-          (classes widget)
-          (call-next-method)))
+                 :subwidgets (mapcar #'create-widget-from subwidgets)
+                 :gap gap
+                 :on-click on-click))

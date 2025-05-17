@@ -1,0 +1,28 @@
+#!/bin/sh
+#|-*- mode:lisp -*-|#
+#|
+exec ros -Q -- $0 "$@"
+|#
+
+(dolist (dir '("~/projects/lisp/reblocks-ui2/"
+               "~/projects/lisp/reblocks/"
+               "~/projects/lisp/40ants-routes/"
+               "~/projects/lisp/reblocks-prometheus/"
+               "~/projects/lisp/reblocks-file-server/"
+               "~/projects/lisp/linter/"
+               "~/projects/lisp/docs-builder/"))
+  (push dir asdf:*central-registry*))
+
+
+(progn
+  (ros:ensure-asdf)
+  #+quicklisp
+  (ql:quickload (list "reblocks-ui2-demo"
+                      "reblocks-ui2-demo/main")
+                :silent t))
+
+(in-package #:cl-user)
+
+(import 'reblocks-ui2-demo/main::main)
+
+;;; vim: set ft=lisp lisp:

@@ -33,7 +33,7 @@
 
 (defmethod render ((widget table-widget) (theme tailwind-theme))
   (let ((*current-table* widget))
-    (with-html
+    (with-html ()
       (:table :class "border-collapse w-full"
               (:thead
                (:tr
@@ -47,7 +47,7 @@
 
 
 (defmethod render ((widget table-row) (theme tailwind-theme))
-  (with-html
+  (with-html ()
     (:tr
      (loop with *current-row* = widget
            for *current-column* in (table-columns

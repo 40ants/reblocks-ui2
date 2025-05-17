@@ -7,8 +7,6 @@
                 #:create-widget-from
                 #:render
                 #:defwidget)
-  (:import-from #:reblocks/html
-                #:with-html)
   (:import-from #:serapeum
                 #:fmt
                 #:soft-list-of)
@@ -66,10 +64,10 @@
 
 
 (defwidget table-widget (ui-widget)
-  ((columns :initarg :columns
+  ((columns :type (soft-list-of column)
+            :initform nil
             :reader table-columns)
-   (rows :initarg :rows
-         :type (soft-list-of table-row)
+   (rows :type (soft-list-of table-row)
          :initform nil
          :reader table-rows)
    (row-class :initarg :row-class
@@ -106,12 +104,12 @@
             :documentation "Additional CSS classes for column cells")))
 
 
-(defmethod initialize-instance :after ((widget table-widget) &rest initargs)
-  (declare (ignore initargs))
-  (loop for column in (table-columns widget)
-        for idx upfrom 0
-        do (setf (slot-value column 'idx)
-                 idx)))
+;; (defmethod initialize-instance :after ((widget table-widget) &rest initargs)
+;;   (declare (ignore initargs))
+;;   (loop for column in (table-columns widget)
+;;         for idx upfrom 0
+;;         do (setf (slot-value column 'idx)
+;;                  idx)))
 
 
 (defun calculate-cells (row)
@@ -137,18 +135,38 @@
                                     :table table))))
 
 
+(defgeneric to-table-column (object table)
+  (:documentation "Creates a table column from a widget.")
+  (:method ((table t) (object column))
+    object)
+  (:method ((table t) (object widget))
+    (column object))
+  (:method ((table t) (object t))
+    (column (create-widget-from object))))
+
+
 (defun make-table (columns rows &key (table-class 'table-widget)
                                      (row-class nil row-class-given-p))
   (let* ((row-args (when row-class-given-p
                      (list :row-class row-class)))
          (widget (apply #'make-instance
                         table-class
-                        :columns (mapcar #'create-widget-from columns)
                         row-args))
-         (rows (loop for obj in rows
-                     collect (to-table-row widget obj))))
-    (setf (slot-value widget 'rows)
-          rows)
+         (columns (loop for idx upfrom 0
+                        for column in columns
+                        for as-column = (to-table-column widget column)
+                        do (setf (slot-value as-column 'idx)
+                                 idx)
+                        collect as-column)))
+    (setf (slot-value widget 'columns)
+          columns)
+    ;; Rows content depend on a widget columns,
+    ;; that is why we should call to-table-row
+    ;; only after filling the columns slot on the widget:
+    (let ((rows (loop for obj in rows
+                      collect (to-table-row widget obj))))
+      (setf (slot-value widget 'rows)
+            rows))
     widget))
 
 

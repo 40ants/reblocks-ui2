@@ -10,7 +10,12 @@
   :defsystem-depends-on ("40ants-asdf-system")
   :pathname "src"
   :depends-on ("reblocks-ui2/core"
-               "reblocks-ui2/containers/popup/themes/zurb"
-               "reblocks-ui2/widget/themes/zurb"
-               "reblocks-ui2/tables/clickable-row")
+               "reblocks-ui2/containers/stack"
+               "reblocks-ui2/tables/clickable-row"
+               "reblocks-ui2/html"
+               ;; And we need to explicitly specify this dependency
+               ;; to load all necessary components of Reblocks.
+               ;; Otherwise possible some strange errors like:
+               ;; https://github.com/40ants/reblocks/issues/47
+               "reblocks")
   :in-order-to ((test-op (test-op "reblocks-ui2-tests"))))

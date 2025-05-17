@@ -51,7 +51,7 @@
         },
         {
           "name": "Run Linter",
-          "run": "qlot exec 40ants-linter --system \"reblocks-ui2, reblocks-ui2-docs, reblocks-ui2-tests\"",
+          "run": "qlot exec 40ants-linter --system \"reblocks-ui2, reblocks-ui2-docs, reblocks-ui2-demo, reblocks-ui2-tailwind, reblocks-ui2-tests\" --imports",
           "shell": "bash"
         }
       ]

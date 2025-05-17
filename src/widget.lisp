@@ -10,10 +10,6 @@
                 #:current-theme)
   (:import-from #:moptilities
                 #:superclasses)
-  (:import-from #:alexandria
-                #:remove-from-plist
-                #:flatten
-                #:make-keyword)
   (:import-from #:reblocks/html
                 #:with-html)
   (:import-from #:reblocks-ui2/themes/styling

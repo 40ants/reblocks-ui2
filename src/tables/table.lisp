@@ -7,8 +7,6 @@
                 #:create-widget-from
                 #:render
                 #:defwidget)
-  (:import-from #:reblocks/html
-                #:with-html)
   (:import-from #:serapeum
                 #:fmt
                 #:soft-list-of)

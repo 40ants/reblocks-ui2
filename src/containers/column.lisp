@@ -16,8 +16,7 @@
                 #:make-container
                 #:container-widget)
   (:export #:column-widget
-           #:column
-           #:subwidgets))
+           #:column))
 (in-package #:reblocks-ui2/containers/column)
 
 

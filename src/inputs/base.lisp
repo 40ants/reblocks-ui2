@@ -34,7 +34,8 @@
   (:export #:base-input-widget
            #:input-error
            #:input-value
-           #:named-input))
+           #:named-input
+           #:input-validator))
 (in-package #:reblocks-ui2/inputs/base)
 
 

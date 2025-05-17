@@ -32,7 +32,6 @@
                 #:ensure-pin
                 #:pin)
   (:export #:button
-           #:button-on-click
            #:button-content
            #:button-class
            #:button-style

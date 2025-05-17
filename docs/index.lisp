@@ -15,6 +15,7 @@
                 #:docs-config)
   (:import-from #:40ants-doc/autodoc
                 #:defautodoc)
+  (:import-from #:reblocks-ui2/themes/tailwind)
   (:export #:@index
            #:@readme
            #:@changelog))
@@ -89,3 +90,4 @@ TODO: Write a library description. Put some examples here.
 
 
 (defautodoc @api (:system "reblocks-ui2"))
+

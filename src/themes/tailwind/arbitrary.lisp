@@ -10,7 +10,9 @@
                 #:join)
   (:import-from #:alexandria
                 #:flatten)
-  (:export #:arbitrary-value))
+  (:export #:arbitrary-value
+           #:arbitrary-value-prefix
+           #:arbitrary-value-args))
 (in-package #:reblocks-ui2/themes/tailwind/arbitrary)
 
 

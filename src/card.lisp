@@ -39,8 +39,8 @@
            #:card-content
            #:card-view
            #:card-padding
-           #:card-width
-           #:card-height))
+           #:horizontal-align-of-card-content
+           #:vertical-align-of-card-content))
 (in-package #:reblocks-ui2/card)
 
 (in-readtable pythonic-string-syntax)

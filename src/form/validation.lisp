@@ -5,7 +5,10 @@
            #:field-validation-error
            #:validate-form-data
            #:error-args
-           #:error-message))
+           #:error-message
+           #:field-name
+           #:invalid-value
+           #:num-errors))
 (in-package #:reblocks-ui2/form/validation)
 
 

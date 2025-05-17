@@ -8,4 +8,5 @@
   :bug-tracker "https://github.com/40ants/reblocks-ui2/issues"
   :pathname "docs"
   :depends-on ("reblocks-ui2"
+               "reblocks-ui2-tailwind"
                "reblocks-ui2-docs/index"))

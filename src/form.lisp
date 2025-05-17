@@ -30,7 +30,8 @@
   (:export #:form-widget
            #:form-content
            #:form-on-submit
-           #:form))
+           #:form
+           #:form-inputs))
 (in-package #:reblocks-ui2/form)
 
 

@@ -17,13 +17,12 @@
                 #:class-precedence-list)
   (:export #:current-theme
            #:*current-theme*
-           #:deftheme
-           #:theme))
+           #:deftheme))
 (in-package #:reblocks-ui2/themes/api)
 
 
 (defvar-unbound *current-theme*
-  "Set this variable to a UI theme object made with a function like REBLOCKS-UI2/THEMES/TAILWIND:MAKE-TAILWIND-THEME.
+  "Set this variable to a UI theme object made with macro REBLOCKS-UI2/THEMES/TAILWIND:MAKE-TAILWIND-THEME or similar.
 
    Set it during a Reblocks server startup.
 
@@ -187,9 +186,13 @@
   (defun make-var-method (class-name var-path)
     (let ((method-name (apply #'symbolicate
                               (intersperse '- var-path))))
-      `((defmethod ,method-name ((theme ,class-name))
-          (get-variable theme ',var-path))
-        (export ',method-name))))
+      `((export ',method-name)
+        
+        ;; without this defgenric 40ants-doc will complain about missing definition-source
+        (defgeneric ,method-name (theme))
+        
+        (defmethod ,method-name ((theme ,class-name))
+          (get-variable theme ',var-path)))))
   
   (defun make-var-methods (class-name var-forms)
     (labels ((recurse (path var-forms)
@@ -219,6 +222,7 @@
              ,var-forms-expanded)
        
        (defmacro ,make-macro-name (&rest overriden-var-forms)
+         "Creates a theme object."
          (let* ((class-name ',name)
                 (vars (make-overriden-vars-hash class-name overriden-var-forms)))
            `(make-instance ',class-name

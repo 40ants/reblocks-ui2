@@ -18,8 +18,7 @@
                 #:container-widget)
   (:export #:row-widget
            #:make-row-widget
-           #:row
-           #:subwidgets))
+           #:row))
 (in-package #:reblocks-ui2/containers/row)
 
 

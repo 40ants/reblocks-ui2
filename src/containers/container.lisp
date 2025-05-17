@@ -13,13 +13,12 @@
   (:import-from #:reblocks-ui2/widget
                 #:ui-widget)
   (:import-from #:reblocks-ui2/utils/walk)
-  (:export #:column-widget
-           #:column
-           #:subwidgets
+  (:export #:subwidgets
            #:container-widget
            #:make-container
            #:gap-css-classes
-           #:additional-classes))
+           #:additional-classes
+           #:children-gap))
 (in-package #:reblocks-ui2/containers/container)
 
 

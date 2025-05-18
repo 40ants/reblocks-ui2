@@ -33,11 +33,15 @@
                 #:metrics)
   (:import-from #:serapeum
                 #:eval-always)
-  ;; TODO: enable some day
-  ;; (:import-from #:reblocks-file-server
-  ;;               #:file-server)
+  (:import-from #:reblocks-file-server
+                #:file-server)
   (:import-from #:reblocks/routes
                 #:page)
+  (:import-from #:reblocks-file-server/utils
+                #:deny-if
+                #:deny-all
+                #:deny
+                #:allow)
   (:shadowing-import-from #:40ants-routes/defroutes
                           #:get))
 (in-package #:reblocks-ui2-demo/app)
@@ -76,15 +80,42 @@
              (make-tabs-page))
            (page ("/" :name "index")
              (make-landing-page))
+           
            ;; Prometheus metrics
            (metrics ("/metrics" :user-metrics *user-metrics*))
            
            ;; Sources
-           ;; (file-server "/sources/"
-           ;;              :name "sources"
-           ;;              :root (asdf:system-relative-pathname :reblocks-ui2-demo
-           ;;                                                   (make-pathname :directory '(:relative "demo")))
-           ;;              :filter "(\\.lisp|\\.asd)$")
+           (file-server "/sources/"
+                        :name "sources"
+                        :root (asdf:system-relative-pathname :reblocks-ui2-demo
+                                                             (make-pathname :directory '(:relative "demo")))
+                        :filter (list
+
+                                 ;; Custom predicate to hide
+                                 ;; empty-directories
+                                 (deny-if (lambda (path)
+                                            (and
+                                             (cl-fad:directory-pathname-p path)
+                                             (uiop:emptyp
+                                              (cl-fad:list-directory
+                                               (merge-pathnames path
+                                                                (asdf:system-relative-pathname :reblocks-ui2-demo
+                                                                                               (make-pathname :directory '(:relative "demo")))))))))
+                                 ;; This is how to hide a file inside the current directory
+                                 (deny #P"main.lisp")
+                                 ;; Or inside some particular directory
+                                 (deny #P"pages/*.fasl")
+                                 ;; Also you might whitelist some directories
+                                 ;; and files:
+                                 (allow #P"**/" ;; Allow to show any directory
+                                        #P"**/*.lisp"
+                                        #P"favicons/*.png"
+                                        #P"favicons/*.ico")
+                                 ;; and then deny the rest.
+                                 ;; 
+                                 ;; We need this part because by default
+                                 ;; all files are allowed:
+                                 (deny-all)))
            
            ;; Static files
            (reblocks/routes:static-file "/favicon.ico"

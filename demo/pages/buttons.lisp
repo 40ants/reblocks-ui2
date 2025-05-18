@@ -131,11 +131,3 @@
                       (render
                        (button "Utility"
                                :view :outlined-utility)))))))
-
-
-;; (defmethod get-dependencies ((widget buttons-page-widget))
-;;   (list*
-;;    (reblocks-lass:make-dependency
-;;      `(.buttons-page-widget
-;;        :color red))
-;;    (call-next-method)))

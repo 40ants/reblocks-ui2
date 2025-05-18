@@ -11,7 +11,8 @@ exec ros -Q -- $0 "$@"
                "~/projects/lisp/reblocks-file-server/"
                "~/projects/lisp/linter/"
                "~/projects/lisp/docs-builder/"))
-  (push dir asdf:*central-registry*))
+  (when (probe-file dir)
+    (push dir asdf:*central-registry*)))
 
 
 (progn

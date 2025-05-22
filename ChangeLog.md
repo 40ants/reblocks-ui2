@@ -2,6 +2,22 @@
 
 # ChangeLog
 
+<a id="x-28REBLOCKS-UI2-DOCS-2FCHANGELOG-3A-3A-7C0-2E3-2E0-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
+
+## 0.3.0 (2025-05-21)
+
+<a id="fixes"></a>
+
+### Fixes
+
+* Code was updated to work with latest Reblocks and it's routing.
+
+<a id="changes"></a>
+
+### Changes
+
+* Variable `reblocks-ui2/themes/api:*current-theme*` is not imported from it's package anymore. Use [`reblocks-ui2/themes/api:current-theme`][9625] function function instead.
+
 <a id="x-28REBLOCKS-UI2-DOCS-2FCHANGELOG-3A-3A-7C0-2E2-2E0-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
 ## 0.2.0 (2024-04-04)

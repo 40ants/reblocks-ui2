@@ -7,6 +7,7 @@
   (:import-from #:reblocks/page-dependencies)
   (:import-from #:reblocks/dependencies)
   (:import-from #:reblocks-ui2/themes/api
+                #:*current-theme*
                 #:current-theme)
   (:import-from #:moptilities
                 #:superclasses)
@@ -152,28 +153,29 @@
 (defmethod render :around ((widget ui-widget) (theme t))
   "This function is intended for internal usage only.
    It renders widget with surrounding HTML tag and attributes."
-  (let ((widget-dependencies (get-dependencies widget theme)))
-    ;; Update new-style dependencies
-    (reblocks/page-dependencies::push-dependencies widget-dependencies))
+  (let ((*current-theme* theme))
+    (let ((widget-dependencies (get-dependencies widget theme)))
+      ;; Update new-style dependencies
+      (reblocks/page-dependencies::push-dependencies widget-dependencies))
 
-  (reblocks/page::register-widget widget)
+    (reblocks/page::register-widget widget)
   
-  (with-html ()
-    (when (reblocks/debug:status)
-      ;; Tailwind theme does not use semantic classes and sometimes
-      ;; it is hard to figure out where starts some widget.
-      ;; In debug mode we render these comments to help with debug.
-      (:comment (fmt "Widget \"~S\""
-                     (class-name (class-of widget)))))
+    (with-html ()
+      (when (reblocks/debug:status)
+        ;; Tailwind theme does not use semantic classes and sometimes
+        ;; it is hard to figure out where starts some widget.
+        ;; In debug mode we render these comments to help with debug.
+        (:comment (fmt "Widget \"~S\""
+                       (class-name (class-of widget)))))
     
-    (:tag
-     :name (get-html-tag widget theme)
-     :class (join-css-classes theme
-                              (css-classes widget theme))
-     :id (reblocks/widgets/dom:dom-id widget)
-     :onclick (make-onclick-wrapper widget)
-     :attrs (html-attrs widget theme)
-     (call-next-method))))
+      (:tag
+       :name (get-html-tag widget theme)
+       :class (join-css-classes theme
+                                (css-classes widget theme))
+       :id (reblocks/widgets/dom:dom-id widget)
+       :onclick (make-onclick-wrapper widget)
+       :attrs (html-attrs widget theme)
+       (call-next-method)))))
 
 
 (defmethod reblocks/widget:render :around ((widget ui-widget))

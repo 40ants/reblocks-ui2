@@ -16,7 +16,6 @@
   (:import-from #:closer-mop
                 #:class-precedence-list)
   (:export #:current-theme
-           #:*current-theme*
            #:deftheme))
 (in-package #:reblocks-ui2/themes/api)
 

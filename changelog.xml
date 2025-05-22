@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<rss version="2.0">
+    <channel>
+        <title>reblocks-ui2-docs ChangeLog</title>
+        <link>https://40ants.com/reblocks-ui2/</link>
+        <generator>xml-emitter</generator>
+        <language>en-us</language>
+        <item>
+            <title>0.3.0  (2025-05-21)</title>
+            <description>&lt;h1 id=&quot;fixes&quot;&gt;Fixes&lt;/h1&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;Code was updated to work with latest Reblocks and it&apos;s routing.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;h1 id=&quot;changes&quot;&gt;Changes&lt;/h1&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;Variable &lt;code&gt;reblocks-ui2/themes/api:*current-theme*&lt;/code&gt; is not imported from it&apos;s package anymore. Use &lt;a href=&quot;https://40ants.com/reblocks-ui2/#x-28REBLOCKS-UI2-2FTHEMES-2FAPI-3ACURRENT-THEME-20FUNCTION-29&quot; data-document=&quot;https://40ants.com/reblocks-ui2/&quot; data-node=&quot;x-28REBLOCKS-UI2-2FTHEMES-2FAPI-3ACURRENT-THEME-20FUNCTION-29&quot;&gt;&lt;code&gt;reblocks-ui2/themes/api:current-theme&lt;/code&gt;&lt;/a&gt; function function instead.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</description>
+            <pubDate>Wed, 21 May 2025 00:00:00 +0000</pubDate>
+        </item>
+        <item>
+            <title>0.2.0  (2024-04-04)</title>
+            <description>&lt;h1 id=&quot;changes&quot;&gt;Changes&lt;/h1&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;Allow to set current theme using &lt;code&gt;SETF&lt;/code&gt; on &lt;a href=&quot;https://40ants.com/reblocks-ui2/#x-28REBLOCKS-UI2-2FTHEMES-2FAPI-3ACURRENT-THEME-20FUNCTION-29&quot; data-document=&quot;https://40ants.com/reblocks-ui2/&quot; data-node=&quot;x-28REBLOCKS-UI2-2FTHEMES-2FAPI-3ACURRENT-THEME-20FUNCTION-29&quot;&gt;&lt;code&gt;reblocks-ui2/themes/api:current-theme&lt;/code&gt;&lt;/a&gt; function.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Now Tailwind&lt;code&gt;CSS&lt;/code&gt; theme automatically loads https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4 JavaScript dependency.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</description>
+            <pubDate>Thu, 04 Apr 2024 00:00:00 +0000</pubDate>
+        </item>
+        <item>
+            <title>0.1.0  (2023-02-05)</title>
+            <description>&lt;ul&gt;&lt;li&gt;&lt;p&gt;Initial version.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</description>
+            <pubDate>Sun, 05 Feb 2023 00:00:00 +0000</pubDate>
+        </item>
+    </channel>
+</rss>

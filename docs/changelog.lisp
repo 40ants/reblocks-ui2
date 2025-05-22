@@ -10,6 +10,17 @@
                               "REPL"
                               "CSS"
                               "HTTP"))
+  (0.3.0 2025-05-21
+         "
+## Fixes
+
+* Code was updated to work with latest Reblocks and it's routing.
+
+## Changes
+
+* Variable `reblocks-ui2/themes/api:*current-theme*` is not imported from it's package anymore. Use REBLOCKS-UI2/THEMES/API:CURRENT-THEME function function instead.
+
+")
   (0.2.0 2024-04-04
          "
 ## Changes

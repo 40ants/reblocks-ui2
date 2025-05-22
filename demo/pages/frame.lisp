@@ -69,7 +69,7 @@
                                    title)))))
           
           (:div :class "page-content w-1/2 mx-auto"
-                (render (content widget) theme)))
+                (content widget)))
 
     (:div :class "footer w-1/2 mx-auto my-4 text-slate-400"
           (:p "Have a question?")

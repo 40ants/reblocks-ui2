@@ -184,7 +184,7 @@
 
             (awhen (input-right-content widget)
               (render it theme)))
-      
+
       (when (input-error widget)
         (:div :class (join-css-classes theme
                                        "flex"

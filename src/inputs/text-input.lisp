@@ -65,19 +65,19 @@
                   :accessor input-right-content)))
 
 
-(defun input (&key (widget-class 'input-widget)
-                   name
-                   value
-                   (type :text)
-                   placeholder
-                   (view :normal)
-                   (pin :round)
-                   (size :m)
-                   disabled
-                   validator
-                   error
-                   left-content
-                   right-content)
+(defun input (&key
+              (widget-class 'input-widget)
+              name
+              value
+              (type :text)
+              placeholder
+              (view :normal)
+              (pin :round)
+              (size :m)
+              disabled
+              validator
+              error
+              left-content right-content)
   (make-instance widget-class
                  :name (downcase name)
                  :type (downcase type)

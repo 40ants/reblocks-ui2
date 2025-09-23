@@ -91,6 +91,3 @@
                  :error error
                  :left-content left-content
                  :right-content right-content))
-
-
-

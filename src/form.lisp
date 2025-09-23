@@ -20,13 +20,17 @@
                 #:input-name
                 #:named-input)
   (:import-from #:reblocks-ui2/utils/walk
+                #:children
                 #:walk)
   (:import-from #:alexandria
+                #:hash-table-values
                 #:make-keyword
                 #:length=)
   (:import-from #:str
                 #:downcase)
   (:import-from #:trivial-arguments)
+  (:import-from #:reblocks-ui2/events
+                #:event-emitting-widget)
   (:export #:form-widget
            #:form-content
            #:form-on-submit
@@ -39,7 +43,7 @@
   (log:info "Empty action was called with" args))
 
 
-(defwidget form-widget (ui-widget)
+(defwidget form-widget (event-emitting-widget)
   ((content :initarg :content
             :reader form-content)
    (on-submit :initarg :on-submit
@@ -62,6 +66,7 @@
   (let ((arguments (trivial-arguments:arglist on-submit))
         (known-input-names (uiop:while-collecting (collect)
                              (flet ((visit (widget)
+                                      (break)
                                       (when (typep widget 'named-input)
                                         (collect (downcase (input-name widget))))))
                                (declare (dynamic-extent (function visit)))
@@ -104,24 +109,31 @@
 
 (defun form (content &key (widget-class 'form-widget)
                           on-submit)
-  (let ((widget (make-instance widget-class
-                               :content content)))
+  (let ((form-widget (make-instance widget-class
+                                    :content content)))
     (when on-submit
-      (validate-on-submit-fun-args content on-submit)
+      ;; NOTE: Previously I've thought it is a good idea to validate
+      ;; argument names when form widget is created, but in general case
+      ;; all text-inputs can be known only after the form was rendered,
+      ;; because form content can use a generic HTML widget as it's content
+      ;; (validate-on-submit-fun-args content on-submit)
       
-      (setf (slot-value widget 'on-submit)
-            (make-on-submit-wrapper widget on-submit)))
-    (values widget)))
+      (setf (slot-value form-widget 'on-submit)
+            (make-on-submit-wrapper form-widget on-submit)))
+    (values form-widget)))
 
 
-(defun make-on-submit-wrapper (widget on-submit-func)
+(defun make-on-submit-wrapper (form-widget on-submit-func)
   "Makes an action handler which calls on-submit-func only with validated values of all form inputs"
   (flet ((on-submit (&rest form-data)
            (handler-case
-               (let ((validated-data (validate-form-data widget form-data)))
-                 (apply on-submit-func widget validated-data))
+               (let ((validated-data (validate-form-data form-widget form-data)))
+                 (apply on-submit-func form-widget validated-data)
+                 (event-emitter:emit :submit form-widget
+                                     form-widget
+                                     validated-data))
              (validation-error ()
-               (update widget)))))
+               (update form-widget)))))
     #'on-submit))
 
 
@@ -149,3 +161,8 @@
              name)
     (setf (gethash name (form-inputs *current-form*))
           widget)))
+
+
+(defmethod children ((widget form-widget))
+  (break)
+  (hash-table-values (form-inputs widget)))

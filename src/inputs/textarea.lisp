@@ -1,4 +1,4 @@
-(uiop:define-package #:reblocks-ui2/inputs/text-input
+(uiop:define-package #:reblocks-ui2/inputs/textarea
   (:use #:cl)
   (:import-from #:reblocks/widget
                 #:defwidget)
@@ -18,54 +18,43 @@
                 #:downcase)
   (:import-from #:reblocks-ui2/inputs/base
                 #:base-input-widget)
-  (:export #:input
-           #:input-widget
-           #:input-placeholder
-           #:input-view
-           #:input-pin
-           #:input-disabled
-           #:input-size
-           #:input-type
-           #:input-left-content
-           #:input-right-content))
-(in-package #:reblocks-ui2/inputs/text-input)
+  (:export #:textarea
+           #:textarea-type
+           #:textarea-placeholder
+           #:textarea-view
+           #:textarea-pin
+           #:textarea-size
+           #:textarea-disabled))
+(in-package #:reblocks-ui2/inputs/textarea)
 
 
-(defwidget input-widget (base-input-widget)
+(defwidget textarea (base-input-widget)
   ((type :initform nil
          :initarg :type
          :type (or null string)
-         :reader input-type)
+         :reader textarea-type)
    (placeholder :initform nil
                 :initarg :placeholder
                 :type (or null string)
-                :reader input-placeholder)
+                :reader textarea-placeholder)
    (view :type reblocks-ui2/inputs/text-input/view:input-view
          :initarg :view
          :initform (make-instance 'normal)
-         :reader input-view)
+         :reader textarea-view)
    (pin :initarg :pin
         :type pin
-        :reader input-pin)
+        :reader textarea-pin)
    (size :initarg :size
          :type (member :s :m :l :xl)
          :initform :m
-         :reader input-size)
+         :reader textarea-size)
    (disabled :initarg :disabled
              :initform nil
              :type boolean
-             :reader input-disabled)
-   (left-content :initarg :left-content
-                 :type (or null ui-widget)
-                 :initform nil
-                 :accessor input-left-content)
-   (right-content :initarg :right-content
-                  :type (or null ui-widget)
-                  :initform nil
-                  :accessor input-right-content)))
+             :reader textarea-disabled)))
 
 
-(defun input (&key (widget-class 'input-widget)
+(defun textarea (&key (widget-class 'textarea)
                    name
                    value
                    (type :text)
@@ -75,9 +64,7 @@
                    (size :m)
                    disabled
                    validator
-                   error
-                   left-content
-                   right-content)
+                   error)
   (make-instance widget-class
                  :name (downcase name)
                  :type (downcase type)
@@ -88,6 +75,4 @@
                  :size size
                  :disabled disabled
                  :validator validator
-                 :error error
-                 :left-content left-content
-                 :right-content right-content))
+                 :error error))

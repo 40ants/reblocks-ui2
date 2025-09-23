@@ -46,16 +46,19 @@
                      do (render row theme)))))))
 
 
+(defmethod reblocks-ui2/widget:get-html-tag ((widget table-row) (theme tailwind-theme))
+  :tr)
+
+
 (defmethod render ((widget table-row) (theme tailwind-theme))
   (with-html ()
-    (:tr
-     (loop with *current-row* = widget
-           for *current-column* in (table-columns
-                                    (row-table widget))
-           for *current-cell* in (row-cells widget)
-           for classes = (join " " (column-css-classes *current-column* theme))
-           do (:td :class classes
-                   (render *current-cell* theme))))))
+    (loop with *current-row* = widget
+          for *current-column* in (table-columns
+                                   (row-table widget))
+          for *current-cell* in (row-cells widget)
+          for classes = (join " " (column-css-classes *current-column* theme))
+          do (:td :class classes
+                  (render *current-cell* theme)))))
 
 
 (defvar *default-header-cell-styles*

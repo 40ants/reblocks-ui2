@@ -34,6 +34,8 @@
   (:import-from #:reblocks-ui2/utils/align
                 #:vertical-align
                 #:horizontal-align)
+  (:import-from #:reblocks-ui2/utils/margin
+                #:margin)
   (:export #:card
            #:card-widget
            #:card-content
@@ -71,7 +73,7 @@
                      (width "full")
                      (height '(120 . nil))
                      (padding :l)
-                     margin
+                     (margin '(nil nil))
                      (horizontal-align :center)
                      (vertical-align :center)
                      on-click
@@ -85,4 +87,4 @@
                  :horizontal-align (horizontal-align horizontal-align)
                  :vertical-align (vertical-align vertical-align)
                  :padding (padding padding)
-                 :margin margin))
+                 :margin (margin margin)))

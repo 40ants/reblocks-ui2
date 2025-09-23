@@ -31,6 +31,11 @@
   (:import-from #:reblocks-ui2/utils/pin
                 #:ensure-pin
                 #:pin)
+  (:import-from #:reblocks-ui2/inputs/base
+                #:input-value
+                #:base-input-widget)
+  (:import-from #:reblocks-ui2/inputs/named
+                #:input-name)
   (:export #:button
            #:button-content
            #:button-class
@@ -42,7 +47,7 @@
 (in-package #:reblocks-ui2/buttons/button)
 
 
-(defwidget button (ui-widget)
+(defwidget button (base-input-widget)
   ((content :initarg :content
             :type widget
             :accessor button-content)
@@ -64,17 +69,33 @@
    (disabled :initarg :disabled
              :initform nil
              :type boolean
-             :accessor button-disabled))
+             :accessor button-disabled)
+   (type :initarg :type
+         :initform nil
+         :type (or null string)
+         :accessor button-type
+         :documentation "If not given, then type will be \"button\" for a button having on-click callback or \"submit\" otherwise."))
   (:default-initargs :width :min))
 
 
-(defun button (content &key (widget-class 'button) on-click (class "button") disabled style
-                            (view :normal)
-                            (size :l)
-                            (pin :round)
-                            (width :min)
-                            height)
+(defun button (content &key
+                         name
+                         value
+                         type
+                         (widget-class 'button)
+                         on-click
+                         (class "button")
+                         disabled
+                         style
+                         (view :normal)
+                         (size :l)
+                         (pin :round)
+                         (width :min)
+                         height)
   (make-instance widget-class
+                 :name name
+                 :value value
+                 :type type
                  :content (create-widget-from content)
                  :on-click on-click
                  :class class
@@ -92,14 +113,20 @@
                   (get-disabled-button-view (button-view widget))
                   (button-view widget))))
     (with-html ()
-      (:button :type (if (on-click widget)
-                         ;; We need to set type to button for all buttons having
-                         ;; having on-click handler to prevent the handler to be
-                         ;; triggered when button is in the form and user hits
-                         ;; Enter on some text-input field:
-                         ;; https://stackoverflow.com/questions/62144665
-                         "button"
-                         "submit")
+      (:button :type (cond
+                       ((button-type widget)
+                        (button-type widget))
+                       ((on-click widget)
+                        ;; We need to set type to button for all buttons having
+                        ;; having on-click handler to prevent the handler to be
+                        ;; triggered when button is in the form and user hits
+                        ;; Enter on some text-input field:
+                        ;; https://stackoverflow.com/questions/62144665
+                        "button")
+                       (t
+                        "submit"))
+               :name (input-name widget)
+               :value (input-value widget)
                :class (join-css-classes theme
                                         (button-class widget)
                                         view

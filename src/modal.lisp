@@ -36,13 +36,18 @@
                  :header-content header-content))
 
 
-(defgeneric modal-show (widget &key content)
+(defgeneric modal-show (widget &key content header-content)
   (:documentation "Shows modal window.")
-  (:method ((widget modal) &key content)
+  (:method ((widget modal) &key content header-content)
     (unless (slot-value widget 'visible)
+      
       (when content
         (setf (modal-main-content widget)
               content))
+      
+      (when header-content
+        (setf (modal-header-content widget)
+              header-content))
       
       (setf (slot-value widget 'visible) t)
       (update widget))))

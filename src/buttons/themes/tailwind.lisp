@@ -156,7 +156,10 @@
 
 
 ;; Button's outer container
+;; TODO: remove
 (defmethod css-classes ((button button) (theme tailwind-theme) &key)
-  (list
-   ;; To make it possible to add a button iside a text block.
-   "inline-block"))
+  (call-next-method)
+  ;; (list
+  ;;  ;; To make it possible to add a button iside a text block.
+  ;;  "inline-block")
+  )

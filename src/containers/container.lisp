@@ -47,19 +47,20 @@
   (loop with collecting-subwidgets-p = t
         for item in subwidgets-and-options
         when (keywordp item)
-        do (setf collecting-subwidgets-p nil)
+          do (setf collecting-subwidgets-p nil)
         if collecting-subwidgets-p
-        collect item into subwidgets
+          collect item into subwidgets
         else
-        collect item into options
+          collect item into options
         finally (return
-                  (destructuring-bind (&key (gap *default-gap*)
-                                            (column-type default-widget-class)
-                                            margin
-                                            (width :full)
-                                            height
-                                            on-click
-                                            css-classes)
+                  (destructuring-bind (&key
+                                         (gap *default-gap*)
+                                         (column-type default-widget-class)
+                                         margin
+                                         (width :full)
+                                         height
+                                         on-click
+                                         css-classes)
                       options
                     (make-instance column-type
                                    :subwidgets (mapcar #'create-widget-from

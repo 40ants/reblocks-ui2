@@ -10,7 +10,7 @@
                               "REPL"
                               "CSS"
                               "HTTP"))
-  (0.4.0 2026-04-26
+  (0.5.0 2026-04-26
          "
 ## Changes
 
@@ -30,6 +30,21 @@
                     (list nil '(\"blah\" :colspan 2) nil)))
   ```
 
+")
+  (0.4.0 2025-11-23
+         "
+## Added
+
+New input widgets were added:
+
+- textarea
+- selectbox
+- checkbox
+- modal
+
+## Changed
+
+- button now accepts optional name, value and type arguments. 
 ")
   (0.3.0 2025-05-21
          "

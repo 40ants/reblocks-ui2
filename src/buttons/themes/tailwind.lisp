@@ -153,13 +153,3 @@
          (:brick nil)
          (:round (add-size-suffix "rounded-r"))
          (:circle "rounded-r-full"))))))
-
-
-;; Button's outer container
-;; TODO: remove
-(defmethod css-classes ((button button) (theme tailwind-theme) &key)
-  (call-next-method)
-  ;; (list
-  ;;  ;; To make it possible to add a button iside a text block.
-  ;;  "inline-block")
-  )

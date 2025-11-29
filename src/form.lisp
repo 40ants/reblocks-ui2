@@ -66,7 +66,6 @@
   (let ((arguments (trivial-arguments:arglist on-submit))
         (known-input-names (uiop:while-collecting (collect)
                              (flet ((visit (widget)
-                                      (break)
                                       (when (typep widget 'named-input)
                                         (collect (downcase (input-name widget))))))
                                (declare (dynamic-extent (function visit)))
@@ -164,5 +163,4 @@
 
 
 (defmethod children ((widget form-widget))
-  (break)
   (hash-table-values (form-inputs widget)))

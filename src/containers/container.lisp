@@ -80,5 +80,4 @@
 
 
 (defmethod reblocks-ui2/utils/walk:children ((widget container-widget))
-  (break)
   (subwidgets widget))

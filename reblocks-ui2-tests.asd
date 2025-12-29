@@ -7,7 +7,8 @@
   :source-control (:git "https://github.com/40ants/reblocks-ui2")
   :bug-tracker "https://github.com/40ants/reblocks-ui2/issues"
   :pathname "t"
-  :depends-on ("reblocks-ui2-tests/core")
+  :depends-on ("reblocks-ui2-tests/core"
+               "reblocks-ui2-tests/themes/styling")
   :perform (test-op (op c)
                     (unless (symbol-call :rove :run c)
                       (error "Tests failed"))))

@@ -2,10 +2,15 @@
   (:use #:cl)
   (:import-from #:alexandria
                 #:flatten)
+  (:import-from #:serapeum
+                #:prependf)
+  (:import-from #:str
+                #:split)
   (:export #:css-classes
            #:css-styles
            #:join-css-classes
-           #:join-css-styles))
+           #:join-css-styles
+           #:merge-css-classes))
 (in-package #:reblocks-ui2/themes/styling)
 
 
@@ -31,24 +36,34 @@
     classes))
 
 
+(defun collect-css-classes (theme objects)
+  "Collect all CSS classes from OBJECTS into a flat list."
+  (let ((classes nil))
+    (labels ((traverse (obj)
+               (cond
+                 ((null obj))
+                 ((consp obj)
+                  (traverse (car obj))
+                  (traverse (cdr obj)))
+                 ((typep obj 'string)
+                  (cond
+                    ((find #\Space obj :test #'char=)
+                     (let ((splitted (split #\Space obj :omit-nulls t)))
+                       (prependf classes
+                                 (nreverse splitted))))
+                    (t
+                     (push obj classes))))
+                 (t
+                  (traverse (css-classes obj theme))))))
+      (traverse objects)
+      (nreverse classes))))
+
+
 (defgeneric join-css-classes (theme &rest classes)
   (:method ((theme t) &rest classes)
-    (with-output-to-string (output)
-      (let ((first-item t))
-        (labels ((traverse (obj)
-                   (cond
-                     ((null obj))
-                     ((consp obj)
-                      (traverse (car obj))
-                      (traverse (cdr obj)))
-                     ((typep obj 'string)
-                      (if first-item
-                          (setf first-item nil)
-                          (write-string " " output))
-                      (write-string obj output))
-                     (t
-                      (traverse (css-classes obj theme))))))
-          (traverse classes))))))
+    (let* ((collected-classes (collect-css-classes theme classes))
+           (merged-classes (merge-css-classes theme collected-classes)))
+      (format nil "~{~A~^ ~}" merged-classes))))
 
 
 (defun join-css-styles (&rest styles)

@@ -26,23 +26,29 @@
     nil))
 
 
-(defun join-css-classes (theme &rest classes)
-  (with-output-to-string (output)
-    (let ((first-item t))
-      (labels ((traverse (obj)
-                 (cond
-                   ((null obj))
-                   ((consp obj)
-                    (traverse (car obj))
-                    (traverse (cdr obj)))
-                   ((typep obj 'string)
-                    (if first-item
-                        (setf first-item nil)
-                        (write-string " " output))
-                    (write-string obj output))
-                   (t
-                    (traverse (css-classes obj theme))))))
-        (traverse classes)))))
+(defgeneric merge-css-classes (theme classes)
+  (:method ((theme t) (classes t))
+    classes))
+
+
+(defgeneric join-css-classes (theme &rest classes)
+  (:method ((theme t) &rest classes)
+    (with-output-to-string (output)
+      (let ((first-item t))
+        (labels ((traverse (obj)
+                   (cond
+                     ((null obj))
+                     ((consp obj)
+                      (traverse (car obj))
+                      (traverse (cdr obj)))
+                     ((typep obj 'string)
+                      (if first-item
+                          (setf first-item nil)
+                          (write-string " " output))
+                      (write-string obj output))
+                     (t
+                      (traverse (css-classes obj theme))))))
+          (traverse classes))))))
 
 
 (defun join-css-styles (&rest styles)

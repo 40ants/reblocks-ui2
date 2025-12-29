@@ -30,7 +30,8 @@ The library includes:
 
 ### Prerequisites
 
-- Common Lisp implementation (e.g., SBCL, CCL)
+- Roswell (for using `ros run` command)
+- Common Lisp implementation (e.g., SBCL, CCL) 
 - Quicklisp for dependency management
 - ASDF 3.1 or later
 
@@ -65,16 +66,16 @@ The demo system is defined in `reblocks-ui2-demo.asd` and includes a sample appl
 To run the tests:
 
 ```lisp
-(asdf:test-system :reblocks-ui2)
+(asdf:test-system :reblocks-ui2-tests)
 ```
 
-Or in the REPL:
+When running Lisp code, use:
 
-```lisp
-(ql:quickload :reblocks-ui2-tests)
-(ql:quickload :rove)
-(rove:run :reblocks-ui2-tests)
+```bash
+qlot exec ros run --eval '(some code)'
 ```
+
+Instead of plain SBCL or ros run.
 
 ## Development Conventions
 

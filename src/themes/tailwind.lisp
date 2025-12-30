@@ -8,6 +8,7 @@
   (:import-from #:reblocks/dependencies
                 #:make-dependency)
   (:import-from #:reblocks-ui2/themes/styling
+                #:merge-css-classes
                 #:css-classes)
   (:import-from #:reblocks-ui2/themes/color
                 #:adjust-base-color
@@ -26,7 +27,11 @@
                 #:deftheme)
   (:import-from #:reblocks-ui2/utils/padding
                 #:padding-size)
+  (:import-from #:tailwind-merge
+                #:merge-tailwind-classes)
   (:export #:make-tailwind-theme
+           #:make-tailwind-theme-light
+           #:make-tailwind-theme-dark
            #:tailwind-theme))
 (in-package #:reblocks-ui2/themes/tailwind)
 
@@ -221,6 +226,11 @@
 (defmethod adjust-base-color ((theme tailwind-theme) (tailwind-color-name string) (new-name string))
   "Just replaced the base color with the given name."
   new-name)
+
+
+(defmethod merge-css-classes ((theme tailwind-theme) classes)
+  ;; classes
+  (merge-tailwind-classes classes))
 
 
 (defmethod css-classes ((obj color) (theme tailwind-theme) &key)

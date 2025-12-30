@@ -32,6 +32,10 @@
 
 
 (defgeneric merge-css-classes (theme classes)
+  (:documentation "This generic function is called before JOIN-CSS-CLASSES will output classes as a string.
+
+                   Depending on theme some transformations can be applied to the list of CSS classes, given as CLASSES argument.
+                   For example, a theme based on Tailwind framework, might merge CSS classes list allowing to override properties.")
   (:method ((theme t) (classes t))
     classes))
 

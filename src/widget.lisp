@@ -153,7 +153,13 @@
 (defmethod render :around ((widget ui-widget) (theme t))
   "This function is intended for internal usage only.
    It renders widget with surrounding HTML tag and attributes."
-  (let ((*current-theme* theme))
+  (let ((*current-theme* theme)
+        (id (reblocks/widgets/dom:dom-id widget))
+        (name (get-html-tag widget theme))
+        (classes (join-css-classes theme
+                                   (css-classes widget theme)))
+        (attrs (html-attrs widget theme))
+        (onclick (make-onclick-wrapper widget)))
     (let ((widget-dependencies (get-dependencies widget theme)))
       ;; Update new-style dependencies
       (reblocks/page-dependencies::push-dependencies widget-dependencies))
@@ -167,14 +173,13 @@
         ;; In debug mode we render these comments to help with debug.
         (:comment (fmt "Widget \"~S\""
                        (class-name (class-of widget)))))
-    
+
       (:tag
-       :name (get-html-tag widget theme)
-       :class (join-css-classes theme
-                                (css-classes widget theme))
-       :id (reblocks/widgets/dom:dom-id widget)
-       :onclick (make-onclick-wrapper widget)
-       :attrs (html-attrs widget theme)
+       :name name
+       :class classes
+       :id id
+       :onclick onclick
+       :attrs attrs
        (call-next-method)))))
 
 

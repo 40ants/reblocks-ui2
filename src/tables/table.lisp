@@ -51,7 +51,7 @@
 
 (defvar *current-cell*)
 
-(defwidget table-row ()
+(defwidget table-row (ui-widget)
   ((cells :initarg :cells
           :type (soft-list-of widget)
           :reader row-cells)
@@ -64,10 +64,12 @@
 
 
 (defwidget table-widget (ui-widget)
-  ((columns :type (soft-list-of column)
+  ((columns :initarg :columns
+            :type (soft-list-of column)
             :initform nil
             :reader table-columns)
-   (rows :type (soft-list-of table-row)
+   (rows :initarg :rows
+         :type (soft-list-of table-row)
          :initform nil
          :reader table-rows)
    (row-class :initarg :row-class
@@ -76,7 +78,7 @@
               :reader table-row-class)))
 
 
-(defwidget column ()
+(defwidget column (ui-widget)
   ((idx :initform nil
         :type (or null integer)
         :reader column-idx)

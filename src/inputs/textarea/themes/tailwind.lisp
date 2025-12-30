@@ -1,4 +1,4 @@
-(uiop:define-package #:reblocks-ui2/inputs/text-input/themes/tailwind
+(uiop:define-package #:reblocks-ui2/inputs/textarea/themes/tailwind
   (:use #:cl)
   (:import-from #:reblocks-ui2/widget
                 #:get-html-tag
@@ -9,16 +9,15 @@
                 #:input-name
                 #:input-value
                 #:input-error)
-  (:import-from #:reblocks-ui2/inputs/text-input
-                #:input-right-content
-                #:input-left-content
-                #:input-type
-                #:input-size
-                #:input-disabled
-                #:input-view
-                #:input-pin
-                #:input-placeholder
-                #:input-widget)
+  (:import-from #:reblocks-ui2/inputs/textarea
+                #:textarea
+                #:textarea-type
+                #:textarea-size
+                #:textarea-disabled
+                #:textarea-view
+                #:textarea-pin
+                #:textarea-placeholder
+                #:textarea-widget)
   (:import-from #:reblocks/html
                 #:with-html)
   (:import-from #:reblocks-ui2/themes/styling
@@ -33,7 +32,7 @@
   (:import-from #:anaphora
                 #:it
                 #:awhen))
-(in-package #:reblocks-ui2/inputs/text-input/themes/tailwind)
+(in-package #:reblocks-ui2/inputs/textarea/themes/tailwind)
 
 
 (defparameter *input-outer-block-classes*
@@ -70,7 +69,7 @@
          :focus 4))
 
 
-(defmethod get-html-tag ((widget input-widget) (theme tailwind-theme))
+(defmethod get-html-tag ((widget textarea) (theme tailwind-theme))
   :span)
 
 
@@ -90,7 +89,7 @@
          *input-content-common-classes*))
 
 
-(defmethod css-classes ((widget input-widget) (theme tailwind-theme) &key)
+(defmethod css-classes ((widget textarea) (theme tailwind-theme) &key)
   (list *input-outer-block-classes*
         (call-next-method)))
 
@@ -130,7 +129,7 @@
     (list "px-4")))
 
 
-(defmethod render ((widget input-widget) (theme tailwind-theme))
+(defmethod render ((widget textarea) (theme tailwind-theme))
   (let ((invalid-state (not (null (input-error widget)))))
     (with-html ()
       ;; Outer wrapper
@@ -140,56 +139,44 @@
                                      ;; Center items vertically to make left/right content in line with
                                      ;; the main text-input.
                                      "items-center"
-                                     (css-classes (input-pin widget)
+                                     (css-classes (textarea-pin widget)
                                                   theme
-                                                  :size (input-size widget))
-                                     (when (input-disabled widget)
+                                                  :size (textarea-size widget))
+                                     (when (textarea-disabled widget)
                                        *disabled-bg-color*)
-                                     (css-classes (input-view widget)
+                                     (css-classes (textarea-view widget)
                                                   theme
                                                   :invalid-state invalid-state))
             
-            (awhen (input-left-content widget)
-              (render it theme))
-
-            ;; Inner wrapper to 
-            ;; (:div :class (join-css-classes theme
-            ;;                                "w-full"
-            ;;                                (input-content-size-classes theme
-            ;;                                                            (input-size widget))))
-            (:input :class (join-css-classes theme
-                                             "w-full"
-                                             (input-content-size-classes theme
-                                                                         (input-size widget))
-                                             "border-0"
-                                             "bg-transparent"
-                                             "focus:outline-none"
-                                             (input-font-size theme (input-size widget))
-                                             (cond
-                                               ((input-disabled widget)
-                                                *disabled-text-color*)
-                                               (t
-                                                (color "text"
-                                                       :light "gray-900"
-                                                       :dark "gray-100"))))
-                    :name (input-name widget)
-                    :value (input-value widget)
-                    :type (input-type widget)
-                    :aria-invalid invalid-state
-                    ;; If we don't set this to 1, then minumum input width
-                    ;; will be more than 100px. More details are here:
-                    ;; https://stackoverflow.com/a/29990524/70293
-                    :size 1
-                    :placeholder (input-placeholder widget))
-
-            (awhen (input-right-content widget)
-              (render it theme)))
-
+            (:textarea :class (join-css-classes theme
+                                                "w-full"
+                                                (input-content-size-classes theme
+                                                                            (textarea-size widget))
+                                                "border-0"
+                                                "bg-transparent"
+                                                "focus:outline-none"
+                                                (input-font-size theme (textarea-size widget))
+                                                (cond
+                                                  ((textarea-disabled widget)
+                                                   *disabled-text-color*)
+                                                  (t
+                                                   (color "text"
+                                                          :light "gray-900"
+                                                          :dark "gray-100"))))
+                       :name (input-name widget)
+                       :aria-invalid invalid-state
+                       ;; If we don't set this to 1, then minumum input width
+                       ;; will be more than 100px. More details are here:
+                       ;; https://stackoverflow.com/a/29990524/70293
+                       :size 1
+                       :placeholder (textarea-placeholder widget)
+                       (input-value widget)))
+      
       (when (input-error widget)
         (:div :class (join-css-classes theme
                                        "flex"
                                        (additional-content-size-classes
                                         theme
-                                        (input-size widget)))
+                                        (textarea-size widget)))
               (:div :class *error-text-class*
                     (input-error widget)))))))

@@ -5,6 +5,7 @@
   (:import-from #:reblocks-ui2/themes/tailwind
                 #:tailwind-theme)
   (:import-from #:reblocks-ui2/tables/table
+                #:row-css-classes
                 #:column-align
                 #:column-classes
                 #:column
@@ -25,6 +26,11 @@
   (:import-from #:str
                 #:join
                 #:split)
+  (:import-from #:reblocks-ui2/tables/cell
+                #:cell-rowspan
+                #:cell-colspan
+                #:cell-widget
+                #:cell)
   (:export
    #:*default-header-cell-styles*
    #:*default-cell-styles*))
@@ -48,14 +54,32 @@
 
 (defmethod render ((widget table-row) (theme tailwind-theme))
   (with-html ()
-    (:tr
+    (:tr :class (join " " (row-css-classes widget theme))
      (loop with *current-row* = widget
            for *current-column* in (table-columns
                                     (row-table widget))
            for *current-cell* in (row-cells widget)
-           for classes = (join " " (column-css-classes *current-column* theme))
-           do (:td :class classes
-                   (render *current-cell* theme))))))
+           ;; Cell maker might return NIL.
+           ;; In this case we have to skip TD rendering.
+           ;; This could be used when some cells use colspan or rowspan attribute.
+           when *current-cell*
+             do (let* ((cell-widget (typecase *current-cell*
+                                      (cell
+                                         (cell-widget *current-cell*))
+                                      (t *current-cell*)))
+                       (colspan (typecase *current-cell*
+                                  (cell
+                                     (cell-colspan *current-cell*))
+                                  (t nil)))
+                       (rowspan (typecase *current-cell*
+                                  (cell
+                                     (cell-rowspan *current-cell*))
+                                  (t nil)))
+                       (classes (join " " (column-css-classes *current-column* theme))))
+                  (:td :class classes
+                       :colspan colspan
+                       :rowspan rowspan
+                       (render cell-widget theme)))))))
 
 
 (defvar *default-header-cell-styles*

@@ -15,6 +15,8 @@
   (:import-from #:reblocks-ui2/widget
                 #:ui-widget)
   (:import-from #:reblocks-lass)
+  (:import-from #:reblocks-ui2/tables/cell
+                #:cell)
   (:export #:make-table
            #:column
            #:current-row
@@ -38,7 +40,8 @@
            #:data-getter
            #:cell-maker
            #:column-title
-           #:table-row-class))
+           #:table-row-class
+           #:row-css-classes))
 (in-package #:reblocks-ui2/tables/table)
 
 
@@ -53,7 +56,7 @@
 
 (defwidget table-row ()
   ((cells :initarg :cells
-          :type (soft-list-of widget)
+          :type (soft-list-of (or null widget cell))
           :reader row-cells)
    (table :initarg :table
           :reader row-table
@@ -76,6 +79,18 @@
               :reader table-row-class)))
 
 
+(defun default-cell-maker (item)
+  (typecase item
+    (null nil)
+    (cell item)
+    (list
+       (apply #'cell
+              (create-widget-from (car item))
+              (rest item)))
+    (t
+       (create-widget-from item))))
+
+
 (defwidget column ()
   ((idx :initform nil
         :type (or null integer)
@@ -88,7 +103,7 @@
            :reader data-getter)
    (cell-maker :initarg :cell-maker
                :type function
-               :initform #'create-widget-from
+               :initform #'default-cell-maker
                :reader cell-maker)
    (title :initarg :title
           :type widget
@@ -118,7 +133,9 @@
         with object = (row-object row)
         for *current-column* in (table-columns *current-table*)
         for data = (funcall (data-getter *current-column*) object)
-        for cell = (funcall (cell-maker *current-column*) data)
+        for cell-maker = (cell-maker *current-column*)
+        for cell = (when cell-maker
+                     (funcall cell-maker data))
         collect cell into cells
         finally (setf (slot-value *current-row* 'cells)
                       cells)
@@ -182,6 +199,12 @@
     (fmt "align-~A"
          (string-downcase
           (column-align widget)))))
+
+
+(defgeneric row-css-classes (column theme)
+  (:documentation "This generic-function allows to override CSS classes for table row element.")
+  (:method ((widget table-row) (theme t))
+    nil))
 
 
 (defun column (title &key (getter nil getter-given-p)

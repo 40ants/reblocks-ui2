@@ -10,6 +10,27 @@
                               "REPL"
                               "CSS"
                               "HTTP"))
+  (0.4.0 2026-04-26
+         "
+## Changes
+
+* Table cells which are NIL will be skipped - `<td>` element is not rendered for them.
+* Your `cell-maker` function now may return objects of class REBLOCKS-UI2/TABLES/CELL:CELL
+  to add `colspan` or `rowspan` property.
+* Default cell-maker function now transforms lists to REBLOCKS-UI2/TABLES/CELL:CELL class objects
+  by applying the list to the REBLOCKS-UI2/TABLES/CELL:CELL function.
+
+  Here is an example of table with spans:
+
+  ```
+  (make-table (list (column \"Name\")
+                    (column \"Version\")
+                    (column \"Built-at\"))
+              (list (list '(\"Foo\" :rowspan 2) \"bar\" \"baz\")
+                    (list nil '(\"blah\" :colspan 2) nil)))
+  ```
+
+")
   (0.3.0 2025-05-21
          "
 ## Fixes

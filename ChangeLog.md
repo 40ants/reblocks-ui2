@@ -2,6 +2,30 @@
 
 # ChangeLog
 
+<a id="x-28REBLOCKS-UI2-DOCS-2FCHANGELOG-3A-3A-7C0-2E4-2E0-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
+
+## 0.4.0 (2026-04-26)
+
+<a id="changes"></a>
+
+### Changes
+
+* Table cells which are `NIL` will be skipped - `<td>` element is not rendered for them.
+* Your `cell-maker` function now may return objects of class [`reblocks-ui2/tables/cell:cell`][06d7]
+  to add `colspan` or `rowspan` property.
+* Default cell-maker function now transforms lists to [`reblocks-ui2/tables/cell:cell`][06d7] class objects
+  by applying the list to the [`reblocks-ui2/tables/cell:cell`][a050] function.
+
+Here is an example of table with spans:
+
+`
+  (make-table (list (column "Name")
+                    (column "Version")
+                    (column "Built-at"))
+              (list (list '("Foo" :rowspan 2) "bar" "baz")
+                    (list nil '("blah" :colspan 2) nil)))
+`
+
 <a id="x-28REBLOCKS-UI2-DOCS-2FCHANGELOG-3A-3A-7C0-2E3-2E0-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
 ## 0.3.0 (2025-05-21)
@@ -36,6 +60,8 @@
 * Initial version.
 
 
+[06d7]: https://40ants.com/reblocks-ui2/#x-28REBLOCKS-UI2-2FTABLES-2FCELL-3ACELL-20CLASS-29
+[a050]: https://40ants.com/reblocks-ui2/#x-28REBLOCKS-UI2-2FTABLES-2FCELL-3ACELL-20FUNCTION-29
 [9625]: https://40ants.com/reblocks-ui2/#x-28REBLOCKS-UI2-2FTHEMES-2FAPI-3ACURRENT-THEME-20FUNCTION-29
 
 * * *

@@ -170,6 +170,50 @@ inside a `reblocks-ui2/modal:modal`, hide the modal from the callback:
                (declare (ignore button))
                (reblocks-ui2/modal:modal-show modal))))
 ```
+
+A whole CRUD table can be created with a single
+`reblocks-ui2/tables/crud:make-crud-table` call. It renders a search
+table and adds an actions column with Edit and Delete buttons, plus an
+Add button above the table. Forms are created by the application and
+shown in a modal:
+
+```lisp
+(reblocks-ui2/tables/crud:make-crud-table
+ (list (reblocks-ui2/tables/table:column \"Title\"
+                                         :getter #'task-title))
+ ;; DATA-GETTER is given to the search widget and
+ ;; returns the list of objects to show:
+ (lambda (&rest args)
+   (declare (ignore args))
+   (copy-list *tasks*))
+ :add-form-maker (lambda (crud-widget modal)
+                   (reblocks-ui2/form:form
+                    (reblocks-ui2/inputs/text-input:input
+                     :name \"title\")
+                    :on-submit (lambda (form &key button title)
+                                 (declare (ignore form))
+                                 (when (string-equal button \"submit\")
+                                   (push (make-task title)
+                                         *tasks*))
+                                 (reblocks-ui2/modal:modal-hide modal))))
+ :edit-form-maker (lambda (modal task)
+                    ;; Should return a form editing the TASK.
+                    ...)
+ :on-delete (lambda (task)
+              (setf *tasks*
+                    (remove task *tasks*)))
+ :delete-question (lambda (task)
+                    (format nil \"Delete this task: ~A?\"
+                            (task-title task))))
+```
+
+Each button is rendered only when the corresponding callback is given;
+without any callback the table has no actions column at all. The widget
+knows nothing about the persistence: saving objects inside the forms and
+deleting them in ON-DELETE is up to the application. After the add form
+is submitted, the whole table is updated; after the edit form is
+submitted, only the edited row's cells are recalculated. DELETE-QUESTION
+may also be a plain string.
 ")
 
 

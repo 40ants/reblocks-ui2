@@ -29,6 +29,8 @@
                 #:make-tabs-page)
   (:import-from #:reblocks-ui2-demo/pages/charts
                 #:make-charts-page)
+  (:import-from #:reblocks-ui2-demo/pages/crud
+                #:make-crud-page)
   (:import-from #:reblocks-prometheus
                 #:prometheus-app-mixin)
   (:import-from #:reblocks-prometheus
@@ -82,6 +84,8 @@
              (make-tabs-page))
            (page ("/charts" :name "charts")
              (make-charts-page))
+           (page ("/crud" :name "crud")
+             (make-crud-page))
            (page ("/" :name "index")
              (make-landing-page))
            

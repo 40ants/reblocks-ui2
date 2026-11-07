@@ -52,6 +52,7 @@
                                         '("card" "Card")
                                         '("charts" "Charts")
                                         '("containers" "Containers")
+                                        '("crud" "CRUD table")
                                         '("tabs" "Tabs"))
                                   #'string<
                                   :key #'car)

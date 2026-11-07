@@ -17,6 +17,7 @@
 - Date input widget and a valid-date validator.
 - Pie and column charts based on Google Charts.
 - Confirm form widget.
+- CRUD table widget.
 
 ")
   (0.5.0 2026-04-26

@@ -20,6 +20,7 @@
                "reblocks-ui2/editable/string"
                "reblocks-ui2/html"
                "reblocks-ui2/tables/search"
+               "reblocks-ui2/tables/crud"
                ;; And we need to explicitly specify this dependency
                ;; to load all necessary components of Reblocks.
                ;; Otherwise possible some strange errors like:

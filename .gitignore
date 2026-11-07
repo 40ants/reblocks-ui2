@@ -6,3 +6,11 @@
 *.fasl
 .DS_Store
 roswell/demo
+
+# Local configuration of the Lakefile
+.local-config.lisp
+
+# Built executables
+/reblocks-ui2-demo
+/roswell/reblocks-ui2-demo
+/roswell/reblocks-ui2-demo-prod

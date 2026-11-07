@@ -11,4 +11,8 @@
   :pathname "demo"
   :depends-on ("reblocks"
                "reblocks-ui2-tailwind"
-               "reblocks-ui2-demo/server"))
+               "reblocks-ui2-demo/server"
+               "reblocks-ui2")
+  :build-operation "program-op"
+  :build-pathname "reblocks-ui2-demo"
+  :entry-point "reblocks-ui2-demo/server::start-server-in-production")

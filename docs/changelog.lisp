@@ -10,6 +10,13 @@
                               "REPL"
                               "CSS"
                               "HTTP"))
+  (0.6.0 2026-11-07
+         "
+## Added
+
+- Date input widget and a valid-date validator.
+
+")
   (0.5.0 2026-04-26
          "
 ## Changes
@@ -45,6 +52,7 @@ New input widgets were added:
 ## Changed
 
 - button now accepts optional name, value and type arguments. 
+
 ")
   (0.3.0 2025-05-21
          "

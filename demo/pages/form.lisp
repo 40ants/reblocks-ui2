@@ -14,6 +14,8 @@
                 #:button)
   (:import-from #:reblocks-ui2/inputs/text-input
                 #:input)
+  (:import-from #:reblocks-ui2/inputs/date-input
+                #:date-input)
   (:import-from #:reblocks-ui2/containers/row
                 #:row)
   (:import-from #:reblocks-ui2/form/validators
@@ -81,13 +83,21 @@
                    :error "Password should be at least 8 symbols length and include 2 digits and 1 punctuation sign.")
                   :size :xl
                   :placeholder "Password"))
+          (row
+           (date-input :name "birthdate"
+                       :placeholder "Birth date"
+                       :size :xl)
+           (date-input :name "deadline"
+                       :required nil
+                       :placeholder "Deadline (optional)"
+                       :size :xl))
           (controls-row
            (button "Sign Up"
                    :view :action)))
          :on-submit
-         (lambda (form &key name email age password)
+         (lambda (form &key name email age password birthdate deadline)
            (declare (ignore form))
-           (log:warn "On Submit was called:" name email age password)
+           (log:warn "On Submit was called:" name email age password birthdate deadline)
            (setf (submittedp widget)
                  t)
            (update widget))))))))

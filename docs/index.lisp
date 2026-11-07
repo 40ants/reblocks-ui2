@@ -54,7 +54,12 @@
                                    "URL"
                                    "URI"
                                    "RPC"
-                                   "GIT")
+                                   "GIT"
+                                   "DD"
+                                   "MM"
+                                   "YYYY"
+                                   "YYYY-MM-DD"
+                                   "DD.MM.YYYY")
                     :external-docs ("https://40ants.com/reblocks/"))
   (reblocks-ui2 system)
   "
@@ -84,7 +89,28 @@ You can install this library from Quicklisp, but you want to receive updates qui
 
 (defsection @usage (:title "Usage")
   "
-TODO: Write a library description. Put some examples here.
+Here is how a form with a native date input can be created:
+
+```lisp
+(reblocks-ui2/form:form
+ (reblocks-ui2/containers/column:column
+  (reblocks-ui2/inputs/date-input:date-input
+   :name \"birthday\"
+   :value \"2025-11-07\"
+   :required nil))
+ :on-submit
+ (lambda (form &key birthday)
+   ;; BIRTHDAY is a local-time timestamp here, or NIL because
+   ;; the date is optional in this example.
+   (declare (ignore form birthday))))
+```
+
+The widget is a thin wrapper around a text input with type=\"date\" and
+attaches a `reblocks-ui2/form/validators:valid-date` validator. The value
+is a \"YYYY-MM-DD\" string, native for the browser. Pass `:format :ddmmyyyy`
+to parse \"DD.MM.YYYY\" strings instead, and use
+`reblocks-ui2/form/validators:format-date` to convert a timestamp back
+into a string suitable for the widget's value.
 ")
 
 

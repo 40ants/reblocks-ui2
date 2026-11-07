@@ -11,6 +11,7 @@
   :pathname "src"
   :depends-on ("reblocks-ui2/core"
                "reblocks-ui2/containers/stack"
+               "reblocks-ui2/inputs/date-input"
                "reblocks-ui2/tables/clickable-row"
                "reblocks-ui2/editable/string"
                "reblocks-ui2/html"

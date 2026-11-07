@@ -10,7 +10,8 @@
   (:import-from #:reblocks-ui2/themes/styling
                 #:join-css-classes)
   (:import-from #:reblocks-ui2/themes/tailwind
-                #:colors-bg-action)
+                #:colors-bg-action
+                #:colors-text-normal)
   (:import-from #:40ants-routes/route-url
                 #:route-url))
 (in-package #:reblocks-ui2-demo/pages/frame)
@@ -35,8 +36,12 @@
                        (:a :href "/"
                            "Reblocks UI2 Demo App")))))
 
-    (:div :class "flex"
-          (let* ((menu-item-classes "text-xl py-2 px-4 shadow-lg hover:shadow-md rounded-r-xl border border-stone-200")
+    (:div :class (join-css-classes theme
+                                   "flex"
+                                   (colors-text-normal theme))
+          (let* ((menu-item-classes (join-css-classes theme
+                                                      "text-xl py-2 px-4 shadow-lg hover:shadow-md rounded-r-xl border border-stone-200"
+                                                      (colors-text-normal theme)))
                  (current-menu-item-classes (join-css-classes theme
                                                               menu-item-classes
                                                               (colors-bg-action theme)))

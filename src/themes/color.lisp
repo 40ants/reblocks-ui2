@@ -64,11 +64,14 @@
 
 
 (defun adjust-color (theme color &key
-                                   (light nil light-p)
-                                   (dark nil dark-p)
-                                   (hover nil hover-p)
-                                   (focus nil focus-p))
-  (color (color-property color)
+                                 (property nil property-p)
+                                 (light nil light-p)
+                                 (dark nil dark-p)
+                                 (hover nil hover-p)
+                                 (focus nil focus-p))
+  (color (if property-p
+             property
+             (color-property color))
          :light (if light-p
                     (adjust-base-color theme
                                        (color-light color)

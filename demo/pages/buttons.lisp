@@ -1,8 +1,8 @@
 (uiop:define-package #:reblocks-ui2-demo/pages/buttons
   (:use #:cl)
   (:import-from #:reblocks/widget
-                #:render
-                #:defwidget)
+                #:defwidget
+                #:render)
   (:import-from #:reblocks/html
                 #:with-html)
   (:import-from #:reblocks-ui2/buttons/button

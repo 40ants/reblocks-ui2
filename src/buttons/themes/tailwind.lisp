@@ -17,6 +17,21 @@
                 #:outlined-danger
                 #:outlined-utility)
   (:import-from #:reblocks-ui2/themes/tailwind
+                #:colors-border-utility
+                #:colors-border-danger
+                #:colors-border-warning
+                #:colors-border-success
+                #:colors-border-info
+                #:colors-border-action
+                #:colors-border-normal
+                #:button-raised-border-color
+                #:button-raised-bg-color
+                #:button-raised-color
+                #:button-normal-color
+                #:button-normal-bg-color
+                #:colors-text-inverted
+                #:button-action-bg-color
+                #:button-action-color
                 #:tailwind-theme)
   (:import-from #:reblocks-ui2/themes/styling
                 #:join-css-classes
@@ -32,7 +47,9 @@
                 #:right-side
                 #:pin)
   (:import-from #:reblocks-ui2/buttons/button
-                #:button))
+                #:button)
+  (:import-from #:reblocks-ui2/themes/color
+                #:adjust-color))
 (in-package #:reblocks-ui2/buttons/themes/tailwind)
 
 (in-readtable :interpol-syntax)
@@ -45,60 +62,79 @@
   "transition duration-500 ease select-none focus:outline-none focus:shadow-outline")
 
 
-(defvar *normal-color* "slate")
-(defvar *action-color* "yellow")
-(defvar *info-color* "cyan")
-(defvar *success-color* "emerald")
-(defvar *warning-color* "orange")
-(defvar *danger-color* "pink")
-(defvar *utility-color* "purple")
-
-
 (defmethod css-classes ((view normal) (theme tailwind-theme) &key)
-  (list #?"bg-${*normal-color*}-200 hover:bg-${*normal-color*}-300"
+  (list (button-normal-bg-color theme)
+        (button-normal-color theme)
         *default-action-css-classes*))
+
+
+(defun disabled-css-classes (theme)
+  "All disabled buttons should look similar."
+  (list (adjust-color theme (button-normal-color theme)
+                      :dark -2
+                      :light 4
+                      :hover nil)
+        (adjust-color theme (button-normal-bg-color theme)
+                      :dark -1
+                      :light 0
+                      :hover nil)
+        *default-action-css-classes*))
+
 
 (defmethod css-classes ((view normal-disabled) (theme tailwind-theme) &key)
-  (list #?"bg-${*normal-color*}-200 text-${*normal-color*}-500"
-        *default-action-css-classes*))
+  (disabled-css-classes theme))
+
 
 (defmethod css-classes ((view action) (theme tailwind-theme) &key)
-  (list #?"bg-${*action-color*}-500 hover:bg-${*action-color*}-400"
-        *default-action-css-classes*))
+  (list
+   (button-action-bg-color theme)
+   (button-action-color theme)
+   *default-action-css-classes*))
 
 (defmethod css-classes ((view raised) (theme tailwind-theme) &key)
-  (list #?"bg-white shadow-xl border border-${*normal-color*}-100 hover:bg-${*normal-color*}-200 hover:border-${*normal-color*}-300"
+  (list #?"shadow-xl border"
+        (button-raised-color theme)
+        (button-raised-bg-color theme)
+        (button-raised-border-color theme)
         *default-action-css-classes*))
 
 (defmethod css-classes ((view raised-disabled) (theme tailwind-theme) &key)
-  (list #?"bg-${*normal-color*}-200 text-${*normal-color*}-500 shadow-xl border border-${*normal-color*}-100"
-        *default-action-css-classes*))
+  (disabled-css-classes theme))
 
 
-(defun outlined-style (color)
-  (list #?"border bg-white border-${color}-400 text-${color}-600 hover:bg-${*normal-color*}-100 hover:border-${color}-300"
+(defun outlined-style (theme color)
+  (list "border"
+        (reblocks-ui2/themes/color:adjust-color theme
+                                                color 
+                                                :hover 1
+                                                :property "border")
+        (reblocks-ui2/themes/color:adjust-color theme
+                                                color
+                                                :light -3
+                                                :dark 3
+                                                :property "text")
         *default-action-css-classes*))
 
 (defmethod css-classes ((view outlined) (theme tailwind-theme) &key)
-  (outlined-style *normal-color*))
+  (outlined-style theme (colors-border-normal theme)))
 
 (defmethod css-classes ((view outlined-action) (theme tailwind-theme) &key)
-  (outlined-style *action-color*))
+  (outlined-style theme (colors-border-action theme)))
 
 (defmethod css-classes ((view outlined-info) (theme tailwind-theme) &key)
-  (outlined-style *info-color*))
+  (outlined-style theme (colors-border-info theme)))
 
 (defmethod css-classes ((view outlined-success) (theme tailwind-theme) &key)
-  (outlined-style *success-color*))
+  (outlined-style theme (colors-border-success theme)))
 
 (defmethod css-classes ((view outlined-warning) (theme tailwind-theme) &key)
-  (outlined-style *warning-color*))
+  (outlined-style theme (colors-border-warning theme)))
 
 (defmethod css-classes ((view outlined-danger) (theme tailwind-theme) &key)
-  (outlined-style *danger-color*))
+  (outlined-style theme (colors-border-danger theme)))
 
 (defmethod css-classes ((view outlined-utility) (theme tailwind-theme) &key)
-  (outlined-style *utility-color*))
+  (outlined-style theme (colors-border-utility theme)))
 
 
 ;;;;;;;;;;; 

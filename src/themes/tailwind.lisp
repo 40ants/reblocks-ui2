@@ -55,12 +55,16 @@
     (normal :type color
             :value (color "text"
                           :light "stone-800"
-                          :dark "stone-300")))
+                          :dark "stone-300"))
+    (inverted :type color
+              :value (color "text"
+                            :light "stone-300"
+                            :dark "stone-800")))
    (line
     (normal :type color
             :value (color "text"
                           :light "rgba(0,0,0,0.1)"
-                          :dark "rgba(255,255,255,0.15)")))
+                          :dark "rgba(255,255,255,0.5)")))
    (border
     (normal :type color
             :value (color "border"
@@ -119,13 +123,59 @@
              :value (color "bg"
                            :light "purple-300"
                            :dark "purple-950"))))
+  (button
+   (action
+    (color :type color
+           :value (color "text"
+                         :light "stone-800"
+                         :dark "stone-800"))
+    (bg-color :type color
+              :value (color "bg"
+                            :light "yellow-300"
+                            :dark "yellow-500"
+                            :hover 1)))
+   (normal
+    (color :type color
+           :value (color "text"
+                         :light "stone-800"
+                         :dark "stone-200"))
+    (bg-color :type color
+              :value (color "bg"
+                            :light "slate-200"
+                            :dark "slate-600"
+                            :hover 1)))
+   (raised
+    (color :type color
+           :value (color "text"
+                         :light "stone-800"
+                         :dark "stone-200"))
+    (bg-color :type color
+              :value (color "bg"
+                            :light "slate-50"
+                            :dark "slate-500"
+                            :hover 1))
+    (border-color :type color
+                  :value (color "border"
+                                :light "slate-100"
+                                :dark "slate-600"
+                                :hover -2)))
+   (outlined
+    (color :type color
+           :value (color "text"
+                         :light "stone-800"
+                         :dark "stone-200"))
+    (border-color :type color
+                  :value (color "border"
+                                :light "slate-100"
+                                :dark "slate-600"
+                                :hover -2))))
 
   (tabs
    (active
     (color :type color
            :value (color "border"
-                         :light "yellow-300"
-                         :dark "yellow-950"))))
+                         :light "yellow-400"
+                         :dark "yellow-400"))))
 
   (card
    (border-radius :type string
@@ -156,6 +206,26 @@
      ;; "https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"
      :type :js)
    (call-next-method)))
+
+
+(defmethod adjust-base-color ((theme tailwind-theme) (tailwind-color-name null) (adjustment null))
+  "Just leave adjustements to be NIL."
+  nil)
+
+
+(defmethod adjust-base-color ((theme tailwind-theme) (tailwind-color-name null) (adjustment integer))
+  "Replaces empty adjustment with an integer one."
+  adjustment)
+
+
+(defmethod adjust-base-color ((theme tailwind-theme) (tailwind-color-name integer) (adjustment null))
+  "Replaces relative adjustment with an no-op one."
+  nil)
+
+
+(defmethod adjust-base-color ((theme tailwind-theme) (relative-adjustment integer) (adjustment integer))
+  "Changes relative adjustment to the given value"
+  (+ relative-adjustment adjustment))
 
 
 (defmethod adjust-base-color ((theme tailwind-theme) (tailwind-color-name string) (adjustment integer))

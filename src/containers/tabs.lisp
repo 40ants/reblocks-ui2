@@ -20,8 +20,6 @@
                 #:find-widget-by-id)
   (:import-from #:event-emitter
                 #:event-emitter)
-  (:import-from #:reblocks/actions
-                #:make-js-action)
   (:import-from #:reblocks-ui2/widget
                 #:ui-widget)
   (:export #:tabs
@@ -89,8 +87,9 @@
                         (reblocks/widget:update widget)))
     (values widget)))
 
-
-(defun switch-to-idx (&key widget-id idx &allow-other-keys)
+;; Эта попытка оптимизировать использование замыканий не работает :(
+;; потому что экшн один на все страницы и не может найти widget по id
+(defun switch-to-idx-old (&key widget-id idx &allow-other-keys)
   (let ((widget (find-widget-by-id widget-id)))
     (log:debug "Switching to idx" widget-id idx widget)
     
@@ -101,4 +100,12 @@
       (reblocks/widget:update widget)
       (event-emitter:emit :change widget
                           idx))))
+
+(defun switch-to-idx (widget idx)
+  (log:debug "Switching to idx" idx widget)
+  (setf (current-idx widget)
+        idx)
+  (reblocks/widget:update widget)
+  (event-emitter:emit :change widget
+                      idx))
 

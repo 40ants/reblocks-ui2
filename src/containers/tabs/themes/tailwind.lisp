@@ -20,8 +20,6 @@
   (:import-from #:serapeum
                 #:fmt
                 #:dict)
-  (:import-from #:reblocks/widgets/dom
-                #:dom-id)
   (:import-from #:reblocks/actions
                 #:make-js-action)
   (:import-from #:reblocks-ui2/themes/tailwind/arbitrary
@@ -59,7 +57,7 @@
   ;; I need to think about a smarter way to support different modes.
   (let ((light-border (arbitrary-value "shadow" "inset" "0" "-1px" "0" "0"
                                        (color-light (colors-line-normal theme))))
-        (dark-border (arbitrary-value "dark-shadow" "inset" "0" "-1px" "0" "0"
+        (dark-border (arbitrary-value "dark:shadow" "inset" "0" "-1px" "0" "0"
                                       (color-dark (colors-line-normal theme)))))
     (list* "flex"
            "gap-4"
@@ -72,25 +70,35 @@
 
 (defmethod render ((widget tabs-control) (theme tailwind-theme))
   (with-html ()
-    (loop for title in (subwidgets-titles widget)
-          for idx upfrom 0
-          for activep = (= idx (current-idx widget))
-          for cls = (apply #'join-css-classes theme
-                           "cursor-pointer"
-                           (when activep
-                             (list
-                              "border-b-4"
-                              (tabs-active-color theme))))
-          for action-code = (make-js-action #'switch-to-idx
-                                            :args
-                                            (dict "widget-id"
-                                                  (dom-id widget)
-                                                  "idx" idx))
-          do (:div :role "tab" :class cls
-                   (:a :aria-selected (when activep
-                                        "true") 
-                       :onclick action-code
-                       (render title theme))))))
+    (flet ((do-switch (&rest args)
+             (switch-to-idx widget (getf args :idx))))
+      (loop for title in (subwidgets-titles widget)
+            for idx upfrom 0
+            for activep = (= idx (current-idx widget))
+            for cls = (apply #'join-css-classes theme
+                             "cursor-pointer"
+                             (when activep
+                               (list
+                                "border-b-4"
+                                (tabs-active-color theme))))
+            ;; TODO: previously I've used #'switch-to-idx
+            ;; as an action, but this does not work because
+            ;; reblocks does binds it to the first page in the session.
+            ;; And when called on other page, the action was called
+            ;; in the context of the first page (where it was instantiated)
+            ;; and was not able to find a widget by id.
+            ;; I also tried to use 'switch-to-idx and hack reblocks to not
+            ;; remember page for such action. But in this case find-widget-by-id
+            ;; does not work at all, because it requires (current-page) to return
+            ;; a value. Thus I have to use lambda here :(
+            for action-code = (make-js-action #'do-switch
+                                              :args
+                                              (dict "idx" idx))
+            do (:div :role "tab" :class cls
+                     (:a :aria-selected (when activep
+                                          "true")
+                         :onclick action-code
+                         (render title theme)))))))
 
 
 (defmethod get-dependencies ((widget tabs-widget))

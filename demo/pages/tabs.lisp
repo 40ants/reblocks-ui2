@@ -36,8 +36,8 @@
                  "Second"
                  "Third")
            (list "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Id interdum velit laoreet id donec ultrices tincidunt. Eget est lorem ipsum dolor sit amet consectetur adipiscing elit. Sapien faucibus et molestie ac feugiat sed lectus vestibulum. In hac habitasse platea dictumst quisque sagittis purus sit. Massa sapien faucibus et molestie ac feugiat sed lectus. Proin gravida hendrerit lectus a. Nunc scelerisque viverra mauris in aliquam sem fringilla ut. Massa placerat duis ultricies lacus sed turpis. Nunc mi ipsum faucibus vitae aliquet. Et molestie ac feugiat sed lectus vestibulum mattis. Tincidunt augue interdum velit euismod in pellentesque massa placerat. Et molestie ac feugiat sed."
-                 (html ((:img :src "https://placekitten.com/300/300")))
-                 (html ((:img :src "https://placekitten.com/400/300"))))))
+                 (html ((:img :src "https://loremflickr.com/g/300/300/funny,cat/all")))
+                 (html ((:img :src "https://loremflickr.com/g/300/400/funny,cat/all"))))))
     
     (:h2 :class "text-xl my-4"
          "Different sizes")

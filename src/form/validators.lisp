@@ -78,27 +78,49 @@
            #'valid-password-validator))))
 
 
+(-> valid-integer (&key (:min (or null integer))
+                        (:max (or null integer))
+                        (:allow-empty boolean))
+    (values (function (t) (values (or null integer) &optional)) &optional))
+
 (defun valid-integer (&key min
-                           max)
+                           max
+                           (allow-empty nil))
+  "Returns a validator converting a string into an integer.
+
+   MIN and MAX, when given, are checked against the parsed number.
+
+   When ALLOW-EMPTY is T, an empty string or NIL (for example, produced by
+   a preceding validator in an ALL chain) returns NIL, and MIN and MAX
+   are not applied to such a value.  With the default ALLOW-EMPTY = NIL
+   an empty value signals a VALIDATION-ERROR, like any other value
+   which is not an integer."
   (flet ((valid-integer-validator (value)
-           (let ((number (etypecase value
-                           (null nil)
-                           (string (ignore-errors (parse-integer value)))
-                           (integer value))))
-             (unless number
-               (error 'validation-error
-                      :error-message "Value is not an integer."))
-             (when (and min
-                        (< number min))
-               (error 'validation-error
-                      :error-message "Value should be greater or equal to ~A."
-                      :error-args (list min)))
-             (when (and max
-                        (< max number))
-               (error 'validation-error
-                      :error-message "Value should be lower or equal to ~A."
-                      :error-args (list max)))
-             (values number))))
+           (cond
+             ((and allow-empty
+                   (or (null value)
+                       (and (stringp value)
+                            (emptyp value))))
+              (values nil))
+             (t
+              (let ((number (etypecase value
+                              (null nil)
+                              (string (ignore-errors (parse-integer value)))
+                              (integer value))))
+                (unless number
+                  (error 'validation-error
+                         :error-message "Value is not an integer."))
+                (when (and min
+                           (< number min))
+                  (error 'validation-error
+                         :error-message "Value should be greater or equal to ~A."
+                         :error-args (list min)))
+                (when (and max
+                           (< max number))
+                  (error 'validation-error
+                         :error-message "Value should be lower or equal to ~A."
+                         :error-args (list max)))
+                (values number))))))
     #'valid-integer-validator))
 
 

@@ -14,6 +14,7 @@
 * Pie and column charts based on Google Charts.
 * Confirm form widget.
 * `CRUD` table widget.
+* valid-integer now accepts allow-empty key.
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FCHANGELOG-3A-3A-7C0-2E4-2E0-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 

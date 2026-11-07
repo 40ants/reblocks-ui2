@@ -18,6 +18,7 @@
 - Pie and column charts based on Google Charts.
 - Confirm form widget.
 - CRUD table widget.
+- valid-integer now accepts allow-empty key.
 
 ")
   (0.5.0 2026-04-26

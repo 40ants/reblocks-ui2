@@ -53,13 +53,12 @@
                 #:crud-search
                 #:crud-modal
                 #:submitted-with-submit-button-p)
-  (:import-from #:reblocks-ui2/tables/search
-                #:table-widget)
   (:import-from #:reblocks-ui2/tables/table
                 #:column
                 #:row-cells
                 #:row-object
-                #:table-rows)
+                #:table-rows
+                #:table-widget)
   (:import-from #:reblocks-ui2/buttons/button
                 #:button
                 #:button-content)

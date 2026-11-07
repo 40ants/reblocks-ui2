@@ -50,6 +50,7 @@
                                         '("form" "Form")
                                         '("text-input" "Text Input")
                                         '("card" "Card")
+                                        '("charts" "Charts")
                                         '("containers" "Containers")
                                         '("tabs" "Tabs"))
                                   #'string<

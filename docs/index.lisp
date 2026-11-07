@@ -111,6 +111,29 @@ is a \"YYYY-MM-DD\" string, native for the browser. Pass `:format :ddmmyyyy`
 to parse \"DD.MM.YYYY\" strings instead, and use
 `reblocks-ui2/form/validators:format-date` to convert a timestamp back
 into a string suitable for the widget's value.
+
+Charts are rendered by Google Charts:
+
+```lisp
+(reblocks-ui2/charts/pie-chart:pie-chart
+ '((\"Alpha\" 10)
+   (\"Beta\" 25))
+ :title \"Tasks by mission\"
+ :column-names '(\"Mission\" \"Tasks\"))
+
+(reblocks-ui2/charts/column-chart:column-chart
+ '((\"2026-W1\" 3)
+   (\"2026-W2\" 7))
+ :title \"Users by week\"
+ :column-names '(\"Week\" \"Users\")
+ :x-title \"Week\"
+ :y-title \"Users\")
+```
+
+DATA is either a list of (LABEL NUMBER) rows, or a function of zero
+arguments returning such a list. The function is called on each render,
+so charts always show fresh data. The Google Charts loader script is
+added as a widget dependency and requires no manual wiring.
 ")
 
 

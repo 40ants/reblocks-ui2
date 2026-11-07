@@ -15,6 +15,7 @@
 ## Added
 
 - Date input widget and a valid-date validator.
+- Pie and column charts based on Google Charts.
 
 ")
   (0.5.0 2026-04-26

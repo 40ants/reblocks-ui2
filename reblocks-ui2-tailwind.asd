@@ -28,4 +28,5 @@
                "reblocks-ui2/icon/themes/tailwind"
                "reblocks-ui2/buttons/themes/tailwind"
                "reblocks-ui2/containers/tabs/themes/tailwind"
-               "reblocks-ui2/modal/themes/tailwind"))
+               "reblocks-ui2/modal/themes/tailwind"
+               "reblocks-ui2/charts/themes/tailwind"))

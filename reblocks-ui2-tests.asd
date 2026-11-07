@@ -10,6 +10,7 @@
   :depends-on ("reblocks-ui2-tailwind"
                "reblocks-ui2-tests/core"
                "reblocks-ui2-tests/inputs/date-input"
+               "reblocks-ui2-tests/charts"
                "reblocks-ui2-tests/themes/styling")
   :perform (test-op (op c)
                     (unless (symbol-call :rove :run c)

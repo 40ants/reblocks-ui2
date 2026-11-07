@@ -9,6 +9,7 @@
   :pathname "t"
   :depends-on ("reblocks-ui2-tailwind"
                "reblocks-ui2-tests/core"
+               "reblocks-ui2-tests/form/confirm"
                "reblocks-ui2-tests/inputs/date-input"
                "reblocks-ui2-tests/charts"
                "reblocks-ui2-tests/themes/styling")

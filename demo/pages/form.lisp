@@ -23,14 +23,25 @@
                 #:valid-password
                 #:valid-string)
   (:import-from #:reblocks-ui2/containers/controls-row
-                #:controls-row))
+                #:controls-row)
+  (:import-from #:reblocks-ui2/form/confirm
+                #:confirm)
+  (:import-from #:reblocks-ui2/modal
+                #:modal
+                #:modal-header-content
+                #:modal-hide
+                #:modal-main-content
+                #:modal-show))
 (in-package #:reblocks-ui2-demo/pages/form)
 
 
 (defwidget form-page ()
   ((submittedp :initform nil
                :type boolean
-               :accessor submittedp)))
+               :accessor submittedp)
+   (confirmedp :initform nil
+               :type boolean
+               :accessor confirmedp)))
 
 
 (defun make-form-page ()
@@ -100,4 +111,44 @@
            (log:warn "On Submit was called:" name email age password birthdate deadline)
            (setf (submittedp widget)
                  t)
-           (update widget))))))))
+           (update widget))))))
+
+    (:h2 :class "text-xl my-4"
+         "Confirmation")
+
+    (cond
+      ((confirmedp widget)
+       (render (reblocks/widgets/string-widget:make-string-widget
+                "Action was confirmed.")))
+      (t
+       (render (confirm "Do you really want to archive this mission?"
+                        :confirm-button-title "Yes, archive"
+                        :cancel-button-title "No, keep it"
+                        :on-confirm
+                        (lambda (form)
+                          (declare (ignore form))
+                          (log:info "Confirm's on-confirm callback was called")
+                          (setf (confirmedp widget)
+                                t)
+                          (update widget))))))
+
+    (:h2 :class "text-xl my-4"
+         "Confirmation in a modal")
+
+    (let ((modal (modal (reblocks/widgets/string-widget:make-string-widget ""))))
+      ;; The content is set after the modal, because the on-confirm
+      ;; callback has to close the modal itself:
+      (setf (modal-main-content modal)
+            (confirm "Delete this mission?"
+                     :on-confirm
+                     (lambda (form)
+                       (declare (ignore form))
+                       (modal-hide modal))))
+      (setf (modal-header-content modal)
+            (reblocks/widgets/string-widget:make-string-widget
+             "Mission deletion"))
+      (render (button "Delete mission"
+                      :on-click (lambda (button-widget)
+                                  (declare (ignore button-widget))
+                                  (modal-show modal))))
+      (render modal))))

@@ -134,6 +134,42 @@ DATA is either a list of (LABEL NUMBER) rows, or a function of zero
 arguments returning such a list. The function is called on each render,
 so charts always show fresh data. The Google Charts loader script is
 added as a widget dependency and requires no manual wiring.
+
+Use `reblocks-ui2/form/confirm:confirm` when an action has to be confirmed
+by the user. It returns a usual form with two submit buttons: Confirm and
+Cancel. The on-confirm callback is called with the form widget and only when
+the Confirm button (or Enter, because the Confirm button is the first
+submit button in the HTML) was used:
+
+```lisp
+(reblocks-ui2/form/confirm:confirm
+ \"Delete this mission?\"
+ :confirm-button-title \"Yes, delete\"
+ :on-confirm
+ (lambda (form)
+   (declare (ignore form))
+   ;; Perform the action here.
+   ))
+```
+
+The widget does not close modal windows by itself. When the form is shown
+inside a `reblocks-ui2/modal:modal`, hide the modal from the callback:
+
+```lisp
+(let ((modal (reblocks-ui2/modal:modal
+              (reblocks-ui2/form/confirm:confirm
+               \"Delete this mission?\"
+               :on-confirm
+               (lambda (form)
+                 (declare (ignore form))
+                 (reblocks-ui2/modal:modal-hide modal))))))
+  ;; Show the modal from some button's ON-CLICK callback:
+  (reblocks-ui2/buttons/button:button
+   \"Delete mission\"
+   :on-click (lambda (button)
+               (declare (ignore button))
+               (reblocks-ui2/modal:modal-show modal))))
+```
 ")
 
 

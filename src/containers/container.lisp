@@ -6,6 +6,7 @@
                 #:defwidget)
   (:import-from #:reblocks-ui2/widget
                 #:ui-widget)
+  (:import-from #:serapeum)
   (:import-from #:reblocks-ui2/utils/walk)
   (:export #:subwidgets
            #:container-widget
@@ -22,13 +23,13 @@
 (defwidget container-widget (ui-widget)
   ((subwidgets :initarg :subwidgets
                :initform nil
-               :type (soft-list-of widget)
+               :type (serapeum:soft-list-of widget)
                :accessor subwidgets)
    (gap :initform *default-gap*
         :initarg :gap
         :reader children-gap)
    (classes :initform nil
-            :type (soft-list-of string)
+            :type (serapeum:soft-list-of string)
             :initarg :css-classes
             :reader additional-classes)))
 

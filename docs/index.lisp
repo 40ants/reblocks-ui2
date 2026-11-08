@@ -69,6 +69,10 @@
 "
   (@installation section)
   (@usage section)
+  (@date-input section)
+  (@charts section)
+  (@confirm section)
+  (@crud-table section)
   (@api section))
 
 
@@ -88,15 +92,38 @@ You can install this library from Quicklisp, but you want to receive updates qui
 
 
 (defsection @usage (:title "Usage")
-  "
+  """
+All widgets are theme-aware: a widget knows nothing about the markup and is
+rendered by the current theme via the `reblocks-ui2/widget:render` generic
+function which receives the widget and the theme. To style the widgets with
+Tailwind, load the `reblocks-ui2-tailwind` system and make the Tailwind theme
+current before starting the server:
+
+```lisp
+(ql:quickload :reblocks-ui2-tailwind)
+(setf (reblocks-ui2/themes/api:current-theme)
+      (reblocks-ui2/themes/tailwind:make-tailwind-theme))
+```
+
+Particular widgets are described in the sections below — Date Input, Charts,
+Confirmation Form and CRUD Table — and the full API reference is in the API
+section.
+""")
+
+
+(defsection @date-input (:title "Date Input")
+  (reblocks-ui2/inputs/date-input:date-input function)
+  (reblocks-ui2/form/validators:valid-date function)
+  (reblocks-ui2/form/validators:format-date function)
+  """
 Here is how a form with a native date input can be created:
 
 ```lisp
 (reblocks-ui2/form:form
  (reblocks-ui2/containers/column:column
   (reblocks-ui2/inputs/date-input:date-input
-   :name \"birthday\"
-   :value \"2025-11-07\"
+   :name "birthday"
+   :value "2025-11-07"
    :required nil))
  :on-submit
  (lambda (form &key birthday)
@@ -105,36 +132,53 @@ Here is how a form with a native date input can be created:
    (declare (ignore form birthday))))
 ```
 
-The widget is a thin wrapper around a text input with type=\"date\" and
+The widget is a thin wrapper around a text input with type="date" and
 attaches a `reblocks-ui2/form/validators:valid-date` validator. The value
-is a \"YYYY-MM-DD\" string, native for the browser. Pass `:format :ddmmyyyy`
-to parse \"DD.MM.YYYY\" strings instead, and use
+is a "YYYY-MM-DD" string, native for the browser. Pass `:format :ddmmyyyy`
+to parse "DD.MM.YYYY" strings instead, and use
 `reblocks-ui2/form/validators:format-date` to convert a timestamp back
 into a string suitable for the widget's value.
+""")
 
+
+(defsection @charts (:title "Charts"
+                     :ignore-words ("LABEL"
+                                    "NUMBER-VALUE"
+                                    "3D"))
+  (reblocks-ui2/charts/pie-chart:pie-chart function)
+  (reblocks-ui2/charts/pie-chart:pie-chart class)
+  (reblocks-ui2/charts/column-chart:column-chart function)
+  (reblocks-ui2/charts/column-chart:column-chart class)
+  (reblocks-ui2/charts/chart:chart-widget class)
+  """
 Charts are rendered by Google Charts:
 
 ```lisp
 (reblocks-ui2/charts/pie-chart:pie-chart
- '((\"Alpha\" 10)
-   (\"Beta\" 25))
- :title \"Tasks by mission\"
- :column-names '(\"Mission\" \"Tasks\"))
+ '(("Alpha" 10)
+   ("Beta" 25))
+ :title "Tasks by mission"
+ :column-names '("Mission" "Tasks"))
 
 (reblocks-ui2/charts/column-chart:column-chart
- '((\"2026-W1\" 3)
-   (\"2026-W2\" 7))
- :title \"Users by week\"
- :column-names '(\"Week\" \"Users\")
- :x-title \"Week\"
- :y-title \"Users\")
+ '(("2026-W1" 3)
+   ("2026-W2" 7))
+ :title "Users by week"
+ :column-names '("Week" "Users")
+ :x-title "Week"
+ :y-title "Users")
 ```
 
 DATA is either a list of (LABEL NUMBER) rows, or a function of zero
 arguments returning such a list. The function is called on each render,
 so charts always show fresh data. The Google Charts loader script is
 added as a widget dependency and requires no manual wiring.
+""")
 
+
+(defsection @confirm (:title "Confirmation Form")
+  (reblocks-ui2/form/confirm:confirm function)
+  """
 Use `reblocks-ui2/form/confirm:confirm` when an action has to be confirmed
 by the user. It returns a usual form with two submit buttons: Confirm and
 Cancel. The on-confirm callback is called with the form widget and only when
@@ -143,8 +187,8 @@ submit button in the HTML) was used:
 
 ```lisp
 (reblocks-ui2/form/confirm:confirm
- \"Delete this mission?\"
- :confirm-button-title \"Yes, delete\"
+ "Delete this mission?"
+ :confirm-button-title "Yes, delete"
  :on-confirm
  (lambda (form)
    (declare (ignore form))
@@ -158,19 +202,27 @@ inside a `reblocks-ui2/modal:modal`, hide the modal from the callback:
 ```lisp
 (let ((modal (reblocks-ui2/modal:modal
               (reblocks-ui2/form/confirm:confirm
-               \"Delete this mission?\"
+               "Delete this mission?"
                :on-confirm
                (lambda (form)
                  (declare (ignore form))
                  (reblocks-ui2/modal:modal-hide modal))))))
   ;; Show the modal from some button's ON-CLICK callback:
   (reblocks-ui2/buttons/button:button
-   \"Delete mission\"
+   "Delete mission"
    :on-click (lambda (button)
                (declare (ignore button))
                (reblocks-ui2/modal:modal-show modal))))
 ```
+""")
 
+
+(defsection @crud-table (:title "CRUD Table"
+                         :ignore-words ("CRUD"
+                                        "CRUD-WIDGET"))
+  (reblocks-ui2/tables/crud:make-crud-table function)
+  (reblocks-ui2/tables/crud:crud-table class)
+  """
 A whole CRUD table can be created with a single
 `reblocks-ui2/tables/crud:make-crud-table` call. It renders a search
 table and adds an actions column with Edit and Delete buttons, plus an
@@ -179,7 +231,7 @@ shown in a modal:
 
 ```lisp
 (reblocks-ui2/tables/crud:make-crud-table
- (list (reblocks-ui2/tables/table:column \"Title\"
+ (list (reblocks-ui2/tables/table:column "Title"
                                          :getter #'task-title))
  ;; DATA-GETTER is given to the search widget and
  ;; returns the list of objects to show:
@@ -189,10 +241,10 @@ shown in a modal:
  :add-form-maker (lambda (crud-widget modal)
                    (reblocks-ui2/form:form
                     (reblocks-ui2/inputs/text-input:input
-                     :name \"title\")
+                     :name "title")
                     :on-submit (lambda (form &key button title)
                                  (declare (ignore form))
-                                 (when (string-equal button \"submit\")
+                                 (when (string-equal button "submit")
                                    (push (make-task title)
                                          *tasks*))
                                  (reblocks-ui2/modal:modal-hide modal))))
@@ -203,7 +255,7 @@ shown in a modal:
               (setf *tasks*
                     (remove task *tasks*)))
  :delete-question (lambda (task)
-                    (format nil \"Delete this task: ~A?\"
+                    (format nil "Delete this task: ~A?"
                             (task-title task))))
 ```
 
@@ -214,8 +266,7 @@ deleting them in ON-DELETE is up to the application. After the add form
 is submitted, the whole table is updated; after the edit form is
 submitted, only the edited row's cells are recalculated. DELETE-QUESTION
 may also be a plain string.
-")
+""")
 
 
 (defautodoc @api (:system "reblocks-ui2"))
-

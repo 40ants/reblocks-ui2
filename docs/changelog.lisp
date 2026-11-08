@@ -9,8 +9,20 @@
                               "ASDF"
                               "REPL"
                               "CSS"
-                              "HTTP"))
-  (0.4.0 2026-04-26
+                              "HTTP"
+                              "CRUD"))
+  (0.6.0 2026-11-07
+         "
+## Added
+
+- Date input widget and a valid-date validator.
+- Pie and column charts based on Google Charts.
+- Confirm form widget.
+- CRUD table widget.
+- valid-integer now accepts allow-empty key.
+
+")
+  (0.5.0 2026-04-26
          "
 ## Changes
 
@@ -29,6 +41,22 @@
               (list (list '(\"Foo\" :rowspan 2) \"bar\" \"baz\")
                     (list nil '(\"blah\" :colspan 2) nil)))
   ```
+
+")
+  (0.4.0 2025-11-23
+         "
+## Added
+
+New input widgets were added:
+
+- textarea
+- selectbox
+- checkbox
+- modal
+
+## Changed
+
+- button now accepts optional name, value and type arguments. 
 
 ")
   (0.3.0 2025-05-21

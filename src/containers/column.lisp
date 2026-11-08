@@ -4,14 +4,6 @@
                 #:create-widget-from
                 #:widget
                 #:defwidget)
-  (:import-from #:reblocks/html
-                #:with-html)
-  (:import-from #:reblocks/dependencies
-                #:get-dependencies)
-  (:import-from #:serapeum
-                #:soft-list-of)
-  (:import-from #:reblocks-ui2/widget
-                #:ui-widget)
   (:import-from #:reblocks-ui2/containers/container
                 #:make-container
                 #:container-widget)

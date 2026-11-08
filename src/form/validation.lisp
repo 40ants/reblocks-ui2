@@ -26,6 +26,12 @@
                     (error-args condition)))))
 
 
+(defun validation-error (message &rest args)
+  (error 'validation-error
+         :error-message message
+         :error-args args))
+
+
 (define-condition form-validation-error (validation-error)
   ((num-errors :initarg :num-errors
                :reader num-errors)))

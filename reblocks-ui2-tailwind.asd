@@ -14,9 +14,13 @@
                "reblocks-ui2/containers/container/themes/tailwind"
                "reblocks-ui2/themes/tailwind/align"
                "reblocks-ui2/tables/themes/tailwind/editable-table"
+               "reblocks-ui2/tables/themes/tailwind/crud"
                "reblocks-ui2/containers/row/themes/tailwind"
                "reblocks-ui2/containers/column/themes/tailwind"
                "reblocks-ui2/inputs/text-input/themes/tailwind"
+               "reblocks-ui2/inputs/textarea/themes/tailwind"
+               "reblocks-ui2/inputs/select/themes/tailwind"
+               "reblocks-ui2/inputs/checkbox/themes/tailwind"
                "reblocks-ui2/themes/tailwind/padding"
                "reblocks-ui2/card/themes/tailwind"
                "reblocks-ui2/form/themes/tailwind"
@@ -24,4 +28,6 @@
                "reblocks-ui2/containers/controls-row/themes/tailwind"
                "reblocks-ui2/icon/themes/tailwind"
                "reblocks-ui2/buttons/themes/tailwind"
-               "reblocks-ui2/containers/tabs/themes/tailwind"))
+               "reblocks-ui2/containers/tabs/themes/tailwind"
+               "reblocks-ui2/modal/themes/tailwind"
+               "reblocks-ui2/charts/themes/tailwind"))

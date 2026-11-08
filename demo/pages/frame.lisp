@@ -50,7 +50,9 @@
                                         '("form" "Form")
                                         '("text-input" "Text Input")
                                         '("card" "Card")
+                                        '("charts" "Charts")
                                         '("containers" "Containers")
+                                        '("crud" "CRUD table")
                                         '("tabs" "Tabs"))
                                   #'string<
                                   :key #'car)

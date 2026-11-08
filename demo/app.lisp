@@ -27,6 +27,10 @@
                 #:join-css-classes)
   (:import-from #:reblocks-ui2-demo/pages/tabs
                 #:make-tabs-page)
+  (:import-from #:reblocks-ui2-demo/pages/charts
+                #:make-charts-page)
+  (:import-from #:reblocks-ui2-demo/pages/crud
+                #:make-crud-page)
   (:import-from #:reblocks-prometheus
                 #:prometheus-app-mixin)
   (:import-from #:reblocks-prometheus
@@ -78,6 +82,10 @@
              (make-buttons-page))
            (page ("/tabs" :name "tabs")
              (make-tabs-page))
+           (page ("/charts" :name "charts")
+             (make-charts-page))
+           (page ("/crud" :name "crud")
+             (make-crud-page))
            (page ("/" :name "index")
              (make-landing-page))
            

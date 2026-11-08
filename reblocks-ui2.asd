@@ -11,8 +11,16 @@
   :pathname "src"
   :depends-on ("reblocks-ui2/core"
                "reblocks-ui2/containers/stack"
+               "reblocks-ui2/form/confirm"
+               "reblocks-ui2/inputs/date-input"
+               "reblocks-ui2/charts/chart"
+               "reblocks-ui2/charts/pie-chart"
+               "reblocks-ui2/charts/column-chart"
                "reblocks-ui2/tables/clickable-row"
+               "reblocks-ui2/editable/string"
                "reblocks-ui2/html"
+               "reblocks-ui2/tables/search"
+               "reblocks-ui2/tables/crud"
                ;; And we need to explicitly specify this dependency
                ;; to load all necessary components of Reblocks.
                ;; Otherwise possible some strange errors like:

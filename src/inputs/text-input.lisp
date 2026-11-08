@@ -2,10 +2,6 @@
   (:use #:cl)
   (:import-from #:reblocks/widget
                 #:defwidget)
-  (:import-from #:reblocks/html
-                #:with-html)
-  (:import-from #:reblocks/dependencies
-                #:get-dependencies)
   (:import-from #:reblocks-ui2/widget
                 #:ui-widget)
   (:import-from #:reblocks-ui2/utils/pin
@@ -65,19 +61,19 @@
                   :accessor input-right-content)))
 
 
-(defun input (&key (widget-class 'input-widget)
-                   name
-                   value
-                   (type :text)
-                   placeholder
-                   (view :normal)
-                   (pin :round)
-                   (size :m)
-                   disabled
-                   validator
-                   error
-                   left-content
-                   right-content)
+(defun input (&key
+              (widget-class 'input-widget)
+              name
+              value
+              (type :text)
+              placeholder
+              (view :normal)
+              (pin :round)
+              (size :m)
+              disabled
+              validator
+              error
+              left-content right-content)
   (make-instance widget-class
                  :name (downcase name)
                  :type (downcase type)
@@ -91,6 +87,3 @@
                  :error error
                  :left-content left-content
                  :right-content right-content))
-
-
-

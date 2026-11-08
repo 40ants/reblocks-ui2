@@ -52,34 +52,37 @@
                      do (render row theme)))))))
 
 
+(defmethod reblocks-ui2/widget:get-html-tag ((widget table-row) (theme tailwind-theme))
+  :tr)
+
+
 (defmethod render ((widget table-row) (theme tailwind-theme))
   (with-html ()
-    (:tr :class (join " " (row-css-classes widget theme))
-     (loop with *current-row* = widget
-           for *current-column* in (table-columns
-                                    (row-table widget))
-           for *current-cell* in (row-cells widget)
-           ;; Cell maker might return NIL.
-           ;; In this case we have to skip TD rendering.
-           ;; This could be used when some cells use colspan or rowspan attribute.
-           when *current-cell*
-             do (let* ((cell-widget (typecase *current-cell*
-                                      (cell
-                                         (cell-widget *current-cell*))
-                                      (t *current-cell*)))
-                       (colspan (typecase *current-cell*
-                                  (cell
-                                     (cell-colspan *current-cell*))
-                                  (t nil)))
-                       (rowspan (typecase *current-cell*
-                                  (cell
-                                     (cell-rowspan *current-cell*))
-                                  (t nil)))
-                       (classes (join " " (column-css-classes *current-column* theme))))
-                  (:td :class classes
-                       :colspan colspan
-                       :rowspan rowspan
-                       (render cell-widget theme)))))))
+    (loop with *current-row* = widget
+          for *current-column* in (table-columns
+                                   (row-table widget))
+          for *current-cell* in (row-cells widget)
+          ;; Cell maker might return NIL.
+          ;; In this case we have to skip TD rendering.
+          ;; This could be used when some cells use colspan or rowspan attribute.
+          when *current-cell*
+            do (let* ((cell-widget (typecase *current-cell*
+                                     (cell
+                                      (cell-widget *current-cell*))
+                                     (t *current-cell*)))
+                      (colspan (typecase *current-cell*
+                                 (cell
+                                  (cell-colspan *current-cell*))
+                                 (t nil)))
+                      (rowspan (typecase *current-cell*
+                                 (cell
+                                  (cell-rowspan *current-cell*))
+                                 (t nil)))
+                      (classes (join " " (column-css-classes *current-column* theme))))
+                 (:td :class classes
+                      :colspan colspan
+                      :rowspan rowspan
+                      (render cell-widget theme))))))
 
 
 (defvar *default-header-cell-styles*

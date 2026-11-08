@@ -2,9 +2,23 @@
 
 # ChangeLog
 
-<a id="x-28REBLOCKS-UI2-DOCS-2FCHANGELOG-3A-3A-7C0-2E4-2E0-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
+<a id="x-28REBLOCKS-UI2-DOCS-2FCHANGELOG-3A-3A-7C0-2E6-2E0-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
-## 0.4.0 (2026-04-26)
+## 0.6.0 (2026-11-07)
+
+<a id="added"></a>
+
+### Added
+
+* Date input widget and a valid-date validator.
+* Pie and column charts based on Google Charts.
+* Confirm form widget.
+* `CRUD` table widget.
+* valid-integer now accepts allow-empty key.
+
+<a id="x-28REBLOCKS-UI2-DOCS-2FCHANGELOG-3A-3A-7C0-2E5-2E0-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
+
+## 0.5.0 (2026-04-26)
 
 <a id="changes"></a>
 
@@ -25,6 +39,27 @@ Here is an example of table with spans:
               (list (list '("Foo" :rowspan 2) "bar" "baz")
                     (list nil '("blah" :colspan 2) nil)))
 `
+
+<a id="x-28REBLOCKS-UI2-DOCS-2FCHANGELOG-3A-3A-7C0-2E4-2E0-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
+
+## 0.4.0 (2025-11-23)
+
+<a id="added"></a>
+
+### Added
+
+New input widgets were added:
+
+* textarea
+* selectbox
+* checkbox
+* modal
+
+<a id="changed"></a>
+
+### Changed
+
+* button now accepts optional name, value and type arguments.
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FCHANGELOG-3A-3A-7C0-2E3-2E0-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 

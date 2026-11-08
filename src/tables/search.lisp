@@ -3,7 +3,6 @@
   (:import-from #:reblocks/widget
                 #:update
                 #:create-widget-from
-                #:render
                 #:defwidget)
   (:import-from #:event-emitter
                 #:on
@@ -19,6 +18,9 @@
                 #:event-emitting-widget)
   (:import-from #:reblocks/dependencies
                 #:get-dependencies)
+  (:import-from #:reblocks-ui2/widget
+                #:ui-widget
+                #:render)
   (:export
    #:make-search-widget
    #:search-widget
@@ -26,11 +28,21 @@
    #:filters-updated
    #:show-next-page-button
    #:hide-next-page-button
-   #:make-default-controls-widget))
+   #:make-default-controls-widget
+   #:data-getter
+   #:filters-widget
+   #:next-page-getter
+   #:next-page-button
+   #:show-button-p
+   #:table-widget))
 (in-package #:reblocks-ui2/tables/search)
 
 
-(defwidget search-widget ()
+(defgeneric table-widget (widget)
+  (:documentation "Returns a table widget rendering rows fetched by the search widget WIDGET."))
+
+
+(defwidget search-widget (ui-widget)
   ((filters :initarg :filters
             :type (or null event-emitter)
             :reader filters-widget)
@@ -92,6 +104,9 @@
       (flet ((on-filters-update (filters-widget &key (do-update t))
                (multiple-value-bind (data next-page-getter)
                    (funcall data-getter filters-widget)
+                 ;; TODO: bind a global var to make function (current-search-widget)
+                 ;; return it. This way it will be possible to make some actin buttons
+                 ;; on each row.
                  (setf (table-widget search-widget)
                        (apply #'make-table
                               columns data
@@ -120,29 +135,31 @@
                      
                      (update (table-widget search-widget))
                      (update controls-widget))))))
-        (on :filters-update filters-widget
-            #'on-filters-update)
-        (on :load-more-data controls-widget
-            #'on-load-more)
+        (when filters-widget
+          (on :filters-update filters-widget
+              #'on-filters-update))
+        (when controls-widget
+          (on :load-more-data controls-widget
+              #'on-load-more))
         ;; Do the initial fill of the search results
         (on-filters-update filters-widget
                            :do-update nil))
       (values search-widget))))
 
 
-(defmethod render ((widget search-widget))
+(defmethod render ((widget search-widget) (theme t))
   (when (filters-widget widget)
-    (render (filters-widget widget)))
+    (render (filters-widget widget) theme))
   
-  (render (table-widget widget))
+  (render (table-widget widget) theme)
   
   (when (controls-widget widget)
-    (render (controls-widget widget))))
+    (render (controls-widget widget) theme)))
 
 
-(defmethod render ((widget controls-widget))
+(defmethod render ((widget controls-widget) (theme t))
   (when (show-button-p widget)
-    (render (next-page-button widget))))
+    (render (next-page-button widget) theme)))
 
 
 (defmethod get-dependencies ((widget controls-widget))

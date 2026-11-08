@@ -4,14 +4,9 @@
                 #:create-widget-from
                 #:widget
                 #:defwidget)
-  (:import-from #:reblocks/html
-                #:with-html)
-  (:import-from #:reblocks/dependencies
-                #:get-dependencies)
-  (:import-from #:serapeum
-                #:soft-list-of)
   (:import-from #:reblocks-ui2/widget
                 #:ui-widget)
+  (:import-from #:serapeum)
   (:import-from #:reblocks-ui2/utils/walk)
   (:export #:subwidgets
            #:container-widget
@@ -28,13 +23,13 @@
 (defwidget container-widget (ui-widget)
   ((subwidgets :initarg :subwidgets
                :initform nil
-               :type (soft-list-of widget)
+               :type (serapeum:soft-list-of widget)
                :accessor subwidgets)
    (gap :initform *default-gap*
         :initarg :gap
         :reader children-gap)
    (classes :initform nil
-            :type (soft-list-of string)
+            :type (serapeum:soft-list-of string)
             :initarg :css-classes
             :reader additional-classes)))
 
@@ -47,19 +42,20 @@
   (loop with collecting-subwidgets-p = t
         for item in subwidgets-and-options
         when (keywordp item)
-        do (setf collecting-subwidgets-p nil)
+          do (setf collecting-subwidgets-p nil)
         if collecting-subwidgets-p
-        collect item into subwidgets
+          collect item into subwidgets
         else
-        collect item into options
+          collect item into options
         finally (return
-                  (destructuring-bind (&key (gap *default-gap*)
-                                            (column-type default-widget-class)
-                                            margin
-                                            (width :full)
-                                            height
-                                            on-click
-                                            css-classes)
+                  (destructuring-bind (&key
+                                         (gap *default-gap*)
+                                         (column-type default-widget-class)
+                                         margin
+                                         (width :full)
+                                         height
+                                         on-click
+                                         css-classes)
                       options
                     (make-instance column-type
                                    :subwidgets (mapcar #'create-widget-from

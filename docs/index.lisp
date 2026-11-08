@@ -59,7 +59,18 @@
                                    "MM"
                                    "YYYY"
                                    "YYYY-MM-DD"
-                                   "DD.MM.YYYY")
+                                   "DD.MM.YYYY"
+                                   "LABEL"
+                                   "NUMBER-VALUE"
+                                   "3D"
+                                   "CRUD"
+                                   "CRUD-WIDGET"
+                                   "RENDER"
+                                   "RENDERED"
+                                   "UPPERCASE"
+                                   "ON-DELETE"
+                                   "DELETE-QUESTION"
+                                   "DATA")
                     :external-docs ("https://40ants.com/reblocks/"))
   (reblocks-ui2 system)
   "

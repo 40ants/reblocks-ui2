@@ -25,7 +25,6 @@
   (:import-from #:event-emitter
                 #:event-emitter)
   (:export #:select
-           #:select-widget
            #:select-disabled
            #:select-size
            #:select-view
@@ -85,7 +84,8 @@
    (disabled :initarg :disabled
              :initform nil
              :type boolean
-             :reader select-disabled)))
+             :reader select-disabled))
+  (:documentation "A select widget allowing to choose one of the options."))
 
 
 (-> ensure-option ((or string option))

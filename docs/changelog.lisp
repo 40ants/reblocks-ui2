@@ -9,7 +9,8 @@
                               "ASDF"
                               "REPL"
                               "CSS"
-                              "HTTP"))
+                              "HTTP"
+                              "CRUD"))
   (0.6.0 2026-11-07
          "
 ## Added

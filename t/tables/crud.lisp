@@ -34,13 +34,6 @@
   (:import-from #:reblocks/widgets/string-widget
                 #:string-widget
                 #:get-content)
-  ;; This module defines the primary REBLOCKS/WIDGET:RENDER method and
-  ;; the SPINNERET:HTML method for widgets. They are required to render
-  ;; widgets from REBLOCKS/WIDGET:UPDATE, called by the CRUD table's
-  ;; callbacks. Usually this module is loaded together with the root
-  ;; "reblocks" system, but the test system only loads reblocks-ui2
-  ;; modules and theme methods:
-  (:import-from #:reblocks/widgets/render-methods)
   (:import-from #:reblocks-ui2/widget
                 #:on-click
                 #:render)

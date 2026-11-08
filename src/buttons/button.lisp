@@ -44,7 +44,8 @@
            #:button-view
            #:button-size
            #:button-pin
-           #:button-disabled))
+           #:button-disabled
+           #:button-type))
 (in-package #:reblocks-ui2/buttons/button)
 
 

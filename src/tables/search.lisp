@@ -28,8 +28,18 @@
    #:filters-updated
    #:show-next-page-button
    #:hide-next-page-button
-   #:make-default-controls-widget))
+   #:make-default-controls-widget
+   #:data-getter
+   #:filters-widget
+   #:next-page-getter
+   #:next-page-button
+   #:show-button-p
+   #:table-widget))
 (in-package #:reblocks-ui2/tables/search)
+
+
+(defgeneric table-widget (widget)
+  (:documentation "Returns a table widget rendering rows fetched by the search widget WIDGET."))
 
 
 (defwidget search-widget (ui-widget)

@@ -54,7 +54,7 @@ section.
 
 <a id="x-28REBLOCKS-UI2-2FINPUTS-2FDATE-INPUT-3ADATE-INPUT-20FUNCTION-29"></a>
 
-### [function](e5e5) `reblocks-ui2/inputs/date-input:date-input` &key (widget-class 'input-widget) name value (format :iso) (required t) placeholder (view :normal) (size :m) disabled error
+### [function](9fa4) `reblocks-ui2/inputs/date-input:date-input` &key (widget-class 'input-widget) name value (format :iso) (required t) placeholder (view :normal) (size :m) disabled error
 
 Returns a native `HTML` date input.
 
@@ -71,7 +71,7 @@ returns `NIL`.
 
 <a id="x-28REBLOCKS-UI2-2FFORM-2FVALIDATORS-3AVALID-DATE-20FUNCTION-29"></a>
 
-### [function](642b) `reblocks-ui2/form/validators:valid-date` &key (format :iso) (required t)
+### [function](d3c0) `reblocks-ui2/form/validators:valid-date` &key (format :iso) (required t)
 
 Returns a validator converting a date string into a local-time timestamp.
 
@@ -88,7 +88,7 @@ a non-existent date like 2025-02-31.
 
 <a id="x-28REBLOCKS-UI2-2FFORM-2FVALIDATORS-3AFORMAT-DATE-20FUNCTION-29"></a>
 
-### [function](6080) `reblocks-ui2/form/validators:format-date` timestamp &key (format :iso)
+### [function](2465) `reblocks-ui2/form/validators:format-date` timestamp &key (format :iso)
 
 Formats `TIMESTAMP` as a date string.
 
@@ -128,7 +128,7 @@ into a string suitable for the widget's value.
 
 <a id="x-28REBLOCKS-UI2-2FCHARTS-2FPIE-CHART-3APIE-CHART-20FUNCTION-29"></a>
 
-### [function](cbde) `reblocks-ui2/charts/pie-chart:pie-chart` data &rest restargs &key title column-names height background-color extra-options pie-hole is3d slice-colors (widget-class 'pie-chart)
+### [function](a851) `reblocks-ui2/charts/pie-chart:pie-chart` data &rest restargs &key title column-names height background-color extra-options pie-hole is3d slice-colors (widget-class 'pie-chart)
 
 Returns a pie chart widget rendered by Google Charts.
 
@@ -150,7 +150,7 @@ Charts options object before the closing bracket.
 
 <a id="x-28REBLOCKS-UI2-2FCHARTS-2FPIE-CHART-3APIE-CHART-20CLASS-29"></a>
 
-### [class](831e) `reblocks-ui2/charts/pie-chart:pie-chart` (chart-widget)
+### [class](c699) `reblocks-ui2/charts/pie-chart:pie-chart` (chart-widget)
 
 A pie chart widget rendered by Google Charts.
 
@@ -159,7 +159,7 @@ function, following the donor widgets from the lct25 project.
 
 <a id="x-28REBLOCKS-UI2-2FCHARTS-2FCOLUMN-CHART-3ACOLUMN-CHART-20FUNCTION-29"></a>
 
-### [function](bd67) `reblocks-ui2/charts/column-chart:column-chart` data &rest restargs &key title column-names height background-color extra-options x-title y-title v-axis-min-zero (widget-class 'column-chart)
+### [function](6b5f) `reblocks-ui2/charts/column-chart:column-chart` data &rest restargs &key title column-names height background-color extra-options x-title y-title v-axis-min-zero (widget-class 'column-chart)
 
 Returns a column chart widget rendered by Google Charts.
 
@@ -178,7 +178,7 @@ Charts options object before the closing bracket.
 
 <a id="x-28REBLOCKS-UI2-2FCHARTS-2FCOLUMN-CHART-3ACOLUMN-CHART-20CLASS-29"></a>
 
-### [class](8c67) `reblocks-ui2/charts/column-chart:column-chart` (chart-widget)
+### [class](a608) `reblocks-ui2/charts/column-chart:column-chart` (chart-widget)
 
 A column chart widget rendered by Google Charts.
 
@@ -187,7 +187,7 @@ function, following the donor widgets from the lct25 project.
 
 <a id="x-28REBLOCKS-UI2-2FCHARTS-2FCHART-3ACHART-WIDGET-20CLASS-29"></a>
 
-### [class](4dc9) `reblocks-ui2/charts/chart:chart-widget` (ui-widget)
+### [class](4083) `reblocks-ui2/charts/chart:chart-widget` (ui-widget)
 
 Base class for chart widgets rendered by Google Charts.
 
@@ -223,7 +223,7 @@ added as a widget dependency and requires no manual wiring.
 
 <a id="x-28REBLOCKS-UI2-2FFORM-2FCONFIRM-3ACONFIRM-20FUNCTION-29"></a>
 
-### [function](9446) `reblocks-ui2/form/confirm:confirm` CONTENT &KEY (CONFIRM-BUTTON-TITLE "Confirm") (CANCEL-BUTTON-TITLE "Cancel") (CONFIRM-VALUE "submit") (CANCEL-VALUE "cancel") ON-CONFIRM WIDGET-CLASS
+### [function](13ac) `reblocks-ui2/form/confirm:confirm` CONTENT &KEY (CONFIRM-BUTTON-TITLE "Confirm") (CANCEL-BUTTON-TITLE "Cancel") (CONFIRM-VALUE "submit") (CANCEL-VALUE "cancel") ON-CONFIRM WIDGET-CLASS
 
 Returns a form widget asking the user to confirm an action.
 
@@ -286,7 +286,7 @@ inside a `reblocks-ui2/modal:modal`, hide the modal from the callback:
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FCRUD-3AMAKE-CRUD-TABLE-20FUNCTION-29"></a>
 
-### [function](d1e9) `reblocks-ui2/tables/crud:make-crud-table` columns data-getter &rest restargs &key add-form-maker edit-form-maker on-delete delete-question add-button-title edit-button-title delete-button-title edit-header delete-header add-header row-class widget-class
+### [function](f61b) `reblocks-ui2/tables/crud:make-crud-table` columns data-getter &rest restargs &key add-form-maker edit-form-maker on-delete delete-question add-button-title edit-button-title delete-button-title edit-header delete-header add-header row-class widget-class
 
 Returns a table widget with search and Add/Edit/Delete actions.
 
@@ -311,7 +311,7 @@ the row's cells are recalculated after the edit form was submitted.
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FCRUD-3ACRUD-TABLE-20CLASS-29"></a>
 
-### [class](6367) `reblocks-ui2/tables/crud:crud-table` (ui-widget)
+### [class](0c12) `reblocks-ui2/tables/crud:crud-table` (ui-widget)
 
 A search table with Add, Edit and Delete actions.
 
@@ -373,7 +373,7 @@ may also be a plain string.
 
 <a id="x-28-23A-28-2827-29-20BASE-CHAR-20-2E-20-22REBLOCKS-UI2-2FBUTTONS-2FBUTTON-22-29-20PACKAGE-29"></a>
 
-#### [package](aef1) `reblocks-ui2/buttons/button`
+#### [package](8a02) `reblocks-ui2/buttons/button`
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FBUTTONS-2FBUTTON-3FClasses-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -385,79 +385,79 @@ may also be a plain string.
 
 <a id="x-28REBLOCKS-UI2-2FBUTTONS-2FBUTTON-3ABUTTON-20CLASS-29"></a>
 
-###### [class](75f1) `reblocks-ui2/buttons/button:button` (base-input-widget)
+###### [class](a2fb) `reblocks-ui2/buttons/button:button` (base-input-widget)
 
 **Readers**
 
 <a id="x-28REBLOCKS-UI2-2FBUTTONS-2FBUTTON-3ABUTTON-CLASS-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FBUTTONS-2FBUTTON-3ABUTTON-29-29"></a>
 
-###### [reader](6ffc) `reblocks-ui2/buttons/button:button-class` (button) (:class)
+###### [reader](9b0f) `reblocks-ui2/buttons/button:button-class` (button) (:class)
 
 <a id="x-28REBLOCKS-UI2-2FBUTTONS-2FBUTTON-3ABUTTON-CONTENT-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FBUTTONS-2FBUTTON-3ABUTTON-29-29"></a>
 
-###### [reader](280b) `reblocks-ui2/buttons/button:button-content` (button) (:content)
+###### [reader](3ea5) `reblocks-ui2/buttons/button:button-content` (button) (:content)
 
 <a id="x-28REBLOCKS-UI2-2FBUTTONS-2FBUTTON-3ABUTTON-DISABLED-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FBUTTONS-2FBUTTON-3ABUTTON-29-29"></a>
 
-###### [reader](fa43) `reblocks-ui2/buttons/button:button-disabled` (button) (:disabled = nil)
+###### [reader](6880) `reblocks-ui2/buttons/button:button-disabled` (button) (:disabled = nil)
 
 <a id="x-28REBLOCKS-UI2-2FBUTTONS-2FBUTTON-3ABUTTON-PIN-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FBUTTONS-2FBUTTON-3ABUTTON-29-29"></a>
 
-###### [reader](2763) `reblocks-ui2/buttons/button:button-pin` (button) (:pin)
+###### [reader](3655) `reblocks-ui2/buttons/button:button-pin` (button) (:pin)
 
 <a id="x-28REBLOCKS-UI2-2FBUTTONS-2FBUTTON-3ABUTTON-SIZE-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FBUTTONS-2FBUTTON-3ABUTTON-29-29"></a>
 
-###### [reader](fd1f) `reblocks-ui2/buttons/button:button-size` (button) (:size = nil)
+###### [reader](384a) `reblocks-ui2/buttons/button:button-size` (button) (:size = nil)
 
 <a id="x-28REBLOCKS-UI2-2FBUTTONS-2FBUTTON-3ABUTTON-STYLE-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FBUTTONS-2FBUTTON-3ABUTTON-29-29"></a>
 
-###### [reader](5223) `reblocks-ui2/buttons/button:button-style` (button) (:style)
+###### [reader](5cb1) `reblocks-ui2/buttons/button:button-style` (button) (:style)
 
-<a id="x-28REBLOCKS-UI2-2FBUTTONS-2FBUTTON-3A-3ABUTTON-TYPE-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FBUTTONS-2FBUTTON-3ABUTTON-29-29"></a>
+<a id="x-28REBLOCKS-UI2-2FBUTTONS-2FBUTTON-3ABUTTON-TYPE-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FBUTTONS-2FBUTTON-3ABUTTON-29-29"></a>
 
-###### [reader](3941) `reblocks-ui2/buttons/button::button-type` (button) (:type = nil)
+###### [reader](9436) `reblocks-ui2/buttons/button:button-type` (button) (:type = nil)
 
 If not given, then type will be "button" for a button having on-click callback or "submit" otherwise.
 
 <a id="x-28REBLOCKS-UI2-2FBUTTONS-2FBUTTON-3ABUTTON-VIEW-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FBUTTONS-2FBUTTON-3ABUTTON-29-29"></a>
 
-###### [reader](9eef) `reblocks-ui2/buttons/button:button-view` (button) (:view = nil)
+###### [reader](7ec8) `reblocks-ui2/buttons/button:button-view` (button) (:view = nil)
 
 **Accessors**
 
 <a id="x-28REBLOCKS-UI2-2FBUTTONS-2FBUTTON-3ABUTTON-CLASS-20-2840ANTS-DOC-2FLOCATIVES-3AACCESSOR-20REBLOCKS-UI2-2FBUTTONS-2FBUTTON-3ABUTTON-29-29"></a>
 
-###### [accessor](6ffc) `reblocks-ui2/buttons/button:button-class` (button) (:class)
+###### [accessor](9b0f) `reblocks-ui2/buttons/button:button-class` (button) (:class)
 
 <a id="x-28REBLOCKS-UI2-2FBUTTONS-2FBUTTON-3ABUTTON-CONTENT-20-2840ANTS-DOC-2FLOCATIVES-3AACCESSOR-20REBLOCKS-UI2-2FBUTTONS-2FBUTTON-3ABUTTON-29-29"></a>
 
-###### [accessor](280b) `reblocks-ui2/buttons/button:button-content` (button) (:content)
+###### [accessor](3ea5) `reblocks-ui2/buttons/button:button-content` (button) (:content)
 
 <a id="x-28REBLOCKS-UI2-2FBUTTONS-2FBUTTON-3ABUTTON-DISABLED-20-2840ANTS-DOC-2FLOCATIVES-3AACCESSOR-20REBLOCKS-UI2-2FBUTTONS-2FBUTTON-3ABUTTON-29-29"></a>
 
-###### [accessor](fa43) `reblocks-ui2/buttons/button:button-disabled` (button) (:disabled = nil)
+###### [accessor](6880) `reblocks-ui2/buttons/button:button-disabled` (button) (:disabled = nil)
 
 <a id="x-28REBLOCKS-UI2-2FBUTTONS-2FBUTTON-3ABUTTON-PIN-20-2840ANTS-DOC-2FLOCATIVES-3AACCESSOR-20REBLOCKS-UI2-2FBUTTONS-2FBUTTON-3ABUTTON-29-29"></a>
 
-###### [accessor](2763) `reblocks-ui2/buttons/button:button-pin` (button) (:pin)
+###### [accessor](3655) `reblocks-ui2/buttons/button:button-pin` (button) (:pin)
 
 <a id="x-28REBLOCKS-UI2-2FBUTTONS-2FBUTTON-3ABUTTON-SIZE-20-2840ANTS-DOC-2FLOCATIVES-3AACCESSOR-20REBLOCKS-UI2-2FBUTTONS-2FBUTTON-3ABUTTON-29-29"></a>
 
-###### [accessor](fd1f) `reblocks-ui2/buttons/button:button-size` (button) (:size = nil)
+###### [accessor](384a) `reblocks-ui2/buttons/button:button-size` (button) (:size = nil)
 
 <a id="x-28REBLOCKS-UI2-2FBUTTONS-2FBUTTON-3ABUTTON-STYLE-20-2840ANTS-DOC-2FLOCATIVES-3AACCESSOR-20REBLOCKS-UI2-2FBUTTONS-2FBUTTON-3ABUTTON-29-29"></a>
 
-###### [accessor](5223) `reblocks-ui2/buttons/button:button-style` (button) (:style)
+###### [accessor](5cb1) `reblocks-ui2/buttons/button:button-style` (button) (:style)
 
-<a id="x-28REBLOCKS-UI2-2FBUTTONS-2FBUTTON-3A-3ABUTTON-TYPE-20-2840ANTS-DOC-2FLOCATIVES-3AACCESSOR-20REBLOCKS-UI2-2FBUTTONS-2FBUTTON-3ABUTTON-29-29"></a>
+<a id="x-28REBLOCKS-UI2-2FBUTTONS-2FBUTTON-3ABUTTON-TYPE-20-2840ANTS-DOC-2FLOCATIVES-3AACCESSOR-20REBLOCKS-UI2-2FBUTTONS-2FBUTTON-3ABUTTON-29-29"></a>
 
-###### [accessor](3941) `reblocks-ui2/buttons/button::button-type` (button) (:type = nil)
+###### [accessor](9436) `reblocks-ui2/buttons/button:button-type` (button) (:type = nil)
 
 If not given, then type will be "button" for a button having on-click callback or "submit" otherwise.
 
 <a id="x-28REBLOCKS-UI2-2FBUTTONS-2FBUTTON-3ABUTTON-VIEW-20-2840ANTS-DOC-2FLOCATIVES-3AACCESSOR-20REBLOCKS-UI2-2FBUTTONS-2FBUTTON-3ABUTTON-29-29"></a>
 
-###### [accessor](9eef) `reblocks-ui2/buttons/button:button-view` (button) (:view = nil)
+###### [accessor](7ec8) `reblocks-ui2/buttons/button:button-view` (button) (:view = nil)
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FBUTTONS-2FBUTTON-3FFunctions-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -465,7 +465,7 @@ If not given, then type will be "button" for a button having on-click callback o
 
 <a id="x-28REBLOCKS-UI2-2FBUTTONS-2FBUTTON-3ABUTTON-20FUNCTION-29"></a>
 
-##### [function](a766) `reblocks-ui2/buttons/button:button` CONTENT &KEY NAME VALUE TYPE (WIDGET-CLASS 'BUTTON) ON-CLICK (CLASS "button") DISABLED STYLE (VIEW :NORMAL) (SIZE :L) (PIN :ROUND) (WIDTH :MIN) HEIGHT
+##### [function](fad2) `reblocks-ui2/buttons/button:button` CONTENT &KEY NAME VALUE TYPE (WIDGET-CLASS 'BUTTON) ON-CLICK (CLASS "button") DISABLED STYLE (VIEW :NORMAL) (SIZE :L) (PIN :ROUND) (WIDTH :MIN) HEIGHT
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-40REBLOCKS-UI2-2FBUTTONS-2FVIEW-3FPACKAGE-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -473,7 +473,7 @@ If not given, then type will be "button" for a button having on-click callback o
 
 <a id="x-28-23A-28-2825-29-20BASE-CHAR-20-2E-20-22REBLOCKS-UI2-2FBUTTONS-2FVIEW-22-29-20PACKAGE-29"></a>
 
-#### [package](99f7) `reblocks-ui2/buttons/view`
+#### [package](7243) `reblocks-ui2/buttons/view`
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FBUTTONS-2FVIEW-3FClasses-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -485,7 +485,7 @@ If not given, then type will be "button" for a button having on-click callback o
 
 <a id="x-28REBLOCKS-UI2-2FBUTTONS-2FVIEW-3AACTION-20CLASS-29"></a>
 
-###### [class](17d9) `reblocks-ui2/buttons/view:action` (button-view)
+###### [class](af08) `reblocks-ui2/buttons/view:action` (button-view)
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-40REBLOCKS-UI2-2FBUTTONS-2FVIEW-24BUTTON-VIEW-3FCLASS-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -493,7 +493,7 @@ If not given, then type will be "button" for a button having on-click callback o
 
 <a id="x-28REBLOCKS-UI2-2FBUTTONS-2FVIEW-3ABUTTON-VIEW-20CLASS-29"></a>
 
-###### [class](30b6) `reblocks-ui2/buttons/view:button-view` ()
+###### [class](689c) `reblocks-ui2/buttons/view:button-view` ()
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-40REBLOCKS-UI2-2FBUTTONS-2FVIEW-24NORMAL-DISABLED-3FCLASS-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -501,7 +501,7 @@ If not given, then type will be "button" for a button having on-click callback o
 
 <a id="x-28REBLOCKS-UI2-2FBUTTONS-2FVIEW-3ANORMAL-DISABLED-20CLASS-29"></a>
 
-###### [class](2fa4) `reblocks-ui2/buttons/view:normal-disabled` (normal)
+###### [class](bbc0) `reblocks-ui2/buttons/view:normal-disabled` (normal)
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-40REBLOCKS-UI2-2FBUTTONS-2FVIEW-24NORMAL-3FCLASS-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -509,7 +509,7 @@ If not given, then type will be "button" for a button having on-click callback o
 
 <a id="x-28REBLOCKS-UI2-2FBUTTONS-2FVIEW-3ANORMAL-20CLASS-29"></a>
 
-###### [class](1d70) `reblocks-ui2/buttons/view:normal` (button-view)
+###### [class](3f98) `reblocks-ui2/buttons/view:normal` (button-view)
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-40REBLOCKS-UI2-2FBUTTONS-2FVIEW-24OUTLINED-ACTION-3FCLASS-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -517,7 +517,7 @@ If not given, then type will be "button" for a button having on-click callback o
 
 <a id="x-28REBLOCKS-UI2-2FBUTTONS-2FVIEW-3AOUTLINED-ACTION-20CLASS-29"></a>
 
-###### [class](5ca0) `reblocks-ui2/buttons/view:outlined-action` (outlined)
+###### [class](aba6) `reblocks-ui2/buttons/view:outlined-action` (outlined)
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-40REBLOCKS-UI2-2FBUTTONS-2FVIEW-24OUTLINED-DANGER-3FCLASS-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -525,7 +525,7 @@ If not given, then type will be "button" for a button having on-click callback o
 
 <a id="x-28REBLOCKS-UI2-2FBUTTONS-2FVIEW-3AOUTLINED-DANGER-20CLASS-29"></a>
 
-###### [class](0095) `reblocks-ui2/buttons/view:outlined-danger` (outlined)
+###### [class](7ee0) `reblocks-ui2/buttons/view:outlined-danger` (outlined)
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-40REBLOCKS-UI2-2FBUTTONS-2FVIEW-24OUTLINED-INFO-3FCLASS-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -533,7 +533,7 @@ If not given, then type will be "button" for a button having on-click callback o
 
 <a id="x-28REBLOCKS-UI2-2FBUTTONS-2FVIEW-3AOUTLINED-INFO-20CLASS-29"></a>
 
-###### [class](4f4b) `reblocks-ui2/buttons/view:outlined-info` (outlined)
+###### [class](c340) `reblocks-ui2/buttons/view:outlined-info` (outlined)
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-40REBLOCKS-UI2-2FBUTTONS-2FVIEW-24OUTLINED-SUCCESS-3FCLASS-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -541,7 +541,7 @@ If not given, then type will be "button" for a button having on-click callback o
 
 <a id="x-28REBLOCKS-UI2-2FBUTTONS-2FVIEW-3AOUTLINED-SUCCESS-20CLASS-29"></a>
 
-###### [class](e7a6) `reblocks-ui2/buttons/view:outlined-success` (outlined)
+###### [class](e9b5) `reblocks-ui2/buttons/view:outlined-success` (outlined)
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-40REBLOCKS-UI2-2FBUTTONS-2FVIEW-24OUTLINED-UTILITY-3FCLASS-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -549,7 +549,7 @@ If not given, then type will be "button" for a button having on-click callback o
 
 <a id="x-28REBLOCKS-UI2-2FBUTTONS-2FVIEW-3AOUTLINED-UTILITY-20CLASS-29"></a>
 
-###### [class](f653) `reblocks-ui2/buttons/view:outlined-utility` (outlined)
+###### [class](ed1d) `reblocks-ui2/buttons/view:outlined-utility` (outlined)
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-40REBLOCKS-UI2-2FBUTTONS-2FVIEW-24OUTLINED-WARNING-3FCLASS-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -557,7 +557,7 @@ If not given, then type will be "button" for a button having on-click callback o
 
 <a id="x-28REBLOCKS-UI2-2FBUTTONS-2FVIEW-3AOUTLINED-WARNING-20CLASS-29"></a>
 
-###### [class](29de) `reblocks-ui2/buttons/view:outlined-warning` (outlined)
+###### [class](4f82) `reblocks-ui2/buttons/view:outlined-warning` (outlined)
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-40REBLOCKS-UI2-2FBUTTONS-2FVIEW-24OUTLINED-3FCLASS-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -565,7 +565,7 @@ If not given, then type will be "button" for a button having on-click callback o
 
 <a id="x-28REBLOCKS-UI2-2FBUTTONS-2FVIEW-3AOUTLINED-20CLASS-29"></a>
 
-###### [class](3224) `reblocks-ui2/buttons/view:outlined` (button-view)
+###### [class](82ed) `reblocks-ui2/buttons/view:outlined` (button-view)
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-40REBLOCKS-UI2-2FBUTTONS-2FVIEW-24RAISED-DISABLED-3FCLASS-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -573,7 +573,7 @@ If not given, then type will be "button" for a button having on-click callback o
 
 <a id="x-28REBLOCKS-UI2-2FBUTTONS-2FVIEW-3ARAISED-DISABLED-20CLASS-29"></a>
 
-###### [class](f2b3) `reblocks-ui2/buttons/view:raised-disabled` (raised)
+###### [class](011e) `reblocks-ui2/buttons/view:raised-disabled` (raised)
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-40REBLOCKS-UI2-2FBUTTONS-2FVIEW-24RAISED-3FCLASS-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -581,7 +581,7 @@ If not given, then type will be "button" for a button having on-click callback o
 
 <a id="x-28REBLOCKS-UI2-2FBUTTONS-2FVIEW-3ARAISED-20CLASS-29"></a>
 
-###### [class](907e) `reblocks-ui2/buttons/view:raised` (button-view)
+###### [class](701c) `reblocks-ui2/buttons/view:raised` (button-view)
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FBUTTONS-2FVIEW-3FGenerics-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -589,7 +589,7 @@ If not given, then type will be "button" for a button having on-click callback o
 
 <a id="x-28REBLOCKS-UI2-2FBUTTONS-2FVIEW-3AGET-DISABLED-BUTTON-VIEW-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](3684) `reblocks-ui2/buttons/view:get-disabled-button-view` view
+##### [generic-function](9307) `reblocks-ui2/buttons/view:get-disabled-button-view` view
 
 Returns an alternative view for a button in disabled state.
 
@@ -599,7 +599,7 @@ Returns an alternative view for a button in disabled state.
 
 <a id="x-28REBLOCKS-UI2-2FBUTTONS-2FVIEW-3AENSURE-VIEW-20FUNCTION-29"></a>
 
-##### [function](468c) `reblocks-ui2/buttons/view:ensure-view` name
+##### [function](fcb8) `reblocks-ui2/buttons/view:ensure-view` name
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-40REBLOCKS-UI2-2FCARD-3FPACKAGE-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -607,7 +607,7 @@ Returns an alternative view for a button in disabled state.
 
 <a id="x-28-23A-28-2817-29-20BASE-CHAR-20-2E-20-22REBLOCKS-UI2-2FCARD-22-29-20PACKAGE-29"></a>
 
-#### [package](4952) `reblocks-ui2/card`
+#### [package](1f01) `reblocks-ui2/card`
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FCARD-3FClasses-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -619,29 +619,29 @@ Returns an alternative view for a button in disabled state.
 
 <a id="x-28REBLOCKS-UI2-2FCARD-3ACARD-WIDGET-20CLASS-29"></a>
 
-###### [class](51a8) `reblocks-ui2/card:card-widget` (ui-widget)
+###### [class](c977) `reblocks-ui2/card:card-widget` (ui-widget)
 
 **Readers**
 
 <a id="x-28REBLOCKS-UI2-2FCARD-3ACARD-CONTENT-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FCARD-3ACARD-WIDGET-29-29"></a>
 
-###### [reader](b20d) `reblocks-ui2/card:card-content` (card-widget) (:content)
+###### [reader](5d44) `reblocks-ui2/card:card-content` (card-widget) (:content)
 
 <a id="x-28REBLOCKS-UI2-2FCARD-3ACARD-PADDING-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FCARD-3ACARD-WIDGET-29-29"></a>
 
-###### [reader](4142) `reblocks-ui2/card:card-padding` (card-widget) (:padding = nil)
+###### [reader](7784) `reblocks-ui2/card:card-padding` (card-widget) (:padding = nil)
 
 <a id="x-28REBLOCKS-UI2-2FCARD-3ACARD-VIEW-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FCARD-3ACARD-WIDGET-29-29"></a>
 
-###### [reader](1593) `reblocks-ui2/card:card-view` (card-widget) (:view = nil)
+###### [reader](2bdc) `reblocks-ui2/card:card-view` (card-widget) (:view = nil)
 
 <a id="x-28REBLOCKS-UI2-2FCARD-3AHORIZONTAL-ALIGN-OF-CARD-CONTENT-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FCARD-3ACARD-WIDGET-29-29"></a>
 
-###### [reader](5282) `reblocks-ui2/card:horizontal-align-of-card-content` (card-widget) (:horizontal-align = nil)
+###### [reader](7f47) `reblocks-ui2/card:horizontal-align-of-card-content` (card-widget) (:horizontal-align = nil)
 
 <a id="x-28REBLOCKS-UI2-2FCARD-3AVERTICAL-ALIGN-OF-CARD-CONTENT-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FCARD-3ACARD-WIDGET-29-29"></a>
 
-###### [reader](8bcb) `reblocks-ui2/card:vertical-align-of-card-content` (card-widget) (:vertical-align = :center)
+###### [reader](983c) `reblocks-ui2/card:vertical-align-of-card-content` (card-widget) (:vertical-align = :center)
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FCARD-3FFunctions-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -649,7 +649,7 @@ Returns an alternative view for a button in disabled state.
 
 <a id="x-28REBLOCKS-UI2-2FCARD-3ACARD-20FUNCTION-29"></a>
 
-##### [function](225f) `reblocks-ui2/card:card` CONTENT &KEY (VIEW :OUTLINED) (WIDTH "full") (HEIGHT '(120)) (PADDING :L) (MARGIN '(NIL NIL)) (HORIZONTAL-ALIGN :CENTER) (VERTICAL-ALIGN :CENTER) ON-CLICK (WIDGET-CLASS 'CARD-WIDGET)
+##### [function](fd53) `reblocks-ui2/card:card` CONTENT &KEY (VIEW :OUTLINED) (WIDTH "full") (HEIGHT '(120)) (PADDING :L) (MARGIN '(NIL NIL)) (HORIZONTAL-ALIGN :CENTER) (VERTICAL-ALIGN :CENTER) ON-CLICK (WIDGET-CLASS 'CARD-WIDGET)
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-40REBLOCKS-UI2-2FCHARTS-2FCHART-3FPACKAGE-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -657,7 +657,7 @@ Returns an alternative view for a button in disabled state.
 
 <a id="x-28-23A-28-2825-29-20BASE-CHAR-20-2E-20-22REBLOCKS-UI2-2FCHARTS-2FCHART-22-29-20PACKAGE-29"></a>
 
-#### [package](37c4) `reblocks-ui2/charts/chart`
+#### [package](aec9) `reblocks-ui2/charts/chart`
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FCHARTS-2FCHART-3FClasses-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -669,7 +669,7 @@ Returns an alternative view for a button in disabled state.
 
 <a id="x-28REBLOCKS-UI2-2FCHARTS-2FCHART-3ACHART-WIDGET-20CLASS-29"></a>
 
-###### [class](4dc9) `reblocks-ui2/charts/chart:chart-widget` (ui-widget)
+###### [class](4083) `reblocks-ui2/charts/chart:chart-widget` (ui-widget)
 
 Base class for chart widgets rendered by Google Charts.
 
@@ -681,19 +681,19 @@ specific options, theming methods do the rendering.
 
 <a id="x-28REBLOCKS-UI2-2FCHARTS-2FCHART-3ACHART-BACKGROUND-COLOR-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FCHARTS-2FCHART-3ACHART-WIDGET-29-29"></a>
 
-###### [reader](41ca) `reblocks-ui2/charts/chart:chart-background-color` (chart-widget) (:BACKGROUND-COLOR = "#f9f9f9")
+###### [reader](cf43) `reblocks-ui2/charts/chart:chart-background-color` (chart-widget) (:BACKGROUND-COLOR = "#f9f9f9")
 
 `CSS` color of the area around the chart.
 
 <a id="x-28REBLOCKS-UI2-2FCHARTS-2FCHART-3ACHART-COLUMN-NAMES-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FCHARTS-2FCHART-3ACHART-WIDGET-29-29"></a>
 
-###### [reader](ed18) `reblocks-ui2/charts/chart:chart-column-names` (chart-widget) (:COLUMN-NAMES = '("Label" "Value"))
+###### [reader](e282) `reblocks-ui2/charts/chart:chart-column-names` (chart-widget) (:COLUMN-NAMES = '("Label" "Value"))
 
 Names of the two DataTable columns, as strings.
 
 <a id="x-28REBLOCKS-UI2-2FCHARTS-2FCHART-3ACHART-DATA-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FCHARTS-2FCHART-3ACHART-WIDGET-29-29"></a>
 
-###### [reader](4f7f) `reblocks-ui2/charts/chart:chart-data` (chart-widget) (:data)
+###### [reader](197a) `reblocks-ui2/charts/chart:chart-data` (chart-widget) (:data)
 
 Chart rows, each of the form (`LABEL` `NUMBER-VALUE`).
 
@@ -703,7 +703,7 @@ fresh data.
 
 <a id="x-28REBLOCKS-UI2-2FCHARTS-2FCHART-3ACHART-EXTRA-OPTIONS-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FCHARTS-2FCHART-3ACHART-WIDGET-29-29"></a>
 
-###### [reader](7fd0) `reblocks-ui2/charts/chart:chart-extra-options` (chart-widget) (:extra-options = nil)
+###### [reader](40c1) `reblocks-ui2/charts/chart:chart-extra-options` (chart-widget) (:extra-options = nil)
 
 Raw JavaScript, inserted into the Google Charts options object
 before the closing bracket. Use it for options which are not
@@ -711,13 +711,13 @@ covered by typed slots, like "legend: {position: 'none'}".
 
 <a id="x-28REBLOCKS-UI2-2FCHARTS-2FCHART-3ACHART-HEIGHT-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FCHARTS-2FCHART-3ACHART-WIDGET-29-29"></a>
 
-###### [reader](43e6) `reblocks-ui2/charts/chart:chart-height` (chart-widget) (:height = 500)
+###### [reader](e21d) `reblocks-ui2/charts/chart:chart-height` (chart-widget) (:height = 500)
 
 Chart height in pixels.
 
 <a id="x-28REBLOCKS-UI2-2FCHARTS-2FCHART-3ACHART-TITLE-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FCHARTS-2FCHART-3ACHART-WIDGET-29-29"></a>
 
-###### [reader](2b38) `reblocks-ui2/charts/chart:chart-title` (chart-widget) (:title = "")
+###### [reader](1294) `reblocks-ui2/charts/chart:chart-title` (chart-widget) (:title = "")
 
 A chart title rendered at the top of the chart by Google Charts.
 
@@ -727,7 +727,7 @@ A chart title rendered at the top of the chart by Google Charts.
 
 <a id="x-28-23A-28-2832-29-20BASE-CHAR-20-2E-20-22REBLOCKS-UI2-2FCHARTS-2FCOLUMN-CHART-22-29-20PACKAGE-29"></a>
 
-#### [package](fda8) `reblocks-ui2/charts/column-chart`
+#### [package](0534) `reblocks-ui2/charts/column-chart`
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FCHARTS-2FCOLUMN-CHART-3FClasses-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -739,7 +739,7 @@ A chart title rendered at the top of the chart by Google Charts.
 
 <a id="x-28REBLOCKS-UI2-2FCHARTS-2FCOLUMN-CHART-3ACOLUMN-CHART-20CLASS-29"></a>
 
-###### [class](8c67) `reblocks-ui2/charts/column-chart:column-chart` (chart-widget)
+###### [class](a608) `reblocks-ui2/charts/column-chart:column-chart` (chart-widget)
 
 A column chart widget rendered by Google Charts.
 
@@ -750,20 +750,20 @@ function, following the donor widgets from the lct25 project.
 
 <a id="x-28REBLOCKS-UI2-2FCHARTS-2FCOLUMN-CHART-3ACOLUMN-CHART-V-AXIS-MIN-ZERO-P-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FCHARTS-2FCOLUMN-CHART-3ACOLUMN-CHART-29-29"></a>
 
-###### [reader](62c7) `reblocks-ui2/charts/column-chart:column-chart-v-axis-min-zero-p` (column-chart) (:v-axis-min-zero = t)
+###### [reader](3de0) `reblocks-ui2/charts/column-chart:column-chart-v-axis-min-zero-p` (column-chart) (:v-axis-min-zero = t)
 
 When true (the default), the vertical axis starts at zero,
 like vAxis.minValue = 0 in Google Charts.
 
 <a id="x-28REBLOCKS-UI2-2FCHARTS-2FCOLUMN-CHART-3ACOLUMN-CHART-X-TITLE-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FCHARTS-2FCOLUMN-CHART-3ACOLUMN-CHART-29-29"></a>
 
-###### [reader](7e01) `reblocks-ui2/charts/column-chart:column-chart-x-title` (column-chart) (:x-title = nil)
+###### [reader](560b) `reblocks-ui2/charts/column-chart:column-chart-x-title` (column-chart) (:x-title = nil)
 
 A title for the horizontal axis. When nil, the axis has no title.
 
 <a id="x-28REBLOCKS-UI2-2FCHARTS-2FCOLUMN-CHART-3ACOLUMN-CHART-Y-TITLE-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FCHARTS-2FCOLUMN-CHART-3ACOLUMN-CHART-29-29"></a>
 
-###### [reader](e129) `reblocks-ui2/charts/column-chart:column-chart-y-title` (column-chart) (:y-title = nil)
+###### [reader](b802) `reblocks-ui2/charts/column-chart:column-chart-y-title` (column-chart) (:y-title = nil)
 
 A title for the vertical axis. When nil, the axis has no title.
 
@@ -773,7 +773,7 @@ A title for the vertical axis. When nil, the axis has no title.
 
 <a id="x-28REBLOCKS-UI2-2FCHARTS-2FCOLUMN-CHART-3ACOLUMN-CHART-20FUNCTION-29"></a>
 
-##### [function](bd67) `reblocks-ui2/charts/column-chart:column-chart` data &rest restargs &key title column-names height background-color extra-options x-title y-title v-axis-min-zero (widget-class 'column-chart)
+##### [function](6b5f) `reblocks-ui2/charts/column-chart:column-chart` data &rest restargs &key title column-names height background-color extra-options x-title y-title v-axis-min-zero (widget-class 'column-chart)
 
 Returns a column chart widget rendered by Google Charts.
 
@@ -796,7 +796,7 @@ Charts options object before the closing bracket.
 
 <a id="x-28-23A-28-2829-29-20BASE-CHAR-20-2E-20-22REBLOCKS-UI2-2FCHARTS-2FPIE-CHART-22-29-20PACKAGE-29"></a>
 
-#### [package](e846) `reblocks-ui2/charts/pie-chart`
+#### [package](b432) `reblocks-ui2/charts/pie-chart`
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FCHARTS-2FPIE-CHART-3FClasses-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -808,7 +808,7 @@ Charts options object before the closing bracket.
 
 <a id="x-28REBLOCKS-UI2-2FCHARTS-2FPIE-CHART-3APIE-CHART-20CLASS-29"></a>
 
-###### [class](831e) `reblocks-ui2/charts/pie-chart:pie-chart` (chart-widget)
+###### [class](c699) `reblocks-ui2/charts/pie-chart:pie-chart` (chart-widget)
 
 A pie chart widget rendered by Google Charts.
 
@@ -819,13 +819,13 @@ function, following the donor widgets from the lct25 project.
 
 <a id="x-28REBLOCKS-UI2-2FCHARTS-2FPIE-CHART-3APIE-CHART-IS3D-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FCHARTS-2FPIE-CHART-3APIE-CHART-29-29"></a>
 
-###### [reader](8254) `reblocks-ui2/charts/pie-chart:pie-chart-is3d` (pie-chart) (:is3d = nil)
+###### [reader](b806) `reblocks-ui2/charts/pie-chart:pie-chart-is3d` (pie-chart) (:is3d = nil)
 
 When true, the chart is rendered with pseudo-`3D` effect.
 
 <a id="x-28REBLOCKS-UI2-2FCHARTS-2FPIE-CHART-3APIE-CHART-PIE-HOLE-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FCHARTS-2FPIE-CHART-3APIE-CHART-29-29"></a>
 
-###### [reader](31f8) `reblocks-ui2/charts/pie-chart:pie-chart-pie-hole` (pie-chart) (:pie-hole = 0)
+###### [reader](4d1d) `reblocks-ui2/charts/pie-chart:pie-chart-pie-hole` (pie-chart) (:pie-hole = 0)
 
 A number between 0 and 1, describing what fraction of the radius
 to cut out from the center. 0 gives a usual pie chart,
@@ -833,7 +833,7 @@ to cut out from the center. 0 gives a usual pie chart,
 
 <a id="x-28REBLOCKS-UI2-2FCHARTS-2FPIE-CHART-3APIE-CHART-SLICE-COLORS-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FCHARTS-2FPIE-CHART-3APIE-CHART-29-29"></a>
 
-###### [reader](723e) `reblocks-ui2/charts/pie-chart:pie-chart-slice-colors` (pie-chart) (:slice-colors = nil)
+###### [reader](7753) `reblocks-ui2/charts/pie-chart:pie-chart-slice-colors` (pie-chart) (:slice-colors = nil)
 
 A list of `CSS` colors, applied to the slices in order.
 When nil, Google Charts default colors are used.
@@ -844,7 +844,7 @@ When nil, Google Charts default colors are used.
 
 <a id="x-28REBLOCKS-UI2-2FCHARTS-2FPIE-CHART-3APIE-CHART-20FUNCTION-29"></a>
 
-##### [function](cbde) `reblocks-ui2/charts/pie-chart:pie-chart` data &rest restargs &key title column-names height background-color extra-options pie-hole is3d slice-colors (widget-class 'pie-chart)
+##### [function](a851) `reblocks-ui2/charts/pie-chart:pie-chart` data &rest restargs &key title column-names height background-color extra-options pie-hole is3d slice-colors (widget-class 'pie-chart)
 
 Returns a pie chart widget rendered by Google Charts.
 
@@ -870,7 +870,7 @@ Charts options object before the closing bracket.
 
 <a id="x-28-23A-28-2830-29-20BASE-CHAR-20-2E-20-22REBLOCKS-UI2-2FCONTAINERS-2FCOLUMN-22-29-20PACKAGE-29"></a>
 
-#### [package](3cb3) `reblocks-ui2/containers/column`
+#### [package](a8c8) `reblocks-ui2/containers/column`
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FCONTAINERS-2FCOLUMN-3FClasses-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -882,7 +882,7 @@ Charts options object before the closing bracket.
 
 <a id="x-28REBLOCKS-UI2-2FCONTAINERS-2FCOLUMN-3ACOLUMN-WIDGET-20CLASS-29"></a>
 
-###### [class](713f) `reblocks-ui2/containers/column:column-widget` (container-widget)
+###### [class](3b88) `reblocks-ui2/containers/column:column-widget` (container-widget)
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FCONTAINERS-2FCOLUMN-3FFunctions-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -890,7 +890,7 @@ Charts options object before the closing bracket.
 
 <a id="x-28REBLOCKS-UI2-2FCONTAINERS-2FCOLUMN-3ACOLUMN-20FUNCTION-29"></a>
 
-##### [function](1e1d) `reblocks-ui2/containers/column:column` &rest subwidgets-and-options
+##### [function](c4f6) `reblocks-ui2/containers/column:column` &rest subwidgets-and-options
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-40REBLOCKS-UI2-2FCONTAINERS-2FCONTAINER-3FPACKAGE-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -898,7 +898,7 @@ Charts options object before the closing bracket.
 
 <a id="x-28-23A-28-2833-29-20BASE-CHAR-20-2E-20-22REBLOCKS-UI2-2FCONTAINERS-2FCONTAINER-22-29-20PACKAGE-29"></a>
 
-#### [package](963b) `reblocks-ui2/containers/container`
+#### [package](bc38) `reblocks-ui2/containers/container`
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FCONTAINERS-2FCONTAINER-3FClasses-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -910,27 +910,27 @@ Charts options object before the closing bracket.
 
 <a id="x-28REBLOCKS-UI2-2FCONTAINERS-2FCONTAINER-3ACONTAINER-WIDGET-20CLASS-29"></a>
 
-###### [class](c47f) `reblocks-ui2/containers/container:container-widget` (ui-widget)
+###### [class](ce49) `reblocks-ui2/containers/container:container-widget` (ui-widget)
 
 **Readers**
 
 <a id="x-28REBLOCKS-UI2-2FCONTAINERS-2FCONTAINER-3AADDITIONAL-CLASSES-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FCONTAINERS-2FCONTAINER-3ACONTAINER-WIDGET-29-29"></a>
 
-###### [reader](b8e9) `reblocks-ui2/containers/container:additional-classes` (container-widget) (:css-classes = nil)
+###### [reader](4e5c) `reblocks-ui2/containers/container:additional-classes` (container-widget) (:css-classes = nil)
 
 <a id="x-28REBLOCKS-UI2-2FCONTAINERS-2FCONTAINER-3ACHILDREN-GAP-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FCONTAINERS-2FCONTAINER-3ACONTAINER-WIDGET-29-29"></a>
 
-###### [reader](034c) `reblocks-ui2/containers/container:children-gap` (container-widget) (:gap = \*default-gap\*)
+###### [reader](66de) `reblocks-ui2/containers/container:children-gap` (container-widget) (:gap = \*default-gap\*)
 
 <a id="x-28REBLOCKS-UI2-2FCONTAINERS-2FCONTAINER-3ASUBWIDGETS-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FCONTAINERS-2FCONTAINER-3ACONTAINER-WIDGET-29-29"></a>
 
-###### [reader](ba91) `reblocks-ui2/containers/container:subwidgets` (container-widget) (:subwidgets = nil)
+###### [reader](cf78) `reblocks-ui2/containers/container:subwidgets` (container-widget) (:subwidgets = nil)
 
 **Accessors**
 
 <a id="x-28REBLOCKS-UI2-2FCONTAINERS-2FCONTAINER-3ASUBWIDGETS-20-2840ANTS-DOC-2FLOCATIVES-3AACCESSOR-20REBLOCKS-UI2-2FCONTAINERS-2FCONTAINER-3ACONTAINER-WIDGET-29-29"></a>
 
-###### [accessor](ba91) `reblocks-ui2/containers/container:subwidgets` (container-widget) (:subwidgets = nil)
+###### [accessor](cf78) `reblocks-ui2/containers/container:subwidgets` (container-widget) (:subwidgets = nil)
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FCONTAINERS-2FCONTAINER-3FGenerics-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -938,7 +938,7 @@ Charts options object before the closing bracket.
 
 <a id="x-28REBLOCKS-UI2-2FCONTAINERS-2FCONTAINER-3AGAP-CSS-CLASSES-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](e3b9) `reblocks-ui2/containers/container:gap-css-classes` gap theme
+##### [generic-function](309d) `reblocks-ui2/containers/container:gap-css-classes` gap theme
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FCONTAINERS-2FCONTAINER-3FFunctions-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -946,7 +946,7 @@ Charts options object before the closing bracket.
 
 <a id="x-28REBLOCKS-UI2-2FCONTAINERS-2FCONTAINER-3AMAKE-CONTAINER-20FUNCTION-29"></a>
 
-##### [function](a081) `reblocks-ui2/containers/container:make-container` default-widget-class &rest subwidgets-and-options
+##### [function](bbff) `reblocks-ui2/containers/container:make-container` default-widget-class &rest subwidgets-and-options
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-40REBLOCKS-UI2-2FCONTAINERS-2FCONTROLS-ROW-3FPACKAGE-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -954,7 +954,7 @@ Charts options object before the closing bracket.
 
 <a id="x-28-23A-28-2836-29-20BASE-CHAR-20-2E-20-22REBLOCKS-UI2-2FCONTAINERS-2FCONTROLS-ROW-22-29-20PACKAGE-29"></a>
 
-#### [package](14fe) `reblocks-ui2/containers/controls-row`
+#### [package](6699) `reblocks-ui2/containers/controls-row`
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FCONTAINERS-2FCONTROLS-ROW-3FClasses-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -966,7 +966,7 @@ Charts options object before the closing bracket.
 
 <a id="x-28REBLOCKS-UI2-2FCONTAINERS-2FCONTROLS-ROW-3ACONTROLS-ROW-WIDGET-20CLASS-29"></a>
 
-###### [class](6232) `reblocks-ui2/containers/controls-row:controls-row-widget` (row-widget)
+###### [class](b4a2) `reblocks-ui2/containers/controls-row:controls-row-widget` (row-widget)
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FCONTAINERS-2FCONTROLS-ROW-3FMacros-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -974,7 +974,7 @@ Charts options object before the closing bracket.
 
 <a id="x-28REBLOCKS-UI2-2FCONTAINERS-2FCONTROLS-ROW-3ACONTROLS-ROW-20-2840ANTS-DOC-2FLOCATIVES-3AMACRO-29-29"></a>
 
-##### [macro](9810) `reblocks-ui2/containers/controls-row:controls-row` &rest subwidgets-and-options
+##### [macro](3377) `reblocks-ui2/containers/controls-row:controls-row` &rest subwidgets-and-options
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-40REBLOCKS-UI2-2FCONTAINERS-2FROW-3FPACKAGE-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -982,7 +982,7 @@ Charts options object before the closing bracket.
 
 <a id="x-28-23A-28-2827-29-20BASE-CHAR-20-2E-20-22REBLOCKS-UI2-2FCONTAINERS-2FROW-22-29-20PACKAGE-29"></a>
 
-#### [package](65d2) `reblocks-ui2/containers/row`
+#### [package](804d) `reblocks-ui2/containers/row`
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FCONTAINERS-2FROW-3FClasses-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -994,7 +994,7 @@ Charts options object before the closing bracket.
 
 <a id="x-28REBLOCKS-UI2-2FCONTAINERS-2FROW-3AROW-WIDGET-20CLASS-29"></a>
 
-###### [class](38c8) `reblocks-ui2/containers/row:row-widget` (container-widget)
+###### [class](3eb9) `reblocks-ui2/containers/row:row-widget` (container-widget)
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FCONTAINERS-2FROW-3FFunctions-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -1002,11 +1002,11 @@ Charts options object before the closing bracket.
 
 <a id="x-28REBLOCKS-UI2-2FCONTAINERS-2FROW-3AMAKE-ROW-WIDGET-20FUNCTION-29"></a>
 
-##### [function](9640) `reblocks-ui2/containers/row:make-row-widget` subwidgets &key (gap \*default-gap\*) on-click
+##### [function](55b1) `reblocks-ui2/containers/row:make-row-widget` subwidgets &key (gap \*default-gap\*) on-click
 
 <a id="x-28REBLOCKS-UI2-2FCONTAINERS-2FROW-3AROW-20FUNCTION-29"></a>
 
-##### [function](06e3) `reblocks-ui2/containers/row:row` &rest subwidgets-and-options
+##### [function](eade) `reblocks-ui2/containers/row:row` &rest subwidgets-and-options
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-40REBLOCKS-UI2-2FCONTAINERS-2FSTACK-3FPACKAGE-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -1014,7 +1014,7 @@ Charts options object before the closing bracket.
 
 <a id="x-28-23A-28-2829-29-20BASE-CHAR-20-2E-20-22REBLOCKS-UI2-2FCONTAINERS-2FSTACK-22-29-20PACKAGE-29"></a>
 
-#### [package](f0d1) `reblocks-ui2/containers/stack`
+#### [package](22fa) `reblocks-ui2/containers/stack`
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FCONTAINERS-2FSTACK-3FClasses-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -1026,7 +1026,7 @@ Charts options object before the closing bracket.
 
 <a id="x-28REBLOCKS-UI2-2FCONTAINERS-2FSTACK-3ASTACK-WIDGET-20CLASS-29"></a>
 
-###### [class](25c8) `reblocks-ui2/containers/stack:stack-widget` (ui-widget)
+###### [class](17a6) `reblocks-ui2/containers/stack:stack-widget` (ui-widget)
 
 Shows only the top child from the stack. Provides methods to push and pop widgets.
 
@@ -1034,7 +1034,7 @@ Shows only the top child from the stack. Provides methods to push and pop widget
 
 <a id="x-28REBLOCKS-UI2-2FCONTAINERS-2FSTACK-3ASTACK-WIDGET-CHILDREN-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FCONTAINERS-2FSTACK-3ASTACK-WIDGET-29-29"></a>
 
-###### [reader](37df) `reblocks-ui2/containers/stack:stack-widget-children` (stack-widget) (:children)
+###### [reader](3fc7) `reblocks-ui2/containers/stack:stack-widget-children` (stack-widget) (:children)
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FCONTAINERS-2FSTACK-3FGenerics-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -1042,11 +1042,11 @@ Shows only the top child from the stack. Provides methods to push and pop widget
 
 <a id="x-28REBLOCKS-UI2-2FCONTAINERS-2FSTACK-3APOP-CHILD-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](41c6) `reblocks-ui2/containers/stack:pop-child` stack-widget
+##### [generic-function](e032) `reblocks-ui2/containers/stack:pop-child` stack-widget
 
 <a id="x-28REBLOCKS-UI2-2FCONTAINERS-2FSTACK-3APUSH-CHILD-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](e189) `reblocks-ui2/containers/stack:push-child` stack-widget child
+##### [generic-function](5810) `reblocks-ui2/containers/stack:push-child` stack-widget child
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FCONTAINERS-2FSTACK-3FFunctions-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -1054,23 +1054,23 @@ Shows only the top child from the stack. Provides methods to push and pop widget
 
 <a id="x-28REBLOCKS-UI2-2FCONTAINERS-2FSTACK-3ACURRENT-STACK-WIDGET-20FUNCTION-29"></a>
 
-##### [function](f572) `reblocks-ui2/containers/stack:current-stack-widget`
+##### [function](7180) `reblocks-ui2/containers/stack:current-stack-widget`
 
 <a id="x-28REBLOCKS-UI2-2FCONTAINERS-2FSTACK-3APOP-ME-20FUNCTION-29"></a>
 
-##### [function](e10a) `reblocks-ui2/containers/stack:pop-me`
+##### [function](9676) `reblocks-ui2/containers/stack:pop-me`
 
 Removes current (top) widget from the stack and display the next widget.
 
 <a id="x-28REBLOCKS-UI2-2FCONTAINERS-2FSTACK-3AREPLACE-ME-WITH-20FUNCTION-29"></a>
 
-##### [function](c7bd) `reblocks-ui2/containers/stack:replace-me-with` widget
+##### [function](466d) `reblocks-ui2/containers/stack:replace-me-with` widget
 
 Adds a new widget ontop of the current.
 
 <a id="x-28REBLOCKS-UI2-2FCONTAINERS-2FSTACK-3ASTACK-20FUNCTION-29"></a>
 
-##### [function](9bfa) `reblocks-ui2/containers/stack:stack` &rest children
+##### [function](b0c0) `reblocks-ui2/containers/stack:stack` &rest children
 
 Makes a stack widget with given subwidgets.
 
@@ -1082,7 +1082,7 @@ Only first widget in the list will be visible.
 
 <a id="x-28-23A-28-2828-29-20BASE-CHAR-20-2E-20-22REBLOCKS-UI2-2FCONTAINERS-2FTABS-22-29-20PACKAGE-29"></a>
 
-#### [package](e221) `reblocks-ui2/containers/tabs`
+#### [package](66e8) `reblocks-ui2/containers/tabs`
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FCONTAINERS-2FTABS-3FClasses-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -1094,27 +1094,27 @@ Only first widget in the list will be visible.
 
 <a id="x-28REBLOCKS-UI2-2FCONTAINERS-2FTABS-3ATABS-CONTROL-20CLASS-29"></a>
 
-###### [class](51ea) `reblocks-ui2/containers/tabs:tabs-control` (event-emitter ui-widget)
+###### [class](04a6) `reblocks-ui2/containers/tabs:tabs-control` (event-emitter ui-widget)
 
 **Readers**
 
 <a id="x-28REBLOCKS-UI2-2FCONTAINERS-2FTABS-3ACURRENT-IDX-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FCONTAINERS-2FTABS-3ATABS-CONTROL-29-29"></a>
 
-###### [reader](248c) `reblocks-ui2/containers/tabs:current-idx` (tabs-control) (:idx = 0)
+###### [reader](3c7e) `reblocks-ui2/containers/tabs:current-idx` (tabs-control) (:idx = 0)
 
 <a id="x-28REBLOCKS-UI2-2FCONTAINERS-2FTABS-3ASUBWIDGETS-TITLES-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FCONTAINERS-2FTABS-3ATABS-CONTROL-29-29"></a>
 
-###### [reader](597d) `reblocks-ui2/containers/tabs:subwidgets-titles` (tabs-control) (:titles)
+###### [reader](a644) `reblocks-ui2/containers/tabs:subwidgets-titles` (tabs-control) (:titles)
 
 <a id="x-28REBLOCKS-UI2-2FCONTAINERS-2FTABS-3ATABS-SIZE-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FCONTAINERS-2FTABS-3ATABS-CONTROL-29-29"></a>
 
-###### [reader](7fb0) `reblocks-ui2/containers/tabs:tabs-size` (tabs-control) (:size)
+###### [reader](490a) `reblocks-ui2/containers/tabs:tabs-size` (tabs-control) (:size)
 
 **Accessors**
 
 <a id="x-28REBLOCKS-UI2-2FCONTAINERS-2FTABS-3ACURRENT-IDX-20-2840ANTS-DOC-2FLOCATIVES-3AACCESSOR-20REBLOCKS-UI2-2FCONTAINERS-2FTABS-3ATABS-CONTROL-29-29"></a>
 
-###### [accessor](248c) `reblocks-ui2/containers/tabs:current-idx` (tabs-control) (:idx = 0)
+###### [accessor](3c7e) `reblocks-ui2/containers/tabs:current-idx` (tabs-control) (:idx = 0)
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-40REBLOCKS-UI2-2FCONTAINERS-2FTABS-24TABS-WIDGET-3FCLASS-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -1122,17 +1122,17 @@ Only first widget in the list will be visible.
 
 <a id="x-28REBLOCKS-UI2-2FCONTAINERS-2FTABS-3ATABS-WIDGET-20CLASS-29"></a>
 
-###### [class](448b) `reblocks-ui2/containers/tabs:tabs-widget` (ui-widget)
+###### [class](067c) `reblocks-ui2/containers/tabs:tabs-widget` (ui-widget)
 
 **Readers**
 
 <a id="x-28REBLOCKS-UI2-2FCONTAINERS-2FTABS-3ASUBWIDGETS-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FCONTAINERS-2FTABS-3ATABS-WIDGET-29-29"></a>
 
-###### [reader](c4da) `reblocks-ui2/containers/tabs:subwidgets` (tabs-widget) (:subwidgets)
+###### [reader](0781) `reblocks-ui2/containers/tabs:subwidgets` (tabs-widget) (:subwidgets)
 
 <a id="x-28REBLOCKS-UI2-2FCONTAINERS-2FTABS-3ATABS-SELECTOR-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FCONTAINERS-2FTABS-3ATABS-WIDGET-29-29"></a>
 
-###### [reader](bf3d) `reblocks-ui2/containers/tabs:tabs-selector` (tabs-widget) (:selector)
+###### [reader](8fd2) `reblocks-ui2/containers/tabs:tabs-selector` (tabs-widget) (:selector)
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FCONTAINERS-2FTABS-3FFunctions-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -1140,11 +1140,11 @@ Only first widget in the list will be visible.
 
 <a id="x-28REBLOCKS-UI2-2FCONTAINERS-2FTABS-3ASWITCH-TO-IDX-20FUNCTION-29"></a>
 
-##### [function](e652) `reblocks-ui2/containers/tabs:switch-to-idx` widget idx
+##### [function](6037) `reblocks-ui2/containers/tabs:switch-to-idx` widget idx
 
 <a id="x-28REBLOCKS-UI2-2FCONTAINERS-2FTABS-3ATABS-20FUNCTION-29"></a>
 
-##### [function](c39a) `reblocks-ui2/containers/tabs:tabs` titles subwidgets &key (idx 0) (selector-class 'tabs-control) (class 'tabs-widget) (size :l)
+##### [function](03da) `reblocks-ui2/containers/tabs:tabs` titles subwidgets &key (idx 0) (selector-class 'tabs-control) (class 'tabs-widget) (size :l)
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FCONTAINERS-2FTABS-3FTypes-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -1152,7 +1152,7 @@ Only first widget in the list will be visible.
 
 <a id="x-28REBLOCKS-UI2-2FCONTAINERS-2FTABS-3ATABS-SIZE-20-28TYPE-29-29"></a>
 
-##### [type](9b8e) `reblocks-ui2/containers/tabs:tabs-size`
+##### [type](fb11) `reblocks-ui2/containers/tabs:tabs-size`
 
 ```
 (MEMBER :M :L :XL)
@@ -1163,7 +1163,7 @@ Only first widget in the list will be visible.
 
 <a id="x-28-23A-28-2821-29-20BASE-CHAR-20-2E-20-22REBLOCKS-UI2-2FEDITABLE-22-29-20PACKAGE-29"></a>
 
-#### [package](cdc3) `reblocks-ui2/editable`
+#### [package](c97b) `reblocks-ui2/editable`
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FEDITABLE-3FGenerics-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -1171,7 +1171,7 @@ Only first widget in the list will be visible.
 
 <a id="x-28REBLOCKS-UI2-2FEDITABLE-3AMAKE-EDITABLE-WIDGET-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](3ec6) `reblocks-ui2/editable:make-editable-widget` value callback
+##### [generic-function](a4e4) `reblocks-ui2/editable:make-editable-widget` value callback
 
 Creates a widget which can be used to edit a given value.
 Every time when the widget loose focus, it will call `CALLBACK` argument with a new value.
@@ -1182,7 +1182,7 @@ Every time when the widget loose focus, it will call `CALLBACK` argument with a 
 
 <a id="x-28-23A-28-2819-29-20BASE-CHAR-20-2E-20-22REBLOCKS-UI2-2FEVENTS-22-29-20PACKAGE-29"></a>
 
-#### [package](e016) `reblocks-ui2/events`
+#### [package](8035) `reblocks-ui2/events`
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FEVENTS-3FClasses-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -1194,7 +1194,7 @@ Every time when the widget loose focus, it will call `CALLBACK` argument with a 
 
 <a id="x-28REBLOCKS-UI2-2FEVENTS-3AEVENT-EMITTING-WIDGET-20CLASS-29"></a>
 
-###### [class](1d4a) `reblocks-ui2/events:event-emitting-widget` (event-emitter ui-widget)
+###### [class](9c70) `reblocks-ui2/events:event-emitting-widget` (event-emitter ui-widget)
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-40REBLOCKS-UI2-2FFORM-3FPACKAGE-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -1202,7 +1202,7 @@ Every time when the widget loose focus, it will call `CALLBACK` argument with a 
 
 <a id="x-28-23A-28-2817-29-20BASE-CHAR-20-2E-20-22REBLOCKS-UI2-2FFORM-22-29-20PACKAGE-29"></a>
 
-#### [package](ef66) `reblocks-ui2/form`
+#### [package](f83a) `reblocks-ui2/form`
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FFORM-3FClasses-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -1214,23 +1214,23 @@ Every time when the widget loose focus, it will call `CALLBACK` argument with a 
 
 <a id="x-28REBLOCKS-UI2-2FFORM-3AFORM-WIDGET-20CLASS-29"></a>
 
-###### [class](c116) `reblocks-ui2/form:form-widget` (event-emitting-widget)
+###### [class](b182) `reblocks-ui2/form:form-widget` (event-emitting-widget)
 
 **Readers**
 
 <a id="x-28REBLOCKS-UI2-2FFORM-3AFORM-CONTENT-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FFORM-3AFORM-WIDGET-29-29"></a>
 
-###### [reader](429f) `reblocks-ui2/form:form-content` (form-widget) (:content)
+###### [reader](cdd7) `reblocks-ui2/form:form-content` (form-widget) (:content)
 
 <a id="x-28REBLOCKS-UI2-2FFORM-3AFORM-INPUTS-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FFORM-3AFORM-WIDGET-29-29"></a>
 
-###### [reader](ef1e) `reblocks-ui2/form:form-inputs` (form-widget) (= (make-hash-table :test 'equal))
+###### [reader](72e0) `reblocks-ui2/form:form-inputs` (form-widget) (= (make-hash-table :test 'equal))
 
 Internal structure holding references to all form inputs having a name attribute.
 
 <a id="x-28REBLOCKS-UI2-2FFORM-3AFORM-ON-SUBMIT-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FFORM-3AFORM-WIDGET-29-29"></a>
 
-###### [reader](fb91) `reblocks-ui2/form:form-on-submit` (form-widget) (:on-submit = 'no-action)
+###### [reader](10e4) `reblocks-ui2/form:form-on-submit` (form-widget) (:on-submit = 'no-action)
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FFORM-3FFunctions-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -1238,7 +1238,7 @@ Internal structure holding references to all form inputs having a name attribute
 
 <a id="x-28REBLOCKS-UI2-2FFORM-3AFORM-20FUNCTION-29"></a>
 
-##### [function](51ac) `reblocks-ui2/form:form` content &key (widget-class 'form-widget) on-submit
+##### [function](7a12) `reblocks-ui2/form:form` content &key (widget-class 'form-widget) on-submit
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-40REBLOCKS-UI2-2FFORM-2FCONFIRM-3FPACKAGE-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -1246,7 +1246,7 @@ Internal structure holding references to all form inputs having a name attribute
 
 <a id="x-28-23A-28-2825-29-20BASE-CHAR-20-2E-20-22REBLOCKS-UI2-2FFORM-2FCONFIRM-22-29-20PACKAGE-29"></a>
 
-#### [package](fc4a) `reblocks-ui2/form/confirm`
+#### [package](547a) `reblocks-ui2/form/confirm`
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FFORM-2FCONFIRM-3FFunctions-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -1254,7 +1254,7 @@ Internal structure holding references to all form inputs having a name attribute
 
 <a id="x-28REBLOCKS-UI2-2FFORM-2FCONFIRM-3ACONFIRM-20FUNCTION-29"></a>
 
-##### [function](9446) `reblocks-ui2/form/confirm:confirm` CONTENT &KEY (CONFIRM-BUTTON-TITLE "Confirm") (CANCEL-BUTTON-TITLE "Cancel") (CONFIRM-VALUE "submit") (CANCEL-VALUE "cancel") ON-CONFIRM WIDGET-CLASS
+##### [function](13ac) `reblocks-ui2/form/confirm:confirm` CONTENT &KEY (CONFIRM-BUTTON-TITLE "Confirm") (CANCEL-BUTTON-TITLE "Cancel") (CONFIRM-VALUE "submit") (CANCEL-VALUE "cancel") ON-CONFIRM WIDGET-CLASS
 
 Returns a form widget asking the user to confirm an action.
 
@@ -1283,7 +1283,7 @@ the `ON-CONFIRM` callback.
 
 <a id="x-28-23A-28-2828-29-20BASE-CHAR-20-2E-20-22REBLOCKS-UI2-2FFORM-2FVALIDATION-22-29-20PACKAGE-29"></a>
 
-#### [package](b458) `reblocks-ui2/form/validation`
+#### [package](3613) `reblocks-ui2/form/validation`
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FFORM-2FVALIDATION-3FClasses-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -1295,17 +1295,17 @@ the `ON-CONFIRM` callback.
 
 <a id="x-28REBLOCKS-UI2-2FFORM-2FVALIDATION-3AFIELD-VALIDATION-ERROR-20CONDITION-29"></a>
 
-###### [condition](61a5) `reblocks-ui2/form/validation:field-validation-error` (validation-error)
+###### [condition](3abb) `reblocks-ui2/form/validation:field-validation-error` (validation-error)
 
 **Readers**
 
 <a id="x-28REBLOCKS-UI2-2FFORM-2FVALIDATION-3AFIELD-NAME-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FFORM-2FVALIDATION-3AFIELD-VALIDATION-ERROR-29-29"></a>
 
-###### [reader](61a5) `reblocks-ui2/form/validation:field-name` (field-validation-error) (:field-name)
+###### [reader](3abb) `reblocks-ui2/form/validation:field-name` (field-validation-error) (:field-name)
 
 <a id="x-28REBLOCKS-UI2-2FFORM-2FVALIDATION-3AINVALID-VALUE-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FFORM-2FVALIDATION-3AFIELD-VALIDATION-ERROR-29-29"></a>
 
-###### [reader](61a5) `reblocks-ui2/form/validation:invalid-value` (field-validation-error) (:invalid-value)
+###### [reader](3abb) `reblocks-ui2/form/validation:invalid-value` (field-validation-error) (:invalid-value)
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-40REBLOCKS-UI2-2FFORM-2FVALIDATION-24FORM-VALIDATION-ERROR-3FCLASS-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -1313,13 +1313,13 @@ the `ON-CONFIRM` callback.
 
 <a id="x-28REBLOCKS-UI2-2FFORM-2FVALIDATION-3AFORM-VALIDATION-ERROR-20CONDITION-29"></a>
 
-###### [condition](3980) `reblocks-ui2/form/validation:form-validation-error` (validation-error)
+###### [condition](aa8d) `reblocks-ui2/form/validation:form-validation-error` (validation-error)
 
 **Readers**
 
 <a id="x-28REBLOCKS-UI2-2FFORM-2FVALIDATION-3ANUM-ERRORS-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FFORM-2FVALIDATION-3AFORM-VALIDATION-ERROR-29-29"></a>
 
-###### [reader](3980) `reblocks-ui2/form/validation:num-errors` (form-validation-error) (:num-errors)
+###### [reader](aa8d) `reblocks-ui2/form/validation:num-errors` (form-validation-error) (:num-errors)
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-40REBLOCKS-UI2-2FFORM-2FVALIDATION-24VALIDATION-ERROR-3FCLASS-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -1327,17 +1327,17 @@ the `ON-CONFIRM` callback.
 
 <a id="x-28REBLOCKS-UI2-2FFORM-2FVALIDATION-3AVALIDATION-ERROR-20CONDITION-29"></a>
 
-###### [condition](64b4) `reblocks-ui2/form/validation:validation-error` (error)
+###### [condition](eaed) `reblocks-ui2/form/validation:validation-error` (error)
 
 **Readers**
 
 <a id="x-28REBLOCKS-UI2-2FFORM-2FVALIDATION-3AERROR-ARGS-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FFORM-2FVALIDATION-3AVALIDATION-ERROR-29-29"></a>
 
-###### [reader](64b4) `reblocks-ui2/form/validation:error-args` (validation-error) (:error-args = 'nil)
+###### [reader](eaed) `reblocks-ui2/form/validation:error-args` (validation-error) (:error-args = 'nil)
 
 <a id="x-28REBLOCKS-UI2-2FFORM-2FVALIDATION-3AERROR-MESSAGE-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FFORM-2FVALIDATION-3AVALIDATION-ERROR-29-29"></a>
 
-###### [reader](64b4) `reblocks-ui2/form/validation:error-message` (validation-error) (:error-message = '"")
+###### [reader](eaed) `reblocks-ui2/form/validation:error-message` (validation-error) (:error-message = '"")
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FFORM-2FVALIDATION-3FGenerics-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -1345,7 +1345,7 @@ the `ON-CONFIRM` callback.
 
 <a id="x-28REBLOCKS-UI2-2FFORM-2FVALIDATION-3AVALIDATE-FORM-DATA-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](8e94) `reblocks-ui2/form/validation:validate-form-data` widget form-data
+##### [generic-function](72eb) `reblocks-ui2/form/validation:validate-form-data` widget form-data
 
 Accepts a form or input widget and a plist of all data sent from the browser.
 
@@ -1359,7 +1359,7 @@ when data is invalid, function should signal `validation-error` ([`1`][af7e] [`2
 
 <a id="x-28REBLOCKS-UI2-2FFORM-2FVALIDATION-3AVALIDATION-ERROR-20FUNCTION-29"></a>
 
-##### [function](436e) `reblocks-ui2/form/validation:validation-error` message &rest args
+##### [function](a3e4) `reblocks-ui2/form/validation:validation-error` message &rest args
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-40REBLOCKS-UI2-2FFORM-2FVALIDATORS-3FPACKAGE-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -1367,7 +1367,7 @@ when data is invalid, function should signal `validation-error` ([`1`][af7e] [`2
 
 <a id="x-28-23A-28-2828-29-20BASE-CHAR-20-2E-20-22REBLOCKS-UI2-2FFORM-2FVALIDATORS-22-29-20PACKAGE-29"></a>
 
-#### [package](33a7) `reblocks-ui2/form/validators`
+#### [package](e601) `reblocks-ui2/form/validators`
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FFORM-2FVALIDATORS-3FFunctions-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -1375,13 +1375,13 @@ when data is invalid, function should signal `validation-error` ([`1`][af7e] [`2
 
 <a id="x-28REBLOCKS-UI2-2FFORM-2FVALIDATORS-3AALL-20FUNCTION-29"></a>
 
-##### [function](edda) `reblocks-ui2/form/validators:all` &rest validators
+##### [function](9902) `reblocks-ui2/form/validators:all` &rest validators
 
 Combines a multiple validators into a chain where every subsequent validator validates output of the previous one.
 
 <a id="x-28REBLOCKS-UI2-2FFORM-2FVALIDATORS-3AFORMAT-DATE-20FUNCTION-29"></a>
 
-##### [function](6080) `reblocks-ui2/form/validators:format-date` timestamp &key (format :iso)
+##### [function](2465) `reblocks-ui2/form/validators:format-date` timestamp &key (format :iso)
 
 Formats `TIMESTAMP` as a date string.
 
@@ -1395,7 +1395,7 @@ can be used as an input widget's value.
 
 <a id="x-28REBLOCKS-UI2-2FFORM-2FVALIDATORS-3AVALID-DATE-20FUNCTION-29"></a>
 
-##### [function](642b) `reblocks-ui2/form/validators:valid-date` &key (format :iso) (required t)
+##### [function](d3c0) `reblocks-ui2/form/validators:valid-date` &key (format :iso) (required t)
 
 Returns a validator converting a date string into a local-time timestamp.
 
@@ -1412,7 +1412,7 @@ a non-existent date like 2025-02-31.
 
 <a id="x-28REBLOCKS-UI2-2FFORM-2FVALIDATORS-3AVALID-INTEGER-20FUNCTION-29"></a>
 
-##### [function](ff62) `reblocks-ui2/form/validators:valid-integer` &key min max (allow-empty nil)
+##### [function](11cb) `reblocks-ui2/form/validators:valid-integer` &key min max (allow-empty nil)
 
 Returns a validator converting a string into an integer.
 
@@ -1426,11 +1426,11 @@ which is not an integer.
 
 <a id="x-28REBLOCKS-UI2-2FFORM-2FVALIDATORS-3AVALID-PASSWORD-20FUNCTION-29"></a>
 
-##### [function](f77f) `reblocks-ui2/form/validators:valid-password` &key (min-length 10) max-length required-symbols error
+##### [function](a14e) `reblocks-ui2/form/validators:valid-password` &key (min-length 10) max-length required-symbols error
 
 <a id="x-28REBLOCKS-UI2-2FFORM-2FVALIDATORS-3AVALID-STRING-20FUNCTION-29"></a>
 
-##### [function](fb29) `reblocks-ui2/form/validators:valid-string` &key (min-length 1) max-length
+##### [function](fb7e) `reblocks-ui2/form/validators:valid-string` &key (min-length 1) max-length
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-40REBLOCKS-UI2-2FHTML-3FPACKAGE-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -1438,7 +1438,7 @@ which is not an integer.
 
 <a id="x-28-23A-28-2817-29-20BASE-CHAR-20-2E-20-22REBLOCKS-UI2-2FHTML-22-29-20PACKAGE-29"></a>
 
-#### [package](39fb) `reblocks-ui2/html`
+#### [package](030d) `reblocks-ui2/html`
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FHTML-3FFunctions-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -1446,7 +1446,7 @@ which is not an integer.
 
 <a id="x-28REBLOCKS-UI2-2FHTML-3APROP-20FUNCTION-29"></a>
 
-##### [function](f20e) `reblocks-ui2/html:prop` name &optional default
+##### [function](bcaf) `reblocks-ui2/html:prop` name &optional default
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FHTML-3FMacros-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -1454,7 +1454,7 @@ which is not an integer.
 
 <a id="x-28REBLOCKS-UI2-2FHTML-3AHTML-20-2840ANTS-DOC-2FLOCATIVES-3AMACRO-29-29"></a>
 
-##### [macro](14b0) `reblocks-ui2/html:html` (&body body) &key css (html-tag :div) css-classes on-click props width height margin
+##### [macro](040d) `reblocks-ui2/html:html` (&body body) &key css (html-tag :div) css-classes on-click props width height margin
 
 This macro allows to describe [`html`][b7d1], state, css and event handlers of the widget.
 All in the single form.
@@ -1478,7 +1478,7 @@ and increment it on click:
 
 <a id="x-28-23A-28-2817-29-20BASE-CHAR-20-2E-20-22REBLOCKS-UI2-2FICON-22-29-20PACKAGE-29"></a>
 
-#### [package](2f0f) `reblocks-ui2/icon`
+#### [package](0008) `reblocks-ui2/icon`
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FICON-3FClasses-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -1490,13 +1490,13 @@ and increment it on click:
 
 <a id="x-28REBLOCKS-UI2-2FICON-3AICON-WIDGET-20CLASS-29"></a>
 
-###### [class](a835) `reblocks-ui2/icon:icon-widget` (ui-widget)
+###### [class](84aa) `reblocks-ui2/icon:icon-widget` (ui-widget)
 
 **Readers**
 
 <a id="x-28REBLOCKS-UI2-2FICON-3AICON-NAME-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FICON-3AICON-WIDGET-29-29"></a>
 
-###### [reader](3dbd) `reblocks-ui2/icon:icon-name` (icon-widget) (:name)
+###### [reader](9f2b) `reblocks-ui2/icon:icon-name` (icon-widget) (:name)
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FICON-3FFunctions-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -1504,7 +1504,7 @@ and increment it on click:
 
 <a id="x-28REBLOCKS-UI2-2FICON-3AICON-20FUNCTION-29"></a>
 
-##### [function](e81d) `reblocks-ui2/icon:icon` name
+##### [function](69b9) `reblocks-ui2/icon:icon` name
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-40REBLOCKS-UI2-2FINPUTS-2FBASE-3FPACKAGE-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -1512,7 +1512,7 @@ and increment it on click:
 
 <a id="x-28-23A-28-2824-29-20BASE-CHAR-20-2E-20-22REBLOCKS-UI2-2FINPUTS-2FBASE-22-29-20PACKAGE-29"></a>
 
-#### [package](0b35) `reblocks-ui2/inputs/base`
+#### [package](151b) `reblocks-ui2/inputs/base`
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FINPUTS-2FBASE-3FClasses-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -1524,23 +1524,23 @@ and increment it on click:
 
 <a id="x-28REBLOCKS-UI2-2FINPUTS-2FBASE-3ABASE-INPUT-WIDGET-20CLASS-29"></a>
 
-###### [class](5c10) `reblocks-ui2/inputs/base:base-input-widget` (named-input)
+###### [class](b193) `reblocks-ui2/inputs/base:base-input-widget` (named-input)
 
 **Readers**
 
 <a id="x-28REBLOCKS-UI2-2FINPUTS-2FBASE-3AINPUT-ERROR-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FINPUTS-2FBASE-3ABASE-INPUT-WIDGET-29-29"></a>
 
-###### [reader](461c) `reblocks-ui2/inputs/base:input-error` (base-input-widget) (:error = nil)
+###### [reader](30c2) `reblocks-ui2/inputs/base:input-error` (base-input-widget) (:error = nil)
 
 <a id="x-28REBLOCKS-UI2-2FINPUTS-2FBASE-3AINPUT-VALIDATOR-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FINPUTS-2FBASE-3ABASE-INPUT-WIDGET-29-29"></a>
 
-###### [reader](72d6) `reblocks-ui2/inputs/base:input-validator` (base-input-widget) (:validator = nil)
+###### [reader](525d) `reblocks-ui2/inputs/base:input-validator` (base-input-widget) (:validator = nil)
 
 A function of one argument returning a validated value or signaling the [`field-validation-error`][6f80].
 
 <a id="x-28REBLOCKS-UI2-2FINPUTS-2FBASE-3AINPUT-VALUE-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FINPUTS-2FBASE-3ABASE-INPUT-WIDGET-29-29"></a>
 
-###### [reader](5725) `reblocks-ui2/inputs/base:input-value` (base-input-widget) (:value = nil)
+###### [reader](b528) `reblocks-ui2/inputs/base:input-value` (base-input-widget) (:value = nil)
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-40REBLOCKS-UI2-2FINPUTS-2FNAMED-24NAMED-INPUT-3FCLASS-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -1548,13 +1548,13 @@ A function of one argument returning a validated value or signaling the [`field-
 
 <a id="x-28REBLOCKS-UI2-2FINPUTS-2FNAMED-3ANAMED-INPUT-20CLASS-29"></a>
 
-###### [class](bf5d) `reblocks-ui2/inputs/named:named-input` (ui-widget)
+###### [class](a11a) `reblocks-ui2/inputs/named:named-input` (ui-widget)
 
 **Readers**
 
 <a id="x-28REBLOCKS-UI2-2FINPUTS-2FNAMED-3AINPUT-NAME-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FINPUTS-2FNAMED-3ANAMED-INPUT-29-29"></a>
 
-###### [reader](c6d9) `reblocks-ui2/inputs/named:input-name` (named-input) (:name = nil)
+###### [reader](d00b) `reblocks-ui2/inputs/named:input-name` (named-input) (:name = nil)
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-40REBLOCKS-UI2-2FINPUTS-2FCHECKBOX-3FPACKAGE-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -1562,7 +1562,7 @@ A function of one argument returning a validated value or signaling the [`field-
 
 <a id="x-28-23A-28-2828-29-20BASE-CHAR-20-2E-20-22REBLOCKS-UI2-2FINPUTS-2FCHECKBOX-22-29-20PACKAGE-29"></a>
 
-#### [package](2165) `reblocks-ui2/inputs/checkbox`
+#### [package](53ae) `reblocks-ui2/inputs/checkbox`
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FINPUTS-2FCHECKBOX-3FClasses-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -1574,25 +1574,25 @@ A function of one argument returning a validated value or signaling the [`field-
 
 <a id="x-28REBLOCKS-UI2-2FINPUTS-2FCHECKBOX-3ACHECKBOX-20CLASS-29"></a>
 
-###### [class](bea5) `reblocks-ui2/inputs/checkbox:checkbox` (base-input-widget)
+###### [class](1222) `reblocks-ui2/inputs/checkbox:checkbox` (base-input-widget)
 
 **Readers**
 
 <a id="x-28REBLOCKS-UI2-2FINPUTS-2FCHECKBOX-3ACHECKBOX-CHECKED-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FINPUTS-2FCHECKBOX-3ACHECKBOX-29-29"></a>
 
-###### [reader](370c) `reblocks-ui2/inputs/checkbox:checkbox-checked` (checkbox) (:checked = nil)
+###### [reader](d23d) `reblocks-ui2/inputs/checkbox:checkbox-checked` (checkbox) (:checked = nil)
 
 <a id="x-28REBLOCKS-UI2-2FINPUTS-2FCHECKBOX-3ACHECKBOX-DISABLED-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FINPUTS-2FCHECKBOX-3ACHECKBOX-29-29"></a>
 
-###### [reader](2118) `reblocks-ui2/inputs/checkbox:checkbox-disabled` (checkbox) (:disabled = nil)
+###### [reader](0f64) `reblocks-ui2/inputs/checkbox:checkbox-disabled` (checkbox) (:disabled = nil)
 
 <a id="x-28REBLOCKS-UI2-2FINPUTS-2FCHECKBOX-3ACHECKBOX-SIZE-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FINPUTS-2FCHECKBOX-3ACHECKBOX-29-29"></a>
 
-###### [reader](baac) `reblocks-ui2/inputs/checkbox:checkbox-size` (checkbox) (:size = :m)
+###### [reader](d458) `reblocks-ui2/inputs/checkbox:checkbox-size` (checkbox) (:size = :m)
 
 <a id="x-28REBLOCKS-UI2-2FINPUTS-2FCHECKBOX-3ACHECKBOX-VIEW-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FINPUTS-2FCHECKBOX-3ACHECKBOX-29-29"></a>
 
-###### [reader](8b56) `reblocks-ui2/inputs/checkbox:checkbox-view` (checkbox) (:view = (make-instance 'normal))
+###### [reader](706b) `reblocks-ui2/inputs/checkbox:checkbox-view` (checkbox) (:view = (make-instance 'normal))
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FINPUTS-2FCHECKBOX-3FFunctions-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -1600,7 +1600,7 @@ A function of one argument returning a validated value or signaling the [`field-
 
 <a id="x-28REBLOCKS-UI2-2FINPUTS-2FCHECKBOX-3ACHECKBOX-20FUNCTION-29"></a>
 
-##### [function](0c39) `reblocks-ui2/inputs/checkbox:checkbox` &key (widget-class 'checkbox) name value (view :normal) (size :m) disabled checked error
+##### [function](48c2) `reblocks-ui2/inputs/checkbox:checkbox` &key (widget-class 'checkbox) name value (view :normal) (size :m) disabled checked error
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-40REBLOCKS-UI2-2FINPUTS-2FDATE-INPUT-3FPACKAGE-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -1608,7 +1608,7 @@ A function of one argument returning a validated value or signaling the [`field-
 
 <a id="x-28-23A-28-2830-29-20BASE-CHAR-20-2E-20-22REBLOCKS-UI2-2FINPUTS-2FDATE-INPUT-22-29-20PACKAGE-29"></a>
 
-#### [package](ef8a) `reblocks-ui2/inputs/date-input`
+#### [package](7c40) `reblocks-ui2/inputs/date-input`
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FINPUTS-2FDATE-INPUT-3FFunctions-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -1616,7 +1616,7 @@ A function of one argument returning a validated value or signaling the [`field-
 
 <a id="x-28REBLOCKS-UI2-2FINPUTS-2FDATE-INPUT-3ADATE-INPUT-20FUNCTION-29"></a>
 
-##### [function](e5e5) `reblocks-ui2/inputs/date-input:date-input` &key (widget-class 'input-widget) name value (format :iso) (required t) placeholder (view :normal) (size :m) disabled error
+##### [function](9fa4) `reblocks-ui2/inputs/date-input:date-input` &key (widget-class 'input-widget) name value (format :iso) (required t) placeholder (view :normal) (size :m) disabled error
 
 Returns a native `HTML` date input.
 
@@ -1637,7 +1637,7 @@ returns `NIL`.
 
 <a id="x-28-23A-28-2825-29-20BASE-CHAR-20-2E-20-22REBLOCKS-UI2-2FINPUTS-2FNAMED-22-29-20PACKAGE-29"></a>
 
-#### [package](bdf3) `reblocks-ui2/inputs/named`
+#### [package](9130) `reblocks-ui2/inputs/named`
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FINPUTS-2FNAMED-3FClasses-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -1649,13 +1649,13 @@ returns `NIL`.
 
 <a id="x-28REBLOCKS-UI2-2FINPUTS-2FNAMED-3ANAMED-INPUT-20CLASS-29"></a>
 
-###### [class](bf5d) `reblocks-ui2/inputs/named:named-input` (ui-widget)
+###### [class](a11a) `reblocks-ui2/inputs/named:named-input` (ui-widget)
 
 **Readers**
 
 <a id="x-28REBLOCKS-UI2-2FINPUTS-2FNAMED-3AINPUT-NAME-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FINPUTS-2FNAMED-3ANAMED-INPUT-29-29"></a>
 
-###### [reader](c6d9) `reblocks-ui2/inputs/named:input-name` (named-input) (:name = nil)
+###### [reader](d00b) `reblocks-ui2/inputs/named:input-name` (named-input) (:name = nil)
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-40REBLOCKS-UI2-2FINPUTS-2FSELECT-3FPACKAGE-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -1663,7 +1663,7 @@ returns `NIL`.
 
 <a id="x-28-23A-28-2826-29-20BASE-CHAR-20-2E-20-22REBLOCKS-UI2-2FINPUTS-2FSELECT-22-29-20PACKAGE-29"></a>
 
-#### [package](0174) `reblocks-ui2/inputs/select`
+#### [package](1914) `reblocks-ui2/inputs/select`
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FINPUTS-2FSELECT-3FClasses-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -1675,21 +1675,21 @@ returns `NIL`.
 
 <a id="x-28REBLOCKS-UI2-2FINPUTS-2FSELECT-3AOPTION-20CLASS-29"></a>
 
-###### [class](64af) `reblocks-ui2/inputs/select:option` ()
+###### [class](3006) `reblocks-ui2/inputs/select:option` ()
 
 **Readers**
 
 <a id="x-28REBLOCKS-UI2-2FINPUTS-2FSELECT-3AOPTION-NAME-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FINPUTS-2FSELECT-3AOPTION-29-29"></a>
 
-###### [reader](1db8) `reblocks-ui2/inputs/select:option-name` (option) (:name)
+###### [reader](aeaf) `reblocks-ui2/inputs/select:option-name` (option) (:name)
 
 <a id="x-28REBLOCKS-UI2-2FINPUTS-2FSELECT-3AOPTION-SELECTED-P-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FINPUTS-2FSELECT-3AOPTION-29-29"></a>
 
-###### [reader](f0d8) `reblocks-ui2/inputs/select:option-selected-p` (option) (:selected = nil)
+###### [reader](18d0) `reblocks-ui2/inputs/select:option-selected-p` (option) (:selected = nil)
 
 <a id="x-28REBLOCKS-UI2-2FINPUTS-2FSELECT-3AOPTION-VALUE-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FINPUTS-2FSELECT-3AOPTION-29-29"></a>
 
-###### [reader](13b2) `reblocks-ui2/inputs/select:option-value` (option) (:value)
+###### [reader](f863) `reblocks-ui2/inputs/select:option-value` (option) (:value)
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-40REBLOCKS-UI2-2FINPUTS-2FSELECT-24SELECT-3FCLASS-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -1697,35 +1697,37 @@ returns `NIL`.
 
 <a id="x-28REBLOCKS-UI2-2FINPUTS-2FSELECT-3ASELECT-20CLASS-29"></a>
 
-###### [class](54eb) `reblocks-ui2/inputs/select:select` (event-emitter base-input-widget)
+###### [class](ad5f) `reblocks-ui2/inputs/select:select` (event-emitter base-input-widget)
+
+A select widget allowing to choose one of the options.
 
 **Readers**
 
 <a id="x-28REBLOCKS-UI2-2FINPUTS-2FSELECT-3ASELECT-DISABLED-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FINPUTS-2FSELECT-3ASELECT-29-29"></a>
 
-###### [reader](dc9f) `reblocks-ui2/inputs/select:select-disabled` (select) (:disabled = nil)
+###### [reader](6a8d) `reblocks-ui2/inputs/select:select-disabled` (select) (:disabled = nil)
 
 <a id="x-28REBLOCKS-UI2-2FINPUTS-2FSELECT-3ASELECT-OPTIONS-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FINPUTS-2FSELECT-3ASELECT-29-29"></a>
 
-###### [reader](c0f8) `reblocks-ui2/inputs/select:select-options` (select) (:options)
+###### [reader](1b42) `reblocks-ui2/inputs/select:select-options` (select) (:options)
 
 <a id="x-28REBLOCKS-UI2-2FINPUTS-2FSELECT-3ASELECT-PIN-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FINPUTS-2FSELECT-3ASELECT-29-29"></a>
 
-###### [reader](e7de) `reblocks-ui2/inputs/select:select-pin` (select) (:pin)
+###### [reader](4ae1) `reblocks-ui2/inputs/select:select-pin` (select) (:pin)
 
 <a id="x-28REBLOCKS-UI2-2FINPUTS-2FSELECT-3ASELECT-SIZE-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FINPUTS-2FSELECT-3ASELECT-29-29"></a>
 
-###### [reader](2948) `reblocks-ui2/inputs/select:select-size` (select) (:size = :m)
+###### [reader](9d90) `reblocks-ui2/inputs/select:select-size` (select) (:size = :m)
 
 <a id="x-28REBLOCKS-UI2-2FINPUTS-2FSELECT-3ASELECT-VIEW-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FINPUTS-2FSELECT-3ASELECT-29-29"></a>
 
-###### [reader](7263) `reblocks-ui2/inputs/select:select-view` (select) (:view = (make-instance 'normal))
+###### [reader](25b0) `reblocks-ui2/inputs/select:select-view` (select) (:view = (make-instance 'normal))
 
 **Accessors**
 
 <a id="x-28REBLOCKS-UI2-2FINPUTS-2FSELECT-3ASELECT-OPTIONS-20-2840ANTS-DOC-2FLOCATIVES-3AACCESSOR-20REBLOCKS-UI2-2FINPUTS-2FSELECT-3ASELECT-29-29"></a>
 
-###### [accessor](c0f8) `reblocks-ui2/inputs/select:select-options` (select) (:options)
+###### [accessor](1b42) `reblocks-ui2/inputs/select:select-options` (select) (:options)
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FINPUTS-2FSELECT-3FFunctions-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -1733,15 +1735,15 @@ returns `NIL`.
 
 <a id="x-28REBLOCKS-UI2-2FINPUTS-2FSELECT-3AENSURE-OPTION-20FUNCTION-29"></a>
 
-##### [function](62f0) `reblocks-ui2/inputs/select:ensure-option` value
+##### [function](791d) `reblocks-ui2/inputs/select:ensure-option` value
 
 <a id="x-28REBLOCKS-UI2-2FINPUTS-2FSELECT-3AOPTION-20FUNCTION-29"></a>
 
-##### [function](887e) `reblocks-ui2/inputs/select:option` name &key value selected
+##### [function](f238) `reblocks-ui2/inputs/select:option` name &key value selected
 
 <a id="x-28REBLOCKS-UI2-2FINPUTS-2FSELECT-3ASELECT-20FUNCTION-29"></a>
 
-##### [function](532b) `reblocks-ui2/inputs/select:select` options &key (widget-class 'select) name (view :normal) (pin :round) (size :m) disabled validator error
+##### [function](925a) `reblocks-ui2/inputs/select:select` options &key (widget-class 'select) name (view :normal) (pin :round) (size :m) disabled validator error
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-40REBLOCKS-UI2-2FINPUTS-2FTEXT-INPUT-3FPACKAGE-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -1749,7 +1751,7 @@ returns `NIL`.
 
 <a id="x-28-23A-28-2830-29-20BASE-CHAR-20-2E-20-22REBLOCKS-UI2-2FINPUTS-2FTEXT-INPUT-22-29-20PACKAGE-29"></a>
 
-#### [package](41e1) `reblocks-ui2/inputs/text-input`
+#### [package](4ebf) `reblocks-ui2/inputs/text-input`
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FINPUTS-2FTEXT-INPUT-3FClasses-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -1761,51 +1763,51 @@ returns `NIL`.
 
 <a id="x-28REBLOCKS-UI2-2FINPUTS-2FTEXT-INPUT-3AINPUT-WIDGET-20CLASS-29"></a>
 
-###### [class](62a7) `reblocks-ui2/inputs/text-input:input-widget` (base-input-widget)
+###### [class](aaa9) `reblocks-ui2/inputs/text-input:input-widget` (base-input-widget)
 
 **Readers**
 
 <a id="x-28REBLOCKS-UI2-2FINPUTS-2FTEXT-INPUT-3AINPUT-DISABLED-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FINPUTS-2FTEXT-INPUT-3AINPUT-WIDGET-29-29"></a>
 
-###### [reader](5974) `reblocks-ui2/inputs/text-input:input-disabled` (input-widget) (:disabled = nil)
+###### [reader](c01c) `reblocks-ui2/inputs/text-input:input-disabled` (input-widget) (:disabled = nil)
 
 <a id="x-28REBLOCKS-UI2-2FINPUTS-2FTEXT-INPUT-3AINPUT-LEFT-CONTENT-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FINPUTS-2FTEXT-INPUT-3AINPUT-WIDGET-29-29"></a>
 
-###### [reader](3c07) `reblocks-ui2/inputs/text-input:input-left-content` (input-widget) (:left-content = nil)
+###### [reader](078d) `reblocks-ui2/inputs/text-input:input-left-content` (input-widget) (:left-content = nil)
 
 <a id="x-28REBLOCKS-UI2-2FINPUTS-2FTEXT-INPUT-3AINPUT-PIN-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FINPUTS-2FTEXT-INPUT-3AINPUT-WIDGET-29-29"></a>
 
-###### [reader](2779) `reblocks-ui2/inputs/text-input:input-pin` (input-widget) (:pin)
+###### [reader](8324) `reblocks-ui2/inputs/text-input:input-pin` (input-widget) (:pin)
 
 <a id="x-28REBLOCKS-UI2-2FINPUTS-2FTEXT-INPUT-3AINPUT-PLACEHOLDER-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FINPUTS-2FTEXT-INPUT-3AINPUT-WIDGET-29-29"></a>
 
-###### [reader](93f3) `reblocks-ui2/inputs/text-input:input-placeholder` (input-widget) (:placeholder = nil)
+###### [reader](c7cd) `reblocks-ui2/inputs/text-input:input-placeholder` (input-widget) (:placeholder = nil)
 
 <a id="x-28REBLOCKS-UI2-2FINPUTS-2FTEXT-INPUT-3AINPUT-RIGHT-CONTENT-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FINPUTS-2FTEXT-INPUT-3AINPUT-WIDGET-29-29"></a>
 
-###### [reader](63a9) `reblocks-ui2/inputs/text-input:input-right-content` (input-widget) (:right-content = nil)
+###### [reader](d1c6) `reblocks-ui2/inputs/text-input:input-right-content` (input-widget) (:right-content = nil)
 
 <a id="x-28REBLOCKS-UI2-2FINPUTS-2FTEXT-INPUT-3AINPUT-SIZE-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FINPUTS-2FTEXT-INPUT-3AINPUT-WIDGET-29-29"></a>
 
-###### [reader](a23c) `reblocks-ui2/inputs/text-input:input-size` (input-widget) (:size = :m)
+###### [reader](f9e9) `reblocks-ui2/inputs/text-input:input-size` (input-widget) (:size = :m)
 
 <a id="x-28REBLOCKS-UI2-2FINPUTS-2FTEXT-INPUT-3AINPUT-TYPE-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FINPUTS-2FTEXT-INPUT-3AINPUT-WIDGET-29-29"></a>
 
-###### [reader](8203) `reblocks-ui2/inputs/text-input:input-type` (input-widget) (:type = nil)
+###### [reader](5e33) `reblocks-ui2/inputs/text-input:input-type` (input-widget) (:type = nil)
 
 <a id="x-28REBLOCKS-UI2-2FINPUTS-2FTEXT-INPUT-3AINPUT-VIEW-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FINPUTS-2FTEXT-INPUT-3AINPUT-WIDGET-29-29"></a>
 
-###### [reader](ec64) `reblocks-ui2/inputs/text-input:input-view` (input-widget) (:view = (make-instance 'normal))
+###### [reader](360a) `reblocks-ui2/inputs/text-input:input-view` (input-widget) (:view = (make-instance 'normal))
 
 **Accessors**
 
 <a id="x-28REBLOCKS-UI2-2FINPUTS-2FTEXT-INPUT-3AINPUT-LEFT-CONTENT-20-2840ANTS-DOC-2FLOCATIVES-3AACCESSOR-20REBLOCKS-UI2-2FINPUTS-2FTEXT-INPUT-3AINPUT-WIDGET-29-29"></a>
 
-###### [accessor](3c07) `reblocks-ui2/inputs/text-input:input-left-content` (input-widget) (:left-content = nil)
+###### [accessor](078d) `reblocks-ui2/inputs/text-input:input-left-content` (input-widget) (:left-content = nil)
 
 <a id="x-28REBLOCKS-UI2-2FINPUTS-2FTEXT-INPUT-3AINPUT-RIGHT-CONTENT-20-2840ANTS-DOC-2FLOCATIVES-3AACCESSOR-20REBLOCKS-UI2-2FINPUTS-2FTEXT-INPUT-3AINPUT-WIDGET-29-29"></a>
 
-###### [accessor](63a9) `reblocks-ui2/inputs/text-input:input-right-content` (input-widget) (:right-content = nil)
+###### [accessor](d1c6) `reblocks-ui2/inputs/text-input:input-right-content` (input-widget) (:right-content = nil)
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FINPUTS-2FTEXT-INPUT-3FFunctions-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -1813,7 +1815,7 @@ returns `NIL`.
 
 <a id="x-28REBLOCKS-UI2-2FINPUTS-2FTEXT-INPUT-3AINPUT-20FUNCTION-29"></a>
 
-##### [function](54ce) `reblocks-ui2/inputs/text-input:input` &key (widget-class 'input-widget) name value (type :text) placeholder (view :normal) (pin :round) (size :m) disabled validator error left-content right-content
+##### [function](4566) `reblocks-ui2/inputs/text-input:input` &key (widget-class 'input-widget) name value (type :text) placeholder (view :normal) (pin :round) (size :m) disabled validator error left-content right-content
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-40REBLOCKS-UI2-2FINPUTS-2FTEXT-INPUT-2FVIEW-3FPACKAGE-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -1821,7 +1823,7 @@ returns `NIL`.
 
 <a id="x-28-23A-28-2835-29-20BASE-CHAR-20-2E-20-22REBLOCKS-UI2-2FINPUTS-2FTEXT-INPUT-2FVIEW-22-29-20PACKAGE-29"></a>
 
-#### [package](1478) `reblocks-ui2/inputs/text-input/view`
+#### [package](e9ff) `reblocks-ui2/inputs/text-input/view`
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FINPUTS-2FTEXT-INPUT-2FVIEW-3FClasses-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -1833,7 +1835,7 @@ returns `NIL`.
 
 <a id="x-28REBLOCKS-UI2-2FINPUTS-2FTEXT-INPUT-2FVIEW-3ACLEAR-20CLASS-29"></a>
 
-###### [class](110d) `reblocks-ui2/inputs/text-input/view:clear` (input-view)
+###### [class](71ad) `reblocks-ui2/inputs/text-input/view:clear` (input-view)
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-40REBLOCKS-UI2-2FINPUTS-2FTEXT-INPUT-2FVIEW-24INPUT-VIEW-3FCLASS-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -1841,7 +1843,7 @@ returns `NIL`.
 
 <a id="x-28REBLOCKS-UI2-2FINPUTS-2FTEXT-INPUT-2FVIEW-3AINPUT-VIEW-20CLASS-29"></a>
 
-###### [class](5df3) `reblocks-ui2/inputs/text-input/view:input-view` ()
+###### [class](b751) `reblocks-ui2/inputs/text-input/view:input-view` ()
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-40REBLOCKS-UI2-2FINPUTS-2FTEXT-INPUT-2FVIEW-24NORMAL-3FCLASS-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -1849,7 +1851,7 @@ returns `NIL`.
 
 <a id="x-28REBLOCKS-UI2-2FINPUTS-2FTEXT-INPUT-2FVIEW-3ANORMAL-20CLASS-29"></a>
 
-###### [class](1268) `reblocks-ui2/inputs/text-input/view:normal` (input-view)
+###### [class](b0d9) `reblocks-ui2/inputs/text-input/view:normal` (input-view)
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FINPUTS-2FTEXT-INPUT-2FVIEW-3FFunctions-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -1857,7 +1859,7 @@ returns `NIL`.
 
 <a id="x-28REBLOCKS-UI2-2FINPUTS-2FTEXT-INPUT-2FVIEW-3AENSURE-VIEW-20FUNCTION-29"></a>
 
-##### [function](37ce) `reblocks-ui2/inputs/text-input/view:ensure-view` name
+##### [function](fb7c) `reblocks-ui2/inputs/text-input/view:ensure-view` name
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-40REBLOCKS-UI2-2FINPUTS-2FTEXTAREA-3FPACKAGE-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -1865,7 +1867,7 @@ returns `NIL`.
 
 <a id="x-28-23A-28-2828-29-20BASE-CHAR-20-2E-20-22REBLOCKS-UI2-2FINPUTS-2FTEXTAREA-22-29-20PACKAGE-29"></a>
 
-#### [package](c878) `reblocks-ui2/inputs/textarea`
+#### [package](b05b) `reblocks-ui2/inputs/textarea`
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FINPUTS-2FTEXTAREA-3FClasses-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -1877,33 +1879,33 @@ returns `NIL`.
 
 <a id="x-28REBLOCKS-UI2-2FINPUTS-2FTEXTAREA-3ATEXTAREA-20CLASS-29"></a>
 
-###### [class](cb5c) `reblocks-ui2/inputs/textarea:textarea` (base-input-widget)
+###### [class](a563) `reblocks-ui2/inputs/textarea:textarea` (base-input-widget)
 
 **Readers**
 
 <a id="x-28REBLOCKS-UI2-2FINPUTS-2FTEXTAREA-3ATEXTAREA-DISABLED-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FINPUTS-2FTEXTAREA-3ATEXTAREA-29-29"></a>
 
-###### [reader](3e0f) `reblocks-ui2/inputs/textarea:textarea-disabled` (textarea) (:disabled = nil)
+###### [reader](3409) `reblocks-ui2/inputs/textarea:textarea-disabled` (textarea) (:disabled = nil)
 
 <a id="x-28REBLOCKS-UI2-2FINPUTS-2FTEXTAREA-3ATEXTAREA-PIN-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FINPUTS-2FTEXTAREA-3ATEXTAREA-29-29"></a>
 
-###### [reader](50a1) `reblocks-ui2/inputs/textarea:textarea-pin` (textarea) (:pin)
+###### [reader](bfb8) `reblocks-ui2/inputs/textarea:textarea-pin` (textarea) (:pin)
 
 <a id="x-28REBLOCKS-UI2-2FINPUTS-2FTEXTAREA-3ATEXTAREA-PLACEHOLDER-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FINPUTS-2FTEXTAREA-3ATEXTAREA-29-29"></a>
 
-###### [reader](06e5) `reblocks-ui2/inputs/textarea:textarea-placeholder` (textarea) (:placeholder = nil)
+###### [reader](fc3f) `reblocks-ui2/inputs/textarea:textarea-placeholder` (textarea) (:placeholder = nil)
 
 <a id="x-28REBLOCKS-UI2-2FINPUTS-2FTEXTAREA-3ATEXTAREA-SIZE-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FINPUTS-2FTEXTAREA-3ATEXTAREA-29-29"></a>
 
-###### [reader](f87a) `reblocks-ui2/inputs/textarea:textarea-size` (textarea) (:size = :m)
+###### [reader](95c6) `reblocks-ui2/inputs/textarea:textarea-size` (textarea) (:size = :m)
 
 <a id="x-28REBLOCKS-UI2-2FINPUTS-2FTEXTAREA-3ATEXTAREA-TYPE-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FINPUTS-2FTEXTAREA-3ATEXTAREA-29-29"></a>
 
-###### [reader](ae65) `reblocks-ui2/inputs/textarea:textarea-type` (textarea) (:type = nil)
+###### [reader](642b) `reblocks-ui2/inputs/textarea:textarea-type` (textarea) (:type = nil)
 
 <a id="x-28REBLOCKS-UI2-2FINPUTS-2FTEXTAREA-3ATEXTAREA-VIEW-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FINPUTS-2FTEXTAREA-3ATEXTAREA-29-29"></a>
 
-###### [reader](82ab) `reblocks-ui2/inputs/textarea:textarea-view` (textarea) (:view = (make-instance 'normal))
+###### [reader](5bf1) `reblocks-ui2/inputs/textarea:textarea-view` (textarea) (:view = (make-instance 'normal))
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FINPUTS-2FTEXTAREA-3FFunctions-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -1911,7 +1913,7 @@ returns `NIL`.
 
 <a id="x-28REBLOCKS-UI2-2FINPUTS-2FTEXTAREA-3ATEXTAREA-20FUNCTION-29"></a>
 
-##### [function](3efe) `reblocks-ui2/inputs/textarea:textarea` &key (widget-class 'textarea) name value (type :text) placeholder (view :normal) (pin :round) (size :m) disabled validator error
+##### [function](2eb1) `reblocks-ui2/inputs/textarea:textarea` &key (widget-class 'textarea) name value (type :text) placeholder (view :normal) (pin :round) (size :m) disabled validator error
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-40REBLOCKS-UI2-2FMODAL-3FPACKAGE-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -1919,7 +1921,7 @@ returns `NIL`.
 
 <a id="x-28-23A-28-2818-29-20BASE-CHAR-20-2E-20-22REBLOCKS-UI2-2FMODAL-22-29-20PACKAGE-29"></a>
 
-#### [package](f106) `reblocks-ui2/modal`
+#### [package](4731) `reblocks-ui2/modal`
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FMODAL-3FClasses-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -1931,7 +1933,7 @@ returns `NIL`.
 
 <a id="x-28REBLOCKS-UI2-2FMODAL-3AMODAL-20CLASS-29"></a>
 
-###### [class](55b8) `reblocks-ui2/modal:modal` (ui-widget)
+###### [class](335d) `reblocks-ui2/modal:modal` (ui-widget)
 
 This widget shows a popup window.
 
@@ -1939,25 +1941,25 @@ This widget shows a popup window.
 
 <a id="x-28REBLOCKS-UI2-2FMODAL-3AMODAL-HEADER-CONTENT-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FMODAL-3AMODAL-29-29"></a>
 
-###### [reader](9edf) `reblocks-ui2/modal:modal-header-content` (modal) (:header-content)
+###### [reader](3425) `reblocks-ui2/modal:modal-header-content` (modal) (:header-content)
 
 <a id="x-28REBLOCKS-UI2-2FMODAL-3AMODAL-MAIN-CONTENT-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FMODAL-3AMODAL-29-29"></a>
 
-###### [reader](79cf) `reblocks-ui2/modal:modal-main-content` (modal) (:main-content)
+###### [reader](fd80) `reblocks-ui2/modal:modal-main-content` (modal) (:main-content)
 
 <a id="x-28REBLOCKS-UI2-2FMODAL-3AMODAL-VISIBLE-P-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FMODAL-3AMODAL-29-29"></a>
 
-###### [reader](218a) `reblocks-ui2/modal:modal-visible-p` (modal) (:visible = nil)
+###### [reader](1a19) `reblocks-ui2/modal:modal-visible-p` (modal) (:visible = nil)
 
 **Accessors**
 
 <a id="x-28REBLOCKS-UI2-2FMODAL-3AMODAL-HEADER-CONTENT-20-2840ANTS-DOC-2FLOCATIVES-3AACCESSOR-20REBLOCKS-UI2-2FMODAL-3AMODAL-29-29"></a>
 
-###### [accessor](9edf) `reblocks-ui2/modal:modal-header-content` (modal) (:header-content)
+###### [accessor](3425) `reblocks-ui2/modal:modal-header-content` (modal) (:header-content)
 
 <a id="x-28REBLOCKS-UI2-2FMODAL-3AMODAL-MAIN-CONTENT-20-2840ANTS-DOC-2FLOCATIVES-3AACCESSOR-20REBLOCKS-UI2-2FMODAL-3AMODAL-29-29"></a>
 
-###### [accessor](79cf) `reblocks-ui2/modal:modal-main-content` (modal) (:main-content)
+###### [accessor](fd80) `reblocks-ui2/modal:modal-main-content` (modal) (:main-content)
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FMODAL-3FGenerics-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -1965,13 +1967,13 @@ This widget shows a popup window.
 
 <a id="x-28REBLOCKS-UI2-2FMODAL-3AMODAL-HIDE-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](2e81) `reblocks-ui2/modal:modal-hide` widget
+##### [generic-function](4459) `reblocks-ui2/modal:modal-hide` widget
 
 Hides modal window.
 
 <a id="x-28REBLOCKS-UI2-2FMODAL-3AMODAL-SHOW-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](2f98) `reblocks-ui2/modal:modal-show` widget &key content header-content
+##### [generic-function](a638) `reblocks-ui2/modal:modal-show` widget &key content header-content
 
 Shows modal window.
 
@@ -1981,7 +1983,7 @@ Shows modal window.
 
 <a id="x-28REBLOCKS-UI2-2FMODAL-3AMODAL-20FUNCTION-29"></a>
 
-##### [function](5788) `reblocks-ui2/modal:modal` content &key header-content visible
+##### [function](5e24) `reblocks-ui2/modal:modal` content &key header-content visible
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-40REBLOCKS-UI2-2FSIZES-3FPACKAGE-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -1989,7 +1991,7 @@ Shows modal window.
 
 <a id="x-28-23A-28-2818-29-20BASE-CHAR-20-2E-20-22REBLOCKS-UI2-2FSIZES-22-29-20PACKAGE-29"></a>
 
-#### [package](c607) `reblocks-ui2/sizes`
+#### [package](9ba2) `reblocks-ui2/sizes`
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FSIZES-3FFunctions-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -1997,7 +1999,7 @@ Shows modal window.
 
 <a id="x-28REBLOCKS-UI2-2FSIZES-3AENSURE-SIZE-20FUNCTION-29"></a>
 
-##### [function](d4fe) `reblocks-ui2/sizes:ensure-size` name
+##### [function](3d02) `reblocks-ui2/sizes:ensure-size` name
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-40REBLOCKS-UI2-2FTABLES-2FCELL-3FPACKAGE-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -2005,7 +2007,7 @@ Shows modal window.
 
 <a id="x-28-23A-28-2824-29-20BASE-CHAR-20-2E-20-22REBLOCKS-UI2-2FTABLES-2FCELL-22-29-20PACKAGE-29"></a>
 
-#### [package](1e1a) `reblocks-ui2/tables/cell`
+#### [package](01e8) `reblocks-ui2/tables/cell`
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FTABLES-2FCELL-3FClasses-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -2017,7 +2019,7 @@ Shows modal window.
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FCELL-3ACELL-20CLASS-29"></a>
 
-###### [class](e170) `reblocks-ui2/tables/cell:cell` ()
+###### [class](b2f0) `reblocks-ui2/tables/cell:cell` ()
 
 A thin wrapper around cell content allowing to add such attributes as :colspan or :rowspan.
 
@@ -2025,15 +2027,15 @@ A thin wrapper around cell content allowing to add such attributes as :colspan o
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FCELL-3ACELL-COLSPAN-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FTABLES-2FCELL-3ACELL-29-29"></a>
 
-###### [reader](5aeb) `reblocks-ui2/tables/cell:cell-colspan` (cell) (:colspan = nil)
+###### [reader](dea3) `reblocks-ui2/tables/cell:cell-colspan` (cell) (:colspan = nil)
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FCELL-3ACELL-ROWSPAN-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FTABLES-2FCELL-3ACELL-29-29"></a>
 
-###### [reader](a70e) `reblocks-ui2/tables/cell:cell-rowspan` (cell) (:rowspan = nil)
+###### [reader](66c6) `reblocks-ui2/tables/cell:cell-rowspan` (cell) (:rowspan = nil)
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FCELL-3ACELL-WIDGET-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FTABLES-2FCELL-3ACELL-29-29"></a>
 
-###### [reader](f566) `reblocks-ui2/tables/cell:cell-widget` (cell) (:widget)
+###### [reader](047a) `reblocks-ui2/tables/cell:cell-widget` (cell) (:widget)
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FTABLES-2FCELL-3FFunctions-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -2041,7 +2043,7 @@ A thin wrapper around cell content allowing to add such attributes as :colspan o
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FCELL-3ACELL-20FUNCTION-29"></a>
 
-##### [function](6998) `reblocks-ui2/tables/cell:cell` widget &key colspan rowspan (cell-class 'cell)
+##### [function](f241) `reblocks-ui2/tables/cell:cell` widget &key colspan rowspan (cell-class 'cell)
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-40REBLOCKS-UI2-2FTABLES-2FCLICKABLE-ROW-3FPACKAGE-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -2049,7 +2051,7 @@ A thin wrapper around cell content allowing to add such attributes as :colspan o
 
 <a id="x-28-23A-28-2833-29-20BASE-CHAR-20-2E-20-22REBLOCKS-UI2-2FTABLES-2FCLICKABLE-ROW-22-29-20PACKAGE-29"></a>
 
-#### [package](14c4) `reblocks-ui2/tables/clickable-row`
+#### [package](5840) `reblocks-ui2/tables/clickable-row`
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FTABLES-2FCLICKABLE-ROW-3FClasses-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -2061,7 +2063,7 @@ A thin wrapper around cell content allowing to add such attributes as :colspan o
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FCLICKABLE-ROW-3ACLICKABLE-ROW-WIDGET-20CLASS-29"></a>
 
-###### [class](10bd) `reblocks-ui2/tables/clickable-row:clickable-row-widget` (table-row)
+###### [class](0dce) `reblocks-ui2/tables/clickable-row:clickable-row-widget` (table-row)
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FTABLES-2FCLICKABLE-ROW-3FFunctions-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -2069,7 +2071,7 @@ A thin wrapper around cell content allowing to add such attributes as :colspan o
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FCLICKABLE-ROW-3AMAKE-CLICKABLE-ROW-WIDGET-20FUNCTION-29"></a>
 
-##### [function](dcef) `reblocks-ui2/tables/clickable-row:make-clickable-row-widget`
+##### [function](d2ff) `reblocks-ui2/tables/clickable-row:make-clickable-row-widget`
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-40REBLOCKS-UI2-2FTABLES-2FCRUD-3FPACKAGE-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -2077,7 +2079,7 @@ A thin wrapper around cell content allowing to add such attributes as :colspan o
 
 <a id="x-28-23A-28-2824-29-20BASE-CHAR-20-2E-20-22REBLOCKS-UI2-2FTABLES-2FCRUD-22-29-20PACKAGE-29"></a>
 
-#### [package](bc03) `reblocks-ui2/tables/crud`
+#### [package](1e49) `reblocks-ui2/tables/crud`
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FTABLES-2FCRUD-3FClasses-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -2089,7 +2091,7 @@ A thin wrapper around cell content allowing to add such attributes as :colspan o
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FCRUD-3ACRUD-TABLE-20CLASS-29"></a>
 
-###### [class](6367) `reblocks-ui2/tables/crud:crud-table` (ui-widget)
+###### [class](0c12) `reblocks-ui2/tables/crud:crud-table` (ui-widget)
 
 A search table with Add, Edit and Delete actions.
 
@@ -2102,91 +2104,91 @@ buttons are rendered for the given callbacks.
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FCRUD-3ACRUD-ADD-BUTTON-TITLE-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FTABLES-2FCRUD-3ACRUD-TABLE-29-29"></a>
 
-###### [reader](02a7) `reblocks-ui2/tables/crud:crud-add-button-title` (crud-table) (:ADD-BUTTON-TITLE = "Add")
+###### [reader](750a) `reblocks-ui2/tables/crud:crud-add-button-title` (crud-table) (:ADD-BUTTON-TITLE = "Add")
 
 The title of the button shown above the table. When `ADD-FORM-MAKER` is nil, the button is not rendered at all.
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FCRUD-3ACRUD-ADD-FORM-MAKER-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FTABLES-2FCRUD-3ACRUD-TABLE-29-29"></a>
 
-###### [reader](e038) `reblocks-ui2/tables/crud:crud-add-form-maker` (crud-table) (:add-form-maker = nil)
+###### [reader](22ce) `reblocks-ui2/tables/crud:crud-add-form-maker` (crud-table) (:add-form-maker = nil)
 
 A function of two arguments (`CRUD-WIDGET` `modal` ([`1`][dffa] [`2`][8f2d])), returning a form widget to show in the modal when the Add button is pressed.
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FCRUD-3ACRUD-ADD-HEADER-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FTABLES-2FCRUD-3ACRUD-TABLE-29-29"></a>
 
-###### [reader](bbcc) `reblocks-ui2/tables/crud:crud-add-header` (crud-table) (:add-header = nil)
+###### [reader](483e) `reblocks-ui2/tables/crud:crud-add-header` (crud-table) (:add-header = nil)
 
 A widget shown as the modal's header content when the add form is opened. When nil, the modal is shown without a header content.
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FCRUD-3ACRUD-COLUMNS-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FTABLES-2FCRUD-3ACRUD-TABLE-29-29"></a>
 
-###### [reader](e743) `reblocks-ui2/tables/crud:crud-columns` (crud-table) (:columns = nil)
+###### [reader](b042) `reblocks-ui2/tables/crud:crud-columns` (crud-table) (:columns = nil)
 
 Columns to show. Should not include an actions column, because [`crud-table`][1103] adds such a column by itself when at least one of `ADD-FORM-MAKER`, `EDIT-FORM-MAKER` or `ON-DELETE` is given.
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FCRUD-3ACRUD-DATA-GETTER-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FTABLES-2FCRUD-3ACRUD-TABLE-29-29"></a>
 
-###### [reader](3471) `reblocks-ui2/tables/crud:crud-data-getter` (crud-table) (:data-getter)
+###### [reader](2224) `reblocks-ui2/tables/crud:crud-data-getter` (crud-table) (:data-getter)
 
 A function returning a list of objects to show. Given as is to [`reblocks-ui2/tables/search:make-search-widget`][7dcd], which calls it with a filters widget as the argument.
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FCRUD-3ACRUD-DELETE-BUTTON-TITLE-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FTABLES-2FCRUD-3ACRUD-TABLE-29-29"></a>
 
-###### [reader](ae17) `reblocks-ui2/tables/crud:crud-delete-button-title` (crud-table) (:DELETE-BUTTON-TITLE = "Delete")
+###### [reader](baa2) `reblocks-ui2/tables/crud:crud-delete-button-title` (crud-table) (:DELETE-BUTTON-TITLE = "Delete")
 
 The title of the Delete button in the actions column. Also used as the confirm button title of the delete confirmation form. When `ON-DELETE` is nil, the button is not rendered at all.
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FCRUD-3ACRUD-DELETE-HEADER-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FTABLES-2FCRUD-3ACRUD-TABLE-29-29"></a>
 
-###### [reader](000b) `reblocks-ui2/tables/crud:crud-delete-header` (crud-table) (:delete-header = nil)
+###### [reader](69b2) `reblocks-ui2/tables/crud:crud-delete-header` (crud-table) (:delete-header = nil)
 
 A widget shown as the modal's header content when the delete confirmation form is opened. When nil, the modal is shown without a header content.
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FCRUD-3ACRUD-DELETE-QUESTION-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FTABLES-2FCRUD-3ACRUD-TABLE-29-29"></a>
 
-###### [reader](1677) `reblocks-ui2/tables/crud:crud-delete-question` (crud-table) (:DELETE-QUESTION = "Delete this record?")
+###### [reader](0487) `reblocks-ui2/tables/crud:crud-delete-question` (crud-table) (:DELETE-QUESTION = "Delete this record?")
 
 A question to show in the delete confirmation form. Either a string or a function of one argument (`OBJECT`) returning the question string.
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FCRUD-3ACRUD-EDIT-BUTTON-TITLE-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FTABLES-2FCRUD-3ACRUD-TABLE-29-29"></a>
 
-###### [reader](b247) `reblocks-ui2/tables/crud:crud-edit-button-title` (crud-table) (:EDIT-BUTTON-TITLE = "Edit")
+###### [reader](dfa0) `reblocks-ui2/tables/crud:crud-edit-button-title` (crud-table) (:EDIT-BUTTON-TITLE = "Edit")
 
 The title of the Edit button in the actions column. When `EDIT-FORM-MAKER` is nil, the button is not rendered at all.
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FCRUD-3ACRUD-EDIT-FORM-MAKER-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FTABLES-2FCRUD-3ACRUD-TABLE-29-29"></a>
 
-###### [reader](abc8) `reblocks-ui2/tables/crud:crud-edit-form-maker` (crud-table) (:edit-form-maker = nil)
+###### [reader](3a48) `reblocks-ui2/tables/crud:crud-edit-form-maker` (crud-table) (:edit-form-maker = nil)
 
 A function of two arguments (`modal` ([`1`][dffa] [`2`][8f2d]) `OBJECT`), returning a form widget to show in the modal when the row's Edit button for the `OBJECT` is pressed.
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FCRUD-3ACRUD-EDIT-HEADER-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FTABLES-2FCRUD-3ACRUD-TABLE-29-29"></a>
 
-###### [reader](c684) `reblocks-ui2/tables/crud:crud-edit-header` (crud-table) (:edit-header = nil)
+###### [reader](1d34) `reblocks-ui2/tables/crud:crud-edit-header` (crud-table) (:edit-header = nil)
 
 A widget shown as the modal's header content when the edit form is opened. When nil, the modal is shown without a header content.
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FCRUD-3ACRUD-MODAL-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FTABLES-2FCRUD-3ACRUD-TABLE-29-29"></a>
 
-###### [reader](1325) `reblocks-ui2/tables/crud:crud-modal` (crud-table) (= nil)
+###### [reader](a583) `reblocks-ui2/tables/crud:crud-modal` (crud-table) (= nil)
 
 The modal widget created by the latest `RENDER`. Useful to hide the modal from application's form callbacks.
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FCRUD-3ACRUD-ON-DELETE-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FTABLES-2FCRUD-3ACRUD-TABLE-29-29"></a>
 
-###### [reader](1e69) `reblocks-ui2/tables/crud:crud-on-delete` (crud-table) (:on-delete = nil)
+###### [reader](c2bf) `reblocks-ui2/tables/crud:crud-on-delete` (crud-table) (:on-delete = nil)
 
 A function of one argument (`OBJECT`), called when deletion of the `OBJECT` was confirmed in the modal.
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FCRUD-3ACRUD-ROW-CLASS-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FTABLES-2FCRUD-3ACRUD-TABLE-29-29"></a>
 
-###### [reader](d409) `reblocks-ui2/tables/crud:crud-row-class` (crud-table) (:row-class = nil)
+###### [reader](21c5) `reblocks-ui2/tables/crud:crud-row-class` (crud-table) (:row-class = nil)
 
 A widget class name to create table rows of. Given as `:ROW-CLASS` argument to [`reblocks-ui2/tables/search:make-search-widget`][7dcd].
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FCRUD-3ACRUD-SEARCH-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FTABLES-2FCRUD-3ACRUD-TABLE-29-29"></a>
 
-###### [reader](d14a) `reblocks-ui2/tables/crud:crud-search` (crud-table) (= nil)
+###### [reader](9bca) `reblocks-ui2/tables/crud:crud-search` (crud-table) (= nil)
 
 The search widget created by the latest `RENDER`. Useful to reach the table widget from application's code or in tests.
 
@@ -2196,7 +2198,7 @@ The search widget created by the latest `RENDER`. Useful to reach the table widg
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FCRUD-3ADELETE-QUESTION-TEXT-20FUNCTION-29"></a>
 
-##### [function](6868) `reblocks-ui2/tables/crud:delete-question-text` delete-question object
+##### [function](a33f) `reblocks-ui2/tables/crud:delete-question-text` delete-question object
 
 Returns the question to show in the delete confirmation form.
 
@@ -2205,7 +2207,7 @@ Returns the question to show in the delete confirmation form.
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FCRUD-3AFORM-BUTTON-VALUE-20FUNCTION-29"></a>
 
-##### [function](54c9) `reblocks-ui2/tables/crud:form-button-value` form-data
+##### [function](67dc) `reblocks-ui2/tables/crud:form-button-value` form-data
 
 Returns the value submitted by the form's button named "button".
 
@@ -2216,7 +2218,7 @@ function compares key names as strings instead and works with any case.
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FCRUD-3AMAKE-CRUD-TABLE-20FUNCTION-29"></a>
 
-##### [function](d1e9) `reblocks-ui2/tables/crud:make-crud-table` columns data-getter &rest restargs &key add-form-maker edit-form-maker on-delete delete-question add-button-title edit-button-title delete-button-title edit-header delete-header add-header row-class widget-class
+##### [function](f61b) `reblocks-ui2/tables/crud:make-crud-table` columns data-getter &rest restargs &key add-form-maker edit-form-maker on-delete delete-question add-button-title edit-button-title delete-button-title edit-header delete-header add-header row-class widget-class
 
 Returns a table widget with search and Add/Edit/Delete actions.
 
@@ -2241,7 +2243,7 @@ the row's cells are recalculated after the edit form was submitted.
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FCRUD-3ASUBMITTED-WITH-SUBMIT-BUTTON-P-20FUNCTION-29"></a>
 
-##### [function](a843) `reblocks-ui2/tables/crud:submitted-with-submit-button-p` form-data
+##### [function](d940) `reblocks-ui2/tables/crud:submitted-with-submit-button-p` form-data
 
 Returns T when `FORM-DATA` was submitted by a button having the value "submit".
 
@@ -2254,7 +2256,7 @@ pressed, see [`form-button-value`][d47c] for the case-sensitivity details.
 
 <a id="x-28-23A-28-2834-29-20BASE-CHAR-20-2E-20-22REBLOCKS-UI2-2FTABLES-2FEDITABLE-TABLE-22-29-20PACKAGE-29"></a>
 
-#### [package](65f9) `reblocks-ui2/tables/editable-table`
+#### [package](41d2) `reblocks-ui2/tables/editable-table`
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FTABLES-2FEDITABLE-TABLE-3FClasses-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -2266,13 +2268,13 @@ pressed, see [`form-button-value`][d47c] for the case-sensitivity details.
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FEDITABLE-TABLE-3AEDITABLE-COLUMN-20CLASS-29"></a>
 
-###### [class](87e8) `reblocks-ui2/tables/editable-table:editable-column` (column)
+###### [class](38b4) `reblocks-ui2/tables/editable-table:editable-column` (column)
 
 **Readers**
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FEDITABLE-TABLE-3ADATA-SETTER-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FTABLES-2FEDITABLE-TABLE-3AEDITABLE-COLUMN-29-29"></a>
 
-###### [reader](9eb6) `reblocks-ui2/tables/editable-table:data-setter` (editable-column) (:setter = #'default-setter)
+###### [reader](16ea) `reblocks-ui2/tables/editable-table:data-setter` (editable-column) (:setter = #'default-setter)
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-40REBLOCKS-UI2-2FTABLES-2FEDITABLE-TABLE-24EDITABLE-TABLE-WIDGET-3FCLASS-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -2280,13 +2282,13 @@ pressed, see [`form-button-value`][d47c] for the case-sensitivity details.
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FEDITABLE-TABLE-3AEDITABLE-TABLE-WIDGET-20CLASS-29"></a>
 
-###### [class](fda83) `reblocks-ui2/tables/editable-table:editable-table-widget` (table-widget)
+###### [class](8f33) `reblocks-ui2/tables/editable-table:editable-table-widget` (table-widget)
 
 **Readers**
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FEDITABLE-TABLE-3AOBJECT-CREATOR-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FTABLES-2FEDITABLE-TABLE-3AEDITABLE-TABLE-WIDGET-29-29"></a>
 
-###### [reader](4acd) `reblocks-ui2/tables/editable-table:object-creator` (editable-table-widget) (:object-creator = nil)
+###### [reader](8026) `reblocks-ui2/tables/editable-table:object-creator` (editable-table-widget) (:object-creator = nil)
 
 When given, should be a function of zero arguments.
 Will be called when user adds a new table row.
@@ -2295,7 +2297,7 @@ Returned object will be bound to a new table row and used to fill cells with new
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FEDITABLE-TABLE-3AOBJECT-DELETER-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FTABLES-2FEDITABLE-TABLE-3AEDITABLE-TABLE-WIDGET-29-29"></a>
 
-###### [reader](8bf4) `reblocks-ui2/tables/editable-table:object-deleter` (editable-table-widget) (:object-deleter = nil)
+###### [reader](21f2) `reblocks-ui2/tables/editable-table:object-deleter` (editable-table-widget) (:object-deleter = nil)
 
 When given, should be a function of one argument.
 Will be called with object instance to be deleted from the table.
@@ -2307,7 +2309,7 @@ Usually you will want to do something like deletion the record from a database.
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FEDITABLE-TABLE-3AROW-NOT-FOUND-20CONDITION-29"></a>
 
-###### [condition](058c) `reblocks-ui2/tables/editable-table:row-not-found` (error)
+###### [condition](6354) `reblocks-ui2/tables/editable-table:row-not-found` (error)
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FTABLES-2FEDITABLE-TABLE-3FGenerics-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -2315,7 +2317,7 @@ Usually you will want to do something like deletion the record from a database.
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FEDITABLE-TABLE-3ADELETE-ROW-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](28f8) `reblocks-ui2/tables/editable-table:delete-row` table obj
+##### [generic-function](f6b3) `reblocks-ui2/tables/editable-table:delete-row` table obj
 
 Deletes row representing given object.
 First it calls [`object-deleter`][cc16] callback and then
@@ -2327,11 +2329,11 @@ removes corresponding row from the table.
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FEDITABLE-TABLE-3AEDITABLE-COLUMN-20FUNCTION-29"></a>
 
-##### [function](b285) `reblocks-ui2/tables/editable-table:editable-column` title &key (getter nil getter-given-p) (setter #'default-setter) (cell-maker #'create-widget-from) (align :left)
+##### [function](dc3a) `reblocks-ui2/tables/editable-table:editable-column` title &key (getter nil getter-given-p) (setter #'default-setter) (cell-maker #'create-widget-from) (align :left)
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FEDITABLE-TABLE-3AMAKE-EDITABLE-TABLE-20FUNCTION-29"></a>
 
-##### [function](4cc4) `reblocks-ui2/tables/editable-table:make-editable-table` columns rows &key (table-class 'editable-table-widget) (row-class nil row-class-given-p) (object-deleter nil object-deleter-given-p) (object-creator nil object-creator-given-p)
+##### [function](3b93) `reblocks-ui2/tables/editable-table:make-editable-table` columns rows &key (table-class 'editable-table-widget) (row-class nil row-class-given-p) (object-deleter nil object-deleter-given-p) (object-creator nil object-creator-given-p)
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-40REBLOCKS-UI2-2FTABLES-2FSEARCH-3FPACKAGE-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -2339,7 +2341,7 @@ removes corresponding row from the table.
 
 <a id="x-28-23A-28-2826-29-20BASE-CHAR-20-2E-20-22REBLOCKS-UI2-2FTABLES-2FSEARCH-22-29-20PACKAGE-29"></a>
 
-#### [package](7554) `reblocks-ui2/tables/search`
+#### [package](68f0) `reblocks-ui2/tables/search`
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FTABLES-2FSEARCH-3FClasses-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -2351,17 +2353,17 @@ removes corresponding row from the table.
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FSEARCH-3ACONTROLS-WIDGET-20CLASS-29"></a>
 
-###### [class](28c4) `reblocks-ui2/tables/search:controls-widget` (event-emitting-widget)
+###### [class](0737) `reblocks-ui2/tables/search:controls-widget` (event-emitting-widget)
 
 **Readers**
 
-<a id="x-28REBLOCKS-UI2-2FTABLES-2FSEARCH-3A-3ANEXT-PAGE-BUTTON-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FTABLES-2FSEARCH-3ACONTROLS-WIDGET-29-29"></a>
+<a id="x-28REBLOCKS-UI2-2FTABLES-2FSEARCH-3ANEXT-PAGE-BUTTON-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FTABLES-2FSEARCH-3ACONTROLS-WIDGET-29-29"></a>
 
-###### [reader](3507) `reblocks-ui2/tables/search::next-page-button` (controls-widget) (:button)
+###### [reader](59fe) `reblocks-ui2/tables/search:next-page-button` (controls-widget) (:button)
 
-<a id="x-28REBLOCKS-UI2-2FTABLES-2FSEARCH-3A-3ASHOW-BUTTON-P-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FTABLES-2FSEARCH-3ACONTROLS-WIDGET-29-29"></a>
+<a id="x-28REBLOCKS-UI2-2FTABLES-2FSEARCH-3ASHOW-BUTTON-P-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FTABLES-2FSEARCH-3ACONTROLS-WIDGET-29-29"></a>
 
-###### [reader](d3b6) `reblocks-ui2/tables/search::show-button-p` (controls-widget) (= nil)
+###### [reader](95c2) `reblocks-ui2/tables/search:show-button-p` (controls-widget) (= nil)
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-40REBLOCKS-UI2-2FTABLES-2FSEARCH-24SEARCH-WIDGET-3FCLASS-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -2369,39 +2371,39 @@ removes corresponding row from the table.
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FSEARCH-3ASEARCH-WIDGET-20CLASS-29"></a>
 
-###### [class](cc92) `reblocks-ui2/tables/search:search-widget` (ui-widget)
+###### [class](0c9e) `reblocks-ui2/tables/search:search-widget` (ui-widget)
 
 **Readers**
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FSEARCH-3ACONTROLS-WIDGET-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FTABLES-2FSEARCH-3ASEARCH-WIDGET-29-29"></a>
 
-###### [reader](d5de) `reblocks-ui2/tables/search:controls-widget` (search-widget) (:controls)
+###### [reader](ab24) `reblocks-ui2/tables/search:controls-widget` (search-widget) (:controls)
 
-<a id="x-28REBLOCKS-UI2-2FTABLES-2FSEARCH-3A-3ADATA-GETTER-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FTABLES-2FSEARCH-3ASEARCH-WIDGET-29-29"></a>
+<a id="x-28REBLOCKS-UI2-2FTABLES-2FSEARCH-3ADATA-GETTER-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FTABLES-2FSEARCH-3ASEARCH-WIDGET-29-29"></a>
 
-###### [reader](21fb) `reblocks-ui2/tables/search::data-getter` (search-widget) (:data-getter)
+###### [reader](1c0a) `reblocks-ui2/tables/search:data-getter` (search-widget) (:data-getter)
 
-<a id="x-28REBLOCKS-UI2-2FTABLES-2FSEARCH-3A-3AFILTERS-WIDGET-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FTABLES-2FSEARCH-3ASEARCH-WIDGET-29-29"></a>
+<a id="x-28REBLOCKS-UI2-2FTABLES-2FSEARCH-3AFILTERS-WIDGET-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FTABLES-2FSEARCH-3ASEARCH-WIDGET-29-29"></a>
 
-###### [reader](a71c) `reblocks-ui2/tables/search::filters-widget` (search-widget) (:filters)
+###### [reader](6900) `reblocks-ui2/tables/search:filters-widget` (search-widget) (:filters)
 
-<a id="x-28REBLOCKS-UI2-2FTABLES-2FSEARCH-3A-3ANEXT-PAGE-GETTER-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FTABLES-2FSEARCH-3ASEARCH-WIDGET-29-29"></a>
+<a id="x-28REBLOCKS-UI2-2FTABLES-2FSEARCH-3ANEXT-PAGE-GETTER-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FTABLES-2FSEARCH-3ASEARCH-WIDGET-29-29"></a>
 
-###### [reader](651f) `reblocks-ui2/tables/search::next-page-getter` (search-widget) (:next-page-getter)
+###### [reader](3db6) `reblocks-ui2/tables/search:next-page-getter` (search-widget) (:next-page-getter)
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FTABLE-3ATABLE-WIDGET-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FTABLES-2FSEARCH-3ASEARCH-WIDGET-29-29"></a>
 
-###### [reader](7d94) `reblocks-ui2/tables/table:table-widget` (search-widget) (:table)
+###### [reader](da15) `reblocks-ui2/tables/table:table-widget` (search-widget) (:table)
 
 **Accessors**
 
-<a id="x-28REBLOCKS-UI2-2FTABLES-2FSEARCH-3A-3ANEXT-PAGE-GETTER-20-2840ANTS-DOC-2FLOCATIVES-3AACCESSOR-20REBLOCKS-UI2-2FTABLES-2FSEARCH-3ASEARCH-WIDGET-29-29"></a>
+<a id="x-28REBLOCKS-UI2-2FTABLES-2FSEARCH-3ANEXT-PAGE-GETTER-20-2840ANTS-DOC-2FLOCATIVES-3AACCESSOR-20REBLOCKS-UI2-2FTABLES-2FSEARCH-3ASEARCH-WIDGET-29-29"></a>
 
-###### [accessor](651f) `reblocks-ui2/tables/search::next-page-getter` (search-widget) (:next-page-getter)
+###### [accessor](3db6) `reblocks-ui2/tables/search:next-page-getter` (search-widget) (:next-page-getter)
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FTABLE-3ATABLE-WIDGET-20-2840ANTS-DOC-2FLOCATIVES-3AACCESSOR-20REBLOCKS-UI2-2FTABLES-2FSEARCH-3ASEARCH-WIDGET-29-29"></a>
 
-###### [accessor](7d94) `reblocks-ui2/tables/table:table-widget` (search-widget) (:table)
+###### [accessor](da15) `reblocks-ui2/tables/table:table-widget` (search-widget) (:table)
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FTABLES-2FSEARCH-3FGenerics-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -2409,17 +2411,17 @@ removes corresponding row from the table.
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FSEARCH-3AFILTERS-UPDATED-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](580b) `reblocks-ui2/tables/search:filters-updated` widget
+##### [generic-function](a8dc) `reblocks-ui2/tables/search:filters-updated` widget
 
 Signals that filters state was changed and table with results should be updated.
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FSEARCH-3AHIDE-NEXT-PAGE-BUTTON-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](61b2) `reblocks-ui2/tables/search:hide-next-page-button` widget
+##### [generic-function](55c3) `reblocks-ui2/tables/search:hide-next-page-button` widget
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FSEARCH-3ASHOW-NEXT-PAGE-BUTTON-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](0370) `reblocks-ui2/tables/search:show-next-page-button` widget
+##### [generic-function](a1fc) `reblocks-ui2/tables/search:show-next-page-button` widget
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FTABLES-2FSEARCH-3FFunctions-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -2427,11 +2429,11 @@ Signals that filters state was changed and table with results should be updated.
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FSEARCH-3AMAKE-DEFAULT-CONTROLS-WIDGET-20FUNCTION-29"></a>
 
-##### [function](07c9) `reblocks-ui2/tables/search:make-default-controls-widget` &KEY (BUTTON-TITLE "Load more")
+##### [function](15bf) `reblocks-ui2/tables/search:make-default-controls-widget` &KEY (BUTTON-TITLE "Load more")
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FSEARCH-3AMAKE-SEARCH-WIDGET-20FUNCTION-29"></a>
 
-##### [function](567e) `reblocks-ui2/tables/search:make-search-widget` columns data-getter &key (filters-widget nil filters-widget-given-p) (controls-widget nil controls-widget-given-p) (widget-class 'search-widget) (table-class nil table-class-given-p) (row-class nil row-class-given-p)
+##### [function](2b04) `reblocks-ui2/tables/search:make-search-widget` columns data-getter &key (filters-widget nil filters-widget-given-p) (controls-widget nil controls-widget-given-p) (widget-class 'search-widget) (table-class nil table-class-given-p) (row-class nil row-class-given-p)
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-40REBLOCKS-UI2-2FTABLES-2FTABLE-3FPACKAGE-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -2439,7 +2441,7 @@ Signals that filters state was changed and table with results should be updated.
 
 <a id="x-28-23A-28-2825-29-20BASE-CHAR-20-2E-20-22REBLOCKS-UI2-2FTABLES-2FTABLE-22-29-20PACKAGE-29"></a>
 
-#### [package](89b4) `reblocks-ui2/tables/table`
+#### [package](ce9d) `reblocks-ui2/tables/table`
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FTABLES-2FTABLE-3FClasses-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -2451,35 +2453,35 @@ Signals that filters state was changed and table with results should be updated.
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FTABLE-3ACOLUMN-20CLASS-29"></a>
 
-###### [class](e8e3) `reblocks-ui2/tables/table:column` (ui-widget)
+###### [class](bd31) `reblocks-ui2/tables/table:column` (ui-widget)
 
 **Readers**
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FTABLE-3ACELL-MAKER-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FTABLES-2FTABLE-3ACOLUMN-29-29"></a>
 
-###### [reader](05f3) `reblocks-ui2/tables/table:cell-maker` (column) (:cell-maker = #'default-cell-maker)
+###### [reader](bb95) `reblocks-ui2/tables/table:cell-maker` (column) (:cell-maker = #'default-cell-maker)
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FTABLE-3ACOLUMN-ALIGN-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FTABLES-2FTABLE-3ACOLUMN-29-29"></a>
 
-###### [reader](f598) `reblocks-ui2/tables/table:column-align` (column) (:align = :left)
+###### [reader](f3b1) `reblocks-ui2/tables/table:column-align` (column) (:align = :left)
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FTABLE-3ACOLUMN-CLASSES-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FTABLES-2FTABLE-3ACOLUMN-29-29"></a>
 
-###### [reader](229e) `reblocks-ui2/tables/table:column-classes` (column) (:classes = nil)
+###### [reader](4972) `reblocks-ui2/tables/table:column-classes` (column) (:classes = nil)
 
 Additional `CSS` classes for column cells
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FTABLE-3ACOLUMN-IDX-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FTABLES-2FTABLE-3ACOLUMN-29-29"></a>
 
-###### [reader](0af7) `reblocks-ui2/tables/table:column-idx` (column) (= nil)
+###### [reader](095f) `reblocks-ui2/tables/table:column-idx` (column) (= nil)
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FTABLE-3ACOLUMN-TITLE-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FTABLES-2FTABLE-3ACOLUMN-29-29"></a>
 
-###### [reader](6d5d) `reblocks-ui2/tables/table:column-title` (column) (:title)
+###### [reader](1f75) `reblocks-ui2/tables/table:column-title` (column) (:title)
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FTABLE-3ADATA-GETTER-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FTABLES-2FTABLE-3ACOLUMN-29-29"></a>
 
-###### [reader](967b) `reblocks-ui2/tables/table:data-getter` (column) (:GETTER = (LAMBDA (ROW)
+###### [reader](b934) `reblocks-ui2/tables/table:data-getter` (column) (:GETTER = (LAMBDA (ROW)
   (DECLARE (IGNORE ROW))
   (ERROR "Real getter should be provided to COLUMN function.")))
 
@@ -2489,23 +2491,23 @@ Additional `CSS` classes for column cells
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FTABLE-3ATABLE-ROW-20CLASS-29"></a>
 
-###### [class](8c77) `reblocks-ui2/tables/table:table-row` (ui-widget)
+###### [class](b657) `reblocks-ui2/tables/table:table-row` (ui-widget)
 
 **Readers**
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FTABLE-3AROW-CELLS-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FTABLES-2FTABLE-3ATABLE-ROW-29-29"></a>
 
-###### [reader](ee23) `reblocks-ui2/tables/table:row-cells` (table-row) (:cells)
+###### [reader](c2ef) `reblocks-ui2/tables/table:row-cells` (table-row) (:cells)
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FTABLE-3AROW-OBJECT-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FTABLES-2FTABLE-3ATABLE-ROW-29-29"></a>
 
-###### [reader](7774) `reblocks-ui2/tables/table:row-object` (table-row) (:object)
+###### [reader](c50a) `reblocks-ui2/tables/table:row-object` (table-row) (:object)
 
 Original object, passed as a row to the [`make-table`][e390] function.
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FTABLE-3AROW-TABLE-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FTABLES-2FTABLE-3ATABLE-ROW-29-29"></a>
 
-###### [reader](2d27) `reblocks-ui2/tables/table:row-table` (table-row) (:table)
+###### [reader](579e) `reblocks-ui2/tables/table:row-table` (table-row) (:table)
 
 Reference it a table row belong to.
 
@@ -2515,21 +2517,21 @@ Reference it a table row belong to.
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FTABLE-3ATABLE-WIDGET-20CLASS-29"></a>
 
-###### [class](04c3) `reblocks-ui2/tables/table:table-widget` (ui-widget)
+###### [class](0031) `reblocks-ui2/tables/table:table-widget` (ui-widget)
 
 **Readers**
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FTABLE-3ATABLE-COLUMNS-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FTABLES-2FTABLE-3ATABLE-WIDGET-29-29"></a>
 
-###### [reader](3255) `reblocks-ui2/tables/table:table-columns` (table-widget) (:columns = nil)
+###### [reader](eb03) `reblocks-ui2/tables/table:table-columns` (table-widget) (:columns = nil)
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FTABLE-3ATABLE-ROW-CLASS-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FTABLES-2FTABLE-3ATABLE-WIDGET-29-29"></a>
 
-###### [reader](fcba) `reblocks-ui2/tables/table:table-row-class` (table-widget) (:row-class = 'table-row)
+###### [reader](e2f7) `reblocks-ui2/tables/table:table-row-class` (table-widget) (:row-class = 'table-row)
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FTABLE-3ATABLE-ROWS-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FTABLES-2FTABLE-3ATABLE-WIDGET-29-29"></a>
 
-###### [reader](978a) `reblocks-ui2/tables/table:table-rows` (table-widget) (:rows = nil)
+###### [reader](31f2) `reblocks-ui2/tables/table:table-rows` (table-widget) (:rows = nil)
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FTABLES-2FTABLE-3FGenerics-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -2537,25 +2539,27 @@ Reference it a table row belong to.
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FTABLE-3AAPPEND-DATA-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](47f9) `reblocks-ui2/tables/table:append-data` widget data
+##### [generic-function](c6b2) `reblocks-ui2/tables/table:append-data` widget data
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FTABLE-3ACOLUMN-CSS-CLASSES-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](eac3) `reblocks-ui2/tables/table:column-css-classes` column theme
+##### [generic-function](17b6) `reblocks-ui2/tables/table:column-css-classes` column theme
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FTABLE-3AHEADER-COLUMN-CSS-CLASSES-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](2875) `reblocks-ui2/tables/table:header-column-css-classes` column theme
+##### [generic-function](2f12) `reblocks-ui2/tables/table:header-column-css-classes` column theme
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FTABLE-3AROW-CSS-CLASSES-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](1e0a) `reblocks-ui2/tables/table:row-css-classes` column theme
+##### [generic-function](5e11) `reblocks-ui2/tables/table:row-css-classes` column theme
 
 This generic-function allows to override `CSS` classes for table row element.
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FTABLE-3ATABLE-WIDGET-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function] `reblocks-ui2/tables/table:table-widget` object
+##### [generic-function](cbaf) `reblocks-ui2/tables/table:table-widget` widget
+
+Returns a table widget rendering rows fetched by the search widget `WIDGET`.
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FTABLES-2FTABLE-3FFunctions-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -2563,31 +2567,31 @@ This generic-function allows to override `CSS` classes for table row element.
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FTABLE-3ACOLUMN-20FUNCTION-29"></a>
 
-##### [function](489e) `reblocks-ui2/tables/table:column` title &key (getter nil getter-given-p) (cell-maker nil cell-maker-p) (align :center) (classes nil clases-given-p)
+##### [function](5464) `reblocks-ui2/tables/table:column` title &key (getter nil getter-given-p) (cell-maker nil cell-maker-p) (align :center) (classes nil clases-given-p)
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FTABLE-3ACURRENT-CELL-20FUNCTION-29"></a>
 
-##### [function](d0e6) `reblocks-ui2/tables/table:current-cell`
+##### [function](63d9) `reblocks-ui2/tables/table:current-cell`
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FTABLE-3ACURRENT-COLUMN-20FUNCTION-29"></a>
 
-##### [function](7895) `reblocks-ui2/tables/table:current-column`
+##### [function](62c2) `reblocks-ui2/tables/table:current-column`
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FTABLE-3ACURRENT-ROW-20FUNCTION-29"></a>
 
-##### [function](9825) `reblocks-ui2/tables/table:current-row`
+##### [function](e7e1) `reblocks-ui2/tables/table:current-row`
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FTABLE-3ACURRENT-TABLE-20FUNCTION-29"></a>
 
-##### [function](7db8) `reblocks-ui2/tables/table:current-table`
+##### [function](96a5) `reblocks-ui2/tables/table:current-table`
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FTABLE-3AMAKE-TABLE-20FUNCTION-29"></a>
 
-##### [function](76ce) `reblocks-ui2/tables/table:make-table` columns rows &key (table-class 'table-widget) (row-class nil row-class-given-p)
+##### [function](709f) `reblocks-ui2/tables/table:make-table` columns rows &key (table-class 'table-widget) (row-class nil row-class-given-p)
 
 <a id="x-28REBLOCKS-UI2-2FTABLES-2FTABLE-3ARECALCULATE-CELLS-20FUNCTION-29"></a>
 
-##### [function](31b9) `reblocks-ui2/tables/table:recalculate-cells` row &key (update t)
+##### [function](b485) `reblocks-ui2/tables/table:recalculate-cells` row &key (update t)
 
 Updates cell widgets using base object, stored in the `ROW`.
 
@@ -2597,7 +2601,7 @@ Updates cell widgets using base object, stored in the `ROW`.
 
 <a id="x-28-23A-28-2823-29-20BASE-CHAR-20-2E-20-22REBLOCKS-UI2-2FTHEMES-2FAPI-22-29-20PACKAGE-29"></a>
 
-#### [package](d10b) `reblocks-ui2/themes/api`
+#### [package](f711) `reblocks-ui2/themes/api`
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FTHEMES-2FAPI-3FFunctions-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -2605,7 +2609,7 @@ Updates cell widgets using base object, stored in the `ROW`.
 
 <a id="x-28REBLOCKS-UI2-2FTHEMES-2FAPI-3ACURRENT-THEME-20FUNCTION-29"></a>
 
-##### [function](5227) `reblocks-ui2/themes/api:current-theme`
+##### [function](22d0) `reblocks-ui2/themes/api:current-theme`
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FTHEMES-2FAPI-3FMacros-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -2613,7 +2617,7 @@ Updates cell widgets using base object, stored in the `ROW`.
 
 <a id="x-28REBLOCKS-UI2-2FTHEMES-2FAPI-3ADEFTHEME-20-2840ANTS-DOC-2FLOCATIVES-3AMACRO-29-29"></a>
 
-##### [macro](f183) `reblocks-ui2/themes/api:deftheme` name bases &rest var-forms
+##### [macro](84fe) `reblocks-ui2/themes/api:deftheme` name bases &rest var-forms
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-40REBLOCKS-UI2-2FTHEMES-2FBASE-3FPACKAGE-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -2621,7 +2625,7 @@ Updates cell widgets using base object, stored in the `ROW`.
 
 <a id="x-28-23A-28-2824-29-20BASE-CHAR-20-2E-20-22REBLOCKS-UI2-2FTHEMES-2FBASE-22-29-20PACKAGE-29"></a>
 
-#### [package](84e1) `reblocks-ui2/themes/base`
+#### [package](165e) `reblocks-ui2/themes/base`
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FTHEMES-2FBASE-3FClasses-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -2633,7 +2637,7 @@ Updates cell widgets using base object, stored in the `ROW`.
 
 <a id="x-28REBLOCKS-UI2-2FTHEMES-2FBASE-3ABASE-THEME-20CLASS-29"></a>
 
-###### [class](f035) `reblocks-ui2/themes/base:base-theme` ()
+###### [class](e134) `reblocks-ui2/themes/base:base-theme` ()
 
 A base theme class for all `Reblocks-UI2` themes.
 
@@ -2641,7 +2645,7 @@ A base theme class for all `Reblocks-UI2` themes.
 
 <a id="x-28REBLOCKS-UI2-2FTHEMES-2FBASE-3AOVERRIDED-VARS-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FTHEMES-2FBASE-3ABASE-THEME-29-29"></a>
 
-###### [reader](1951) `reblocks-ui2/themes/base:overrided-vars` (base-theme) (:overridden-vars = (make-hash-table :test 'equal))
+###### [reader](b694) `reblocks-ui2/themes/base:overrided-vars` (base-theme) (:overridden-vars = (make-hash-table :test 'equal))
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-40REBLOCKS-UI2-2FTHEMES-2FCOLOR-3FPACKAGE-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -2649,7 +2653,7 @@ A base theme class for all `Reblocks-UI2` themes.
 
 <a id="x-28-23A-28-2825-29-20BASE-CHAR-20-2E-20-22REBLOCKS-UI2-2FTHEMES-2FCOLOR-22-29-20PACKAGE-29"></a>
 
-#### [package](f347) `reblocks-ui2/themes/color`
+#### [package](3fcd) `reblocks-ui2/themes/color`
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FTHEMES-2FCOLOR-3FClasses-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -2661,33 +2665,33 @@ A base theme class for all `Reblocks-UI2` themes.
 
 <a id="x-28REBLOCKS-UI2-2FTHEMES-2FCOLOR-3ACOLOR-20CLASS-29"></a>
 
-###### [class](5536) `reblocks-ui2/themes/color:color` ()
+###### [class](291e) `reblocks-ui2/themes/color:color` ()
 
 **Readers**
 
 <a id="x-28REBLOCKS-UI2-2FTHEMES-2FCOLOR-3ACOLOR-DARK-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FTHEMES-2FCOLOR-3ACOLOR-29-29"></a>
 
-###### [reader](7595) `reblocks-ui2/themes/color:color-dark` (color) (:dark = nil)
+###### [reader](1ece) `reblocks-ui2/themes/color:color-dark` (color) (:dark = nil)
 
 <a id="x-28REBLOCKS-UI2-2FTHEMES-2FCOLOR-3ACOLOR-FOCUS-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FTHEMES-2FCOLOR-3ACOLOR-29-29"></a>
 
-###### [reader](2a21) `reblocks-ui2/themes/color:color-focus` (color) (:focus = nil)
+###### [reader](7bf7) `reblocks-ui2/themes/color:color-focus` (color) (:focus = nil)
 
 If string, then it is a color of element in "focus" state. If integer, then it is intensity change relative to the base color. For light scheme intensity will be changed down if number is positive, for dark scheme intencity will go up. Negative number reverses this behaviour.
 
 <a id="x-28REBLOCKS-UI2-2FTHEMES-2FCOLOR-3ACOLOR-HOVER-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FTHEMES-2FCOLOR-3ACOLOR-29-29"></a>
 
-###### [reader](ad7e) `reblocks-ui2/themes/color:color-hover` (color) (:hover = nil)
+###### [reader](4d00) `reblocks-ui2/themes/color:color-hover` (color) (:hover = nil)
 
 If string, then it is a color of element in "hover" state. If integer, then it is intensity change relative to the base color. For light scheme intensity will be changed down if number is positive, for dark scheme intencity will go up. Negative number reverses this behaviour.
 
 <a id="x-28REBLOCKS-UI2-2FTHEMES-2FCOLOR-3ACOLOR-LIGHT-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FTHEMES-2FCOLOR-3ACOLOR-29-29"></a>
 
-###### [reader](78e3) `reblocks-ui2/themes/color:color-light` (color) (:light = nil)
+###### [reader](3a72) `reblocks-ui2/themes/color:color-light` (color) (:light = nil)
 
 <a id="x-28REBLOCKS-UI2-2FTHEMES-2FCOLOR-3ACOLOR-PROPERTY-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FTHEMES-2FCOLOR-3ACOLOR-29-29"></a>
 
-###### [reader](493a) `reblocks-ui2/themes/color:color-property` (color) (:PROPERTY = (REQUIRED-ARGUMENT "property"))
+###### [reader](4fd7) `reblocks-ui2/themes/color:color-property` (color) (:PROPERTY = (REQUIRED-ARGUMENT "property"))
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FTHEMES-2FCOLOR-3FGenerics-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -2695,7 +2699,7 @@ If string, then it is a color of element in "hover" state. If integer, then it i
 
 <a id="x-28REBLOCKS-UI2-2FTHEMES-2FCOLOR-3AADJUST-BASE-COLOR-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](ee83) `reblocks-ui2/themes/color:adjust-base-color` theme base-color adjustment
+##### [generic-function](04a4) `reblocks-ui2/themes/color:adjust-base-color` theme base-color adjustment
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FTHEMES-2FCOLOR-3FFunctions-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -2703,11 +2707,11 @@ If string, then it is a color of element in "hover" state. If integer, then it i
 
 <a id="x-28REBLOCKS-UI2-2FTHEMES-2FCOLOR-3AADJUST-COLOR-20FUNCTION-29"></a>
 
-##### [function](e9bf) `reblocks-ui2/themes/color:adjust-color` theme color &key (property nil property-p) (light nil light-p) (dark nil dark-p) (hover nil hover-p) (focus nil focus-p)
+##### [function](bcb6) `reblocks-ui2/themes/color:adjust-color` theme color &key (property nil property-p) (light nil light-p) (dark nil dark-p) (hover nil hover-p) (focus nil focus-p)
 
 <a id="x-28REBLOCKS-UI2-2FTHEMES-2FCOLOR-3ACOLOR-20FUNCTION-29"></a>
 
-##### [function](0b08) `reblocks-ui2/themes/color:color` property &key light dark hover focus
+##### [function](9752) `reblocks-ui2/themes/color:color` property &key light dark hover focus
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-40REBLOCKS-UI2-2FTHEMES-2FSTYLING-3FPACKAGE-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -2715,7 +2719,7 @@ If string, then it is a color of element in "hover" state. If integer, then it i
 
 <a id="x-28-23A-28-2827-29-20BASE-CHAR-20-2E-20-22REBLOCKS-UI2-2FTHEMES-2FSTYLING-22-29-20PACKAGE-29"></a>
 
-#### [package](1983) `reblocks-ui2/themes/styling`
+#### [package](b9b4) `reblocks-ui2/themes/styling`
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FTHEMES-2FSTYLING-3FGenerics-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -2723,7 +2727,7 @@ If string, then it is a color of element in "hover" state. If integer, then it i
 
 <a id="x-28REBLOCKS-UI2-2FTHEMES-2FSTYLING-3ACSS-CLASSES-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](1c1a) `reblocks-ui2/themes/styling:css-classes` object theme &key size invalid-state
+##### [generic-function](29c8) `reblocks-ui2/themes/styling:css-classes` object theme &key size invalid-state
 
 Returns classes for a widget or it's property.
 
@@ -2731,15 +2735,15 @@ Result can be a list, string or a keyword.
 
 <a id="x-28REBLOCKS-UI2-2FTHEMES-2FSTYLING-3ACSS-STYLES-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](8019) `reblocks-ui2/themes/styling:css-styles` object theme
+##### [generic-function](b9ef) `reblocks-ui2/themes/styling:css-styles` object theme
 
 <a id="x-28REBLOCKS-UI2-2FTHEMES-2FSTYLING-3AJOIN-CSS-CLASSES-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](a280) `reblocks-ui2/themes/styling:join-css-classes` theme &rest classes
+##### [generic-function](0b15) `reblocks-ui2/themes/styling:join-css-classes` theme &rest classes
 
 <a id="x-28REBLOCKS-UI2-2FTHEMES-2FSTYLING-3AMERGE-CSS-CLASSES-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](5386) `reblocks-ui2/themes/styling:merge-css-classes` theme classes
+##### [generic-function](2008) `reblocks-ui2/themes/styling:merge-css-classes` theme classes
 
 This generic function is called before [`join-css-classes`][0785] will output classes as a string.
 
@@ -2752,7 +2756,7 @@ For example, a theme based on Tailwind framework, might merge `CSS` classes list
 
 <a id="x-28REBLOCKS-UI2-2FTHEMES-2FSTYLING-3AJOIN-CSS-STYLES-20FUNCTION-29"></a>
 
-##### [function](ee52) `reblocks-ui2/themes/styling:join-css-styles` &rest styles
+##### [function](e726) `reblocks-ui2/themes/styling:join-css-styles` &rest styles
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-40REBLOCKS-UI2-2FTHEMES-2FTAILWIND-3FPACKAGE-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -2760,7 +2764,7 @@ For example, a theme based on Tailwind framework, might merge `CSS` classes list
 
 <a id="x-28-23A-28-2828-29-20BASE-CHAR-20-2E-20-22REBLOCKS-UI2-2FTHEMES-2FTAILWIND-22-29-20PACKAGE-29"></a>
 
-#### [package](b822) `reblocks-ui2/themes/tailwind`
+#### [package](6517) `reblocks-ui2/themes/tailwind`
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FTHEMES-2FTAILWIND-3FClasses-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -2772,7 +2776,7 @@ For example, a theme based on Tailwind framework, might merge `CSS` classes list
 
 <a id="x-28REBLOCKS-UI2-2FTHEMES-2FTAILWIND-3ATAILWIND-THEME-20CLASS-29"></a>
 
-###### [class](4f65) `reblocks-ui2/themes/tailwind:tailwind-theme` (base-theme)
+###### [class](3931) `reblocks-ui2/themes/tailwind:tailwind-theme` (base-theme)
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FTHEMES-2FTAILWIND-3FGenerics-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -2780,127 +2784,127 @@ For example, a theme based on Tailwind framework, might merge `CSS` classes list
 
 <a id="x-28REBLOCKS-UI2-2FTHEMES-2FTAILWIND-3ABUTTON-ACTION-BG-COLOR-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](4f65) `reblocks-ui2/themes/tailwind:button-action-bg-color` theme
+##### [generic-function](3931) `reblocks-ui2/themes/tailwind:button-action-bg-color` theme
 
 <a id="x-28REBLOCKS-UI2-2FTHEMES-2FTAILWIND-3ABUTTON-ACTION-COLOR-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](4f65) `reblocks-ui2/themes/tailwind:button-action-color` theme
+##### [generic-function](3931) `reblocks-ui2/themes/tailwind:button-action-color` theme
 
 <a id="x-28REBLOCKS-UI2-2FTHEMES-2FTAILWIND-3ABUTTON-NORMAL-BG-COLOR-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](4f65) `reblocks-ui2/themes/tailwind:button-normal-bg-color` theme
+##### [generic-function](3931) `reblocks-ui2/themes/tailwind:button-normal-bg-color` theme
 
 <a id="x-28REBLOCKS-UI2-2FTHEMES-2FTAILWIND-3ABUTTON-NORMAL-COLOR-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](4f65) `reblocks-ui2/themes/tailwind:button-normal-color` theme
+##### [generic-function](3931) `reblocks-ui2/themes/tailwind:button-normal-color` theme
 
 <a id="x-28REBLOCKS-UI2-2FTHEMES-2FTAILWIND-3ABUTTON-OUTLINED-BORDER-COLOR-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](4f65) `reblocks-ui2/themes/tailwind:button-outlined-border-color` theme
+##### [generic-function](3931) `reblocks-ui2/themes/tailwind:button-outlined-border-color` theme
 
 <a id="x-28REBLOCKS-UI2-2FTHEMES-2FTAILWIND-3ABUTTON-OUTLINED-COLOR-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](4f65) `reblocks-ui2/themes/tailwind:button-outlined-color` theme
+##### [generic-function](3931) `reblocks-ui2/themes/tailwind:button-outlined-color` theme
 
 <a id="x-28REBLOCKS-UI2-2FTHEMES-2FTAILWIND-3ABUTTON-RAISED-BG-COLOR-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](4f65) `reblocks-ui2/themes/tailwind:button-raised-bg-color` theme
+##### [generic-function](3931) `reblocks-ui2/themes/tailwind:button-raised-bg-color` theme
 
 <a id="x-28REBLOCKS-UI2-2FTHEMES-2FTAILWIND-3ABUTTON-RAISED-BORDER-COLOR-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](4f65) `reblocks-ui2/themes/tailwind:button-raised-border-color` theme
+##### [generic-function](3931) `reblocks-ui2/themes/tailwind:button-raised-border-color` theme
 
 <a id="x-28REBLOCKS-UI2-2FTHEMES-2FTAILWIND-3ABUTTON-RAISED-COLOR-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](4f65) `reblocks-ui2/themes/tailwind:button-raised-color` theme
+##### [generic-function](3931) `reblocks-ui2/themes/tailwind:button-raised-color` theme
 
 <a id="x-28REBLOCKS-UI2-2FTHEMES-2FTAILWIND-3ACARD-BORDER-RADIUS-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](4f65) `reblocks-ui2/themes/tailwind:card-border-radius` theme
+##### [generic-function](3931) `reblocks-ui2/themes/tailwind:card-border-radius` theme
 
 <a id="x-28REBLOCKS-UI2-2FTHEMES-2FTAILWIND-3ACOLORS-BG-ACTION-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](4f65) `reblocks-ui2/themes/tailwind:colors-bg-action` theme
+##### [generic-function](3931) `reblocks-ui2/themes/tailwind:colors-bg-action` theme
 
 <a id="x-28REBLOCKS-UI2-2FTHEMES-2FTAILWIND-3ACOLORS-BG-DANGER-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](4f65) `reblocks-ui2/themes/tailwind:colors-bg-danger` theme
+##### [generic-function](3931) `reblocks-ui2/themes/tailwind:colors-bg-danger` theme
 
 <a id="x-28REBLOCKS-UI2-2FTHEMES-2FTAILWIND-3ACOLORS-BG-INFO-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](4f65) `reblocks-ui2/themes/tailwind:colors-bg-info` theme
+##### [generic-function](3931) `reblocks-ui2/themes/tailwind:colors-bg-info` theme
 
 <a id="x-28REBLOCKS-UI2-2FTHEMES-2FTAILWIND-3ACOLORS-BG-NORMAL-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](4f65) `reblocks-ui2/themes/tailwind:colors-bg-normal` theme
+##### [generic-function](3931) `reblocks-ui2/themes/tailwind:colors-bg-normal` theme
 
 <a id="x-28REBLOCKS-UI2-2FTHEMES-2FTAILWIND-3ACOLORS-BG-SUCCESS-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](4f65) `reblocks-ui2/themes/tailwind:colors-bg-success` theme
+##### [generic-function](3931) `reblocks-ui2/themes/tailwind:colors-bg-success` theme
 
 <a id="x-28REBLOCKS-UI2-2FTHEMES-2FTAILWIND-3ACOLORS-BG-UTILITY-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](4f65) `reblocks-ui2/themes/tailwind:colors-bg-utility` theme
+##### [generic-function](3931) `reblocks-ui2/themes/tailwind:colors-bg-utility` theme
 
 <a id="x-28REBLOCKS-UI2-2FTHEMES-2FTAILWIND-3ACOLORS-BG-WARNING-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](4f65) `reblocks-ui2/themes/tailwind:colors-bg-warning` theme
+##### [generic-function](3931) `reblocks-ui2/themes/tailwind:colors-bg-warning` theme
 
 <a id="x-28REBLOCKS-UI2-2FTHEMES-2FTAILWIND-3ACOLORS-BORDER-ACTION-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](4f65) `reblocks-ui2/themes/tailwind:colors-border-action` theme
+##### [generic-function](3931) `reblocks-ui2/themes/tailwind:colors-border-action` theme
 
 <a id="x-28REBLOCKS-UI2-2FTHEMES-2FTAILWIND-3ACOLORS-BORDER-DANGER-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](4f65) `reblocks-ui2/themes/tailwind:colors-border-danger` theme
+##### [generic-function](3931) `reblocks-ui2/themes/tailwind:colors-border-danger` theme
 
 <a id="x-28REBLOCKS-UI2-2FTHEMES-2FTAILWIND-3ACOLORS-BORDER-INFO-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](4f65) `reblocks-ui2/themes/tailwind:colors-border-info` theme
+##### [generic-function](3931) `reblocks-ui2/themes/tailwind:colors-border-info` theme
 
 <a id="x-28REBLOCKS-UI2-2FTHEMES-2FTAILWIND-3ACOLORS-BORDER-NORMAL-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](4f65) `reblocks-ui2/themes/tailwind:colors-border-normal` theme
+##### [generic-function](3931) `reblocks-ui2/themes/tailwind:colors-border-normal` theme
 
 <a id="x-28REBLOCKS-UI2-2FTHEMES-2FTAILWIND-3ACOLORS-BORDER-SUCCESS-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](4f65) `reblocks-ui2/themes/tailwind:colors-border-success` theme
+##### [generic-function](3931) `reblocks-ui2/themes/tailwind:colors-border-success` theme
 
 <a id="x-28REBLOCKS-UI2-2FTHEMES-2FTAILWIND-3ACOLORS-BORDER-UTILITY-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](4f65) `reblocks-ui2/themes/tailwind:colors-border-utility` theme
+##### [generic-function](3931) `reblocks-ui2/themes/tailwind:colors-border-utility` theme
 
 <a id="x-28REBLOCKS-UI2-2FTHEMES-2FTAILWIND-3ACOLORS-BORDER-WARNING-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](4f65) `reblocks-ui2/themes/tailwind:colors-border-warning` theme
+##### [generic-function](3931) `reblocks-ui2/themes/tailwind:colors-border-warning` theme
 
 <a id="x-28REBLOCKS-UI2-2FTHEMES-2FTAILWIND-3ACOLORS-LINE-NORMAL-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](4f65) `reblocks-ui2/themes/tailwind:colors-line-normal` theme
+##### [generic-function](3931) `reblocks-ui2/themes/tailwind:colors-line-normal` theme
 
 <a id="x-28REBLOCKS-UI2-2FTHEMES-2FTAILWIND-3ACOLORS-TEXT-INVERTED-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](4f65) `reblocks-ui2/themes/tailwind:colors-text-inverted` theme
+##### [generic-function](3931) `reblocks-ui2/themes/tailwind:colors-text-inverted` theme
 
 <a id="x-28REBLOCKS-UI2-2FTHEMES-2FTAILWIND-3ACOLORS-TEXT-NORMAL-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](4f65) `reblocks-ui2/themes/tailwind:colors-text-normal` theme
+##### [generic-function](3931) `reblocks-ui2/themes/tailwind:colors-text-normal` theme
 
 <a id="x-28REBLOCKS-UI2-2FTHEMES-2FTAILWIND-3ACORE-MARGIN-SIZES-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](4f65) `reblocks-ui2/themes/tailwind:core-margin-sizes` theme
+##### [generic-function](3931) `reblocks-ui2/themes/tailwind:core-margin-sizes` theme
 
 <a id="x-28REBLOCKS-UI2-2FTHEMES-2FTAILWIND-3ACORE-MODE-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](2429) `reblocks-ui2/themes/tailwind:core-mode` theme
+##### [generic-function](416f) `reblocks-ui2/themes/tailwind:core-mode` theme
 
 <a id="x-28REBLOCKS-UI2-2FTHEMES-2FTAILWIND-3ACORE-PADDING-SIZES-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](4f65) `reblocks-ui2/themes/tailwind:core-padding-sizes` theme
+##### [generic-function](3931) `reblocks-ui2/themes/tailwind:core-padding-sizes` theme
 
 <a id="x-28REBLOCKS-UI2-2FTHEMES-2FTAILWIND-3ATABS-ACTIVE-COLOR-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](4f65) `reblocks-ui2/themes/tailwind:tabs-active-color` theme
+##### [generic-function](3931) `reblocks-ui2/themes/tailwind:tabs-active-color` theme
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FTHEMES-2FTAILWIND-3FMacros-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -2908,19 +2912,19 @@ For example, a theme based on Tailwind framework, might merge `CSS` classes list
 
 <a id="x-28REBLOCKS-UI2-2FTHEMES-2FTAILWIND-3AMAKE-TAILWIND-THEME-20-2840ANTS-DOC-2FLOCATIVES-3AMACRO-29-29"></a>
 
-##### [macro](4f65) `reblocks-ui2/themes/tailwind:make-tailwind-theme` &rest overriden-var-forms
+##### [macro](3931) `reblocks-ui2/themes/tailwind:make-tailwind-theme` &rest overriden-var-forms
 
 Creates a theme object.
 
 <a id="x-28REBLOCKS-UI2-2FTHEMES-2FTAILWIND-3AMAKE-TAILWIND-THEME-DARK-20-2840ANTS-DOC-2FLOCATIVES-3AMACRO-29-29"></a>
 
-##### [macro](2429) `reblocks-ui2/themes/tailwind:make-tailwind-theme-dark` &rest overriden-var-forms
+##### [macro](416f) `reblocks-ui2/themes/tailwind:make-tailwind-theme-dark` &rest overriden-var-forms
 
 Creates a theme object.
 
 <a id="x-28REBLOCKS-UI2-2FTHEMES-2FTAILWIND-3AMAKE-TAILWIND-THEME-LIGHT-20-2840ANTS-DOC-2FLOCATIVES-3AMACRO-29-29"></a>
 
-##### [macro](41de) `reblocks-ui2/themes/tailwind:make-tailwind-theme-light` &rest overriden-var-forms
+##### [macro](7c7c) `reblocks-ui2/themes/tailwind:make-tailwind-theme-light` &rest overriden-var-forms
 
 Creates a theme object.
 
@@ -2930,7 +2934,7 @@ Creates a theme object.
 
 <a id="x-28-23A-28-2838-29-20BASE-CHAR-20-2E-20-22REBLOCKS-UI2-2FTHEMES-2FTAILWIND-2FARBITRARY-22-29-20PACKAGE-29"></a>
 
-#### [package](4e5d) `reblocks-ui2/themes/tailwind/arbitrary`
+#### [package](033f) `reblocks-ui2/themes/tailwind/arbitrary`
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FTHEMES-2FTAILWIND-2FARBITRARY-3FClasses-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -2942,17 +2946,17 @@ Creates a theme object.
 
 <a id="x-28REBLOCKS-UI2-2FTHEMES-2FTAILWIND-2FARBITRARY-3AARBITRARY-VALUE-20CLASS-29"></a>
 
-###### [class](19a8) `reblocks-ui2/themes/tailwind/arbitrary:arbitrary-value` ()
+###### [class](085a) `reblocks-ui2/themes/tailwind/arbitrary:arbitrary-value` ()
 
 **Readers**
 
 <a id="x-28REBLOCKS-UI2-2FTHEMES-2FTAILWIND-2FARBITRARY-3AARBITRARY-VALUE-ARGS-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FTHEMES-2FTAILWIND-2FARBITRARY-3AARBITRARY-VALUE-29-29"></a>
 
-###### [reader](d904) `reblocks-ui2/themes/tailwind/arbitrary:arbitrary-value-args` (arbitrary-value) (:args)
+###### [reader](bffc) `reblocks-ui2/themes/tailwind/arbitrary:arbitrary-value-args` (arbitrary-value) (:args)
 
 <a id="x-28REBLOCKS-UI2-2FTHEMES-2FTAILWIND-2FARBITRARY-3AARBITRARY-VALUE-PREFIX-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FTHEMES-2FTAILWIND-2FARBITRARY-3AARBITRARY-VALUE-29-29"></a>
 
-###### [reader](8c86) `reblocks-ui2/themes/tailwind/arbitrary:arbitrary-value-prefix` (arbitrary-value) (:prefix)
+###### [reader](dd22) `reblocks-ui2/themes/tailwind/arbitrary:arbitrary-value-prefix` (arbitrary-value) (:prefix)
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FTHEMES-2FTAILWIND-2FARBITRARY-3FFunctions-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -2960,7 +2964,7 @@ Creates a theme object.
 
 <a id="x-28REBLOCKS-UI2-2FTHEMES-2FTAILWIND-2FARBITRARY-3AARBITRARY-VALUE-20FUNCTION-29"></a>
 
-##### [function](aadc) `reblocks-ui2/themes/tailwind/arbitrary:arbitrary-value` prefix &rest args
+##### [function](81a9) `reblocks-ui2/themes/tailwind/arbitrary:arbitrary-value` prefix &rest args
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-40REBLOCKS-UI2-2FUTILS-2FALIGN-3FPACKAGE-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -2968,7 +2972,7 @@ Creates a theme object.
 
 <a id="x-28-23A-28-2824-29-20BASE-CHAR-20-2E-20-22REBLOCKS-UI2-2FUTILS-2FALIGN-22-29-20PACKAGE-29"></a>
 
-#### [package](94f8) `reblocks-ui2/utils/align`
+#### [package](31f9) `reblocks-ui2/utils/align`
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FUTILS-2FALIGN-3FClasses-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -2980,13 +2984,13 @@ Creates a theme object.
 
 <a id="x-28REBLOCKS-UI2-2FUTILS-2FALIGN-3AHORIZONTAL-ALIGN-20CLASS-29"></a>
 
-###### [class](f416) `reblocks-ui2/utils/align:horizontal-align` ()
+###### [class](cf63) `reblocks-ui2/utils/align:horizontal-align` ()
 
 **Readers**
 
 <a id="x-28REBLOCKS-UI2-2FUTILS-2FALIGN-3AHORIZONTAL-ALIGN-VALUE-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FUTILS-2FALIGN-3AHORIZONTAL-ALIGN-29-29"></a>
 
-###### [reader](62a0) `reblocks-ui2/utils/align:horizontal-align-value` (horizontal-align) (:value)
+###### [reader](0136) `reblocks-ui2/utils/align:horizontal-align-value` (horizontal-align) (:value)
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-40REBLOCKS-UI2-2FUTILS-2FALIGN-24VERTICAL-ALIGN-3FCLASS-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -2994,13 +2998,13 @@ Creates a theme object.
 
 <a id="x-28REBLOCKS-UI2-2FUTILS-2FALIGN-3AVERTICAL-ALIGN-20CLASS-29"></a>
 
-###### [class](08db) `reblocks-ui2/utils/align:vertical-align` ()
+###### [class](b18e) `reblocks-ui2/utils/align:vertical-align` ()
 
 **Readers**
 
 <a id="x-28REBLOCKS-UI2-2FUTILS-2FALIGN-3AVERTICAL-ALIGN-VALUE-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FUTILS-2FALIGN-3AVERTICAL-ALIGN-29-29"></a>
 
-###### [reader](7d50) `reblocks-ui2/utils/align:vertical-align-value` (vertical-align) (:value)
+###### [reader](69ff) `reblocks-ui2/utils/align:vertical-align-value` (vertical-align) (:value)
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FUTILS-2FALIGN-3FFunctions-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -3008,11 +3012,11 @@ Creates a theme object.
 
 <a id="x-28REBLOCKS-UI2-2FUTILS-2FALIGN-3AHORIZONTAL-ALIGN-20FUNCTION-29"></a>
 
-##### [function](a25d) `reblocks-ui2/utils/align:horizontal-align` value
+##### [function](fba2) `reblocks-ui2/utils/align:horizontal-align` value
 
 <a id="x-28REBLOCKS-UI2-2FUTILS-2FALIGN-3AVERTICAL-ALIGN-20FUNCTION-29"></a>
 
-##### [function](0c7d) `reblocks-ui2/utils/align:vertical-align` value
+##### [function](f2ab) `reblocks-ui2/utils/align:vertical-align` value
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FUTILS-2FALIGN-3FTypes-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -3020,14 +3024,14 @@ Creates a theme object.
 
 <a id="x-28REBLOCKS-UI2-2FUTILS-2FALIGN-3AHORIZONTAL-ALIGN-VALUE-20-28TYPE-29-29"></a>
 
-##### [type](8ee3) `reblocks-ui2/utils/align:horizontal-align-value`
+##### [type](d401) `reblocks-ui2/utils/align:horizontal-align-value`
 
 ```
 (MEMBER :LEFT :CENTER :TOP)
 ```
 <a id="x-28REBLOCKS-UI2-2FUTILS-2FALIGN-3AVERTICAL-ALIGN-VALUE-20-28TYPE-29-29"></a>
 
-##### [type](f16c) `reblocks-ui2/utils/align:vertical-align-value`
+##### [type](5ab7) `reblocks-ui2/utils/align:vertical-align-value`
 
 ```
 (MEMBER :TOP :CENTER :BOTTOM)
@@ -3038,7 +3042,7 @@ Creates a theme object.
 
 <a id="x-28-23A-28-2825-29-20BASE-CHAR-20-2E-20-22REBLOCKS-UI2-2FUTILS-2FMARGIN-22-29-20PACKAGE-29"></a>
 
-#### [package](a535) `reblocks-ui2/utils/margin`
+#### [package](752a) `reblocks-ui2/utils/margin`
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FUTILS-2FMARGIN-3FClasses-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -3050,25 +3054,25 @@ Creates a theme object.
 
 <a id="x-28REBLOCKS-UI2-2FUTILS-2FMARGIN-3AMARGIN-20CLASS-29"></a>
 
-###### [class](2a10) `reblocks-ui2/utils/margin:margin` ()
+###### [class](56e3) `reblocks-ui2/utils/margin:margin` ()
 
 **Readers**
 
 <a id="x-28REBLOCKS-UI2-2FUTILS-2FMARGIN-3AMARGIN-BOTTOM-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FUTILS-2FMARGIN-3AMARGIN-29-29"></a>
 
-###### [reader](2a28) `reblocks-ui2/utils/margin:margin-bottom` (margin) (:bottom = nil)
+###### [reader](59af) `reblocks-ui2/utils/margin:margin-bottom` (margin) (:bottom = nil)
 
 <a id="x-28REBLOCKS-UI2-2FUTILS-2FMARGIN-3AMARGIN-LEFT-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FUTILS-2FMARGIN-3AMARGIN-29-29"></a>
 
-###### [reader](488f) `reblocks-ui2/utils/margin:margin-left` (margin) (:left = nil)
+###### [reader](c36b) `reblocks-ui2/utils/margin:margin-left` (margin) (:left = nil)
 
 <a id="x-28REBLOCKS-UI2-2FUTILS-2FMARGIN-3AMARGIN-RIGHT-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FUTILS-2FMARGIN-3AMARGIN-29-29"></a>
 
-###### [reader](925c) `reblocks-ui2/utils/margin:margin-right` (margin) (:right = nil)
+###### [reader](95d2) `reblocks-ui2/utils/margin:margin-right` (margin) (:right = nil)
 
 <a id="x-28REBLOCKS-UI2-2FUTILS-2FMARGIN-3AMARGIN-TOP-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FUTILS-2FMARGIN-3AMARGIN-29-29"></a>
 
-###### [reader](9356) `reblocks-ui2/utils/margin:margin-top` (margin) (:top = nil)
+###### [reader](ca71) `reblocks-ui2/utils/margin:margin-top` (margin) (:top = nil)
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FUTILS-2FMARGIN-3FFunctions-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -3076,7 +3080,7 @@ Creates a theme object.
 
 <a id="x-28REBLOCKS-UI2-2FUTILS-2FMARGIN-3AMARGIN-20FUNCTION-29"></a>
 
-##### [function](b082) `reblocks-ui2/utils/margin:margin` value
+##### [function](8ea2) `reblocks-ui2/utils/margin:margin` value
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-40REBLOCKS-UI2-2FUTILS-2FPADDING-3FPACKAGE-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -3084,7 +3088,7 @@ Creates a theme object.
 
 <a id="x-28-23A-28-2826-29-20BASE-CHAR-20-2E-20-22REBLOCKS-UI2-2FUTILS-2FPADDING-22-29-20PACKAGE-29"></a>
 
-#### [package](c6ea) `reblocks-ui2/utils/padding`
+#### [package](6d40) `reblocks-ui2/utils/padding`
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FUTILS-2FPADDING-3FClasses-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -3096,17 +3100,17 @@ Creates a theme object.
 
 <a id="x-28REBLOCKS-UI2-2FUTILS-2FPADDING-3APADDING-20CLASS-29"></a>
 
-###### [class](10ee) `reblocks-ui2/utils/padding:padding` ()
+###### [class](9463) `reblocks-ui2/utils/padding:padding` ()
 
 **Readers**
 
 <a id="x-28REBLOCKS-UI2-2FUTILS-2FPADDING-3APADDING-HORIZONTAL-SIZE-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FUTILS-2FPADDING-3APADDING-29-29"></a>
 
-###### [reader](35fe) `reblocks-ui2/utils/padding:padding-horizontal-size` (padding) (:horizontal = :l)
+###### [reader](2368) `reblocks-ui2/utils/padding:padding-horizontal-size` (padding) (:horizontal = :l)
 
 <a id="x-28REBLOCKS-UI2-2FUTILS-2FPADDING-3APADDING-VERTICAL-SIZE-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FUTILS-2FPADDING-3APADDING-29-29"></a>
 
-###### [reader](611c) `reblocks-ui2/utils/padding:padding-vertical-size` (padding) (:vertical = :l)
+###### [reader](76a8) `reblocks-ui2/utils/padding:padding-vertical-size` (padding) (:vertical = :l)
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FUTILS-2FPADDING-3FFunctions-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -3114,7 +3118,7 @@ Creates a theme object.
 
 <a id="x-28REBLOCKS-UI2-2FUTILS-2FPADDING-3APADDING-20FUNCTION-29"></a>
 
-##### [function](fbd2) `reblocks-ui2/utils/padding:padding` size
+##### [function](d2ab) `reblocks-ui2/utils/padding:padding` size
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FUTILS-2FPADDING-3FTypes-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -3122,14 +3126,14 @@ Creates a theme object.
 
 <a id="x-28REBLOCKS-UI2-2FUTILS-2FPADDING-3ANULLABLE-PADDING-SIZE-20-28TYPE-29-29"></a>
 
-##### [type](aab5) `reblocks-ui2/utils/padding:nullable-padding-size`
+##### [type](6fa8) `reblocks-ui2/utils/padding:nullable-padding-size`
 
 ```
 (OR NULL PADDING-SIZE)
 ```
 <a id="x-28REBLOCKS-UI2-2FUTILS-2FPADDING-3APADDING-SIZE-20-28TYPE-29-29"></a>
 
-##### [type](8b8e) `reblocks-ui2/utils/padding:padding-size`
+##### [type](81d4) `reblocks-ui2/utils/padding:padding-size`
 
 ```
 (MEMBER :S :M :L :XL)
@@ -3140,7 +3144,7 @@ Creates a theme object.
 
 <a id="x-28-23A-28-2831-29-20BASE-CHAR-20-2E-20-22REBLOCKS-UI2-2FUTILS-2FPRIMITIVE-TO-22-29-20PACKAGE-29"></a>
 
-#### [package](fa60) `reblocks-ui2/utils/primitive-to`
+#### [package](3ac2) `reblocks-ui2/utils/primitive-to`
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FUTILS-2FPRIMITIVE-TO-3FFunctions-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -3148,7 +3152,7 @@ Creates a theme object.
 
 <a id="x-28REBLOCKS-UI2-2FUTILS-2FPRIMITIVE-TO-3APROCESS-PRIMITIVE-ARGS-20FUNCTION-29"></a>
 
-##### [function](0a6e) `reblocks-ui2/utils/primitive-to:process-primitive-args` keyword-args
+##### [function](c1fc) `reblocks-ui2/utils/primitive-to:process-primitive-args` keyword-args
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-40REBLOCKS-UI2-2FUTILS-2FSIZE-3FPACKAGE-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -3156,7 +3160,7 @@ Creates a theme object.
 
 <a id="x-28-23A-28-2823-29-20BASE-CHAR-20-2E-20-22REBLOCKS-UI2-2FUTILS-2FSIZE-22-29-20PACKAGE-29"></a>
 
-#### [package](518d) `reblocks-ui2/utils/size`
+#### [package](c7a0) `reblocks-ui2/utils/size`
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FUTILS-2FSIZE-3FClasses-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -3168,7 +3172,7 @@ Creates a theme object.
 
 <a id="x-28REBLOCKS-UI2-2FUTILS-2FSIZE-3AHEIGHT-20CLASS-29"></a>
 
-###### [class](81cf) `reblocks-ui2/utils/size:height` (size)
+###### [class](211c) `reblocks-ui2/utils/size:height` (size)
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-40REBLOCKS-UI2-2FUTILS-2FSIZE-24RESPONSIVE-HEIGHT-3FCLASS-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -3176,17 +3180,17 @@ Creates a theme object.
 
 <a id="x-28REBLOCKS-UI2-2FUTILS-2FSIZE-3ARESPONSIVE-HEIGHT-20CLASS-29"></a>
 
-###### [class](3695) `reblocks-ui2/utils/size:responsive-height` ()
+###### [class](d5f3) `reblocks-ui2/utils/size:responsive-height` ()
 
 **Readers**
 
 <a id="x-28REBLOCKS-UI2-2FUTILS-2FSIZE-3AMAX-HEIGHT-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FUTILS-2FSIZE-3ARESPONSIVE-HEIGHT-29-29"></a>
 
-###### [reader](b466) `reblocks-ui2/utils/size:max-height` (responsive-height) (:max = nil)
+###### [reader](9aec) `reblocks-ui2/utils/size:max-height` (responsive-height) (:max = nil)
 
 <a id="x-28REBLOCKS-UI2-2FUTILS-2FSIZE-3AMIN-HEIGHT-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FUTILS-2FSIZE-3ARESPONSIVE-HEIGHT-29-29"></a>
 
-###### [reader](6f0c) `reblocks-ui2/utils/size:min-height` (responsive-height) (:min = nil)
+###### [reader](8234) `reblocks-ui2/utils/size:min-height` (responsive-height) (:min = nil)
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-40REBLOCKS-UI2-2FUTILS-2FSIZE-24RESPONSIVE-WIDTH-3FCLASS-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -3194,17 +3198,17 @@ Creates a theme object.
 
 <a id="x-28REBLOCKS-UI2-2FUTILS-2FSIZE-3ARESPONSIVE-WIDTH-20CLASS-29"></a>
 
-###### [class](2f73) `reblocks-ui2/utils/size:responsive-width` ()
+###### [class](fbf2) `reblocks-ui2/utils/size:responsive-width` ()
 
 **Readers**
 
 <a id="x-28REBLOCKS-UI2-2FUTILS-2FSIZE-3AMAX-WIDTH-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FUTILS-2FSIZE-3ARESPONSIVE-WIDTH-29-29"></a>
 
-###### [reader](bb56) `reblocks-ui2/utils/size:max-width` (responsive-width) (:max = nil)
+###### [reader](debb) `reblocks-ui2/utils/size:max-width` (responsive-width) (:max = nil)
 
 <a id="x-28REBLOCKS-UI2-2FUTILS-2FSIZE-3AMIN-WIDTH-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FUTILS-2FSIZE-3ARESPONSIVE-WIDTH-29-29"></a>
 
-###### [reader](599d) `reblocks-ui2/utils/size:min-width` (responsive-width) (:min = nil)
+###### [reader](dd39) `reblocks-ui2/utils/size:min-width` (responsive-width) (:min = nil)
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-40REBLOCKS-UI2-2FUTILS-2FSIZE-24SIZE-3FCLASS-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -3212,13 +3216,13 @@ Creates a theme object.
 
 <a id="x-28REBLOCKS-UI2-2FUTILS-2FSIZE-3ASIZE-20CLASS-29"></a>
 
-###### [class](4cca) `reblocks-ui2/utils/size:size` ()
+###### [class](65a8) `reblocks-ui2/utils/size:size` ()
 
 **Readers**
 
 <a id="x-28REBLOCKS-UI2-2FUTILS-2FSIZE-3ASIZE-VALUE-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FUTILS-2FSIZE-3ASIZE-29-29"></a>
 
-###### [reader](2422) `reblocks-ui2/utils/size:size-value` (size) (:value)
+###### [reader](450f) `reblocks-ui2/utils/size:size-value` (size) (:value)
 
 If integer, then it will be considered as "px".
 If string, then will be used as is (meaning depends on current theme).
@@ -3229,7 +3233,7 @@ If string, then will be used as is (meaning depends on current theme).
 
 <a id="x-28REBLOCKS-UI2-2FUTILS-2FSIZE-3AWIDTH-20CLASS-29"></a>
 
-###### [class](b981) `reblocks-ui2/utils/size:width` (size)
+###### [class](cbd0) `reblocks-ui2/utils/size:width` (size)
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FUTILS-2FSIZE-3FFunctions-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -3237,27 +3241,27 @@ If string, then will be used as is (meaning depends on current theme).
 
 <a id="x-28REBLOCKS-UI2-2FUTILS-2FSIZE-3AENSURE-HEIGHT-20FUNCTION-29"></a>
 
-##### [function](5466) `reblocks-ui2/utils/size:ensure-height` value
+##### [function](72bb) `reblocks-ui2/utils/size:ensure-height` value
 
 <a id="x-28REBLOCKS-UI2-2FUTILS-2FSIZE-3AENSURE-WIDTH-20FUNCTION-29"></a>
 
-##### [function](2659) `reblocks-ui2/utils/size:ensure-width` value
+##### [function](acb6) `reblocks-ui2/utils/size:ensure-width` value
 
 <a id="x-28REBLOCKS-UI2-2FUTILS-2FSIZE-3AHEIGHT-20FUNCTION-29"></a>
 
-##### [function](4771) `reblocks-ui2/utils/size:height` value
+##### [function](3200) `reblocks-ui2/utils/size:height` value
 
 <a id="x-28REBLOCKS-UI2-2FUTILS-2FSIZE-3ARESPONSIVE-HEIGHT-20FUNCTION-29"></a>
 
-##### [function](c7b8) `reblocks-ui2/utils/size:responsive-height` &key min max
+##### [function](926f) `reblocks-ui2/utils/size:responsive-height` &key min max
 
 <a id="x-28REBLOCKS-UI2-2FUTILS-2FSIZE-3ARESPONSIVE-WIDTH-20FUNCTION-29"></a>
 
-##### [function](d97d) `reblocks-ui2/utils/size:responsive-width` &key min max
+##### [function](d1cb) `reblocks-ui2/utils/size:responsive-width` &key min max
 
 <a id="x-28REBLOCKS-UI2-2FUTILS-2FSIZE-3AWIDTH-20FUNCTION-29"></a>
 
-##### [function](c786) `reblocks-ui2/utils/size:width` value
+##### [function](28f3) `reblocks-ui2/utils/size:width` value
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FUTILS-2FSIZE-3FTypes-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -3265,14 +3269,14 @@ If string, then will be used as is (meaning depends on current theme).
 
 <a id="x-28REBLOCKS-UI2-2FUTILS-2FSIZE-3ASOME-HEIGHT-20-28TYPE-29-29"></a>
 
-##### [type](b198) `reblocks-ui2/utils/size:some-height`
+##### [type](70bf) `reblocks-ui2/utils/size:some-height`
 
 ```
 (OR HEIGHT RESPONSIVE-HEIGHT)
 ```
 <a id="x-28REBLOCKS-UI2-2FUTILS-2FSIZE-3ASOME-WIDTH-20-28TYPE-29-29"></a>
 
-##### [type](1ae8) `reblocks-ui2/utils/size:some-width`
+##### [type](00d9) `reblocks-ui2/utils/size:some-width`
 
 ```
 (OR WIDTH RESPONSIVE-WIDTH)
@@ -3283,7 +3287,7 @@ If string, then will be used as is (meaning depends on current theme).
 
 <a id="x-28-23A-28-2823-29-20BASE-CHAR-20-2E-20-22REBLOCKS-UI2-2FUTILS-2FWALK-22-29-20PACKAGE-29"></a>
 
-#### [package](17b1) `reblocks-ui2/utils/walk`
+#### [package](25ba) `reblocks-ui2/utils/walk`
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FUTILS-2FWALK-3FGenerics-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -3291,11 +3295,11 @@ If string, then will be used as is (meaning depends on current theme).
 
 <a id="x-28REBLOCKS-UI2-2FUTILS-2FWALK-3ACHILDREN-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](f0df) `reblocks-ui2/utils/walk:children` widget
+##### [generic-function](3c52) `reblocks-ui2/utils/walk:children` widget
 
 <a id="x-28REBLOCKS-UI2-2FUTILS-2FWALK-3AWALK-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](5241) `reblocks-ui2/utils/walk:walk` widget visitor-func
+##### [generic-function](4517) `reblocks-ui2/utils/walk:walk` widget visitor-func
 
 A protocol to go through widgets tree and to call `VISITOR-FUNC` on each node.
 
@@ -3305,7 +3309,7 @@ A protocol to go through widgets tree and to call `VISITOR-FUNC` on each node.
 
 <a id="x-28-23A-28-2819-29-20BASE-CHAR-20-2E-20-22REBLOCKS-UI2-2FWIDGET-22-29-20PACKAGE-29"></a>
 
-#### [package](ea5b) `reblocks-ui2/widget`
+#### [package](8c46) `reblocks-ui2/widget`
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FWIDGET-3FClasses-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -3317,27 +3321,27 @@ A protocol to go through widgets tree and to call `VISITOR-FUNC` on each node.
 
 <a id="x-28REBLOCKS-UI2-2FWIDGET-3AUI-WIDGET-20CLASS-29"></a>
 
-###### [class](130c) `reblocks-ui2/widget:ui-widget` (widget)
+###### [class](a78a) `reblocks-ui2/widget:ui-widget` (widget)
 
 **Readers**
 
 <a id="x-28REBLOCKS-UI2-2FWIDGET-3AON-CLICK-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FWIDGET-3AUI-WIDGET-29-29"></a>
 
-###### [reader](8810) `reblocks-ui2/widget:on-click` (ui-widget) (:on-click = nil)
+###### [reader](a72b) `reblocks-ui2/widget:on-click` (ui-widget) (:on-click = nil)
 
 When an on-click action is given, cursor style will be changed to "pointer".
 
 <a id="x-28REBLOCKS-UI2-2FWIDGET-3AWIDGET-HEIGHT-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FWIDGET-3AUI-WIDGET-29-29"></a>
 
-###### [reader](5475) `reblocks-ui2/widget:widget-height` (ui-widget) (:height = nil)
+###### [reader](c84c) `reblocks-ui2/widget:widget-height` (ui-widget) (:height = nil)
 
 <a id="x-28REBLOCKS-UI2-2FWIDGET-3AWIDGET-MARGIN-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FWIDGET-3AUI-WIDGET-29-29"></a>
 
-###### [reader](f04d) `reblocks-ui2/widget:widget-margin` (ui-widget) (:margin = nil)
+###### [reader](5e9c) `reblocks-ui2/widget:widget-margin` (ui-widget) (:margin = nil)
 
 <a id="x-28REBLOCKS-UI2-2FWIDGET-3AWIDGET-WIDTH-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20REBLOCKS-UI2-2FWIDGET-3AUI-WIDGET-29-29"></a>
 
-###### [reader](a817) `reblocks-ui2/widget:widget-width` (ui-widget) (:width = nil)
+###### [reader](5061) `reblocks-ui2/widget:widget-width` (ui-widget) (:width = nil)
 
 <a id="x-28REBLOCKS-UI2-DOCS-2FINDEX-3A-3A-7C-40REBLOCKS-UI2-2FWIDGET-3FGenerics-SECTION-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
@@ -3345,21 +3349,21 @@ When an on-click action is given, cursor style will be changed to "pointer".
 
 <a id="x-28REBLOCKS-UI2-2FWIDGET-3AGET-DEPENDENCIES-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](3de2) `reblocks-ui2/widget:get-dependencies` widget theme
+##### [generic-function](25f9) `reblocks-ui2/widget:get-dependencies` widget theme
 
 Works like [`reblocks/dependencies:get-dependencies`][2397] generic-function, but
 in context of current theme.
 
 <a id="x-28REBLOCKS-UI2-2FWIDGET-3AGET-HTML-TAG-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](c6de) `reblocks-ui2/widget:get-html-tag` widget theme
+##### [generic-function](ae58) `reblocks-ui2/widget:get-html-tag` widget theme
 
 Works like [`reblocks/widget:get-html-tag`][ab65] generic-function, but
 in context of current theme.
 
 <a id="x-28REBLOCKS-UI2-2FWIDGET-3AHTML-ATTRS-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](457b) `reblocks-ui2/widget:html-attrs` widget theme
+##### [generic-function](fdfb) `reblocks-ui2/widget:html-attrs` widget theme
 
 May return a plist of attributes to add to the main widget's `HTML` node.
 
@@ -3367,7 +3371,7 @@ It should not return `:ID` `:CLASS` or `:ONCLICK` attributes.
 
 <a id="x-28REBLOCKS-UI2-2FWIDGET-3ARENDER-20GENERIC-FUNCTION-29"></a>
 
-##### [generic-function](cf0b) `reblocks-ui2/widget:render` widget theme
+##### [generic-function](8a2c) `reblocks-ui2/widget:render` widget theme
 
 Renders widget in given theme. All reblocks-ui2 widgets
 should implement this method instead of a method
@@ -3402,366 +3406,367 @@ for [`reblocks/widget:render`][5607] generic-function.
 [5607]: https://40ants.com/reblocks/api/#x-28REBLOCKS-2FWIDGET-3ARENDER-20GENERIC-FUNCTION-29
 [2d52]: https://github.com/40ants/reblocks-ui2
 [9201]: https://github.com/40ants/reblocks-ui2/actions
-[aef1]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/buttons/button.lisp#L1
-[75f1]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/buttons/button.lisp#L51
-[280b]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/buttons/button.lisp#L52
-[6ffc]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/buttons/button.lisp#L55
-[5223]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/buttons/button.lisp#L58
-[9eef]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/buttons/button.lisp#L61
-[fd1f]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/buttons/button.lisp#L64
-[2763]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/buttons/button.lisp#L67
-[fa43]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/buttons/button.lisp#L70
-[3941]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/buttons/button.lisp#L74
-[a766]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/buttons/button.lisp#L82
-[99f7]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/buttons/view.lisp#L1
-[30b6]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/buttons/view.lisp#L21
-[1d70]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/buttons/view.lisp#L24
-[2fa4]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/buttons/view.lisp#L27
-[17d9]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/buttons/view.lisp#L30
-[907e]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/buttons/view.lisp#L33
-[f2b3]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/buttons/view.lisp#L36
-[3224]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/buttons/view.lisp#L39
-[5ca0]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/buttons/view.lisp#L42
-[4f4b]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/buttons/view.lisp#L45
-[e7a6]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/buttons/view.lisp#L48
-[29de]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/buttons/view.lisp#L51
-[0095]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/buttons/view.lisp#L54
-[f653]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/buttons/view.lisp#L57
-[468c]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/buttons/view.lisp#L61
-[3684]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/buttons/view.lisp#L77
-[4952]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/card.lisp#L1
-[51a8]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/card.lisp#L51
-[b20d]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/card.lisp#L52
-[1593]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/card.lisp#L55
-[4142]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/card.lisp#L58
-[5282]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/card.lisp#L61
-[8bcb]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/card.lisp#L65
-[225f]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/card.lisp#L71
-[37c4]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/charts/chart.lisp#L1
-[4dc9]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/charts/chart.lisp#L21
-[2b38]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/charts/chart.lisp#L22
-[4f7f]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/charts/chart.lisp#L27
-[ed18]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/charts/chart.lisp#L35
-[43e6]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/charts/chart.lisp#L40
-[41ca]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/charts/chart.lisp#L45
-[7fd0]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/charts/chart.lisp#L50
-[fda8]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/charts/column-chart.lisp#L1
-[8c67]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/charts/column-chart.lisp#L18
-[7e01]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/charts/column-chart.lisp#L19
-[e129]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/charts/column-chart.lisp#L24
-[62c7]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/charts/column-chart.lisp#L29
-[bd67]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/charts/column-chart.lisp#L54
-[e846]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/charts/pie-chart.lisp#L1
-[831e]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/charts/pie-chart.lisp#L19
-[31f8]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/charts/pie-chart.lisp#L20
-[8254]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/charts/pie-chart.lisp#L27
-[723e]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/charts/pie-chart.lisp#L32
-[cbde]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/charts/pie-chart.lisp#L57
-[3cb3]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/containers/column.lisp#L1
-[713f]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/containers/column.lisp#L23
-[1e1d]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/containers/column.lisp#L27
-[963b]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/containers/container.lisp#L1
-[c47f]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/containers/container.lisp#L28
-[ba91]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/containers/container.lisp#L29
-[034c]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/containers/container.lisp#L33
-[b8e9]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/containers/container.lisp#L36
-[a081]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/containers/container.lisp#L46
-[e3b9]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/containers/container.lisp#L77
-[14fe]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/containers/controls-row.lisp#L1
-[6232]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/containers/controls-row.lisp#L21
-[9810]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/containers/controls-row.lisp#L31
-[65d2]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/containers/row.lisp#L1
-[38c8]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/containers/row.lisp#L25
-[06e3]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/containers/row.lisp#L29
-[9640]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/containers/row.lisp#L35
-[f0d1]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/containers/stack.lisp#L1
-[25c8]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/containers/stack.lisp#L25
-[37df]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/containers/stack.lisp#L26
-[9bfa]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/containers/stack.lisp#L31
-[41c6]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/containers/stack.lisp#L45
-[e189]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/containers/stack.lisp#L53
-[f572]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/containers/stack.lisp#L59
-[c7bd]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/containers/stack.lisp#L66
-[e10a]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/containers/stack.lisp#L71
-[e221]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/containers/tabs.lisp#L1
-[e652]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/containers/tabs.lisp#L104
-[9b8e]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/containers/tabs.lisp#L37
-[51ea]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/containers/tabs.lisp#L41
-[597d]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/containers/tabs.lisp#L42
-[248c]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/containers/tabs.lisp#L44
-[7fb0]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/containers/tabs.lisp#L47
-[448b]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/containers/tabs.lisp#L52
-[bf3d]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/containers/tabs.lisp#L53
-[c4da]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/containers/tabs.lisp#L55
-[c39a]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/containers/tabs.lisp#L61
-[cdc3]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/editable.lisp#L1
-[3ec6]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/editable.lisp#L7
-[e016]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/events.lisp#L1
-[1d4a]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/events.lisp#L13
-[ef66]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/form.lisp#L1
-[51ac]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/form.lisp#L109
-[c116]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/form.lisp#L46
-[429f]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/form.lisp#L47
-[fb91]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/form.lisp#L49
-[ef1e]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/form.lisp#L52
-[fc4a]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/form/confirm.lisp#L1
-[9446]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/form/confirm.lisp#L29
-[b458]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/form/validation.lisp#L1
-[64b4]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/form/validation.lisp#L16
-[436e]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/form/validation.lisp#L29
-[3980]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/form/validation.lisp#L35
-[61a5]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/form/validation.lisp#L40
-[8e94]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/form/validation.lisp#L47
-[33a7]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/form/validators.lisp#L1
-[edda]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/form/validators.lisp#L127
-[642b]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/form/validators.lisp#L178
-[6080]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/form/validators.lisp#L222
-[fb29]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/form/validators.lisp#L25
-[f77f]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/form/validators.lisp#L55
-[ff62]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/form/validators.lisp#L86
-[39fb]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/html.lisp#L1
-[f20e]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/html.lisp#L131
-[14b0]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/html.lisp#L55
-[2f0f]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/icon.lisp#L1
-[a835]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/icon.lisp#L13
-[3dbd]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/icon.lisp#L14
-[e81d]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/icon.lisp#L18
-[0b35]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/inputs/base.lisp#L1
-[5c10]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/inputs/base.lisp#L42
-[5725]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/inputs/base.lisp#L43
-[72d6]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/inputs/base.lisp#L46
-[461c]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/inputs/base.lisp#L50
-[2165]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/inputs/checkbox.lisp#L1
-[bea5]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/inputs/checkbox.lisp#L26
-[8b56]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/inputs/checkbox.lisp#L27
-[baac]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/inputs/checkbox.lisp#L31
-[2118]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/inputs/checkbox.lisp#L35
-[370c]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/inputs/checkbox.lisp#L39
-[0c39]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/inputs/checkbox.lisp#L46
-[ef8a]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/inputs/date-input.lisp#L1
-[e5e5]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/inputs/date-input.lisp#L27
-[bdf3]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/inputs/named.lisp#L1
-[bf5d]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/inputs/named.lisp#L13
-[c6d9]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/inputs/named.lisp#L14
-[0174]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/inputs/select.lisp#L1
-[532b]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/inputs/select.lisp#L100
-[64af]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/inputs/select.lisp#L42
-[1db8]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/inputs/select.lisp#L43
-[13b2]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/inputs/select.lisp#L46
-[f0d8]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/inputs/select.lisp#L49
-[887e]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/inputs/select.lisp#L61
-[54eb]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/inputs/select.lisp#L70
-[c0f8]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/inputs/select.lisp#L71
-[7263]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/inputs/select.lisp#L74
-[e7de]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/inputs/select.lisp#L78
-[2948]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/inputs/select.lisp#L81
-[dc9f]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/inputs/select.lisp#L85
-[62f0]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/inputs/select.lisp#L94
-[41e1]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/inputs/text-input.lisp#L1
-[62a7]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/inputs/text-input.lisp#L34
-[8203]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/inputs/text-input.lisp#L35
-[93f3]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/inputs/text-input.lisp#L39
-[ec64]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/inputs/text-input.lisp#L43
-[2779]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/inputs/text-input.lisp#L47
-[a23c]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/inputs/text-input.lisp#L50
-[5974]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/inputs/text-input.lisp#L54
-[3c07]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/inputs/text-input.lisp#L58
-[63a9]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/inputs/text-input.lisp#L62
-[54ce]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/inputs/text-input.lisp#L68
-[1478]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/inputs/text-input/view.lisp#L1
-[5df3]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/inputs/text-input/view.lisp#L10
-[1268]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/inputs/text-input/view.lisp#L13
-[110d]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/inputs/text-input/view.lisp#L16
-[37ce]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/inputs/text-input/view.lisp#L19
-[c878]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/inputs/textarea.lisp#L1
-[cb5c]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/inputs/textarea.lisp#L31
-[ae65]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/inputs/textarea.lisp#L32
-[06e5]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/inputs/textarea.lisp#L36
-[82ab]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/inputs/textarea.lisp#L40
-[50a1]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/inputs/textarea.lisp#L44
-[f87a]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/inputs/textarea.lisp#L47
-[3e0f]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/inputs/textarea.lisp#L51
-[3efe]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/inputs/textarea.lisp#L57
-[f106]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/modal.lisp#L1
-[55b8]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/modal.lisp#L17
-[9edf]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/modal.lisp#L18
-[79cf]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/modal.lisp#L21
-[218a]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/modal.lisp#L24
-[5788]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/modal.lisp#L31
-[2f98]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/modal.lisp#L39
-[2e81]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/modal.lisp#L56
-[c607]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/sizes.lisp#L1
-[d4fe]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/sizes.lisp#L31
-[1e1a]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/cell.lisp#L1
-[e170]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/cell.lisp#L14
-[5aeb]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/cell.lisp#L15
-[a70e]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/cell.lisp#L19
-[f566]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/cell.lisp#L23
-[6998]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/cell.lisp#L36
-[14c4]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/clickable-row.lisp#L1
-[10bd]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/clickable-row.lisp#L24
-[dcef]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/clickable-row.lisp#L28
-[bc03]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/crud.lisp#L1
-[d409]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/crud.lisp#L101
-[d14a]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/crud.lisp#L106
-[1325]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/crud.lisp#L110
-[d1e9]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/crud.lisp#L138
-[54c9]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/crud.lisp#L175
-[a843]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/crud.lisp#L191
-[6868]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/crud.lisp#L205
-[6367]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/crud.lisp#L41
-[e743]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/crud.lisp#L42
-[3471]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/crud.lisp#L47
-[e038]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/crud.lisp#L51
-[abc8]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/crud.lisp#L56
-[1e69]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/crud.lisp#L61
-[1677]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/crud.lisp#L66
-[02a7]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/crud.lisp#L71
-[b247]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/crud.lisp#L76
-[ae17]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/crud.lisp#L81
-[c684]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/crud.lisp#L86
-[000b]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/crud.lisp#L91
-[bbcc]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/crud.lisp#L96
-[65f9]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/editable-table.lisp#L1
-[4acd]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/editable-table.lisp#L100
-[4cc4]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/editable-table.lisp#L109
-[b285]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/editable-table.lisp#L132
-[058c]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/editable-table.lisp#L205
-[28f8]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/editable-table.lisp#L209
-[87e8]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/editable-table.lisp#L70
-[9eb6]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/editable-table.lisp#L71
-[fda83]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/editable-table.lisp#L90
-[8bf4]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/editable-table.lisp#L94
-[7554]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/search.lisp#L1
-[580b]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/search.lisp#L165
-[61b2]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/search.lisp#L171
-[0370]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/search.lisp#L176
-[cc92]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/search.lisp#L35
-[a71c]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/search.lisp#L36
-[7d94]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/search.lisp#L39
-[d5de]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/search.lisp#L42
-[21fb]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/search.lisp#L45
-[651f]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/search.lisp#L48
-[28c4]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/search.lisp#L53
-[d3b6]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/search.lisp#L54
-[3507]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/search.lisp#L56
-[07c9]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/search.lisp#L60
-[567e]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/search.lisp#L71
-[89b4]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/table.lisp#L1
-[967b]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/table.lisp#L100
-[05f3]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/table.lisp#L106
-[6d5d]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/table.lisp#L110
-[f598]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/table.lisp#L113
-[229e]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/table.lisp#L117
-[76ce]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/table.lisp#L167
-[2875]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/table.lisp#L192
-[eac3]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/table.lisp#L199
-[1e0a]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/table.lisp#L206
-[489e]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/table.lisp#L212
-[7db8]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/table.lisp#L250
-[9825]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/table.lisp#L255
-[7895]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/table.lisp#L260
-[d0e6]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/table.lisp#L265
-[31b9]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/table.lisp#L271
-[47f9]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/table.lisp#L279
-[8c77]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/table.lisp#L57
-[ee23]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/table.lisp#L58
-[2d27]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/table.lisp#L61
-[7774]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/table.lisp#L64
-[04c3]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/table.lisp#L69
-[3255]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/table.lisp#L70
-[978a]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/table.lisp#L74
-[fcba]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/table.lisp#L78
-[e8e3]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/table.lisp#L96
-[0af7]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/tables/table.lisp#L97
-[d10b]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/themes/api.lisp#L1
-[f183]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/themes/api.lisp#L210
-[5227]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/themes/api.lisp#L34
-[84e1]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/themes/base.lisp#L1
-[f035]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/themes/base.lisp#L8
-[1951]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/themes/base.lisp#L9
-[f347]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/themes/color.lisp#L1
-[5536]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/themes/color.lisp#L16
-[493a]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/themes/color.lisp#L17
-[78e3]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/themes/color.lisp#L21
-[7595]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/themes/color.lisp#L25
-[ad7e]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/themes/color.lisp#L29
-[2a21]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/themes/color.lisp#L34
-[0b08]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/themes/color.lisp#L51
-[ee83]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/themes/color.lisp#L63
-[e9bf]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/themes/color.lisp#L66
-[1983]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/themes/styling.lisp#L1
-[1c1a]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/themes/styling.lisp#L17
-[8019]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/themes/styling.lisp#L29
-[5386]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/themes/styling.lisp#L34
-[a280]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/themes/styling.lisp#L66
-[ee52]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/themes/styling.lisp#L73
-[b822]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/themes/tailwind.lisp#L1
-[41de]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/themes/tailwind.lisp#L191
-[2429]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/themes/tailwind.lisp#L198
-[4f65]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/themes/tailwind.lisp#L41
-[4e5d]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/themes/tailwind/arbitrary.lisp#L1
-[19a8]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/themes/tailwind/arbitrary.lisp#L19
-[8c86]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/themes/tailwind/arbitrary.lisp#L20
-[d904]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/themes/tailwind/arbitrary.lisp#L23
-[aadc]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/themes/tailwind/arbitrary.lisp#L28
-[94f8]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/utils/align.lisp#L1
-[8ee3]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/utils/align.lisp#L10
-[f16c]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/utils/align.lisp#L14
-[f416]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/utils/align.lisp#L18
-[62a0]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/utils/align.lisp#L19
-[08db]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/utils/align.lisp#L24
-[7d50]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/utils/align.lisp#L25
-[a25d]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/utils/align.lisp#L35
-[0c7d]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/utils/align.lisp#L46
-[a535]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/utils/margin.lisp#L1
-[2a10]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/utils/margin.lisp#L25
-[488f]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/utils/margin.lisp#L26
-[925c]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/utils/margin.lisp#L30
-[9356]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/utils/margin.lisp#L34
-[2a28]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/utils/margin.lisp#L38
-[b082]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/utils/margin.lisp#L50
-[c6ea]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/utils/padding.lisp#L1
-[8b8e]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/utils/padding.lisp#L11
-[aab5]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/utils/padding.lisp#L14
-[10ee]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/utils/padding.lisp#L18
-[35fe]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/utils/padding.lisp#L19
-[611c]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/utils/padding.lisp#L23
-[fbd2]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/utils/padding.lisp#L40
-[fa60]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/utils/primitive-to.lisp#L1
-[0a6e]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/utils/primitive-to.lisp#L18
-[518d]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/utils/size.lisp#L1
-[5466]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/utils/size.lisp#L112
-[4cca]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/utils/size.lisp#L22
-[2422]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/utils/size.lisp#L23
-[b981]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/utils/size.lisp#L36
-[81cf]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/utils/size.lisp#L40
-[2f73]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/utils/size.lisp#L44
-[599d]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/utils/size.lisp#L45
-[bb56]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/utils/size.lisp#L49
-[3695]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/utils/size.lisp#L55
-[6f0c]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/utils/size.lisp#L56
-[b466]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/utils/size.lisp#L60
-[1ae8]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/utils/size.lisp#L66
-[b198]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/utils/size.lisp#L70
-[c786]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/utils/size.lisp#L74
-[d97d]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/utils/size.lisp#L79
-[4771]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/utils/size.lisp#L86
-[c7b8]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/utils/size.lisp#L91
-[2659]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/utils/size.lisp#L99
-[17b1]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/utils/walk.lisp#L1
-[f0df]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/utils/walk.lisp#L17
-[5241]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/utils/walk.lisp#L8
-[ea5b]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/widget.lisp#L1
-[c6de]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/widget.lisp#L106
-[457b]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/widget.lisp#L113
-[130c]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/widget.lisp#L50
-[8810]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/widget.lisp#L51
-[f04d]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/widget.lisp#L55
-[a817]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/widget.lisp#L59
-[5475]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/widget.lisp#L63
-[cf0b]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/widget.lisp#L77
-[3de2]: https://github.com/40ants/reblocks-ui2/blob/becb7609f82258e162bbe7f935b940d925b5a327/src/widget.lisp#L99
+[8a02]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/buttons/button.lisp#L1
+[a2fb]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/buttons/button.lisp#L52
+[3ea5]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/buttons/button.lisp#L53
+[9b0f]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/buttons/button.lisp#L56
+[5cb1]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/buttons/button.lisp#L59
+[7ec8]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/buttons/button.lisp#L62
+[384a]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/buttons/button.lisp#L65
+[3655]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/buttons/button.lisp#L68
+[6880]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/buttons/button.lisp#L71
+[9436]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/buttons/button.lisp#L75
+[fad2]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/buttons/button.lisp#L83
+[7243]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/buttons/view.lisp#L1
+[689c]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/buttons/view.lisp#L21
+[3f98]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/buttons/view.lisp#L24
+[bbc0]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/buttons/view.lisp#L27
+[af08]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/buttons/view.lisp#L30
+[701c]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/buttons/view.lisp#L33
+[011e]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/buttons/view.lisp#L36
+[82ed]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/buttons/view.lisp#L39
+[aba6]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/buttons/view.lisp#L42
+[c340]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/buttons/view.lisp#L45
+[e9b5]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/buttons/view.lisp#L48
+[4f82]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/buttons/view.lisp#L51
+[7ee0]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/buttons/view.lisp#L54
+[ed1d]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/buttons/view.lisp#L57
+[fcb8]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/buttons/view.lisp#L61
+[9307]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/buttons/view.lisp#L77
+[1f01]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/card.lisp#L1
+[c977]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/card.lisp#L51
+[5d44]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/card.lisp#L52
+[2bdc]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/card.lisp#L55
+[7784]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/card.lisp#L58
+[7f47]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/card.lisp#L61
+[983c]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/card.lisp#L65
+[fd53]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/card.lisp#L71
+[aec9]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/charts/chart.lisp#L1
+[4083]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/charts/chart.lisp#L21
+[1294]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/charts/chart.lisp#L22
+[197a]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/charts/chart.lisp#L27
+[e282]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/charts/chart.lisp#L35
+[e21d]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/charts/chart.lisp#L40
+[cf43]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/charts/chart.lisp#L45
+[40c1]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/charts/chart.lisp#L50
+[0534]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/charts/column-chart.lisp#L1
+[a608]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/charts/column-chart.lisp#L18
+[560b]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/charts/column-chart.lisp#L19
+[b802]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/charts/column-chart.lisp#L24
+[3de0]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/charts/column-chart.lisp#L29
+[6b5f]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/charts/column-chart.lisp#L54
+[b432]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/charts/pie-chart.lisp#L1
+[c699]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/charts/pie-chart.lisp#L19
+[4d1d]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/charts/pie-chart.lisp#L20
+[b806]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/charts/pie-chart.lisp#L27
+[7753]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/charts/pie-chart.lisp#L32
+[a851]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/charts/pie-chart.lisp#L57
+[a8c8]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/containers/column.lisp#L1
+[3b88]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/containers/column.lisp#L23
+[c4f6]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/containers/column.lisp#L27
+[bc38]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/containers/container.lisp#L1
+[ce49]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/containers/container.lisp#L28
+[cf78]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/containers/container.lisp#L29
+[66de]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/containers/container.lisp#L33
+[4e5c]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/containers/container.lisp#L36
+[bbff]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/containers/container.lisp#L46
+[309d]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/containers/container.lisp#L77
+[6699]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/containers/controls-row.lisp#L1
+[b4a2]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/containers/controls-row.lisp#L21
+[3377]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/containers/controls-row.lisp#L31
+[804d]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/containers/row.lisp#L1
+[3eb9]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/containers/row.lisp#L25
+[eade]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/containers/row.lisp#L29
+[55b1]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/containers/row.lisp#L35
+[22fa]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/containers/stack.lisp#L1
+[17a6]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/containers/stack.lisp#L25
+[3fc7]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/containers/stack.lisp#L26
+[b0c0]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/containers/stack.lisp#L31
+[e032]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/containers/stack.lisp#L45
+[5810]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/containers/stack.lisp#L53
+[7180]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/containers/stack.lisp#L59
+[466d]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/containers/stack.lisp#L66
+[9676]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/containers/stack.lisp#L71
+[66e8]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/containers/tabs.lisp#L1
+[6037]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/containers/tabs.lisp#L104
+[fb11]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/containers/tabs.lisp#L37
+[04a6]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/containers/tabs.lisp#L41
+[a644]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/containers/tabs.lisp#L42
+[3c7e]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/containers/tabs.lisp#L44
+[490a]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/containers/tabs.lisp#L47
+[067c]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/containers/tabs.lisp#L52
+[8fd2]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/containers/tabs.lisp#L53
+[0781]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/containers/tabs.lisp#L55
+[03da]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/containers/tabs.lisp#L61
+[c97b]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/editable.lisp#L1
+[a4e4]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/editable.lisp#L7
+[8035]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/events.lisp#L1
+[9c70]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/events.lisp#L13
+[f83a]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/form.lisp#L1
+[7a12]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/form.lisp#L109
+[b182]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/form.lisp#L46
+[cdd7]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/form.lisp#L47
+[10e4]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/form.lisp#L49
+[72e0]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/form.lisp#L52
+[547a]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/form/confirm.lisp#L1
+[13ac]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/form/confirm.lisp#L29
+[3613]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/form/validation.lisp#L1
+[eaed]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/form/validation.lisp#L16
+[a3e4]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/form/validation.lisp#L29
+[aa8d]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/form/validation.lisp#L35
+[3abb]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/form/validation.lisp#L40
+[72eb]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/form/validation.lisp#L47
+[e601]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/form/validators.lisp#L1
+[9902]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/form/validators.lisp#L127
+[d3c0]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/form/validators.lisp#L178
+[2465]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/form/validators.lisp#L222
+[fb7e]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/form/validators.lisp#L25
+[a14e]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/form/validators.lisp#L55
+[11cb]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/form/validators.lisp#L86
+[030d]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/html.lisp#L1
+[bcaf]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/html.lisp#L131
+[040d]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/html.lisp#L55
+[0008]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/icon.lisp#L1
+[84aa]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/icon.lisp#L13
+[9f2b]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/icon.lisp#L14
+[69b9]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/icon.lisp#L18
+[151b]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/inputs/base.lisp#L1
+[b193]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/inputs/base.lisp#L42
+[b528]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/inputs/base.lisp#L43
+[525d]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/inputs/base.lisp#L46
+[30c2]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/inputs/base.lisp#L50
+[53ae]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/inputs/checkbox.lisp#L1
+[1222]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/inputs/checkbox.lisp#L26
+[706b]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/inputs/checkbox.lisp#L27
+[d458]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/inputs/checkbox.lisp#L31
+[0f64]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/inputs/checkbox.lisp#L35
+[d23d]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/inputs/checkbox.lisp#L39
+[48c2]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/inputs/checkbox.lisp#L46
+[7c40]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/inputs/date-input.lisp#L1
+[9fa4]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/inputs/date-input.lisp#L27
+[9130]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/inputs/named.lisp#L1
+[a11a]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/inputs/named.lisp#L13
+[d00b]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/inputs/named.lisp#L14
+[1914]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/inputs/select.lisp#L1
+[925a]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/inputs/select.lisp#L100
+[3006]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/inputs/select.lisp#L41
+[aeaf]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/inputs/select.lisp#L42
+[f863]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/inputs/select.lisp#L45
+[18d0]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/inputs/select.lisp#L48
+[f238]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/inputs/select.lisp#L60
+[ad5f]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/inputs/select.lisp#L69
+[1b42]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/inputs/select.lisp#L70
+[25b0]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/inputs/select.lisp#L73
+[4ae1]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/inputs/select.lisp#L77
+[9d90]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/inputs/select.lisp#L80
+[6a8d]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/inputs/select.lisp#L84
+[791d]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/inputs/select.lisp#L94
+[4ebf]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/inputs/text-input.lisp#L1
+[aaa9]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/inputs/text-input.lisp#L34
+[5e33]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/inputs/text-input.lisp#L35
+[c7cd]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/inputs/text-input.lisp#L39
+[360a]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/inputs/text-input.lisp#L43
+[8324]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/inputs/text-input.lisp#L47
+[f9e9]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/inputs/text-input.lisp#L50
+[c01c]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/inputs/text-input.lisp#L54
+[078d]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/inputs/text-input.lisp#L58
+[d1c6]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/inputs/text-input.lisp#L62
+[4566]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/inputs/text-input.lisp#L68
+[e9ff]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/inputs/text-input/view.lisp#L1
+[b751]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/inputs/text-input/view.lisp#L10
+[b0d9]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/inputs/text-input/view.lisp#L13
+[71ad]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/inputs/text-input/view.lisp#L16
+[fb7c]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/inputs/text-input/view.lisp#L19
+[b05b]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/inputs/textarea.lisp#L1
+[a563]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/inputs/textarea.lisp#L31
+[642b]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/inputs/textarea.lisp#L32
+[fc3f]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/inputs/textarea.lisp#L36
+[5bf1]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/inputs/textarea.lisp#L40
+[bfb8]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/inputs/textarea.lisp#L44
+[95c6]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/inputs/textarea.lisp#L47
+[3409]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/inputs/textarea.lisp#L51
+[2eb1]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/inputs/textarea.lisp#L57
+[4731]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/modal.lisp#L1
+[335d]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/modal.lisp#L17
+[3425]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/modal.lisp#L18
+[fd80]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/modal.lisp#L21
+[1a19]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/modal.lisp#L24
+[5e24]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/modal.lisp#L31
+[a638]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/modal.lisp#L39
+[4459]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/modal.lisp#L56
+[9ba2]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/sizes.lisp#L1
+[3d02]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/sizes.lisp#L31
+[01e8]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/cell.lisp#L1
+[b2f0]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/cell.lisp#L14
+[dea3]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/cell.lisp#L15
+[66c6]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/cell.lisp#L19
+[047a]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/cell.lisp#L23
+[f241]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/cell.lisp#L36
+[5840]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/clickable-row.lisp#L1
+[0dce]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/clickable-row.lisp#L24
+[d2ff]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/clickable-row.lisp#L28
+[1e49]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/crud.lisp#L1
+[21c5]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/crud.lisp#L101
+[9bca]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/crud.lisp#L106
+[a583]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/crud.lisp#L110
+[f61b]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/crud.lisp#L138
+[67dc]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/crud.lisp#L175
+[d940]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/crud.lisp#L191
+[a33f]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/crud.lisp#L205
+[0c12]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/crud.lisp#L41
+[b042]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/crud.lisp#L42
+[2224]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/crud.lisp#L47
+[22ce]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/crud.lisp#L51
+[3a48]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/crud.lisp#L56
+[c2bf]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/crud.lisp#L61
+[0487]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/crud.lisp#L66
+[750a]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/crud.lisp#L71
+[dfa0]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/crud.lisp#L76
+[baa2]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/crud.lisp#L81
+[1d34]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/crud.lisp#L86
+[69b2]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/crud.lisp#L91
+[483e]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/crud.lisp#L96
+[41d2]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/editable-table.lisp#L1
+[8026]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/editable-table.lisp#L100
+[3b93]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/editable-table.lisp#L109
+[dc3a]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/editable-table.lisp#L132
+[6354]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/editable-table.lisp#L205
+[f6b3]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/editable-table.lisp#L209
+[38b4]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/editable-table.lisp#L70
+[16ea]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/editable-table.lisp#L71
+[8f33]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/editable-table.lisp#L90
+[21f2]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/editable-table.lisp#L94
+[68f0]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/search.lisp#L1
+[a8dc]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/search.lisp#L175
+[55c3]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/search.lisp#L181
+[a1fc]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/search.lisp#L186
+[cbaf]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/search.lisp#L41
+[0c9e]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/search.lisp#L45
+[6900]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/search.lisp#L46
+[da15]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/search.lisp#L49
+[ab24]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/search.lisp#L52
+[1c0a]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/search.lisp#L55
+[3db6]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/search.lisp#L58
+[0737]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/search.lisp#L63
+[95c2]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/search.lisp#L64
+[59fe]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/search.lisp#L66
+[15bf]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/search.lisp#L70
+[2b04]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/search.lisp#L81
+[ce9d]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/table.lisp#L1
+[b934]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/table.lisp#L100
+[bb95]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/table.lisp#L106
+[1f75]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/table.lisp#L110
+[f3b1]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/table.lisp#L113
+[4972]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/table.lisp#L117
+[709f]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/table.lisp#L167
+[2f12]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/table.lisp#L192
+[17b6]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/table.lisp#L199
+[5e11]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/table.lisp#L206
+[5464]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/table.lisp#L212
+[96a5]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/table.lisp#L250
+[e7e1]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/table.lisp#L255
+[62c2]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/table.lisp#L260
+[63d9]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/table.lisp#L265
+[b485]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/table.lisp#L271
+[c6b2]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/table.lisp#L279
+[b657]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/table.lisp#L57
+[c2ef]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/table.lisp#L58
+[579e]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/table.lisp#L61
+[c50a]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/table.lisp#L64
+[0031]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/table.lisp#L69
+[eb03]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/table.lisp#L70
+[31f2]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/table.lisp#L74
+[e2f7]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/table.lisp#L78
+[bd31]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/table.lisp#L96
+[095f]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/tables/table.lisp#L97
+[f711]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/themes/api.lisp#L1
+[84fe]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/themes/api.lisp#L210
+[22d0]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/themes/api.lisp#L34
+[165e]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/themes/base.lisp#L1
+[e134]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/themes/base.lisp#L8
+[b694]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/themes/base.lisp#L9
+[3fcd]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/themes/color.lisp#L1
+[291e]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/themes/color.lisp#L16
+[4fd7]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/themes/color.lisp#L17
+[3a72]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/themes/color.lisp#L21
+[1ece]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/themes/color.lisp#L25
+[4d00]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/themes/color.lisp#L29
+[7bf7]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/themes/color.lisp#L34
+[9752]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/themes/color.lisp#L51
+[04a4]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/themes/color.lisp#L63
+[bcb6]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/themes/color.lisp#L66
+[b9b4]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/themes/styling.lisp#L1
+[29c8]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/themes/styling.lisp#L17
+[b9ef]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/themes/styling.lisp#L29
+[2008]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/themes/styling.lisp#L34
+[0b15]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/themes/styling.lisp#L66
+[e726]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/themes/styling.lisp#L73
+[6517]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/themes/tailwind.lisp#L1
+[7c7c]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/themes/tailwind.lisp#L191
+[416f]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/themes/tailwind.lisp#L198
+[3931]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/themes/tailwind.lisp#L41
+[033f]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/themes/tailwind/arbitrary.lisp#L1
+[085a]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/themes/tailwind/arbitrary.lisp#L19
+[dd22]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/themes/tailwind/arbitrary.lisp#L20
+[bffc]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/themes/tailwind/arbitrary.lisp#L23
+[81a9]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/themes/tailwind/arbitrary.lisp#L28
+[31f9]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/utils/align.lisp#L1
+[d401]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/utils/align.lisp#L10
+[5ab7]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/utils/align.lisp#L14
+[cf63]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/utils/align.lisp#L18
+[0136]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/utils/align.lisp#L19
+[b18e]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/utils/align.lisp#L24
+[69ff]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/utils/align.lisp#L25
+[fba2]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/utils/align.lisp#L35
+[f2ab]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/utils/align.lisp#L46
+[752a]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/utils/margin.lisp#L1
+[56e3]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/utils/margin.lisp#L25
+[c36b]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/utils/margin.lisp#L26
+[95d2]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/utils/margin.lisp#L30
+[ca71]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/utils/margin.lisp#L34
+[59af]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/utils/margin.lisp#L38
+[8ea2]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/utils/margin.lisp#L50
+[6d40]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/utils/padding.lisp#L1
+[81d4]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/utils/padding.lisp#L11
+[6fa8]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/utils/padding.lisp#L14
+[9463]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/utils/padding.lisp#L18
+[2368]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/utils/padding.lisp#L19
+[76a8]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/utils/padding.lisp#L23
+[d2ab]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/utils/padding.lisp#L40
+[3ac2]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/utils/primitive-to.lisp#L1
+[c1fc]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/utils/primitive-to.lisp#L18
+[c7a0]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/utils/size.lisp#L1
+[72bb]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/utils/size.lisp#L112
+[65a8]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/utils/size.lisp#L22
+[450f]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/utils/size.lisp#L23
+[cbd0]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/utils/size.lisp#L36
+[211c]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/utils/size.lisp#L40
+[fbf2]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/utils/size.lisp#L44
+[dd39]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/utils/size.lisp#L45
+[debb]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/utils/size.lisp#L49
+[d5f3]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/utils/size.lisp#L55
+[8234]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/utils/size.lisp#L56
+[9aec]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/utils/size.lisp#L60
+[00d9]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/utils/size.lisp#L66
+[70bf]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/utils/size.lisp#L70
+[28f3]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/utils/size.lisp#L74
+[d1cb]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/utils/size.lisp#L79
+[3200]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/utils/size.lisp#L86
+[926f]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/utils/size.lisp#L91
+[acb6]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/utils/size.lisp#L99
+[25ba]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/utils/walk.lisp#L1
+[3c52]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/utils/walk.lisp#L17
+[4517]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/utils/walk.lisp#L8
+[8c46]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/widget.lisp#L1
+[ae58]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/widget.lisp#L106
+[fdfb]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/widget.lisp#L113
+[a78a]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/widget.lisp#L50
+[a72b]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/widget.lisp#L51
+[5e9c]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/widget.lisp#L55
+[5061]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/widget.lisp#L59
+[c84c]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/widget.lisp#L63
+[8a2c]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/widget.lisp#L77
+[25f9]: https://github.com/40ants/reblocks-ui2/blob/194527ec3ac4b723c897f4e2e8d1f31a4c26ac22/src/widget.lisp#L99
 [9c4e]: https://github.com/40ants/reblocks-ui2/issues
 [8236]: https://quickdocs.org/alexandria
 [c9ae]: https://quickdocs.org/anaphora

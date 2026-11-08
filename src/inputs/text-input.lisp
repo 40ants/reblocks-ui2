@@ -2,10 +2,6 @@
   (:use #:cl)
   (:import-from #:reblocks/widget
                 #:defwidget)
-  (:import-from #:reblocks/html
-                #:with-html)
-  (:import-from #:reblocks/dependencies
-                #:get-dependencies)
   (:import-from #:reblocks-ui2/widget
                 #:ui-widget)
   (:import-from #:reblocks-ui2/utils/pin

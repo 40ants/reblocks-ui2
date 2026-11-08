@@ -4,16 +4,9 @@
                 #:create-widget-from
                 #:widget
                 #:defwidget)
-  (:import-from #:reblocks/html
-                #:with-html)
-  (:import-from #:reblocks/actions
-                #:make-js-action)
-  (:import-from #:reblocks-lass)
   (:import-from #:reblocks-ui2/buttons/view
                 #:get-disabled-button-view
                 #:ensure-view)
-  (:import-from #:reblocks-ui2/themes/api
-                #:*current-theme*)
   (:import-from #:reblocks-ui2/themes/styling
                 #:join-css-styles
                 #:join-css-classes

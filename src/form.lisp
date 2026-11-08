@@ -4,8 +4,6 @@
   (:import-from #:reblocks/widget
                 #:update
                 #:defwidget)
-  (:import-from #:reblocks/html
-                #:with-html)
   (:import-from #:reblocks-ui2/widget
                 #:render
                 #:ui-widget)
